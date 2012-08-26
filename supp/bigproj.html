@@ -1,0 +1,960 @@
+<HTML>
+<HEAD>
+<TITLE>Surviving Larger Projects</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Surviving Larger Projects</H1>
+Mark Kampe<br>
+$Id: bigproj.html 178 2009-07-27 01:41:26Z Mark $<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+The fact that you are taking an upper division computer science course, 
+means that you have successfully completed thousands of assignments and 
+(at least) dozens of significant projects.  This attests to your
+intelligence, skill, dedication, and resourcefulness: the characteristics 
+that get us through 1-100 hour tasks.  You are about to start confronting
+larger tasks ... senior projects, clinic, graduate research, or in the
+software development industry.  The complexities and risks associated with
+a project grow geometrically with its size.  As you move into larger
+projects, you will discover that individual ability becomes a weaker
+predictor of success, and that methodology becomes more critical.
+<P>
+This course is about the issues and approaches, methodologies, tools,
+and techniques for successfully pursuing large software projects.
+This paper is a brief introduction to project management 1A.  
+You might be tempted to
+say (or at least to hope) that project management is the responsibility
+of career managers, and it will be years (if ever) before you have to
+confront those problems.  Were it only so!  If you go into industry,
+and you are very lucky, you will have the opportunity to work for skilled
+and well seasoned managers.  Unfortunately a few other things will happen
+first:
+<UL>
+   <LI> What skilled manager is going to plan and direct your projects
+	in this class?
+   <LI> What skilled manager is going to plan and direct your senior
+	thesis/clinic/project?
+   <LI> What skilled manager is going to plan and direct your graduate
+	research?<br>
+	Oh really?  What management training and experience has your 
+	thesis advisor had?
+   <LI> Even if you find yourself in industry, what makes you think
+	that a skilled and experienced project manager will be doing
+	1st level line management?  You will often find yourself
+	working for people who have little more (or even less) 
+	project management experience than you.
+</ul>
+<P>
+To be successful in such situations will require you to possess a basic
+understanding of project management.  Conversely, having such skills
+will do much to ensure your success ... even if you never move into
+management.  This following chapters will discuss the basics of:
+<UL>
+   <LI>	forming teams and partitioning work
+   <LI> scheduling work
+   <LI> monitoring progress and dealing with problems
+</UL>
+Most of these subjects will be revisited in, in more detail, in future
+lectures, but most of those lectures are at the end of the semester, and
+you will need to start using these skills immediately.
+In the words of a great teacher:
+<UL>
+Powerful allies, these tools are.<br>
+Use them.<br>
+Serve you, they will.<br>
+</UL>
+
+<H2>2. Project Teams</h2>
+<P>
+Based on our experiences with team projects at school, it might seem
+natural to infer that we assign projects to multi-person teams 
+because:
+<UL>
+    <LI> It is important that we learn to play well with others.
+    <LI> It requires less laboratory equipment.
+    <LI> It reduces the number of assignments that must be graded.
+    <LI> It reduces student complaints about how much work is involved.
+</UL>
+If we understood team projects in this way, we might find ourselves
+greatly surprised after graduation, when a completely different set
+of goals comes into play.
+<P>
+This chapter discusses why we assign projects to teams, and how teams
+can effectively partition that work among their members.  It is 
+hoped that an understanding of these considerations will enable
+you to form more teams and accomplish your tasks more effectively.
+<P>
+<H3>2.1 Why Teams</h3>
+<P>
+From a managerial perspective, it is often much easier to assign
+a task to an individual.  Teams, made up of individuals with
+differing goals and experiences, introduce overheads and
+problems that seldom come up for individuals.  Why then would
+we go to the trouble of creating a team to solve a problem?
+<OL type=1>
+   <LI> We parallelize efforts because a task would take too 
+	long for a single person to complete, 
+	<strong>and</strong> 
+	we do not know how to break it up into smaller independent tasks.
+	<P>
+	There are overheads associated with tasking and monitoring
+	team activities, and coordinating complementary efforts.
+	If we could break the one large tasks into several independent
+	tasks, it might well be more efficient to parcel each of
+	the smaller sub-tasks out to a different individual.  Smaller
+	tasks tend to be performed more efficiently and encounter
+	fewer problems.  
+	<P>
+	Unfortunately, it is often impossible to sub-divide larger 
+	tasks into independent sub-tasks.  If there are significant
+	interdependencies among the sub-components, it will be 
+	necessary to coordinate the efforts of the people who are
+	responsible for them.  The overhead of this coordination
+	could potentially eliminate the benefits gained by separating
+	the sub-tasks.
+   <LI>	We create multi-disciplinary teams because some tasks 
+	involve more skills than any single person possesses.
+	<P>
+	Any project is likely to benefit from a synthesis of multiple
+	perspectives.
+	If a project involves specialized modeling, human factors
+	analysis, domain specific knowledge, complex user interfaces, 
+	distributed applications and specialized tools it may 
+	actually require a significant number of people to 
+	assemble the required combination of skills and experience.
+	<P>
+   <LI> We need multiple people on a task if it involves multiple roles 
+	that would be very difficult for a single person to fill.
+	<P>
+	Prototyping and producing correct code involve different
+	skills.  Developing requirements and test cases involve
+	different attitudes.  A person who has spent several weeks 
+	working on a piece of code is probably convinced of its 
+	correctness, and would be a poor choice for a reviewer.
+	<P>
+	Whether a project involves distinct roles, or it is simply
+	a matter of needing another pair of eyes, many tasks will
+	be performed much better by multiple people ... even if a
+	single person possesses all of the required skills.
+   <LI> We also create teams when we think the task is large and 
+	complex enough that the robustness/momentum/help benefits of 
+	the team will more than compensate for the added costs of 
+	communication and coordination.
+	<P>
+	Individuals can easily become blocked, frustrated, or confused.
+	When a group of people is working together on a project, help
+	is usually close at hand, and such problems are usually discovered
+	and resolved quickly.  A lone individual might spend hours
+	(or even months) bumping their head against a wall before 
+	someone else noticed and stepped in to help them.
+   <LI> We also assign people to work together for reasons that might
+	be unrelated to the assigned task.
+	<P>
+	If a project will involve the use of a new tool or technique,
+	we might assign people to the project, for the purpose of
+	letting them gain experience with that tool or technique.
+	This might be for the purpose of training new people, exposing
+	experienced engineers to new technology, or purely to help
+	and/or observe in an experiment.  In cases like this, we would
+	assign people to the project as much for their own education
+	as for the contributions they might make towards the project's
+	goals.
+</OL>
+<P>
+Teams are formed for reasons.  If those goals are to be satisfied,
+the team must be created with the right people, and organized around
+the desired goals.  As is true in most areas, the first step towards
+success is clarity about your goals.
+<P>
+<H3>2.2 Partitioning the work</h3>
+<P>
+The initial partitioning of work for school projects seems to be based on two
+primary goals:
+<OL type=a>
+   <LI> the likelihood that the work will actually get done.
+   <LI> the willingness of the team members to accept the 
+	proposed division of labor.
+</OL>
+Later in the project, if some team members have not accomplished their
+appointed tasks, the work gets repartitioned (ignoring consideration b)
+among the more capable members, so that the work does get done by the
+due date.
+<P>
+While these constants will always be with us, there are a few additional
+considerations that can be incorporated into a more purposeful partitioning
+of the work that is more likely to achieve the goals that initially
+motivated the formation of the team.
+<P>
+<h4>2.2.1 Schedule Efficiency</h4>
+<P>
+In the interests of efficiency, each person should have approximately
+the same amount (hours) of work to do.  If person A finishes long before person
+B, then shifting work to person A would reduce the time required to
+accomplish the task.  This may sound a lot like "fairness", as in giving
+each person an equal amount of work ... but equal hours of work 
+does not imply equal burdens.  Some people are more productive than others.
+Assuming that all team members are putting in the same number of
+hours, the shortest time to completion is achieved by giving more
+work to the most productive people.
+<P>
+If all tasks were independent of one-another, it would be a simple
+linear programming problem to assign the work to people in a way
+that would minimize the total time to completion.  It is, however,
+rare for all of a team's tasks to be independent.  If task A 
+depends on B and C, and C depends on D and E, it may not make sense
+to assign someone to task A until tasks D and E are done.  Reasonable
+assignments must consider, not only the total amount of work to be 
+done, but the interdependencies among the tasks ... parallelizing
+everything possible, and minimizing the time that one person spends
+waiting for another.  If a single task is a prerequisite for many 
+others, it may make sense to have everyone start out working on that 
+one task, to get it finished so that it becomes possible to work 
+on all of the other tasks.  Attempting to schedule work without an
+understanding of the interdependencies between tasks is a formula
+for disaster.  Where the dependency networks are complex, graphical
+representations (e.g. PERT charts) and automated
+project management tools may become indispensible.
+<P>
+For some tasks (like research) that involve many independent
+activities, it is possible to add extra people and complete the 
+task sooner.  For other tasks, assigning extra people can 
+reduce efficiency and, potentially, even increase the time
+required to do the job:
+<UL>
+   <LI>	If a task requires two people and you assign four to it,
+	the extra two people will find they have little to do,
+	and poor use will have been made of their time.
+   <LI>	If we take a task that is really appropriate for one
+	person, and (unnaturally) break it into two pieces,
+	we may find that we actually lose time when coordination
+	overhead results in wasted effort and reduced productivity.
+</UL>
+<P>
+<h4>2.2.2 Skill Efficiency</h4>
+<P>
+Tasks will, in most cases, be done both more quickly and more correctly
+by a person who is most skilled at the activities in question.  In many
+cases work assignments will indeed be dictated by skills.  
+If, however, there are also educational goals to be satisfied, we may
+consciously decide to make assignments that do not correspond to
+peoples' strengths:
+<UL>
+   <LI>	we may assign less experienced people to a task, rather
+	than other people who are better able to accomplish it,
+	so that they can learn the associated tools and techniques.
+   <LI> we may assign additional (less experienced) people to a
+	task that does not need them, so that they can learn the
+	associated tools and techniques.
+   <LI> we may assign a person to a task B, rather than for task A
+	(for which they are better equipped)
+	because task A is well covered, and the schedule requires
+	more resources on task B.
+</UL>
+<P>
+<h4>2.2.3 Support</h4>
+<P>
+Many tasks require cooperation between multiple individuals ... either
+for synergy (e.g. Pair Programming) or in complementary roles (e.g.
+coding and test case development).  In these cases multiple people will
+be assigned to a single task (or set of closely related tasks).  In
+these cases, it is important that people clearly understand their 
+respective goals, roles and responsibilities.
+The issue here is not that there is any right or wrong way to structure
+such collaborations, because (for the most part) there isn't.
+Rather it is a matter of ensuring that all parties understand the
+plan in which they will be cooperating.
+<P>
+In some cases, all of the people who support a particular effort
+will be dedicated to the sub-group that is responsible for that effort.
+In other cases, there may be "matrixed" resources, not assigned to
+a particular group, but available to help any group that needs them.
+Such shared resources can easily become bottlenecks, when multiple
+sub-groups need their help at the same time.  These conflicts can
+be greatly reduced if the support resources can be scheduled for
+specific tasks, or can promise each sub-group a fraction of their
+time (e.g. 10 hours per week).
+<P>
+<h4>2.2.4 Group Activities</h4>
+<P>
+There are a few activities that are better performed by a whole
+team rather than being assigned to a few individuals:
+<UL>
+   <LI> review of work plans
+   	<P>
+	Most work plans involve work to be done by all of the
+	members of the team, and their review of those plans
+	is critical to ensuring that every has "bought in" to
+	his portion of the plan.  Even when the plans do not
+	involve assignments for all members of the team, it
+	is good for all members of the team to understand what
+	the overall plan is, so that they can better understand
+	their role in it.
+   	<P>
+   <LI> brain-storming
+   	<P>
+	Brain-storming is the process of coming up with ideas,
+	and is equally valuable for initial product concepts,
+	and solutions to troublesome problems.
+	Brain-storming sessions benefit from a wide range
+	of input, and it is important that all members of 
+	a team have the opportunity to provide that input.
+   	<P>
+   <LI> review of major work products
+   	<P>
+	When the team is about to publish a major work product,
+	it is a good idea to review it with the team.  Since 
+	this represents the output of the entire time, the whole
+	team should have the opportunity to review and improve
+	it.  This also gives everyone the opportunity to better
+	appreciate what they have had a hand in creating.
+   	<P>
+</UL>
+<P>
+
+<H4>2.2.5 When it isn't about getting the work done</H4>
+<P>
+Sometimes projects are undertaken, not because we need the results,
+but to develop skills.  This does not end with graduation.  We will 
+all be developing new skills throughout our careers.  
+If the goal of an exercise is to develop a particular
+skill, it is important that everyone who needs the development
+do the work (whether independently or colaboratively).
+<P>
+Similarly, some people participate in project activities because
+they need to understand the component that is being built.  This
+learning may justify including people on a project who do not 
+speed it up ... or even people who actually slow it down.
+
+<H2>3. Meetings</h2>
+<P>
+If you are working on a team project, it is tautological that you will 
+be having team meetings.  These are supposed to be the places where the
+most important decisions are made and issues are addressed ... but then
+can be painful wastes of time.  A "meeting" is not merely a time and place
+where team members get together.
+
+A good meeting is one where:
+<UL>
+    <LI> there are clearly agreed upon goals.
+    <LI> there is an agenda for moving through them.
+    <LI> the goals are achieved, and the decisions are recorded.
+    <LI> the meeting ends and everybody gets back to work.
+</UL>
+A bad meeting is one where:
+<UL>
+    <LI> time is wasted waiting for other people to show up.
+    <LI> time is wasted discussing subjects that don't further our goals.
+    <LI> time is wasted bringing people up to speed who couldn't find 
+    	 the time to study the required background before the meeting.
+    <LI> time is wasted on rat-hole issues (that won't be resolved here).
+         or 1-1 discussions (that don't require a group meeting).
+    <LI> crucial issues are left unresolved, and without a plan for
+    	 resolution.
+</UL>
+<P>
+<H3>3.1 Minutes</h3>
+<P>
+It is often said that if there are no minutes from a meeting "It never happened."
+It is frightening how differently different people can remember even the
+simplest of discussions.  It doesn't greatly matter if different people 
+have different memories about who said what ... but it is crucial that 
+key decisions, assignments, and commitments be captured in writing.  
+For this reason, every meeting should have a scribe who captures this information.
+A basic meeting record should include:
+<UL>
+    <LI> when and where the meeting took place
+    <LI> the purpose of the meeting
+    <LI> who was present
+    <LI> what issues were resolved, and how
+    <LI> what assignments resulted, with what owners and due dates
+</UL>
+Ideally, this record should be mailed out to all attendees within a
+few hours of the meeting.  This serves a few purposes:
+<OL type=1>
+    <LI> it gives other attendees the opportunity to promptly
+         correct errors and omissions in the record.
+    <LI> it gives all attendees a record for their future reference.
+    <LI> it becomes a permanent record of the decisions and commitments
+         that were made.
+    <LI> a collection of these minutes very effectively documents
+         the evolution of the project, and when and how key decisions
+	 were made.
+</OL>
+
+<H3>3.2 Leadership</h3>
+<P>
+More often than not, a good meeting is the result of effective leadership.
+I am not, here, referring to such intangibles as charisma or vision, but 
+to much simpler skills (or habits):
+<UL>
+    <LI> put together a list of issues to be addressed (e.g. by gathering
+         input from all of the team members).
+    <LI> craft an agenda for the addressing of those issues (perhaps delegating
+         the planning of particular activities to other participants).
+    <LI> for discussions that will require preparation (e.g. reading up
+         on an issue) send out a list of materials to be read and guidance
+	 on what people should come prepared to discuss.
+    <LI> make sure everybody knows when and where to show up and what to bring.
+    <LI> guide the discussion through the agenda, making sure that all 
+         viewpoints are heard, and that all decisions are clear and recorded.
+    <LI> recognize rat-holes and other inappropriate discussions and 
+         arrange for them to be dealt with in other forums.
+    <LI> do all of the above without overly pissing-off the other team members.
+</UL>
+Note that most of these come naturally to compulsive type-A personalities.  
+The last, however, requires a gentler touch ... and its importance cannot
+be over-estimated.  Choose your team leaders carefully ... to ensure that
+all of the required skills are well-covered.
+<P>
+<H2>4. Project Scheduling</h2>
+<P>
+If the work to be done is a simple matter of sitting down for a few hours to
+work on it, a schedule is nothing more than a time the team agrees to meet
+and do the work.  If you aren't sure how long it will take (because you
+haven't done this sort of thing before), you should block out an overflow
+session.  How much contingency time you need to block out depends on how
+well (or poorly) you understand the task.  This is probably about as much
+scheduling as most of you have (thus far) been forced to do.  Larger 
+projects tend to have much more complex scheduling requirements:
+<UL>
+   <LI> the work involved is not a few hours, but tens, hundreds, or
+	thousands of hours.  We can't just "set a side 40 hours" during
+	which we will knock-out the project.
+   <LI> the work will be accomplished, not in a single "do it all"
+	sitting, but rather as tens, hundreds, or thousands of 
+	discrete sub-tasks.  Until we have enumerated and described
+	all of those sub-tasks, we don't have a clue how much work
+	we have to do.
+   <LI> many of the sub-tasks will be worked on independently, but some
+	tasks require (as inputs) things that are the output of other
+	tasks.  Unless we have mapped the dependencies, and scheduled
+	the entire network of tasks, we are likely to find that when
+	it is time to work on task X, that we are unable to do so
+	because it needs the output of tasks A, B, and C, which
+	are not yet done.
+   <LI> it is not possible to completely define all of the sub-tasks
+	until after some preliminary tasks (e.g. research, prototyping,
+	design, reviews) have been accomplished.  Unless we carefully
+	schedule those investigations up-front, and allow adequate time
+	to refine the schedule and accomplish the work that comes out
+	of those investigations (how ever much that may be), we will
+	find that we have run out of time before we have even figured
+	out what we had to do.
+</UL>
+Embarking on a large project without a clear plan typically results in
+spending about 70-80% of the time "just working on the next task", as
+it gradually becomes obvious that it will be completely impossible
+to complete the project by the required completion date.  Unless you
+have a clear plan for success, you very likely have a plan for failure.
+<P>
+Exactly how much schedule you need depends on how complex the project is.
+There are no simple rules to tell you how much project planning you have
+to do ... but it is pretty easy to tell whether or not your schedule is
+adequate to the project: Go through the review and validation process
+described (below) in section 4.4.
+<P>
+<h3>4.1 Task Breakdowns</h3>
+<P>
+To schedule a large project, it is necessary to break it down into smaller
+pieces (individual tasks and sub-tasks).  For each task, you should describe:
+<UL>
+   <LI> the prerequisite inputs, and any constraints they must satisfy.
+   <LI> the activities to be performed, along with any suggestions or
+	constraints on how they should be performed.
+   <LI> the outputs to be produced, the forms they should have, and any
+  	constraints they must satisfy.
+</UL>
+<P>
+Just how small should a task be?
+This is a hard question to answer in the abstract:
+<OL type=a>
+   <LI> Projects can exist in hierarchical relationships, and task
+	size is relative to the work under discussion.
+	Consider a large project (e.g. putting a man on the moon).
+	One line item in this project plan
+	might turn into ten distinct programs, each given to a different
+	sub-contractor, and each of those would turn into a dozen projects,
+	each of which might expand into hundreds of tasks for a ten person
+	group.
+   <LI> How clearly a task must be specified depends on the skill and 
+	experience of the team to which it is given.  What an experienced 
+	engineer would consider to be a very simple task, might have to be 
+	presented to a less experienced engineer as a dozen inter-related 
+	sub-tasks with a few check-points along the way.
+   <LI> The granularity of tasks should be related to the units in which
+	work is scheduled and progress is measured.  In a student project,
+	it might make sense to define tasks that are only a few hours long.
+	Within a development group, it might make sense to define tasks that
+	take a one-digit number of days.  Outside of the development group,
+	milestones might represent several staff-months of work.  In a major
+	project (e.g. a moon launch) a single milestone might represent several
+	staff-centuries of work.
+</ol>
+
+For our purposes in this class, some reasonable guidelines might be:
+<UL>
+   
+   <LI> It can be a single-person or multi-person activity, 
+	but it should be a single, homogenous, activity that 
+	it does not make sense to further sub-divide.
+   <LI> It should be sufficiently clearly defined, that everyone
+ 	understands exactly what it means, what it produces, and
+	when it is done.
+   <LI> It should be sufficiently well understood that it is possible
+	to provide reasonable estimates for how long it will take.
+   <LI> It should be sufficiently compartmentalized that, given
+	the required inputs, it requires no further interaction
+	with other tasks until it is complete.
+   <LI> It should represent no more than a one-digit number of hours
+	of work (to permit reasonable progress tracking in projects
+	that will probably take a two-digit number of hours to complete).
+</UL>
+<P>
+Another question about work breakdowns is how specifically the
+task needs to be defined.  The answer is, "sufficiently specific
+to avoid problems resulting from likely misunderstandings".
+There are two different types of specificity here:
+<OL Type=a>
+   <LI> clear definitions of the work to be done, the required outputs,
+	and the requirements the completed work must satisfy.
+	<P>
+	Producers of work products must clearly understand what is 
+	required of them, and consumers must know what to expect. 
+	Ambiguity in these requirements usually results in waste,
+	whether performing unnecessary work, or fixing inadequate work.
+   <LI> explanations of how to perform the work (e.g. by breaking it
+	down into smaller steps).
+	<P>
+	This type of detail is not required from a project planning
+	perspective.  If, however, the assigned people are not
+	well familiar with the task, such a sub-breakdown can be
+	invaluable in guiding them through the process.
+</OL>
+<P>
+<h3>4.2 Task Estimates</h3>
+<P>
+One good test of how well defined your sub-tasks are is how easy it is for
+you to estimate how long it will take.  If you can give an answer to within
+an hour, or even to within 25%, your tasks are probably pretty well defined.
+If there are powers of two in your estimate (e.g. 3-6 hours) your understanding
+of the task is suspect.  If there are powers of ten in your estimate 
+(e.g. 2-20 hours) you clearly do not yet understand the task.  
+There are two general approaches to dealing with this problem:
+<OL type=a>
+   <LI> break the task down further, into smaller, clearer, and better
+	understood sub-tasks, which will be easier to estimate.
+   <LI> get better educated about the activity and how to perform it:
+	<UL>
+	   <LI> get information from other people who have experience with this
+		type of activity.
+	   <LI>	pick one simple sub-task, and do it, and see how much work it is,
+		and what problems come up.  Based on that experience, you will
+		find it much easier to estimate how long the full task will take.
+	</UL>
+</ol>
+<P>
+As you are estimating how long it will take to perform each task, it is also a
+good idea to note insights you have in the process:
+<UL>
+   <LI> approaches that can be used to make the task easier.
+   <LI> potential problems, for which we must be alert, and ways of dealing with them.
+   <LI> skills that this task requires, and who might be best qualified to do it.
+</UL>
+<P>
+<h3>4.3 Task Start and Completion Dates</h3>
+<P>
+In most cases, and especially with school projects, people have many
+responsibilities, and will not be dedicating full time to any one project.
+A project schedule does not usually call out a three hour block of time
+for a three hour task.  It is more common to specify a period of a few
+days, within which that task must be accomplished, and a delivery date
+by which it will be completed.  There is no simple formula for the 
+relationship between the estimate and the scheduled work period:
+<UL>
+   <LI> How experienced and productive is the person to whom this
+	task will be assigned?
+   <LI> How much confidence is there in the estimate?  If the confidence
+	is lower, a longer period of time must be allowed.
+   <LI> What fraction of the person's time is expected to be spent on
+	this task?
+   <LI> What other conflicts (courses, assignments, projects, exams, travel,
+	social activities, etc) can be expected during this period?
+	The alotted time must be large enough, not only for the one task,
+	but for all the rest of the things the person has to get done during
+	that period.
+   <LI> How dependable is the person to whom the task will be assigned?
+	Disciplined people who do work ASAP can be scheduled more tightly.
+	People whose work is often late, should be given aggressive due
+	dates that allow for considerable slippage before they impact other 
+	tasks.
+</ul>
+<P>
+Given a number of days that has been set aside for the accomplishment of
+each task, and the interdependencies of the tasks, it becomes possible to
+lay out a schedule.  With a one-digit number of tasks, this can reasonably
+be done on a white-board or a piece of paper.  With a dozen or two tasks,
+it might be easier to lay them out on 3x5 cards.  With larger numbers of
+tasks, you will almost surely want to use a project planning tool (e.g.
+Microsoft Project or Open Workbench).
+<UL>
+   <LI> Projects can be planned from the start, forwards.
+	<P>
+	Schedule the first task to start immediately, and
+	then schedule the next task to start as soon as that
+	finishes, etc.  This tells us the soonest possible
+	completion date.
+   <LI> Projects can be planed from the end, backwards.
+	<P>
+	Schedule the last task to end on the due date, and then
+	schedule the previous task to complete just before that
+	one starts, etc.  This tells us the latest possible
+	starting date.
+   <LI> Projects can be spread over the available time period.
+	<P>
+	Schedule the first task to start immediately, and the last
+	task to end slightly before the due date, and spread the 
+	remaining tasks evenly throughout the alotted interval.  
+	This gives us the most slack (to accomodate slippage) 
+	for each task.
+	<P>
+	If you want to get even more sophisticated, don't distribute
+	the extra time evenly, but rather in proportion to perceived
+	risk ... giving more slack to the scarier tasks.
+</UL>
+In any cases, it is necessary to honor the task interdependencies.  If
+Task B requires (as input) the output of task A, then Task B cannot start
+until after task A completes.
+<P>
+In some cases a basic schedule, laid out in these ways, will work fine.
+In many cases, it seems impossible to accomplish all of the tasks in the
+available time.  There are a few options:
+<UL>
+   <LI> revisit the task descriptions to see if some of the tasks can be
+	eliminated or simplified.
+   <LI> revisit the estimates, and see if some of them can be reasonably reduced.
+   <LI> revisit the allotted time for each task, and see if people can dedicate
+        more of their effort to tasks to get them done sooner.
+   <LI> revisit the inter-dependencies among tasks, to see if more things can 
+	be done in parallel (eliminating waiting time).
+   <LI> revisit the work allocation to see if more resources can be brought
+	to bear on the problem.
+</UL>
+<P>
+The output of this process is a schedule, a complete list of tasks, where
+each has:
+<OL type=a>
+  <LI> a description of the work to be done
+  <LI> a description of the outputs to be created
+  <LI> an owner
+  <LI> a starting date
+  <LI> an ending date
+</OL>
+<P>
+<h3>4.4 Validating a Schedule</h3>
+<P>
+Putting together a schedule that addresses all of the various needs can
+be a daunting task, and there is a very natural sigh of relief when you
+finish it.  Unfortunately you aren't done yet.  You have to review and
+validate the schedule with the rest of the team:
+<UL>
+   <LI>	does the schedule include all of the known work?
+   <LI> are we confident that we understand what each task is,
+	and how it will be performed?
+   <LI> are we confident that we understand what the outputs of
+	each task are, and in what form they will be delivered?
+   <LI> are the inputs for each task scheduled to be available by 
+	the time that task is scheduled to start?
+   <LI> is there enough time allowed for each task?
+   <LI> does the person responsible for each task agree that they
+	can accomplish it, by the scheduled completion time?
+   <LI> are there likely issues or problems that would invalidate
+	this schedule?  If so, what are the contingency plans?
+   <LI> is everyone willing to commit to doing whatever it takes
+	to make their deliveries?
+</UL>
+Once everyone agrees on all these points, then you have a schedule.
+All that remains is "a simple matter of execution".
+<P>
+
+<H2>5. Time Management</h2>
+<P>
+Once there is a validated and accepted schedule, it is up to the individual
+task owners to perform their tasks by the stated completion dates.  How 
+individuals juggle their commitments is a much simpler 
+<strong>time management</strong> problem.  Most of you probably already
+have good time management skills, so the following is presented as a basic
+review of key principles.
+<P>
+Prioritize your activities:
+<OL type=1>
+   <LI> Things you must complete today.
+   <LI> Things it is important to complete soon.
+   <LI> Things you must do eventually.
+   <LI> Things you would like to do soon.
+</OL>
+It is a good idea to assign times to the most important things, and force
+the others to take what ever time is left over.  In assigning times to tasks,
+however, it is important to consider a wide range of factors:
+<UL>
+   <LI> Natural ordering (some tasks prepare you for others).
+   <LI> Availability of help at particular times.
+   <LI> Minimizing travel by performing co-located tasks together.
+   <LI> What your energy level is likely to be at various times of the day.
+   <LI> If there are orderings or alternations that will make your day
+  	more enjoyable or rewarding.
+</UL>
+If, at the end of the day, we find we did not get as much done as we had hoped,
+we must figure out why.
+<UL>
+   <LI> Did we mis-estimate the difficulty or required time?
+   <LI> Were there pre-requisite resources or tasks that we failed to recognize?
+   <LI> Did we fail to dedicate the time we had planned to?
+</UL>
+Based on this analysis, we can then reassess our estimates and
+priorities, and face the next day with a (hopefully) more realistic plan.
+<P>
+We tend to put off tasks that are unpleasant, complex, or uninteresting.
+We can overcome these obstacles by:
+<UL>
+   <LI> breaking them into smaller sub-tasks
+   <LI> doing them first to get them over with
+   <LI> blocking out a specific time for them
+</UL>
+Many people also find that making public commitments to complete a particular
+task by a particular time helps them overcome the natural urge to procrastination.
+The higher level schedule (discussed in the previous section) represent such a 
+commitment.
+<P>
+<h2>6. Problem Management</h2>
+<P>
+A schedule is a plan for the future, but you will often hear it said
+that "a schedule is a living document" (i.e. it changes over time).  
+Robert Burns (in a greatly underrated 19th century treatise on project 
+management) put it more poetically:
+<UL>
+The best laid schemes o' mice an' men gang oft a-gley.<br>
+An' lea'e us nought but grief an' pain for promised joy.<br>
+</UL>
+If the problem is a "worthy adversary" we can count on a few surprises:
+unforeseen difficulties, conflicting priorities, lower than expected 
+productivity, etc.  Most of the problems that arise will not be serious,
+and can be easily dealt with
+<strong>if they are quickly noticed and effectively responded to</strong>.
+
+
+<H3>6.1 Tracking Progress</h3>
+<P>
+We must observe when each task is completed and compare these completion
+dates with the schedule.  Any slippage is a warning that something is wrong.
+If the problem is recognized and dealt with before it results in further
+slippage, the consequences are usually negligible.  If, however, a late
+task is allowed to become later, and starts delaying subsequent tasks, 
+the situation may quickly devolve into one where the delivery date is no
+longer achievable.
+<P>
+More effective management often follows from finer grained monitoring.
+If a single task is expected to take multiple days, there may be value in
+checking the progress at multiple points along the way.  If we wait three
+days until we find out that the task is going to be late, we may find that
+we have lost six days (the three we have already lost, and the three it
+will take to make up the missed work).  If, however, we discover after
+the first day that no progress has been made, we can institute recovery
+measures sooner, with much less time lost.
+<P>
+Another key principle in project management is "no surprises".  It is common
+for someone who is falling behind to try to keep this fact a secret (in the
+belief that they will be able to make-up the missing work tomorrow, and
+to avoid embarrassment).  It usually turns out, however, that the factors that
+prevented progress today will still be there tomorrow ... and that the
+embarrassment of letting it be known that you need help is negligible in
+comparison with the consequences of causing the whole project to be laten.
+<P>
+Regular and candid status reporting inevitably leads to a smoother running
+project.
+<P>
+<h3>6.2 Dealing with Problems</h3>
+<P>
+When a problem delays the completion of a task, we need to do at least two
+things to correct the situation:
+<OL type=1>
+   <LI> Figure out how to get the delayed task accomplished.
+	How to do this depends on what has caused the delay:
+	<UL>
+	   <LI> If an unexpected problem arises, the group may 
+		need to brain-storm to come up with a solution.
+	   <LI> If the task is larger than expected, or involves skills
+		that the assigned person lacks, it may be necessary
+	 	to get additional people to help with it.
+	   <LI>	If the assigned person doesn't have enough time, 
+		it will be necessary to reassess their priorities, 
+		or perhaps to reassign the task.  
+	</UL>
+   <LI> Figure out how to adjust the schedule to accommodate the new realities:
+	<UL>
+	   <LI> If there was slack in the schedule (e.g. tasks are scheduled
+		to be completed before their outputs are actually needed),
+		it may be possible to solve the problem before it significantly
+		impacts other tasks.
+	   <LI> If other estimates were padded (e.g. given more time than they
+		were actually expected to take), it may be possible to squeeze
+		their schedules and still make the final deadline.
+	   <LI> If the plan was to deliver a better product than required,
+		it may be possible to re-plan, eliminating some of the optional
+		aspects, and still get all of the required work completed
+		on time.
+	   <LI> It may be possible for everyone to work more hours each day
+		until the lost work has been made up.
+	   <LI> You can try asking for more time ... but you will find that
+		manager's aren't much more understanding than professors in
+		granting extensions.  It may happen every once in a while,
+		but don't count on it.
+	</UL>
+</OL>
+<P>
+A tight schedule, with no room for slippage is brittle in the face of problems.
+This is the problem with delaying tasks until the last minute.  A schedule that
+starts tasks as soon as possible (and is likely to finish early) is more robust,
+and allows time to deal with problems and still make an on-time delivery.
+
+<H2>7. Group Dynamics</h2>
+<P>
+When you lock a bunch of people in a room together, and put them under
+stress, some of them are bound to rub others of them the wrong way.
+If I knew how to prevent this, I'd be in Stockholm, thanking the Nobel
+committee.  I can, however, suggest a few considerations that may help:
+<UL>
+    <LI> <strong>not everybody will see it your way</strong><br>
+    <P>
+    	One of the curses of being smart is clearly seeing answers
+	that are not obvious to others.  One of the curses of having
+	smart people on your team is that they won't follow a path
+	until they believe in it.  This means that you are going
+	to have to sell your ideas to the other members of your
+	team.  If they don't agree with you:
+	<UL>
+	    <LI> perhaps they do not appreciate the advantages
+	    	 of your approach.  Lay them out clearly.  It
+		 is not enough to have a great idea, if you 
+		 cannot explain what makes it great.
+  	    <LI> perhaps they are responding to other problems
+	    	 than you are, and those problems motivate a
+		 different approach.  Understand those problems,
+		 and help to make sure that they are adequately
+		 addressed.
+	    <LI> perhaps there are multiple equally good approaches,
+	         in which case getting everyone moving on the same plan
+		 is much more important than which plan they adopt.
+	</UL>
+    <P>
+    <LI> <strong>everybody has to be heard</strong><br>
+    <P>
+	People have very different interaction styles:
+	<UL>
+	    <LI> some people (like me) can be depended on to pontificate
+	    	 about what other subject is at hand.
+	    <LI> some people (like my daughter) will sit quietly and
+	         listen, and will not say anything unless something
+		 important has been missed.
+	    <LI> some people (who often seem not to like me) may be 
+	         overwhelmed by the loud people
+	         and won't offer input without an invitation.
+	</UL>
+	But the volumes of opinions are not always proportional to their
+	value, and silence seldom betokens consent.
+	<P>
+	There is no problem with allowing the people who have the most
+	opinions to express them ... because they will probably bring
+	out a lot of good issues and alternatives.  Before decisions are
+	made, however, everyone has to have an opportunity to weigh in
+	on them ... both to ensure that the group benefits from their
+	insights, and to give them a stake in (and hence commitment to)
+	the decisions.  People who are left out of the decision process
+	often feel little commitment to the resulting decisions.
+    <P>
+    <LI> <strong>everybody has to carry their share</strong><br>
+    <P>
+    	Different people have different skills, and there will always be
+	some people for whom some tasks are easier or harder.  In a small
+	project (a few people for a few hours) it may be easier to let the
+	more capable people do more of the work than to help the less 
+	capable people do it (even though that would, ultimately, be to
+	everyone's benefit).  On larger projects, however, this doesn't
+	work:
+	<UL>
+	    <LI> The reason the project was assigned to an N person
+	    	 team was because it could not reasonably be accomplised
+		 by fewer people in the required time.
+	    <LI> The personal tensions created between people who are
+	         "busting their buns" and people who are "coasting"
+		 will tear the team apart.
+	    <LI> The coasters, who are never forced to grow and become
+	         more capable will find their careers to be very brief.
+	</UL>
+    <P>
+	Carrying your share is not just a matter of how many lines of
+	code you write.  It shows up in a myriad of behaviors:
+	<UL>
+	    <LI>
+		Show up at meetings on time, having done your reading.
+	    <LI>
+		Work hard to make your commitments, and communicate 
+		about your progress.
+	    <LI>
+		Actively participate in the discussions, and volunteer
+		for tasks.
+	</UL>
+    <P>
+    	Everyone on the team has to be working ... but that doesn't mean
+	that everybody has to be doing the same work.  A large project
+	is made up of a great many tasks, each of which requires a 
+	different combination of skills.  If everybody is actively
+	participating the work will go quicker, the results will be
+	better, and the experience will be a much more positive one.
+    <P>
+    <LI> <strong>you will succeed or fail, as a team</strong><br>
+    <P>
+    	We are all in the same boat.  It is foolish to think that
+	my half of the boat can stay afloat while your half sinks.
+	Maybe some courses have given you individual grades for
+	team projects ... but in the real world, if the project
+	is a failure, the team has failed ... and individual 
+	contributions to that failure are just footnotes.
+    <P>
+    	If a team member is in trouble, the team has to find a way
+	to help them.  If there are tensions between team members,
+	the team has to find a way to defuse them.  You don't have
+	to be friends with all the people on your team ... but you
+	do have to work together effectively.   Keep that in mind.
+    <P>
+    <LI> <strong>gentle humor and good will are essential</strong><br>
+    <P>
+    	We are going to assign you non-trivial problems under pressing
+	schedules.  You will be stressed, and stress seldom brings out
+	the best in people.  Make a point of going out of your way to
+	be kind and helpful to the other members of your team.  
+    <P>
+	This may seem like a small superficiality, but when the going
+	gets tough it can make a very big difference.
+</UL>
+<h2>8. Conclusions</h2>
+<P>
+For at least 2 million years, hominids have formed teams, and planned strategies
+for accomplishing critical tasks.
+Why?  Because it increases our chances of success.  
+A well functioning team of ordinary people can reliably
+achieve results that are beyond the capabilities of the
+best individuals.  
+As projects get larger, a good plan will beat heroic efforts every time.
+Organizing a plan and a team to effectively attack a problem is work.
+It is worth it!
+<P>
+It is tempting to think that these activities are primarily the concerns of managers.
+Actually they are the concerns of people who are serious about conquering difficult
+problems.  It is not coincidental, however, that people who demonstrate these
+abilities often find themselves quickly promoted greater responsibilities.
+
+</BODY>
+</HTML>

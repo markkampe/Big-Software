@@ -1,0 +1,249 @@
+<HTML>
+<HEAD>
+<TITLE>Interface Stability</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Interface Stability</H1>
+	Mark Kampe<br>
+	$Id: stability.html 9 2007-08-26 20:01:58Z Mark $<br>
+</CENTER>
+<P>
+<H2> Interface Specifications</h2>
+<P>
+American History books like to credit Eli Whitney with the invention
+of manufacturing with interchangeable parts.  Actually, 
+<UL>
+   <LI> Whitney's parts weren't all that interchangeable, 
+   <LI> he got the idea from a French gunsmith (Honore Blanc), 
+   <LI> the Swedish clock maker Christopher Polhem did a much 
+	better job with clock gears 50 years earlier.  
+</UL>
+But, be that as it may, interchangeable parts revolutionized, 
+and in fact enabled modern manufacturing.
+The underlying concept is that there be specifications for every part.
+If each part is manufactured and measured to be within its specifications,
+then <strong>any</strong> collection of these parts can be assembled 
+into a working whole.  This greatly reduces the cost and difficulty
+of building a working system out of component parts.
+<P>
+The same principle applies to software.  If you want to open a file
+on a Posix system, you use the <strong>open</strong> system call.  
+There may be a hundred different implementations of open but
+this doesn't matter because they all conform to the same interface 
+specification.  The rewards for this standardization are:
+<OL type=a>
+   <LI> Your work as a programmer is simplified, because you
+	don't have to write your own file I/O routines.
+   <LI> Your program is likely to be easily portable to any
+	Posix compliant system, because they all provide
+	the same file I/O services.
+   <LI> Training time for new programmers is reduced, because
+	everybody already knows how to use the Posix file
+	I/O functions.
+</OL>
+<H2>The Criticality of Interfaces in Architecture</h2>
+<P>
+A system architecture defines the major components of the system,
+the functionality of each, and the interfaces between them.  
+Clearly the component interface specifications are a critical element
+of any architecture.  To the extent that these interfaces have been
+well considered and well defined, it should be possible to (at least semi)
+independently design and implement those components.  In principle, any 
+implementations that satisfy those functional and interface specifications 
+should combine to yield a working system.
+<P>
+The converse is also true.  To the extent that interfaces between 
+components were poorly considered or specified, it becomes unlikely
+that independently developed components will work when combined
+together, and more likely that subsequent changes to one component
+will break others.
+<P>
+<H2>The Importance of Interface Stability</h2>
+<P>
+We write contracts is so that everybody knows what
+will be expected of them, and what they can expect from the other
+parties to the agreement.  Everybody will depend on you to uphold
+your obligations under the contract.  A software interface specification
+is a form of contract:
+<UL>
+   <LI> the contract describes an interface and the associated
+	functionality.
+   <LI> implementation providers agree that their systems will
+	conform to the specification.
+   <LI> developers agree to limit their use of the functionality
+	to what is described in the interface specification.
+</UL>
+And in return for this they get all the benefits described above.
+<P>
+Suppose that some architectural genius realized that Posix file
+semantics are too weak to describe the behavior of files in a
+distributed system, and that this could be solved by adding a
+new (required) parameter (for a call-back routine) to the Posix
+open call.  What would happen?
+<UL>
+   <LI> software written to the new semantics would have access
+	to richer behavior, and would function better in cases
+	of node and network failures.
+   <LI> software written to the new semantics would not work on
+	other Posix compliant systems.
+   <LI> software written to the old semantics would not work on
+	the new systems.
+   <LI> customers (knowing nothing about this techno-feud) 
+	would be faced with inexplicable failures, and
+	would start complaining to their software and system
+	providers (none of whom were responsible for the change).
+   <LI> programmers would be confused about which version of open
+	they were using, and would probably get around the problem
+	by writing their own file I/O packages ... a bunch of extra
+	work, but at least it would protect them from future such
+	acts of mischief.
+</UL>
+And as a result of this, we would lose all of the benefits described
+above.  When you promise somebody that you will do something (e.g.
+conform to a specified interface), 
+and they depend on you (e.g. by writing code to that interface), 
+and you don't follow through (e.g. make an incompatible change) ... 
+problems are likely to ensue (e.g. failures, bug reports, product
+gets a bad reputation, going out of business, etc.).
+<P>
+<H2>Program vs. User Interfaces</h2>
+<P>
+Human beings are amazingly robust.  We could change the text in
+dialog boxes, rearrange input forms, add new required input
+items, and rework all of the menus in a program, and many users
+would figure out the changes in a few seconds.  
+This inclines many developers to be cavalier in making changes to 
+user interfaces.
+<P>
+Code is nowhere nearly so robust. If I expect my second parameter
+to be a file name, and you pass me the address of a call-back routine
+instead, the best we can hope for is a good error message and a
+quick coredump with no data corruption.
+<P>
+If all users were developers, and only ran their own code, this might
+be just an irritation.  We would get the core dump, track it down,
+figure out that some idiot had made this change, recode accordingly,
+and an hour later we'd be good as new.  Unfortunately most people 
+run code that they do not understand, and have no way to debug or
+fix.  If a program breaks, all I can do is call support and complain.
+I am helpless.  Users don't care which programmer goofed up.  
+"I bought your product.  It doesn't work.  I'm taking my business
+elsewhere!".
+<P>
+If you are going to be delivering binary software to non-developers
+(that describes 99.999% of all software) you have to trust that
+what ever platform they run it on will correctly implement all of
+the interfaces on which your program depends.
+<P>
+The same argument applies, tho not quite as strongly, to independent
+components in a single system.  If components exchange services, and
+I make an incompatible change to the interfaces of one component, this
+has the potential to break other components in the same system.  I can
+fix the other components in our system to work with the new changes
+but:
+<UL>
+   <LI> this complicates the making of the change.
+   <LI> we have to ensure that mis-matched component sets are impossible.
+</UL>
+<P>
+<H2>Is every interface graven in stone?</H2>
+<P>
+Absolutely not.
+<P>
+You are free to add features that do not change the interface
+specification (a faster or more robust implementation).  In
+many cases you can add upwards-compatible extensions (all old
+programs will still work the same way, but new interfaces enable
+new software to access new functionality).
+<P>
+If the only code that uses my routines is code that I deliver,
+and I deliver it all in a single package, then I can change
+my interface at any time.
+<UL>
+   <LI> customers who have an old package will have the old
+	version of my routine, and all of the code in that
+	package will work with the old routine.
+   <LI> customers who install the new package will simultaneously
+	get a new version of my routine <strong>and</strong>
+	new versions of all the code that calls it.
+</UL>
+But the problem with this is that nobody else is allowed to use
+my routine.
+<P>
+Another approach would be to send out (to all developers who want
+to use my routine) an implementation, that they could incorporate
+into their own products.  Later, if I came up with an improved
+version, I could send that out to all of my developers.
+<UL>
+   <LI> products written to the old specs would still have an
+	old version of the routine, and simply wouldn't take
+	advantage of my new version.
+   <LI> newer products, that wanted to take advantage of my
+	new version, could include the new version along with
+	their programs.
+</UL>
+<P>
+It is OK to change interfaces, as long as you can ensure that
+all clients of the interface will be changed at the same time.
+It is only when the described module can be delivered independently 
+from the software that uses it that we get into trouble.
+You simply have to make a choice:
+<UL>
+   <LI> if you want to be able to change an interface at will,
+	you also have to have control over all of the software
+	that uses the interface.
+   <LI>	if you want to provide an interface to unbundled software
+	(software that can be changed independently) then you
+	must maintain interface stability.
+</UL>
+<P>
+This is a very painful problem, because it would seem to suggest
+that you have to choose between customer disruption and stifling
+innovation.  Fortunately it is not binary.  There is a continuum of
+stabilities:
+<UL>
+   <LI> guaranteed for ever
+   <LI> guaranteed for the life of this product
+   <LI> guaranteed x months of notice before any incompatible change
+   <LI> access by special arrangement, which will enable us to
+	manage potentially disruptive changes
+   <LI> caveat emptor
+</UL>
+<P>
+How stable an interface needs to be depends on how you intend
+to use it.  What is important is that:
+<OL type=1>
+   <LI> we be honest about our intentions and set realistic expectations.
+   <LI> we have a plan for how we will manage change.
+</OL>
+<H2>Interface Stability and Design</h2>
+<P>
+So, if we want to expose an interface to unbundled software
+with high quality requirements, we are not allowed to change 
+it in non-upwards-compatible ways.  
+That sounds like a bother, but if that is the rules, so be it.
+What has this got to do with architecture and design?
+<P>
+When we design a system, and the interfaces between the independent
+components, we need to consider all of the different types of change
+that are likely to happen over the life of this system.  When we 
+specify our external component interfaces we need to have high
+confidence that will be able to accomodate all of the envisioned
+evolution while preserving those interfaces.
+<UL>
+   <LI> We might rearrange the distribution of functionality
+	between components to create a simpler (and hence
+	more preservable) interface between them.
+   <LI> We might design features that we may never implement,
+	just to make sure that the specified interfaces will
+	accomodate them if we ever do decide to build them.
+   <LI> We might introduce (seemingly) unnatural degrees of
+	abstraction in our services to ensure that they
+	leave us enough slack for future changes.
+</UL>
+We must consider which of our interfaces will need to be how stable,
+and design our system with those stabilities in mind.
+
+</BODY>
+</HTML>

@@ -1,0 +1,440 @@
+<HTML>
+<HEAD>
+<TITLE>Forensic Debugging</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Forensic Debugging</H1>
+	Mark Kampe<br>
+	$Id: forensic.html 153 2007-11-25 17:17:02Z Mark $<br>
+</CENTER>
+
+
+<H2>1. Introduction</H2>
+<P>
+Usually debugging is an interactive process.
+You observe anomalous behavior, and if the cause is not
+obvious, you:
+<UL>
+   <LI> reproduce the failure to make sure that you 
+	understand the situation that caused it.
+   <LI> re-run the program with slightly different data
+	or parameters to see how the output is affected
+	by changes in the input.
+   <LI> re-run the program under a debugger so that you
+	can more closely observe the process leading to
+	the unexpected behavior.
+   <LI> add some diagnostic instrumentation to the 
+	program and then re-run the failure condition
+	to generate more information.
+</UL>
+<P>
+Modern source level debugging tools make it very easy to quickly
+zero in on the causes of most failures, and have greatly improved
+the productivity of developers.   Unfortunately, interactive
+debugging is not always possible:
+<UL>
+   <LI> Some bugs only manifest under very complex combinations
+	of circumstances, which happen very rarely and would be
+	difficult to simulate even if we knew what they were ...
+	which we don't. 
+   <LI>
+	Some systems perform mission critical functions, and must
+	be restored to service immediately, allowing no time to
+	explore the scene of the crime.  Such systems will usually
+	take a core dump, save the state of key databases, and
+	then reboot to resume service.  
+</UL>
+<P>
+The fact that a problem happens infrequently does not mean that it
+is not important.  How would you feel about a bug in the collision 
+avoidance software on a commercial jet that, under an <em>extremely</em>
+unlikely set of circumstances would veer towards the hazard rather
+than away from it?  There are many product for which no undiagnosed
+failures are acceptable.  If a system fails, we <strong>must</strong>
+determine why and fix it.  If we cannot reproduce and interact
+with the failure, then we will have to diagnose the failure on the
+basis of the data collected at the time.
+<P>
+Sir Arthur Conan Doyle (through <em>Sherlock Holmes</em>),
+first popularized the notion that, 
+through the process of logical deduction,
+an insightful investigation of physical evidence 
+could enable us to make valid inferences about past events.
+Forensic investigation is a collection of scientific techniques for 
+establishing (after an incident) facts to be presented in a court of 
+law (from the Latin <em>fornsis</em>, meaning a public forum).  
+The term is now used, more generally, to any after-the-fact, scientific
+investigation of "what happened".  
+We use the term <em>forensic debugging</em> to describe processes
+for diagnosing irreproducible software failures on the basis of 
+data collected at the time of the failure.
+<P>
+In by-gone ages, before good debuggers and cheap computer time, 
+this was they way that most debugging had to be done.  No one would
+want to go back to those dark ages, but it is occasionally unfortunate 
+that modern programmers seldom have the opportunity to develop such 
+skills ... because we still have occasional need for them.
+<P>
+
+<H2>2. Sources of Information</h2>
+<P>
+I have often likened the plight of a forensic debugger to the 
+(every day) situation of a cosmologist.  Cosmology is not an
+experimental science.  The processes they study do not happen
+very often (perhaps only once) and are (in general) not amenable 
+to recreation in the laboratory.
+All of the data we will ever have has already been sent to us.
+The good news (and the bad news too) is that there is quite a lot of
+data to sort through.
+Their task is a cycle of
+<UL>
+   <LI> figure out what information we need to look at
+   <LI> figure out how to find it
+   <LI> figure out how to filter the noise out of it
+   <LI> come up with hypotheses to explain it
+   <LI> figure out additional information that might serve
+	to confirm or refute our hypothesis.
+</UL>
+<P>
+Our situation is actually much more reasonable than theirs:
+<UL>
+   <LI> we supposedly already understand all of the physics that
+	drives our software.
+   <LI> the amount of data for us to peruse is much smaller,
+	and we don't need to build big machines to collect it.
+   <LI> once we have a theory, it might actually be possible
+	to test it (to see if we can recreate the failure again
+	on demand) in the laboratory.
+</UL>
+<P>
+If cosmologists think they can figure out where the universe
+came from, we can surely figure out why our program crashed.
+What are the sources of information from which we can draw
+our inferences and seek confirmation? 
+<UL>
+   <LI> the states of the programs at the time of failure
+   <LI> the states of relevant resources (e.g. files)
+	captured after the failure was recognized.
+   <LI> chronicles of recent events that were collected
+	around the time of the failure.
+</UL>
+<P>
+<H3>2.1 Core Dumps</h3>
+<P>
+<P>
+In many cases the primary (and most valuable) information 
+available to us is in the form of core-dumps.  Perhaps a
+key program died (e.g. with a segmentation violation), or
+perhaps the core dumps were forced (manually or automatically)
+to capture the state of a system that didn't seem to be
+working properly.
+<P>
+For an application program, a core dump is a copy of the
+contents of the writeable (e.g. data and stack) segments from
+its address space.  The operating system regularly takes
+such snapshots whenever a process dies unexpectedly, and
+there are often means to force a coredump of a running
+program.
+<P>
+If the operating system finds itself in trouble, it may save
+the entire contents of memory, as well as system logs and 
+other information.
+<P>
+In some cases, the core dump immediately explains the entire
+problem, because we can see (e.g. on the stack) the entire sequence
+of events that led to the failure.   In other cases, the coredump
+is merely the corpse of an unfortunate victim (not unlike the victim
+of a freeway sniper).  The most we can hope to learn from the corpse is the 
+caliber of the weapon that was used and the direction from which
+it was fired.
+<P>
+<H4>2.1.1 Stack Traces</h4>
+<P>
+One of the most interesting things in a core dump is a stack trace,
+a list of all of the subroutine calls and parameters that were on 
+the stack at the time of death.  Almost any debugger will produce
+such a trace from a coredump.  If the failure was precipitated
+by an addressing error, resulting from trusting a bad argument, we can
+usually see the whole history of where that argument came from, and
+can often infer the cause of the problem from this information alone.
+<P>
+Even if the cause of the corruption is not immediately obvious 
+from the stack trace, knowing what routine we were in, and the
+sequence of calls that led us here can often tell us a great deal 
+about the sequence of events leading up to the crash.
+<P>
+<H4>2.1.2 Contents of Variables</h4>
+<P>
+Since the core dump contains all of the data and stack segments of
+the aborted process, we can usually use a debugger to show
+us the contents of any global variable, and any local variable within
+any stack frame.  Cruder debuggers may give us only hex dumps,
+from which we must infer the contents of specific fields.  Nicer
+debuggers can print out beautifully formatted snapshots of even
+very complex data structures.
+<P>
+If merely seeing the sequence of calls and parameters is not enough
+to enable us to infer the cause of a failure, going back and forth
+between the code and the contents of variables will usually paint
+a pretty complete picture of what the program thought it was
+supposed to be doing, who was just passing on parameters, and who
+it was who first found the bogus value.
+<P>
+<H4>2.1.3 Patterns in the Garbage</h4>
+<P>
+One of the worst kinds of problems to track down is stray
+stores, where somebody picks up a bad pointer (e.g. because
+of improper variable initialization or clean-up) and stores
+through it, losing his own data and destroying someone elses
+in the process.
+These problems usually turn up millions (or billions) of
+instructions later when some innocent victim attempts to
+use the corrupted data and dies because of its ludicrous
+contents.  The victims are easy to find, but what we are
+really looking for is the psychopath who is storing his
+values through bad pointers.
+<P>
+In Arlo Guthrie's epic ballad of "Alice's Restaurant", the story teller,
+who had illegally dumped a pile of garbage somewhere, was tracked down 
+on the basis of an address found on an envelope at the bottom of the
+pile.  That is often a good metaphor for forensic debugging.
+<P>
+When we say "garbage" we may think of a random combination of
+bits ... but if you look at the data in any process' address
+space, there are no "random combinations of bits".  Every 
+combination of bits is unique and (to somebody) precious.
+The bugs that result in such corruption may be randomly distributed
+through our code, but there is nothing random about the 
+corruption itself:
+<UL>
+    <LI> it represents good data (characters, numbers, flag-bits, etc)
+	 from somewhere.  Look at the corrupted contents and try to
+	 figure out what kind of data it is.
+    <LI> the corrupted area will have a bounded length (e.g. 12 bytes
+	 of corrupted data, after which stuff is reasonable again).
+	 This tells the sizes of the fields that were being stored.
+    <LI> the corruption may have a periodicity (e.g. it always on
+	 a 128 byte boundary).  This may tell us the size of the data
+	 structure in to which the data was meant to be stored.
+</UL>
+<P>
+Studying these characteristics will tell us a great deal about the
+source of the corruption (which fields of what data structure they
+seem to be).  Knowing what data has been stored (in the wrong place)
+may suggests (probably very) small number of places that store those
+fields as likely suspects.
+<P>
+<h3>2.2 Files</h3>
+<P>
+The state of a program execution is only captured by the current
+stack contents and variables.  This is fine if the broken code
+is still on the stack when the core dump is taken, but if the
+code that blew up was the innocent victim of an incident that
+happened long ago, the stack-trace may provide very little information
+about the original cause of the problem.  In such situations we
+need to seek other, less direct, evidence.
+<P>
+Programs often operate on files,
+which may record that data that drove the program, and the output that
+the programs created along the way.  The input files may help us to
+understand what the program was doing shortly before it encountered the 
+problem.
+The output may help us to understand both what the program was doing,
+and more precisely when the problem took place 
+(e.g. if the output is interrupted).
+<P>
+
+<h3>2.3 Logs</h3>
+<P>
+Numerous programs maintain logs of interesting events.  
+Some log entries may be permanent records of billable events 
+(e.g. phone calls) or that may be subject to subsequent audit 
+(e.g. who entered which room when).
+Others are maintained to support service diagnosis (e.g. we log
+junk e-mail discards to help us track down problems in our filtering
+rules).  
+Some logs are intended to capture client behavior (e.g. web service
+requests or file system traffic) for subsequent modeling or analysis.
+Some logs are maintained specifically to facilitate post-mortem analysis 
+of anomalous behavior.
+Most major operating systems offer extensive facilities for both
+the capturing and management of logged information.  See, for instance:
+<UL>
+   Linux <A Href=http://linux.die.net/man/2/syslog>system message logging</A> facility.<br>
+   Linux <A Href=http://linux.die.net/man/8/syslogd>system log management</A> facility.<br>
+   Linux <A Href=http://evlog.sourceforge.net/linuxEvlog.html>event logging</A> 
+	facility.
+</UL>
+<P>
+Most file I/O is bufferred (written into a buffer, until the buffer
+is full, at which point it is flushed out to disk).  If a process
+(or the OS) crashes, the last buffer full of data may not have been
+flushed out to disk, and so the log file may be incomplete.  If there
+is a core dump, however, it should be possible to find the last few
+log entries still in their in-memory buffer.
+<P>
+There is always a trade-off to be made in creating diagnostic logs:
+<UL>
+   <LI> Every entry in the log consumes cycles, memory, and disk
+	space, so there is a temptation to be sparing with how
+	much information we log.
+   <LI> When we are diagnosing a failure, the log may be our
+	primary source of information about the cause.  This
+	inclines us to log considerable information about
+	every conceivably interesting incident.
+</UL>
+One common approach to resolving this tension is to make frequent
+log entries into a large, in memory, circular buffer.  We might,
+for instance, dedicate a megabyte of memory to record the last
+100,000 operations.  When everything is working, we continue to
+reuse the same log space over and over.  If the system ever crashes,
+we will find a record of the last 100,000 operations waiting for
+us in the core dump.  The cycle and memory cost for such logging
+is modest ... but the potential benefits are very great.  
+The choice of the size for such a log is critical.  If it is too
+small, important information about the initial cause may have been
+recycled by the time the coredump is finally triggered.
+
+
+<H2>3. Inferences, Hypotheses & Confirmations</H2>
+<P>
+If we are lucky, it will be obvious why the program died, and
+the stack-trace, and variable contents (and, of course, the code)
+will permit us to work our way back from the point of failure 
+to the original error.  Once we find the defective code, it 
+is obvious why that code would not have worked in this 
+particular situation.  We can see the combination of circumstances 
+that exercised the defective code, and may then be able to 
+recreate the failure at will.  That is, if we are lucky.
+<P>
+It is not always so.  Sometimes, the above exercise 
+leads us to a non-primary cause:
+<UL>
+   <LI> the program died when it dereferenced an invalid
+	pointer, obtained from a field in a table ...
+	but we haven't a clue how that invalid value came 
+	to be there.
+   <LI> the program aborted when a critical request failed
+	with an invalid operation error ... but there doesn't
+	appear to be anything wrong with the request in memory.
+   <LI> the program was hung, waiting for a response to 
+	a critical request ... which seems to have completed
+	successfully.
+</UL>
+In all of these cases, the behavior of the failed program was
+reasonable, considering what we know to have happened.  The problem
+is that we cannot explain how the circumstances that precipitated
+the failure could have come about.  Unfortunately, the code that
+caused the problem is no longer on the stack, and we are forced
+to use inference (rather than deduction) to identify it.
+This process can be extremely difficult, but it can also be
+a lot of fun and very rewarding:
+<OL type=1>
+   <LI> observe anomalies
+   <LI> formulate hypotheses to explain them
+   <LI> predict other (testable) implications of those hypotheses
+   <LI> make observations to confirm or refute them
+   <LI> integrate the newly gained information into our model
+   <LI> repeat until the problem is solved
+</OL>
+When tackling such a foe, there is no
+substitute for a thorough understanding of how the software in
+question is supposed to work:
+<UL>
+   <LI> understanding how things work enables you to formulate
+	hypotheses about what situations might give rise to the
+	observed symptoms.
+   <LI> understanding how things work enables you to make 
+	predictions about other (observable) consequences of 
+	hypothesized events.
+   <LI> understanding how things work enables you to recognize
+	anomalous results that, while not involved in the failure
+	path, might be evidence of a problem.
+</UL>
+<P>
+There may be some innate gifts that make some people good at
+this process, but it clearly requires a great deal of knowledge,
+and skills that are developed through experience.
+It was once said that you will know you have arrived as a 
+"Kernel Hacker" when you can correctly diagnose and explain
+a race condition over the phone.
+<P>
+Often, it may seem that we have exhausted all possible explanations,
+and that the situation we observe is impossible.
+At such times it may be valuable to go back to 
+<em>Sherlock Holmes</em> who oft reminded us:
+<UL>
+	<em>"When you have eliminated the impossible, 
+	whatever remains, however improbable, must be the truth."</em>
+</UL>
+If there are no possible explanations for your symptoms, the
+most likely answer is that you have assumed something to be
+impossible that is not.  Go back and revisit your basic assumptions,
+and look for ways to confirm or refute their truth.  You will often
+find that something that you believed to be impossible has indeed
+taken place.  Learning to recognize and release "assumptions about
+what is possible" is part of the path.  You might recall the great
+Vizzini's inability to "conceive" of the fact that anyone could be
+able to discern and interfere with his masterful plan, culminating 
+at the top of the cliffs of death:
+<UL>
+<strong>Vizzini</strong>:<br>
+He didn't fall?<br>
+Inconceivable!
+<P>
+<strong>Montoya</strong>:<br>
+You keep using that word.<br>
+I do not think it means what you think it means.
+</UL>
+<P>
+An open-minded approach to debugging is much better characterized
+by Hamlet's advice to Horatio regarding the source of his recent 
+revelations:
+<UL>
+<strong>Horatio</strong>:<br>
+But this is wondrous strange!
+<P>
+<strong>Hamlet</strong>:<br>
+And therefore as a stranger give it welcome.<br>
+There are more things in heaven and earth, Horatio,<br>
+Than are dreamt of in your philosophy.<br>
+</UL>
+
+
+<H2>4. Anticipating Future Needs</h2>
+<P>
+A good architecture addresses <em>all</em> of a system's requirements.
+When we are designing a complex system, we consider the likely modes
+of failure, and attempt to prevent such problems or to construct fire
+walls to limit their potential impact.
+We must also consider future problems and more complex modes of failure, 
+and ask ourselves what information we might need to diagnose them.
+This consideration may lead us to:
+<UL>
+    <LI> choose data representations that will be easier to interpret
+	 in a core dump.
+    <LI> add additional information to key data structures, that is
+	 not needed to implement required functionality, but would
+	 facilitate the understanding of who performed which operations,
+	 when and why.
+    <LI> record independent information that can be used to audit the
+	 correctness of key data structures and automatically discover
+	 inconsistencies.
+    <LI> identify events that should be recorded to enable
+	 after-the-fact analysis of the system's behavior.
+    <LI> identify how long various classes of information should
+	 be retained, and mechanisms to ensure appropriate handling.
+</UL>
+<P>
+This is another huge advantage we have over the cosmologists.
+They were not consulted, prior to the creation of the universe,
+about what information would be useful in unraveling the process.
+We, on the other hand, have the ability to include any instrumentation
+we want in our creations.  
+The information that will be available to us when we have to diagnose 
+a failure, after the fact, is almost entirely under our control.
+This is a tremendous power.  Use it every chance you get.  
+You'll be glad you did.
+</BODY>
+</HTML>

@@ -1,0 +1,667 @@
+<HTML>
+<HEAD>
+<TITLE>S/W Test Cases</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>An Introduction to Software Test Cases</H1>
+	Mark Kampe<br>
+	$Id: testing.html 149 2007-11-14 23:35:46Z Mark $<br>
+</CENTER>
+
+<P>
+<H2>1. Introduction to Test Cases</h2>
+<P>
+Perhaps the first question we encounter when trying to figure out
+how to a test a component is:
+<UL>
+	"What things can we test?"  
+</UL>
+It doesn't take much analysis to realize that the number of 
+possible test cases may rival the number of particles in the universe.  
+Then we move on to a much more interesting question:
+<UL>
+	"Of all the possible things we could test, 
+	 what is the <em>smallest subset</em> that will yield 
+	 the <em>greatest improvement in confidence</em>?"
+</UL>
+<P>
+This question can be broken down into two (only slightly)
+simpler questions:
+<OL type=1>
+   <LI> Where is our confidence currently <em>low</em>?
+   <LI> Which test cases will <em>significantly improve</em> 
+	that confidence?
+</OL>
+It is important that these two questions be well understood, 
+because:
+<OL type=a>
+   <LI> Our confidence function varies widely over our code,
+	and there is little value to be gained by additional
+	testing of code whose correctness has already been
+	well established.
+   <LI> Most (of the possible) test cases are redundant, and
+	two well chosen test cases can easily deliver more
+	confidence than a million poorly chosen test cases.
+</OL>
+<P>
+This paper is an introduction to the problem of choosing the
+<em>right</em> test cases.
+<P>
+
+<H3>1.1 Test Cases, and Test Suites</h3>
+<P>
+A <strong>Test Case</strong> is a script, program, 
+or other mechanism that exercises
+a software component to ascertain that a specific correctness assertion
+is true.  In general, it creates a specified initial state, invokes 
+the tested component in a specified way, observes its behavior, and
+checks to ensure that the behavior was correct.  Different assertions
+(or variations on a single assertion) are likely to be tested by
+different test cases.
+<P>
+<strong>Test Cases</strong> are usually organized into 
+<strong>Test Suites</strong>.
+A <strong>Test Suite</strong> is a collection of related Test Cases 
+that is likely to be run as a whole.  
+They are usually grouped together because,
+taken as a whole, they testify to the correctness of a particular
+component (or a particular aspect of its functionality).  Different
+suites might exercise different components or different types of
+functionality.  It is also common for all of the test-cases in a
+test suite to be written for and execute under a single test
+execution framework.  These are discussed in another note on
+<A Href=testharness.html>Testing Harnesses</A>.
+
+<P>
+<H3>1.2 Types of Test Cases</h3>
+<P>
+Test cases (and suites of test cases) can be characterized on the
+basis of the types of questions they try to answer.  They often
+fall into a few broad categories:
+<UL>
+  <LI> <strong>functional validation</strong> tests are generally
+	intended to ascertain whether or not a component complies
+	with its functional specifications.  This term is also
+	often used to describe (white box) test cases that exercise
+	functionality that emerges from the design (rather than the
+	specifications).
+  <LI> <strong>error handling</strong> tests drive a program with
+	incorrect inputs, introduce (real or simulated) errors into
+	messages and service requests.  The purpose of these tests
+	is to ensure that the component handles these errors
+	correctly.
+  <LI> <strong>regression</strong> tests are intended to confirm
+	that once-present bugs are no longer present.  A common 
+	procedure, upon discovering a bug, is to create one or
+	more new test cases to exercise the bug, to fix the program,
+	and then confirm that the new test cases now execute correctly.
+	<P>
+	As a matter of practice, these test cases are usually added
+	to the functional or error handling suites.  We also use the
+	term "regression testing" to describe the regular execution 
+	of these suites (most of whose test cases were not written 
+	in response to bugs).  We call this regression testing because
+	we are re-running tests we have previously passed to ensure that
+	we have not broken anything.
+  <LI>	<strong>load and stress</strong> tests are intended to force 
+	the system to operate, for long periods of time, under heavy
+	work loads.  Rather than looking for deterministic failures
+	in specific cases, they seek to uncover:
+	<UL>
+	    <LI> errors that are triggered by unlikely combinations
+		 of circumstances.
+	    <LI> accumulations of errors (like slow memory leaks) that
+		 are too subtle to be noticed on an operation-by-operation
+		 basis, but become apparent over long periods of time.
+	</UL>
+	<P>
+	By adding randomly injected <strong>error</strong> situations to
+	a <strong>load test</strong>, we turn it into a 
+	<strong>stress test</strong> that observes how:
+	<UL>
+	    <LI> error handling works on a heavily loaded system.
+	    <LI> the system recovers from randomly generated combinations
+		 of errors.
+	</UL>
+</UL>
+There are many other types of testing (e.g. usability testing, 
+integration testing, interoperability testing) but this paper
+attempts to focus on the types of test cases that are usually
+run (by developers) to validate a specific component.
+
+<H3>1.3 Characteristics of a Good Test Case</h3>
+<P>
+There are several characteristics that a good test case should have:
+<UL>
+   <LI> <strong>valid measure of correctness</strong>
+	<P>
+	The test behavior tested by the test case should be
+	a direct measure of the correctness of the program.
+	<P>
+	There is no point in writing test cases that assess
+	behavior whose relation to overall program correctness
+	are not clearly understood.  Only test things we care
+	about, and for which correct behavior is clearly defined.
+	<P>
+	Note that the ability to measure the correctness of a 
+	component may be greatly affected by the design of that 
+	component.
+	These issues are introduced in another note on
+	<A Href=testability.html>Software Testability</A>.
+   <LI> <strong>dispositive determination of correctness</strong>
+	<P>
+	The test case should yield a simple "yes" or "no" assessment
+	of the program's correctness.
+	<P>
+	If it takes a human being to study complex output and determine
+	whether or not it is (as a whole) correct:
+	<OL type=a>
+	   <LI>	it won't be done very often, 
+	   <LI> it will be done inaccurately when it is.
+	</OL>
+	The test case should include not only code to exercise
+	the desired program behavior, but also code to determine
+	whether or not that behavior was correct.  Usually this
+	is fairly straight forward, but not always ...
+	<P>
+   <LI> <strong>deterministic</strong>
+	<P>
+	The test case should always yield the same results when 
+	run (in the same environment) on the same product.  Otherwise
+	the result would not be <strong>dispositive</strong>.
+	<P>
+	Most programs do not contain non-deterministic elements,
+	and variable results are evidence of a problem.  There
+	are situations where <em>determinism</em> may not be
+	achievable:
+	<UL>
+	   <LI> in <strong>load and stress tests</strong> where
+		the offered work-load is in constant flux, and
+		may be randomly generated.
+		<P>
+		Here, it is common to specify that such a suite
+		should run, without failure, for some number of
+		hours (or days, months, etc).
+	   <LI> in systems that involve interactions between parallel
+		but unsynchronized cooperating processes, it is to
+		be expected that the system will behave differently,
+		depending on the exact orderings of independent events.
+		<P>
+		Ideally, we should strive to test each possible ordering
+		(and if time windows are a factor, relative timings).
+		Hopefully, our results (for any given ordering and
+		timing) will be deterministic.
+	</UL>
+	<P>
+   <LI> <strong>independent and isolable</strong>
+	<P>
+	Some test suites may take a relatively long time to run.
+	There may be situations where we only want to run a few
+	of the test cases in a suite (specifically to exercise
+	some recently changed code).  Such testing is much more
+	convenient if it is possible to choose and run only
+	specified test cases.
+	<P>
+	This implies that each test case must completely establish 
+	the initial conditions it requires.  If test case 52 depended
+	on conditions established by test cases 1-51:
+	<UL>
+	   <LI> it would not be possible to run test case 52 in isolation.
+	   <LI> changes made to earlier test cases would have the
+		potential to break later test cases.
+	</UL>
+	<P>
+   <LI> <strong>automated</strong>
+	<P>
+	It should be possible to run any test case, or test suite
+	with a single command or script.
+	<P>
+	If it takes a complex process to run test cases, or test suites:
+	<OL type=a>
+	   <LI> they will be run less often, and 
+	   <LI> they may be run incorrectly.
+	</OL>
+	<P>
+   <LI> <strong>self-contained</strong>
+	<P>
+	The test case (or suite) should include all of the tools and
+	data (that are not normally present on every system) that are 
+	necessary to exercise the tested component.
+	<P>
+	If the test cases do not include the needed tools and data:
+	<OL type=a>
+	   <LI> the execution is not fully automated, because it
+		requires other tools to be installed and configured
+		before it can be run.
+	   <LI> the results may not be deterministic, depending on 
+		the states of the other external components.
+	</OL>
+</UL>
+
+<H3>1.4 Testing and Risk</h3>
+<P>
+All lines of code are not equally likely to be buggy.  Numerous studies
+have found that the Pareto principle also holds for the distribution of
+bugs over modules ... that 20% of the modules account for 80% of the bugs.
+In many systems the distribution is even more radical, with 5% of modules
+accounting for 50% of all bugs.  There is no great mystery behind this
+distribution: Bugs are more likely to be found in subtle and complex code,
+while most modules and routines do relatively obvious and simple things.
+<P>
+If the distribution of bugs among modules is not uniform, it would seem
+foolish to allocate testing effort equally to all modules.  Quite to the
+contrary, we would like to allocate our testing effort in direct proportion
+to the risk ... if only we had some way of assessing that risk.  Every 
+problem is unique, but there are several factors that seem to be highly
+correlated with bug risk:
+<UL>
+   <LI>	complexity of algorithms
+   <LI> complexity of data structures
+   <LI> complexity of specifications
+   <LI> complexity of (or difficulty defining) correctness assertions
+   <LI> the number of possible modes of failures
+   <LI> multi-step transactions
+   <LI> global variables
+   <LI> resources shared with other threads
+</UL>
+<P>
+While it is difficult to create a comprehensive or universal list, the
+simple fact is that designers and developers have a good sense of which
+modules are pretty obviously correct, and "where be the monsters".  We can
+simply ask these people to rate each module 
+(as <strong>High</strong>, 
+<strong>Medium</strong>, or
+<strong>Low</strong>) on the basis of:
+<OL type=A>
+   <LI>	the likelihood that there will be errors in its implementation.
+   <LI> the likelihood that errors will not be turned up in basic
+	functional testing.
+   <LI> the likely impact (to program functionality) of errors in this
+	module.
+</OL>
+<P>
+The resulting ladder will tell us where we need to invest the lions'
+share of our testing efforts.
+<P>
+<H2>2. Black Box (specification based) Testing</h2>
+<P>
+<strong>Black Box testing</strong> is a test case identification approach
+that says that all test cases should be based on the component
+specifications.  Viewed in historical perspective, this philosophy
+makes a great deal of sense:
+<UL>
+	Black Box testing evolved as an acceptance testing
+	methodology.  Government agencies contracted with
+	private industry for components that met exhaustively
+	complete specifications.  They needed to define test
+	suites to determine whether or not the delivered 
+	components were acceptable.
+	<P>
+	Since the components were designed to meet the
+	specifications, it makes sense to write test cases
+	to the assertions in the specifications.
+	<P>
+	Any test case that was not based on the specifications
+	would be testing functionality that was not required,
+	and hence should be irrelevant to the acceptance.  Moreover,
+	such test cases might be invalid, exercising behavior that
+	the product was not defined to exhibit.
+	<P>
+	If it was not possible to determine the acceptability
+	of a component based solely on tests against the specifications,
+	then the problem must surely be missing specifications,
+	and that is where the problem should be addressed.
+</UL>
+It is difficult to argue with any of that reasoning.  Component acceptance 
+testing should be based entirely on component specifications.  
+<P>
+<H3>2.1 Turning Specifications into Assertions</h3>
+<P>
+If we reflect back on the characteristics of good
+requirements, we may recall that <strong>measurability</strong>
+was among them.  It is when we attempt to turn requirements
+into test cases that we will most appreciate the work that
+went into making those assertions measurable.
+Deriving test cases from reasonable specifications is a process
+not unlike formulating equations from word problems.
+If a requirement has the form:
+<UL>
+	in situation X, when presented with input Y,<br>
+	the system will take action A and produce output Z<br>
+</UL>
+Then we have to figure out how to create situation X,
+generate input Y, and capture the actions and outputs
+so that we can compare them with the expectations.
+Where requirements are written in more general terms, 
+we must attempt to come up with a series of more direct
+statements (as above), which, taken together, would seem
+to imply the intended general capability.
+<P>
+There has, in recent years, been much work on automated specification
+based testing: techniques for taking routine interface specifications
+(and assertions about input/output relationships) and automatically
+generating (a frightening number of) test cases to exercise the
+specified routine.
+<P>
+This gets to the heart of the problem with Black Box testing.  
+It is quite possible that the functionality described by the
+specifications can generate a ludicrous (e.g. 10^100) number
+of test cases.  Automated test case generation methodology
+(e.g. Bounded Exhaustive Testing) hopes (by generating a large
+enough number of test cases) to find some of those that will
+fail.  Unfortunately, the combinatorics are against us in this
+quest.  Efficiency demands that we find a more targeted way of 
+defining test cases than by throwing darts at a very large
+N-dimensional dart board.
+
+<H3>2.2 Parameter Value Selection</h3>
+<P>
+Recognizing the need for methodology to guide the selection of
+test cases (from among the many implied by the specifications)
+Black Box testers came up with a few heuristics.
+
+<H4>2.2.1 Boundary Value Analysis</h4>
+<P>
+If I tell you that an integer parameter has a range from 1-100,
+it is should be obvious that the numbers (0,1,2,99,100,101 and -1) 
+might be of particular interest.  Why?
+<UL>
+   <LI> the first three (0, 1, 2) probe (below, at, above) 
+	the lower boundary of the domain.
+   <LI> the next three (99,100,101) probe (below, at, above)
+	the upper boundary of the domain.
+   <LI> the last (-1) is a case from an obvious <em>other</em> domain.
+</UL>
+These should be obvious, even to someone who has never thought about
+how to implement the specified function.
+<P>
+<strong>Boundary Value Analysis</strong> is the practice of looking
+at specified parameter domains, and selecting values near the edges,
+and clearly outside.  It is a non-arbitrary selection process, that
+is entirely based on the specifications, meaningfully measures
+compliance with a small number of test cases, and (in practice)
+turns up a fair number of problems.
+
+<H4>2.2.2 Large Volume Sampling</h4>
+<P>
+Many functions take multiple parameters, which interact in
+<em>interesting</em> ways.  In such a situation the parameter
+domains define an N-dimensional solid, and we need a systematic
+way to sample points from all through the implied volume.
+<P>
+One such technique is <strong>Pair-wise</strong> testing.
+We take one pair of parameters, and explore a range of values
+(perhaps selected by <strong>Boundary Value Analysis</strong>)
+for each.  Then we move on to another pair of parameters, and
+we do this until all pairs have been tested.  This technique
+works well for exploring the interactions of pairs of parameters,
+but does nothing to exercise richer combinations.
+<P>
+Another such technique is <strong>Orthogonal Array</strong> testing.
+Here we sample all corners of the N-dimensional solid, and then
+start choosing random points in N-space.  This technique yields
+a fairly uniform test density throughout the N-dimensional solid.
+<P>
+<H3>2.3 The Limits of Black Box Testing</h3>
+<P>
+While it is hard to argue with the basic principle of specification
+based acceptance testing, simple heuristics like <strong>Boundary
+Value Analysis</strong> and Monte Carlo techniques for sampling
+points from a large volume are not efficient ways of gaining confidence.
+We need better informed test case selection techniques.
+<P>
+
+<H2>3. White Box Testing</h2>
+<P>
+<strong>White Box testing</strong> is a test case identification approach
+that says we are allowed to look beyond the specifications, and into the
+details of how the component is designed.  It has two tremendous
+advantages over <strong>Black Box testing</strong>:
+<OL type=1>
+   <LI> It makes it relatively easy to identify a small number of
+	test cases that will more thoroughly exercise the component.
+   <LI> It is capable of exercising, and assessing the correctness
+	of mechanisms that have the potential to affect component
+	correctness, but are difficult to exercise or observe based
+	solely on the component specifications.
+</OL>
+The first of these is primarily a means of improving the efficacy 
+of <strong>Black Box testing</strong>, and is often referred to as
+<strong>Grey Box testing</strong>.
+<P>
+The second may involve testing behavior that is not part of the
+functional specifications.  Such tests might be inappropriate for
+acceptance tests of components delivered (to meet specifications)
+from an independent contractor.  The do, however, have the potential
+to create much higher confidence than specification based tests, and
+there is no reason that such tests cannot be used by the component
+developer.
+
+<H3>3.1 Equivalence Partitioning</h3>
+<P>
+A key concept in test case definition is 
+<strong>equivalence partitions</strong>.
+These are related to the mathematical notion of an 
+<strong>equivalence class</strong> 
+(a set of numbers that can all be treated as the same for
+ the purpose of a particular relation).  In software testing,
+an
+<strong>equivalence partition</strong> is all combinations
+of parameters that yield the same (or equivalent) computations.
+The assumption is that once you have validated the behavior of
+a routine for one set of parameters (from an equivalence partition),
+it is reasonable to assume that it will also work for all other
+parameter combinations from the same equivalence partition.
+This is a powerful tool for collapsing the space of possible
+input combinations.
+<P>
+The danger of this approach is that <strong>equivalence partitions</strong>
+may not be obvious.  One might think that the add operation on a 32-bit
+computer treats all numbers the same ... but this assumption ignores 
+the possibility of overflow then adding two 31-bit quantities.  It may
+be necessary to map the flow of every piece of data through every
+operation in the routine to discern the equivalence partitions
+created by each operation, and understand how they might be transformed
+by subsequent operations.
+<P>
+Much of <strong>white box testing</strong> methodology is techniques
+for identifying <strong>equivalence partitions</strong>.
+<P>
+
+<H3>3.2 Code Coverage</h3>
+<P>
+Analytically enumerating the transitive closure of all possible
+data-flow paths to infer the equivalence partitions they create
+on the initial input values can be non-trivial process, quite
+comparable to formal verification (program proving).  This has
+driven people to seek simpler means of inferring what the
+equivalence partitions are.  One of the most common techniques
+is <strong>code coverage</strong>.
+<P>
+The basic notion of <strong>code coverage</strong> is that every
+statement in the program should be executed at least once.  A little
+reflection, however, quickly brings us to the realization that this
+is insufficient because multiple equivalence partitions of parameters
+could flow through the same statement.  This leads to other coverage
+notions (e.g. branch coverage, path coverage).  Different types of
+code coverage are well discussed in other reading assignments.
+<P>
+Most code coverage techniques work with the assistance of coverage
+measurement tools.  Such tools typically take the output of the
+compiler, and add additional instrumentation code (to count how
+many times each point was reached).  We then run our test suites
+against the instrumented code, collect the data, and see what
+code was, and was not executed.  
+<P>
+Once we have identified code that is not being executed, we examine
+the code to understand the context and inputs that would cause
+that code to be exercised, and then we define a new test case
+to create those conditions.
+<P>
+<H3>3.3 Black-Box vs White-Box</h3>
+<P>
+The primary argument in favor of white box testing is that it
+can achieve a very thorough exercising of a module with a minimum
+number of test cases.
+The primary argument against white box testing is that it requires
+a much more skilled engineer (who understands the design of the
+component being tested) to develop the test cases.
+When is it worth the extra effort?
+<P>
+This brings us back to the question of risk.  If the code is fairly
+simple, and it is believed that it can be well tested by obvious
+exercises of its primary functionality, there is little reason to
+do any more than a simple functional verification.  If the code is
+highly complex, and contains error-prone mechanisms that are difficult
+to exercise or observe in simple operations, we should consider
+how white-box techniques can be used to enhance our confidence.
+<P>
+It is not a question of which technique is "right", but rather
+of what kinds of problems you have, and which technique is
+likely to be better suited to those problems.
+<P>
+<H3>3.4 When to be How Exhaustive</h3>
+<P>
+White-box techniques have the potential to collapse huge spaces
+of possible inputs into a relatively manageable number of test cases.
+Even after this collapse, we may find that there are far more test
+cases than we can reasonably write.  Do we have to test the correct
+execution of every statement?
+<P>
+If there is only one path through the code, and a correct result
+implies that each of the intermediate steps was also correct, then
+by testing the whole computation we have bought considerable 
+confidence about the correctness of all of its tributary steps.
+If code is simple enough that:
+   <OL type=a>
+	<LI> the likelihood of error is low.
+	<LI> any error would cause the output of the function to be incorrect.
+	<LI> if there was such an error, it would not be terribly difficult
+	     to track down.
+   </ol>
+Then there is no point in trying to define test cases to exercise the
+individual sub-elements of the computation so as to isolate the source
+of (the unlikely and easily diagnosed) error.  
+If writing additional test cases is unlikely to find any additional 
+problems, then don't write them.  Don't write new test cases unless
+they are likely to give you new information.
+In situations like this, give a little thought to the range of
+(black box) specification and error tests you want to run, and 
+leave it at that.
+<P>
+If, on the other hand:
+   <OL type=a>
+	<LI> the code is complex enough that the likelihood of error
+	     is high.
+	<LI> the computations are sufficiently stateful and complex
+	     that internal errors might not produce externally
+	     visable symptoms for a while.
+	<LI> the persistence of the data and complexity of the
+	     interactions is such that finding the source of
+	     such an error would be very difficult.
+   </ol>
+These are reasons to create more detailed instrumentation and
+carefully crafted test cases.  You should invest your testing
+development in proportion to your perceived risk.
+<P>
+
+<H2>4. Test Plans</h2>
+<P>
+A <strong>Test Plan</strong> plan is a document that describes
+the way that testing will be used to gain confidence about the
+correctness of specified components: 
+<UL>
+   <LI> It may overview the design of the component in order
+	to identify the sub-components, interfaces and functionality
+	that need to be tested.
+   <LI> It may review the aspects of the component's operation
+	for which testing is deemed to be required.
+   <LI> It may present a risk analysis, identifying the sub-components
+	and types of error for which we have the greatest concern.
+   <LI> It will identify the test suites to be used, and the
+	goals for each.
+   <LI> It may spell out individual test cases, or it may defer
+	these to more detailed test suite definitions.
+   <LI> It will define product testing phases, and specify when 
+	(and by whom) which test suites will be run.
+   <LI> It will specify how we will determine whether or not
+	the product has "passed" testing.
+   <LI> It may present a rationale for the selection of the chosen
+	testing tools, techniques, and schedules.
+</UL>
+<P>
+After reading a Test Plan you should have a good sense of how
+we plan to go about gaining confidence about the correctness
+of our product, and how much confidence we should have as a
+result of that process.  You should know which tools will be
+used, when, how, and by whom, how these results will be reported,
+and how they will be used to determine whether or not the
+product is acceptable.
+
+<h2>4.1 Test Case Specifications</h2>
+<P>
+Test Case Specifications are, to a test developer, what 
+component specifications and design are to a product
+developer.  They enumerate the test cases to be implemented,
+and describe the functional requirements for each.
+<P>
+In most cases, the supporting testing framework will have
+already been selected, and such details are almost never
+included in the individual test case specifications.
+<P>
+A test case specification should include:
+<OL type=1>
+   <LI> the name of the test case<br>
+	So that we have a way of referring to this test case.
+   <LI> the component and functional area it tests<br>
+	So the reader knows what we are talking about.
+   <LI> a simple statement of the assertion it tests<br>
+	Perhaps including reference to the relevent specifications
+	and requirements.
+   <LI> what pre-conditions must be established<br>
+	This establishes the context in which the test should be
+	run (e.g. what data files should be where).  These should
+	only be the pre-conditions for this particular test case.
+	More general pre-conditions (e.g. what software should
+	be installed on what kind of system, and configured how)
+	should be described at a higher level.
+   <LI> what operations will be invoked (and if not obvious, how)<br>
+	This may be as simple as "run command x with arguments y",
+	but it could possibly entail the construction of a new
+	driver framework.
+   <LI> what results will be captured (and if not obvious, how)<br>
+	This may be as simple as record the returned value, and 
+	save the contents of a few output files, but it could
+	involve special stub-modules and diagnostic instrumentation.
+   <LI> how we will determine whether or not the results are correct<br>
+	What our general expectations are, and how we will process
+	the collected output to ascertain that those expectations
+	have been fulfilled.
+</OL>
+<P>
+As with other specifications and designs, there is no universally
+appropriate level of detail.  For simple things to be done by people
+who are familiar with the problem, very brief descriptions may be
+entirely adequate.  For complex things to be done by people who are
+new to the process, it may be necessary to spell out everything in
+painful detail.  When in Rome, do as the Romans do.
+<P>
+
+<h2>5. Summary</h2>
+<P>
+Well designed test systems should run themselves and interpret
+their own output.  As such, the running and interpretation of
+test suites should require no skill and little effort.
+<P>
+Deciding which test cases to run in order to get the greatest
+amount of confidence at an acceptable price, and enumerating
+the details associated with each of those test cases may require 
+as much skill and effort as goes into the design and construction
+of the software to be tested.  In most cases, the best way to
+ensure that a system can be thoroughly tested for a reasonable
+price is to architect the testability into the system when it
+is initially designed.  You cannot properly archtect a system
+unless you know how you are going to test it.
+</BODY>
+</HTML>

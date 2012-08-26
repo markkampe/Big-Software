@@ -1,0 +1,285 @@
+<HTML>
+<HEAD>
+<TITLE> Glossary of Availability Terminology</TITLE>
+</HEAD>
+
+<BODY>
+<center>
+A Brief Glossary of Availability Terminology<br>
+$Id: haterms.html 118 2007-10-31 06:18:29Z Mark $<br>
+</center>
+
+<P>
+If we are to improve the reliability and robustness of our software,
+we must be able to intelligently discuss these things, and to distinguish
+between distinct but related concepts.  The following is a list of
+basic terms in reliability engineering.  These terms are often 
+mis-used, even by experienced engineers.  It is important that you
+understand the definitions of these terms and be able to use them
+correctly. This will enable you to to think and communicate more
+effectively.
+<P>
+
+<UL>
+<LI> <strong>Defect</strong>
+<P>
+	<OL type=a>
+	<LI> Something in the design or implementation that 
+	     	does not conform to the specifications or 
+		intended behavior.<br>
+		The latter is mentioned because the specifications 
+		themselves may be incorrect or incomplete.  
+	<LI> Something in the design or implementation that pre-disposes 
+		a component to <strong>error</strong> or 
+		<strong>failure</strong>.
+	</OL>
+<P>
+In software, <strong>defects</strong> are most commonly 
+referred to as <strong>bugs</strong>.  There is nothing wrong with
+calling defects <strong>bugs</strong>, but make certain that you do
+not use this term to refer to <strong>faults</strong>, 
+<strong>errors</strong>, or <strong>failures</strong>.
+<P>
+It should, also, be noted that 
+<A Href=http://en.wikipedia.org/wiki/Grace_Hopper>Grace Hopper</A>'s
+original <strong>bug</strong> was not <strong>defect</strong> but
+rather a <strong>fault</strong>.
+<P>
+
+<LI> <strong>Fault</strong>
+<P>
+An incident where a <strong>defect</strong> is exercised, 
+causing a component to malfunction (not function as intended).
+Depending on the nature of the underlying <strong>defect</strong>,
+the incident may be precipitated by normal use, unusual use, external
+events, or a complex combination of such factors.
+
+<P>
+A <strong>defect</strong> is merely predisposition to <strong>error</strong>.
+If the <strong>defect</strong> is never put to the test, the component
+could go its entire life-time without ever malfunctioning.
+<P>
+Note that the use of the word <strong>fault</strong> in general failure
+terminology is awkwardly similar (but not identical) to its use in
+software: the process whereby a computer detects and notifies software
+of a malfunction or execution failure.
+
+<LI> <strong>Error</strong>
+<P>
+An incident where a component malfunctions (produces unexpected output).
+This usually the result of a <strong>fault</strong> occurring in a 
+<strong>defect</strong>ive component.
+<P>
+The term "unexpected" is relative.  One might consider
+throwing a zero-divide exception to be an "unexpected"
+result during the evaluation of an arithmetic expression,
+even though the computer instruction set and language both 
+specify this behavior in this situation.  In this situation
+a <strong>defect</strong> in a program caused a <strong>fault</strong>
+in its execution, which was detected by the CPU, and 
+reflected (back to the program) as an <strong>error</strong>.
+
+
+<LI> <strong>Failure</strong>
+<P>
+An incident where a system fails to provide services as expected.
+<P>
+The relationship between <strong>errors</strong> and <strong>failures</strong>
+is a nuanced one:
+	<OL type=1>
+	<LI> Reporting an <strong>error</strong> is not a <strong>failure</strong>.  
+		<P>
+		Thus, in the zero-divide
+		example, throwing an exception does not represent
+		a failure of the CPU, compiler, or operating system.
+		All are providing service exactly as they were specified
+		to do.
+
+	<LI> All <strong>errors</strong> do not give rise to 
+		<strong>failures</strong>.
+		<P>
+		Robust systems have the ability to recovery from
+		<strong>errors</strong>.  If the program that 
+		experienced the zero-divide-exception caught it,
+		sent back an error message complaining of invalid
+		input, and then continued correctly processing new requests,
+		it would have experienced an <strong>error</strong>
+		but not a <strong>failure</strong>.
+	<LI> All component <strong>failures</strong> to not necessarily
+	     give rise to system <strong>failures</strong>.
+		<P>
+		Robust systems may have the ability to repair 
+		<strong>fail</strong>ed
+		components, to switch operation over to spare components,
+		or to continue functioning with reduced capacity.
+		If a web server <strong>fails</strong> and a front-end
+		switch detects this (e.g. by noting that it took more
+		than five seconds to respond to the last request), the
+		switch could retransmit the request to a different server.
+		Even though there was a complete <strong>fail</strong>ure
+		of a key resource, the user might not even experience an
+		<strong>error</strong> ... but merely a briefly delayed 
+		response.
+	</OL>
+
+
+<LI> <strong>Correctness</strong>
+<P>
+The degree to which a component is free of <strong>defect</strong>s.
+
+<LI> <strong>Robustness</strong>
+<P>
+The ability of a component, or system of components to avoid 
+<strong>failure</strong> in the face of <strong>fault</strong>s and
+<strong>error</strong>s.  
+<P>
+This is not at all the same as <strong>correctness</strong>, but
+rather is a complementary property. 
+A relatively <strong>correct</strong> system may have very few
+defects.  A <strong>robust</strong> system may have 
+<strong>defect</strong>s, be subject to <strong>fault</strong>s,
+and experience <strong>error</strong>s ... but still avoid 
+<strong>failure</strong>
+through some combination of detection, correction, repair, and redundancy.
+<P>
+Many engineers believe <strong>robustness</strong> to be both
+more useful and more achievable than <strong>correctness</strong>.
+This is, in part, due to the difficulty of achieving perfect
+<strong>correctness</strong>, but in greater part due to the 
+fact that a <strong>robust</strong> system is more likely to survive
+in the face of unanticipated <strong>errors</strong>.
+
+<LI> <strong>Reliability</strong>
+<P>
+The likelihood that a component or system will not fail during a 
+specified period of time.  Reliability is typically quantified
+in one of three ways:
+<P>
+	<OL>
+	<LI> probability of failure
+		<P>
+		For components with a rated life, that may be the
+		implied time period.  Thus, if a light bulb with a 
+		rated 10,000 hour life, had a 1.5% chance
+		of burning out in the first 10,000 hours, we would
+		say that its reliability was 98.5% (over its rated
+		life).
+		<P>
+		For components that do not experience normal aging,
+		a specific time period can be specified.  My Windows 98
+		systems had about a 50% chance of staying up for 
+		one day, but my Windows XP system seems to have 
+		a 90% chance of staying up for a week or more.
+		<P>
+	<LI> <strong>MTTF</strong> (Mean Time to Failure)
+		<P>
+		For components that are expected to fail during
+		their life times, we can multiply the time period 
+		by the probability of failure, and can obtain a 
+		statistical average failure interval.  
+		<P>
+		My Windows 98 system had an MTTF of 4 hours.  
+		My XP system has an MTTF in excess of 150 hours.
+		<P>
+	<LI> <strong>FIT rate</strong> (Failures in Time)
+		<P>
+		For components that are not expected to fail
+		during their life times, we can extrapolate the
+		probability of failure to a very large population
+		(or time period) and look at the number of expected
+		failures per billion hours.
+		<P>
+		The soft error rate associated with cosmic ray
+		hits to semi-conductor memory is in on the order
+		of 100 FITs/megabit.
+	</OL>
+	<P>
+	Assuming standard distributions, these three quantifications
+	should all be interchangeable (in that any could be computed
+	from the others).  In the last 10-20 years, however, availability
+	analysts have started moving away from the most venerable of these
+	forms (<strong>MTTF</strong>):
+	<UL>
+		Rates are more computationally useful than inter-event
+		times.  Consider a system with five independent but
+		necessary components.  The FIT rate for the whole system
+		is merely the sum of the FIT rates of the components.
+		The MTTF for the whole system, however, must be computed
+		as the reciprocal of the sums of the reciprocals of the 
+		MTTFs for the individual components.
+		<P>
+		For components that are not expected to fail during
+		their rated lifetimes, MTTF, while statistically
+		meaningful, is highly misleading.
+	</UL>
+	
+<LI> <strong>Availability</strong>
+<P>
+For components that are likely to experience <strong>failure</strong>
+during their rated lives, but can be repaired (restored to service after
+a failure) it is meaningful to talk about the
+likelihood that a component or system will be providing service at any
+particular instant (in steady-state operation over a long period of time).  
+The <strong>availability</strong> of a system is a function of both
+its <strong>failures</strong> and its <strong>repairs</strong>.  
+<P>
+The quantification of <strong>failures</strong> was described above
+(under <strong>reliability</strong>).
+<strong>Repair</strong> can also be quantified by either a mean time 
+(<strong>Mean Time To Repair</strong>) or as a rate (e.g. number of repairs per
+billion hours).
+<P>
+Availability is typically quantified in one
+of two ways:
+	<OL type=1>
+	<LI> as <strong>Mean Time Between Failures</strong> (MTBF)
+		<P>
+		In most cases this is equal to the <strong>MTTF</strong>.
+		There are, however, situations where the Mean Time to
+		<strong>first</strong> Failure is very large, but the 
+		Mean Time to <strong>subsequent</strong> Failures is 
+		much smaller.  In such cases, the steady-state
+		<strong>MTBF</strong> would be equal to the Mean Time
+		to <strong>subsequent</strong> Failures.
+		<P>
+		
+	<LI> as a probability
+		<P>
+		Av = expected up-time / ( expected up-time + expected down-time)<br>
+		which can be approximated as MTBF / (MTBF + MTTR)
+		<P>
+		Availability is also (colloquially) expressed in nines:
+		<P>
+	
+		<table border>
+		<tr>
+			<th>availability</th>
+			<th>nines</th>
+			<th>annual down time</th>
+		</tr>
+		<tr>	<td>99%		<td>2<td>3.6 days</td>	</tr>
+		<tr>	<td>99.9%	<td>3<td>8.8 hours</td>	</tr>
+		<tr>	<td>99.99%	<td>4<td>52 minutes</td></tr>
+		<tr>	<td>99.999%	<td>5<td>5 minutes </td></tr>
+		<tr>	<td>99.9999%	<td>6<td>31 seconds</td></tr>
+		<tr>	<td>99.99999%	<td>7<td>3 seconds*</td>	</tr>
+		</table>
+		<p>
+		*in your dreams!
+
+	</OL>
+<P>
+<strong>Availability</strong> is affected by
+<strong>reliability</strong> (in that more <strong>failure</strong>s
+imply less <strong>availability</strong>), but also incorporates the
+expected repair or recovery time (<strong>Mean Time To Repair</strong>).
+If system A <strong>fail</strong>s one tenth as often as system B,
+but system B recovers in seconds, whereas system A takes many minutes 
+to repair, system B could have much higher <strong>availability</strong>,
+despite its lower <strong>reliability</strong>.
+
+
+</UL>
+</BODY>
+
+</HTML>

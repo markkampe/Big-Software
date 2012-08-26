@@ -1,0 +1,142 @@
+<HTML>
+<HEAD>
+<TITLE>Root Cause Analysis</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Root Cause Analysis</H1>
+	Mark Kampe<br>
+	$Id: rootcause.html 150 2007-11-20 01:59:42Z Mark $<br>
+</CENTER>
+<P>
+A man was walking by the side of a river and saw an out
+of breath woman swiming out to rescue a baby floating
+in the river.  There were a half dozen babys already on the
+shore and she screamed for him to help her save them.  
+He turned and started running upstream.  She shouted 
+"you must help me save these babys!"  He shouted back 
+"I'm going to go find the person who is throwing them 
+in the river!".
+<P>
+You find a bug, you fix it, and you move on to the next bug.
+Right?  What do you do if you figure out that most of your
+bugs are coming from a single person or process?  
+Wouldn't it be more efficient to fix the broken person or
+process than to continue fixing their bugs?  Tolstoy may 
+have been right about every unhappy family being unique,
+but it is regularly observed that a great many bugs seem to 
+be traceable to a few common causes.  There are many such
+lists but a few common ones are:
+<UL>
+   <LI> off-by-one errors
+   <LI> confusion over names
+   <LI> array/buffer overflows
+   <LI> incorrect handling of error conditions
+   <LI> failure to free memory
+   <LI> reuse of deallocated pointers
+   <LI> race conditions in parallel code paths
+</UL>
+<P>
+It is important to realize that these are not random
+mistakes resulting from cosmic-ray hits to programmer
+neurons.  These are systematic mistakes resulting from
+incomplete understanding and/or unsound processes. 
+McConnel's "Code Complete" is an effort to address
+many of the most common and troublesome of these problems.
+But even if we fully mastered all of thes lessons, we would
+merely go on to find new mistakes to make.
+<P>
+<strong>Root Cause Analysis</strong>
+is a critical element of most 
+<em>continuous improvement</em> methodologies.  A few notions
+underlie this process:
+<UL>
+   <LI> process changes are expensive, and we should only
+	make changes when we have good reason to believe
+	that the benefits will greatly exceed the costs.
+   <LI> errors are not random, but stem from specific causes.
+   <LI> there are chains of causality, and by following them
+	backwards, we can find common causes to problems that
+	(initially) seemed to be unrelated.
+   <LI> the Pareto principle applies to errors, in that 20%
+	of the causes, give rise to 80% of the problems.
+   <LI> eliminating the source of many errors has
+	the potential to be much more effective than finding
+	and eliminating individual error instances.
+</UL>
+<P>
+There are many approaches to root cause analysis.  Some 
+(e.g. <A Href=http://en.wikipedia.org/wiki/6_Sigma>6 Sigma</a>) 
+are rich formal methodologies,
+while others 
+(e.g. <A Href=http://en.wikipedia.org/wiki/5_Whys>5 Whys</a>) 
+are simple enough to be driven by a two-year old.  
+Most of them, however, involve:
+<UL>
+   <LI> statistical analysis to identify clusters of related
+	problems or attributes that are shared by large numbers
+	of problems.
+
+   <LI> investigation of representative instances (by domain experts)
+	to follow the chain of causality back to a <strong>root</strong> cause.
+
+   <LI> additional studies to confirm that this root cause did indeed
+	significantly contribute to a great many problems.
+
+   <LI> identify changes to eliminate or control this root cause.
+</UL>
+<P>
+A root cause might be in our process, our materials, the training
+of our people, the type of product we are building, the way we
+identify potential customers, or any other aspect of our operation.  
+Root cause analysis does not presume where the roots of the problem 
+will be found.
+<P>
+We might, for example, start with the observation that we are 
+having a great many security penetration incidents.
+<UL>
+   <LI> A study of these incidents might reveal that 99% were 
+	achieved through privileged network daemons.
+   <LI> A more detailed study of these incidents might reveal 
+	that only 5% were classified as design problems, and 
+	that over 85% were classified as coding problems.
+   <LI> A review of the code found that 95% of the incidents
+	characterized as coding problems, involved overflows of
+	local (on the stack) buffers.
+   <LI> The stack is the most popular target because overflowing an
+	array on the stack permits an attacker to change the return 
+	address and thus to execute arbitrary code.
+   <LI> People put input buffers on the stack because it is easier
+	than doing dynamic memory allocation.
+   <LI> Most of the overflows result from reading until a delimiter
+	is found, without regard to the accumulated length.
+   <LI> The programmers made these mistakes because they were never
+	told to watch out for them.  The code passed review for the
+	same reason.
+</UL>
+We might consider the last few of these to be root causes of hundreds of
+penetration bugs.  Once we have identified a few causes that explain
+a large number of problems, we can set about attacking those causes:
+<UL>
+   <LI> we could start working on a prototype study for an auditing 
+	utility to identify code that puts arrays on the stack and
+	does not appear to have adequate bounds checking.
+   <LI> we could study the offending code and attempt to define a
+	new library package to provide more convenient buffer 
+	access functions (a) in dynamically allocated memory
+	(b) with automatic bounds checking.
+   <LI> we could add bounds checking to our mandatory issues list
+	for all code reviews for privileged programs and network daemons.
+
+</UL>
+<P>
+Sometimes, as Sigmund Freud once conceded,
+<em>a cigar is just a cigar</em>.  We should, however, stop periodically,
+look at what we are doing, and attempt to ascertain whether some of the
+problems we are fighting might more effectively be addressed closer to the
+source.
+<P>
+
+</BODY>
+</HTML>
+

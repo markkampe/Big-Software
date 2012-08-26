@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>The Solaris Train Model</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>The Solaris Train Model</H1>
+Mark Kampe<br>
+$Id: trainmodel.html 7 2007-08-26 19:52:08Z Mark $<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+Initially, Sun's customers were technophiles who wanted the
+latest greatest technology as soon as possible.  They tended
+to view new Solaris releases as Christmas presents, and took
+delight in the new surprises that each box contained.  As Sun's 
+products (the Sparc and Solaris) matured, they were increasingly
+adopted for use as engineering desktops, database, and web
+servers for major enterprises.  These new customers had a
+very different view of technical innovation: 
+<UL>
+	<LI> First, <strong>do no harm</strong>.
+	<LI> Second, schedule your releases, and release them on schedule.
+</UL>
+<P>
+In the earlier years, the goal for every Solaris release 
+was to fill it with as much new technology as possible.
+As Sun (and their customers) evolved, the costs (to their
+customers, and ultimately to Sun) of delayed releases and
+shipping software before it was ready came to greatly 
+exceed the benefits of early introduction.  Sun's customers
+were quite vociferous about this, and Sun got the message.
+Solaris releases would no longer be defined by content
+(e.g. new features).  Rather they would deliver solid software
+on a predictable schedule.
+<P>
+The new strategy for Solaris releases came to be known as the 
+<strong>train model</strong>.  Trains are supposed to leave
+on schedule, without regard to which or how many passengers
+have boarded by that time.  
+
+<H2>2. The Principles</H2>
+<P>
+Software companies regularly experience significant delays
+in releases because it takes longer than expected to get a
+new feature working well enough.  The Solaris train model
+says that a project cannot integrate into the product until
+it is ready to ship.  If a product is integrated, and found
+not to be of acceptable quality, it is immediately thrown off
+of the release train.  The reward for this strategy is that
+it should be possible to create a new, high quality, Solaris
+release at almost any time.
+<P>
+Several objections were raised to this approach:
+<UL>
+   <LI> This process would result in content-poor releases
+	that customers would not buy.
+	<P>
+	There were thousands of engineers working on Solaris,
+	and a typical release included tens of thousands of
+	bug fixes and enhancements, hundreds of minor projects,
+	and dozens of major projects.  With so much content in
+	each release, the marginal value of most projects was
+	actually relatively small.
+	<P>
+    <LI> This process would be catastrophic for major pieces of new
+	infrastructure.  Project A might introduce a new authentication
+	framework, that 20 other new projects would exploit.  If project
+	A was thrown off of the train, the 20 projects that depended on
+	it would also be thrown off the train.
+	<P>
+	This is not an argument for allowing project A to stay in the
+	release even if it is bad.  Rather, it is an argument for:
+      <OL type=a>
+	<LI> Testing infrastructure projects very carefully before
+	     integrating them into the system.
+	<LI> Noting project dependencies, and carefully assessing
+	     the risks these dependencies cause.  If project B depends,
+	     on project A, which has not yet integrated, project
+	     B is at risk, and needs a back-up plan.
+	<LI> Version control and configuration management tools
+	     that make it easy to reverse integration operations
+	     and recover any prior version of the project.
+      </OL>
+	<P>
+    <LI> It makes no sense to require a product be completely tested
+	 before it is integrated, because in many cases a product
+	 cannot be thoroughly tested until it is combined with all
+	 of the other elements of the system.
+	<P>
+	Building a complete version of the product (including new
+	functionality) is not the same thing as accepting the new
+	functionality into the official product build.  The system
+	build tools and environment are standardized and build 
+	procedures are completely automated.  Anyone (who has 
+	the cycles and disk space) can build a complete version 
+	of the system, with any pieces they want, at any time 
+	they want.  Once they have built that system, they can
+	subject it to any testing that can be performed on the
+	official build.
+	<P>
+    <LI> If we are not allowed to integrate our product into the
+	 official build until after it is fully tested, we will
+	 not get the benefit of having our new stuff tested by
+	 all of the people who use the official builds.
+	<P>
+	 The official Solaris build is not an internal beta vehicle.
+	 It is a product that is being readied for shipment.  If you
+	 need more testing, you are responsible for developing a
+	 program to perform that testing.  If you still need more
+	 testing, you aren't ready to integrate.
+	<P>
+    <LI> Making a project wait months to officially integrate 
+	 (while they do the required exhaustive testing) might mean
+	 that they have to continuously change their project to
+	 accommodate changes made by other projects that are being
+	 allowed to integrate before them.
+	<P>
+      <OL type=a>
+	<LI> Such changes should not come as a surprise.  The Solaris
+	     Architectural Review process requires projects that 
+	     introduce changes that could impact other projects 
+	     to coordinate with the affected projects.
+	<LI> The version management tools support branch work-spaces,
+	     notifications of changes to checked-out modules, and 
+	     tools to facilitate in the merging of independent changes
+	     to common modules.
+	</OL>
+</UL>
+
+<H2>3. The Process</H2>
+<P>
+Solaris releases are scheduled several years in advance, and
+each release has a very detailed calendar of scheduled builds
+and cut-off-dates.  Projects apply for admission to a release.
+Product management teams review the project plans and (based
+on value, risk, dependencies, and competing requests) schedule
+each project for a specific build (e.g. Solars 2.10, build 27).
+<P>
+The project does its work and unit testing, conducts test builds
+(that integrate their code into the whole system) and does system
+testing on the resulting system.  Prior to their scheduled 
+integration date, they present the results of their testing 
+to the product management team, who reviews the state of the
+project, and grants them permission to integrate.
+<P>
+The project team conducts one final test build, and then puts
+their changes back into the common source tree, where it becomes
+integrated into the next official product build.
+<P>
+Given that the project team has been doing test system builds,
+and testing the results for some time (often many months), it
+is quite rare for significant problems to arise as a result
+of integration.  If such problems do arise, the project is
+backed out of the release, and the team has to apply for 
+another integration slot.
+<P>
+As the release ship date approaches, only minor changes
+associated with fixes to high priority bugs are allowed
+to integrate into the final builds.  This is an effort to
+ensure the stability of the product, and that it will ship,
+on-time, with an acceptable level of quality.  As we approach
+release date, the marginal cost of a mistake (even a small one)
+becomes much greater.  This risk is mitigated by raising the
+bar on how safe and critical a change has to be before it can
+be integrated into the final few builds.
+<P>
+
+<H2>4. Conclusion</H2>
+<P>
+The Solaris Train Model is, in many respects, a continuous
+integration model ... in that new code can be integrated into
+a complete system at any time.  This has tremendous advantages
+for testing and finding problems as quickly as possible.
+<P>
+The primary difference between the Solaris Train Model and more
+traditional continuous integration is the distinction between
+development builds and the official build.
+<UL>
+  <LI>	the obvious cost of this separation is the cycles, disk space,
+	and human effort required to produce all of the 
+	(redundant) development builds.
+<P>
+	a secondary cost is that delaying the integration of
+	changed modules into the official product line, creates
+	a wider window in which other projects can introduce
+	(potentially) conflicting changes.
+<P>
+  <LI>	the reward for this separation is that it is extremely 
+	rare for a project put-back to adversely affect the
+	product build.
+</UL>
+<P>
+In large projects, with large numbers of relatively independent
+developers, the costs of such collateral damage can be very high.
+In products where quality and stability are more important than
+speed, this trade-off can be a good one.
+For a company in Sun's position, the added development
+overheads were a small price to pay for a significant
+improvement in release schedule and quality confidence.
+<P>
+Your mileage may differ.
+
+<P>
+
+</BODY>
+</HTML>

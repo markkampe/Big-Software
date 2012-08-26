@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<TITLE>Bug Severity and Priority</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Bug Severity and Priority</H1>
+<P>
+Mark Kampe
+</CENTER>
+<P>
+In a large project there are likely to be many bugs ... sufficiently 
+many that they will not all be fixed promptly.  It becomes necessary
+to decide which bugs to fix sooner, and which to fix later.  Long ago
+battle-field doctors learned to divide caualties into three groups:
+<OL type=1>
+   <LI> those who would almost surely die (treatment wouldn't make a difference).
+   <LI> those who would almost surely live (treatment can be delayed).
+   <LI> those who could be saved if treated promptly.
+</OL>
+Taking a few minutes to perform this sorting (called <em>triage</em>,
+in reference to the <em>three</em> groups) 
+greatly improved the effectiveness of battle-field medicine.  A similar
+process is followed with bugs ... although hopefully without a class
+of problems that will doom the product regardless of any action on
+our part.
+<P>
+Bugs are, to a first approximation, dealt with on the basis of their
+<em>severity</em> and <em>priority</em>.  Because these two words 
+determine which bugs will be fixed, control over the defintion of
+these terms translates into control over what work does and does
+not get done.  Arguments that would seem to be about the meanings 
+of these terms are often political arguments in disguise.
+There are no universally accepted definitions for
+these terms, but I will try to give you a foundation from which you can
+enter into discussions on the subject.
+<P>
+<UL>
+   <LI> <strong>severity</strong> 
+	is probably the better defined of these two terms, and is 
+	usually taken to be a measure the consequences to the victim.
+	System failure and loss of important data might be consdered 
+	to be very severe, confusing error messages might be considered
+	to be of relatively low severity.
+	<P>
+	There may be standards for grading severity, like:
+	<OL type=1>
+	    <LI> permanent data or service loss.
+	    <LI> unable to use primary functionality
+	    <LI> impared use of primary functionality, or
+		 unable to use secondary functionality.
+	    <LI> minor inconvenience.
+	    <LI> suggestion.
+	</OL>
+	<P>
+	Many organizations adopt the convention that the 
+	<string>severity</strong> of a bug is <em>owned by</em>
+	the submitter (the submitter gets to determine how
+	seriously she was impacted).
+   </li>
+   <LI> <strong>priority</strong> is a concept with a much wider
+	range of meanings.  The most cogent meaning I have found
+	is that it is a measure of the importance (to the project)
+	of fixing this bug.  The <strong>severity</strong> is
+	surely one of the factors in determining this, but there
+	may be other equally important factors:
+	<UL>
+	    <LI> how likely it is that others will encouter the problem
+	    <LI> the availability of a work-around
+	    <LI> the expectations that have been set for the product in question
+	</UL>
+	<P>
+	In keeping with such a defininition the <strong>priority</strong>
+	of a bug is <em>owned by</em> the product owner, and a 
+	priority scale might be:
+	<OL type=1>
+	    <LI> must fix immediately.
+	    <LI> must fix in next release.
+	    <LI> should fix in next release.
+	    <LI> fix when it is convenient.
+	    <LI> may get to it some day.
+	</OL>
+   </li>
+</UL>
+<P>
+</BODY>
+</HTML>
+

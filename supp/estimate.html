@@ -1,0 +1,271 @@
+<HTML>
+<HEAD>
+<TITLE>S/W Estimation Principles</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>S/W Estimation Principles</H1>
+version 1.0 of 09 Jan 2007<br>
+Mark Kampe<br>
+$Id: estimate.html 7 2007-08-26 19:52:08Z Mark $<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+One of the greatest books ever written on the subject of strategy
+begins:
+<UL>
+Sun Tzu said:  The art of war is of vital importance to the State.
+<br>
+It is a matter of life and death, a road either to safety or to ruin.  
+<br>
+Hence it is a subject of inquiry which can on no account be neglected.
+</UL>
+<P>
+The same thing can be said of software project estimation.
+Estimates are a pre-condition for any non-trivial software
+project, in that time and cost are key considerations in
+deciding whether or not to pursue a project.
+Good estimates lay the foundation for successful projects,
+by identifying the required resources and enabling us to
+predict how long it will take to develop the required
+functionality.  Bad estimates can ensure the failure of
+a project ... if it cannot be built with the assigned resources,
+or cannot be delivered within the required time frame.
+
+If we are to be successful at software construction, we must
+develop skill at software project estimation.
+Unfortunately, as another great commentator on the human 
+condition (Yogi Berra) once observed ...
+<UL>
+	Predictions are tough, particularly when they involve the future.
+</UL>
+<P>
+Project estimation involves many imponderables:
+<UL>
+	<LI> We may not be entirely sure what the rquirements are,
+		and hence the scope of the problem to be solved.
+	<LI> We aren't sure what we will wind up building, 
+		and hence how big it will be.
+	<LI> We aren't sure how we are going to build it,
+		and hence what difficulties may arrise in the process.
+	<LI> We aren't sure what resources will be available 
+		(and hence what skills they will have) or when
+		(which gates when the work can begin).
+	<LI> We don't know what other distractions will arrise, and
+	    	prevent those resources from being fully applied to
+		this problem.
+</UL>
+These simple facts alone would seem to preclude the possibility of 
+accurate estimates.  Because the preparation of estimates is so 
+difficult, the results so disappointing, and the consequences so
+dire, estimation is an activity that most developers and managers
+avoid like the plague.  
+While accurate predictions of the future are not generally possible,
+there are techniques that can help us to make reasonable predictions
+about the work that will be required to build a piece of software.
+Because of the importance and difficulty of estimation, the study
+of these techniques is a subject of inquiry, which can on no
+account be neglected.
+
+<H2>2. Principles of Estimation</h2>
+<P>
+There are numerous tools and techniques for estimating the size
+of a software task, and numerous books written about each.  
+More important, however, are a few basic principles that should 
+guide all estimation efforts.
+<P>
+<H3>2.1 Estimates are not Guesses</h3>
+<P>
+They are the result of an analytical
+process.  The quality of the estimate is determined by the 
+sophistication and diligence with which the analysis is performed.  
+Better (deeper and more methodical) analysis inevitably yields better estimates.
+Your skill in analyzing projects and preparing estimates will improve
+with experience and study.
+<P>
+Estimates are based on knowledge and data: an understanding of the project
+to be undertaken, and about previous experience with the same team, tools,
+and methodology.  The more complete your understanding of a project, the better
+will be your estimates.  If you have access to data on the productivity of 
+a team, on various problems, using various tools, this will enable you to
+make better predictions about their productivity on the next project.
+Data you collect on this project will help you with future projects.
+<P>
+<H3>2.2 Estimates are neither Precise or Deterministic</h3>
+<P>
+Because we do not have complete knowledge, it is not possible to
+accurately predict how long it will take to complete a project.
+Because of this uncertainty, an estimate is not a number, but rather
+a probability density function.  The confidence estimates are every
+bit as important as the time estimates ... and so they must be included
+along with the estimate.
+<UL>
+In the early stages of project inception, crude estimates that might be off
+by a power of ten may be entirely acceptable.  
+<P>
+By the time resources are being committed, it may be important for estimates 
+to be correct to within 5-10%.
+</UL>
+<P>
+If, in preparing an estimate, you find areas where uncertainty
+is unacceptably high, these are the areas on which you need to focus
+more effort and reduce your ignorance:
+<UL>
+    <LI> seek opinions from people with more experience in this area
+    <LI> do research on the problems and approaches
+    <LI> elaborate the design to gain a better understanding of the
+	 proposed solution
+    <LI> construct models and prototypes to explore potential problems
+	 and approaches.
+</UL>
+<P>
+Estimates should be regularly revisited and refined
+to monitor the progress of the project, and update our predictions
+of when we expect it to complete.
+As investigations, plans, and implementations proceed, unknowns will
+be resolved, probability functions will collapse, and the estimates
+should converge.  
+If the estimates do not converge, but rather continue to move outwards,
+this is a warning sign that something is very wrong.
+<P>
+<H3>2.3 Estimate at the lowest possible level of detail</h3>
+<P>
+A single estimate for a 20 staff-year project could easily be high
+or low by a power of ten.
+An estimate for a 50 line routine will probably be accurate to within an hour:
+<UL>
+    <LI> smaller tasks are better defined and leave room for less doubt
+    <LI> smaller tasks are simpler and more easily envisioned
+    <LI> estimates for smaller tasks can be easily sub-contracted
+	 out to groups or individuals with expertise in that particular area.
+    <LI> the work to decompose a large project into smaller sub-tasks
+         tends to expose tasks and problems that might not have been
+	 obvious when the project was being viewed at a higher
+	 level of abstraction.
+    <LI> the work to decompose a large project into smaller sub-tasks
+	 will tend to resolve many issues that were unclear when the
+	 project was being viewed at a higher level of abstraction
+</UL>
+The result is that bottom-up estimates (summing the estimates for
+all of the sub-tasks) are inevitably more accurate than 
+whole-project estimates.  
+Not only are the individual sub-task
+estimates more accurate, but the enumeration of tasks to be performed
+is more complete and the errors in these smaller estimates
+tend to cancel out.
+<P>
+Hierarchical decomposition of a problem is a rational process for
+exploring its difficulty, but it can lead to false confidence. 
+Not unlike contemplating chess moves, each successive step takes
+us further out onto hypothetical limbs, where expanding sets
+of unknowns may make it difficult to accurately assess the
+envisioned situations ... casting ever-greater doubt on the 
+validity of the resulting assessments.
+<P>
+The SCRUM process recognizes and attmpts to address these dangers by:
+<ul>
+   <li>	declining to recognize the validity of any task that
+	cannot be completed in a small number of staff days.
+	SCRUM holds that anything larger than that is too big
+	to be clearly understood.
+   <li>	declining to make commitments that extend farther than 
+	the current sprint (whose contents are small, well defined, 
+	and well understood).  As we gaze farther into the future
+	our understanding of the required work becomes cloudy, 
+	making estimates untrustworthy.
+   <li>	continuously <em>grooming</em> the backlog:
+	refining the task list, descriptions, and estimates.
+	As these stabilize, our estimates of a completion
+	date (based on estimated points and velocity) begin
+	to converge.
+</ul>
+<P>
+<H3>2.4 Get Multiple Independent Estimates</h3>
+<P>
+There are many approaches to estimating the size of a project:
+<UL>
+   <LI> Highly interactive projects can often be estimated based on the
+        number of specified use cases.
+   <LI> Given an architecture, we can attempt to estimate the
+	size of each component.
+   <LI> If we have worked on similar projects, we can attempt
+	to assess the relative difficulty of this one, and to
+	estimate the size delta relative to other benchmark
+	projects.
+   <LI> Object oriented implementations can often be estimated 
+        based on the number and richness of classes.
+   <LI> Given a component design, we can attempt to estimate
+	the number of required lines of code or Function Points.
+</UL>
+Different techniques are appropriate to different projects at
+different stages of specification ... but each of these techniques
+yields a completely independent assessment of how much work will
+be involved.
+<P>
+Different people have had different experiences.  When they look
+at a project description, they will see different problems, and
+different approaches.  Assessments from different sources can
+points, use cases, comparisons to past projects).
+<P>
+If 3-5 independent estimates cluster well, you can feel good about
+the estimate.  If estimates are widely scattered there are two
+possible explanations:
+<UL>
+    <LI> the problem is not yet well enough understood or specified
+    <LI> some of the estimators or estimation techniques are ill
+	 suited to this problem.
+</UL>
+<P>
+Which ever the cause, a group discussion about the disputed
+estimates usually resolves the question quickly.  If the diversity
+of opinion results from an inadequate understanding of the problem,
+the answer is additional research, design, or prototyping.  If
+the diversity results from the application of an inappropriate
+estimation technique, find better ones.
+<P>
+<h3>2.5 Be Honest and Clear</h3>
+<P>
+Do the best analysis you can to develop your estimates.
+Projects that begin with estimates that are slanted to
+bolster some agenda, or to tell the executives what they want
+to hear usually end badly.  The best decisions are the ones
+that are based on the best possible data.  A project that
+begins with a bad estimate is on the road to ruin.
+<P>
+Executives will want to know what the bottom line is.
+When can I have it and how much is it going to cost?  
+Clearly state your assumptions, and make sure that you 
+always give your times and costs within a confidence band.
+If they tell you that a confidence band is too wide, you
+need to be prepared to suggest investigations to
+reduce that uncertainty.
+<P>
+Management will almost certainly "push back" on your estimates,
+telling you that they are too high.  
+<strong>Don't get defensive!</strong>
+Be prepared to explain the
+process you used to develop your estimates, the data sources on 
+which you drew, the confirmation that you obtained, and how
+much confidence you have.  Project size estimates can often
+be reduced by changing the project requirements, scope, design,
+methodology, or understanding of the problem.  
+Making a number smaller simply because an executive
+thinks it is too large is self deception (and unlikely to end well).
+<P>
+
+<H2>3 Summary</h2>
+<P>
+Estimation is difficult, messy, and does not admit of closed form
+(or even correct) solutions.  
+This does not, however, mean that estimation methodology
+is futile or that all estimates are equally bad.  People who take
+project estimation seriously will find their efforts rewarded.
+During the age of exploration (when the proceeds of expeditions
+had to be divided among investors) anyone who could do long 
+division found that his career was made.  Today, when so much
+value is created by successful software projects, the same can
+be said about someone who can do project estimation.
+
+</BODY>
+</HTML>

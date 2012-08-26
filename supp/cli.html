@@ -1,0 +1,701 @@
+<HTML>
+<HEAD>
+<TITLE>Command Line Interfaces</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Guidelines for Command Line Interface Design</H1>
+Mark Kampe<br>
+$Id: cli.html 7 2007-08-26 19:52:08Z Mark $<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+Ninety-nine percent of everything that is written about
+human interface engineering is about Graphical User Interfaces (GUIs).
+There are good reasons for this:
+<UL>
+  <LI> It is said that a picture is worth a thousand words.  
+     Much more information can be presented in a two dimensional
+     graphical display than could be represented by text
+     occupying the same number of square inches.
+  <P>
+  <LI> Just as people who do not speak a language often resort
+     to gestures for communication, it feels quite natural
+     to express our needs by pointing at mnemonic graphical
+     icons.
+</UL>
+<P>
+Information presented in a graphical interface is easier
+to comprehend.  Graphical interfaces are easier to learn.
+Many people consider GUIs to be the foundation of usability.
+<P>
+All of this is true, and yet we still find command line
+interfaces (and their sibling, simple textual output) all around us.  
+There are many reasons to use
+command line interfaces, and there are usability factors
+that can be applied to the design of these interfaces.
+<P>
+<H2>2. Why Command Line Interfaces</h2>
+<P>
+I know people who believe the only reasons that CLIs exist are:
+troglodyte users and lazy programmers.  Both of these do exist,
+and they do indeed favor CLIs ... but there are much better reasons
+for CLIs to continue to exist:
+<UL>
+    <LI> scriptability
+    <LI> expressive power
+    <LI> conciseness of expression
+    <LI> composability of functions
+    <LI> parseability
+    <LI> minimal environments
+</UL>
+<P>
+</OL>
+<H3> 2.1 Scriptability</h3>
+<P>
+Many of the things that people do with computers are done,
+perhaps with minor variations, over and over again.  If the
+functions to be performed can be controlled from a CLI, it
+is easy to create a script of commands to be run.  The use
+of command scripts is so popular that "command line
+interpreters" have evolved into rich programming languages
+with variables, decisions, iteration and functions.
+<P>
+Scripts can be run many times, and will always be the same.
+There is no danger of a person misspelling a word, or 
+clicking slightly outside of a box.  
+Scripts can be reviewed, and adapted for new uses.
+Once they are perfected, they can be run successfully by 
+people who do not understand how they work.
+It is tempting to think that we can record cursor
+motions and mouse-clicks and replay them, but this
+doesn't work.  The sizes and positions of dialog boxes
+change with the text they contain, the size and contents
+of the screen, and from one release to another.
+If you want a complex operation performed correctly,
+time after time, a command script is the simplest
+and best way to do it.
+<P>
+<H3> 2.2 Expressive Power</h3>
+<P>
+Most of us can express ourselves far more clearly in a
+written or verbal language than we can with gestures.
+This is because our verbal lanuages have a richer 
+vocabulary and more elaborate syntax.
+The same is true when it comes to describing a set of
+operations to perform.  A richer language can express
+more complex thoughts.
+<P>
+Once simple command line interpreters have evolved into
+complex programming languages:
+<UL>
+   <LI> they have variables
+   <LI> they can perform arithmetic, logical, and character computations.
+   <LI> they can make decisions
+   <LI> they support various types of loops
+   <LI> they have functions with parameter substitution
+   <LI> they are capable of operating on the results of the programs they run.
+</UL>
+<P>
+It is possible to describe computations in a scripting language
+that could never be described through a Graphical User Interface
+(unless the GUI was for program editor ...  it's been done).
+<P>
+GUIs make it very easy to perform standard operations on a limited
+set of objects with a few simple variations.
+GUIs do not have a rich enough vocabulary and syntax to 
+describe complex operations.
+<P>
+<H3> 2.3 Conciseness of Expression</h3>
+<P>
+For doing obvious operations on a limited set of objects, GUIs
+can be very simple to use.  
+<UL>
+    <LI> For the primary operation, move the cursor to the object 
+	and left-click.  
+    <LI> To select from a list of simple secondary operations, you
+	 can usually move the cursor to the object and right-click.
+    <LI> To process an object with a running application, you can
+   	 drag the object into an icon for the desired service.
+    <LI> To process multiple objects you can do regional or incremental
+	 selects before selecting the operation to perform.
+</UL>
+<P>
+The ease, simplicity, and intuitiveness of these visual metaphors
+are major reasons for the success of GUIs.  Why would anyone need
+to use a more complex language?
+<UL>
+When you order a meal in a restaurant, do you point at pictures of
+menu items, and then point at pictures of ingredients that you want
+to add or remove, and point at pictures of you want each one prepared?
+<P>
+I just say "a porterhouse, medium rare, baked potato, with sour cream,
+salad with ranch dressing".
+<P>
+Sit an experienced Word user next to an experienced vi/emacs user,
+and see how long it takes each of them to make a set of edits.  
+The latter editors may have arcane command languages ... but the
+simple fact is that 3 or 4 keystrokes can be entered much more
+quickly and easily than shifting a hand over to the mouse, moving
+to an object, pulling down a menu, and selecting an option.
+</UL>
+<P>
+When the lists of options are long, the decision trees are deep, or there
+are many different selections to be combined, selecting what you want
+from menus becomes extremely cumbersome ... and the cost of learning
+a real language becomes a better investment.  It takes less body movement,
+and less time to enter a command than it takes to use a mouse ... and
+the more complex the command, the greater the difference.
+<P>
+<H3> 2.4 Composability of Functions</h3>
+<P>
+A key premise of object oriented programming is that one can define
+a useful object, and then use it over and over again, without having
+to reinvent the same functionality every time you need it.  This 
+is the "toolbox" principle ... which was made famous by the cryptic
+commands of the early UNIX systems.
+<P>
+Major graphical applications tend to have numerous menus to import,
+export, and transform data in all kinds of interesting ways.  The 
+"toolbox" approach is to build a dozen small commands that each
+perform an interesting data manipulation:
+<UL>
+    <LI> <strong>sort</strong> reads input lines, and writes them
+	 back out in a sorted order.
+    <LI> <strong>grep</strong> reads input lines, compares them against
+	 a regular expression, and writes the lines that match.
+    <LI> <strong>uniq</strong> reads input lines, compares them,
+	 and prints out only the unique ones (no duplicates).
+    <LI> <strong>cut</strong> reads input lines, extracts fields
+	 from them based on specified delimiters, and writes the
+	 extracted fields to its output.
+    <LI> <strong>find</strong> walks a directory tree looking for
+	 names that match a specified pattern, and executes a 
+	 specified command on each of them.
+    <LI> <strong>tr</strong> reads an input stream and performs
+	 specified character translations.
+    <LI> <strong>mc</strong> reads input lines and rewrites them
+	 in multiple columns.
+    <LI> <strong>more</strong> reads input lines and sends them to
+	 its output, one screen-full at a time.
+    <LI> <strong>pr</strong> reads input lines, breaks them into pages
+	 with headers and footers and sends them to its output.
+    <LI> <strong>print</strong> reads input lines and sends them to
+	 a printer.
+    <LI> <strong>mail</strong> reads input lines and turns them into
+	 a message, which it sends to a specified recipent.
+</UL>
+If you think in GUI terms, these would seem to be quirky little 
+parts of programs ... and you might laugh at how strange and 
+cryptic they are ... until you see someone type in a one line
+command that searches his entire disk for music, pulls out
+the Blues albums, and copies them all into an artist/album/title 
+directory hierarchy on your flash drive, and emails you a list 
+of the albums you just got.  Then you will realize that there
+may be something to this blue-collar toolkit stuff.
+<P>
+In a GUI world, you think about what you can do with the
+program you are running.  In a CLI world you think about
+what can be done with the transitive closure of all existing
+programs, and the new ones that you write.  You don't write
+a program that does exactly what you need.  You write a new
+program that does the piece of what you need that isn't
+covered by existing programs.
+<P>
+<H3> 2.5 Output Parseability</h3>
+<P>
+GUIs tend to display information in well delimited dialog boxes, 
+scrollable lists and navigable data trees.  These representations
+are designed for visual clarity and intuitive traversal by
+human beings.  If a program wanted to find selective information
+in such a display it might be relatively difficult to find.
+<P>
+CLI programs tend to produce output in lines, columns, or other
+more readily parseable formats.  This makes it relatively easy
+for another program to find and extract specific pieces of information
+from CLI output.  As an example, it has long been common for people
+to write shut-down scripts that run the ps (process status) command
+to get information about running processes, use the grep (regular
+expression processor) command to extract the line that describes
+a desired daemon, use the cut command to pull out the process ID
+field from that line, and then use the kill command to send a signal 
+to the desired process.
+<P>
+<H3> 2.6 Minimal Environments</h3>
+<P>
+Thus far we have considered advantages that CLIs may offer over
+GUIs.  CLIs are also used in situations where there is insufficient
+infrastructure to support a GUI.  
+<P>
+<UL>
+    <LI>
+	There are systems that lack either graphical displays or the storage, 
+	cycles required by the programs that support graphical output.
+    <LI>
+	During the early stages of system start-up the complex user-mode 
+	services that are required to manage graphical sessions may have
+	not yet been started.
+    <LI>
+	When debugging the operating system, we cannot use
+	services implemented by the operating system.  This limits
+	us to the use of firm-ware or minimal kernel supported 
+	serial console sessions.
+    <LI>
+	Diagnosis and management of remote systems must often be performed
+	over (relatively) slow serial communications sessions, that 
+	cannot support the bandwidth required for graphical output.
+</UL>
+In all of these situations, a command line interface may be the only
+practical mode of interaction.
+<P>
+<H2>3. CLIs and Usability</h2>
+<P>
+Many people would say that if you have to resort to a CLI, you have
+already abandoned usuability ... but (as noted previously) there 
+positive reasons to use a CLI.  Moreover, if you think about it for
+a minute, it becomes clear that usability considerations are (if
+anything) even more important with CLIs than with GUIs.
+<P>
+If we consider the factors that contribute to usability (familiarity,
+intuitiveness, simplicity, consistency of metaphors, robustness,
+adaptability) we see that none of them (with the possible of
+intuitiveness) is particularly tied to graphical interfaces.
+We are still going to apply the same principles to the design
+of command line interfaces ... 
+and we will just have to work a little bit harder on intuitiveness.
+<P>
+The primary user-costs in most GUIs are finding the desired item,
+cursor motion, and clicks.  We mitigate these costs by consistency
+of placement (making things easier to find) and designing our menus
+and dialogs around the most likely operations.  
+In CLIs the primary costs are remembering command names and argument 
+orders, and then having to type them.  We attempt to mitigate the
+memory cost by using mnemonic names and standard conventions.
+We attempt to mitigate the typing costs by keeping names short
+and/or allowing abbreviations.
+<P>
+<H3> 3.1 Mnemonic Command Names</h3>
+<P>
+We attempt to make command names easier to remember by making those
+names mnemonic (reminiscent of words that describe their functions).  
+But we also want to make sure that commands have
+short (and intuitive) abbreviations:
+<UL>
+   <LI> <strong>sort</strong> ... to sort input lines
+   <LI> <strong>find</strong> ... to find desired files
+   <LI>	copy (<strong>cp</strong>) ... for copying files
+   <LI> remove (<strong>rm</strong>) ... to delete a file
+</UL>
+<P>
+Unfortunately such naming discipline has not always been
+followed.  In UNIX, Ken Thompson and Dennis Richie seem
+to have gone for short but less intuitively obvious names:
+<UL>
+   <LI> <strong>ls</strong> for directory 
+	<strong>l</strong>i<strong>s</strong>tings
+   <LI> <strong>cat</strong> (short for con<strong>cat</strong>enate) 
+	appending multiple files together and sending them to the standard
+	output.
+   <LI> <strong>grep</strong> (short for 
+	<strong>g</strong>lobal <strong>r</strong>egular 
+	<strong>e</strong>xpression <strong>p</strong>rocessor)
+	for pulling desired lines out of an input stream.
+   <LI> <strong>awk</strong> for a macro language designed by 
+	<strong>A</strong>ho, <strong>W</strong>eingarten and 
+	<strong>K</strong>ernighan.
+</UL>
+<P>
+The basic set of UNIX commands proved to be very useful, and the tool-box
+concept which they pioneered changed the way that people thought about
+interactive commands and command languages.  I think, however, that it is
+safe to say that these commands (which are still available on all 
+UNIX-derived systems) have survived, not due to their names, but despite them.
+If there is a lesson we can learn from this, it is probably that 
+mnemonic names are extremely valuable as learning aids ... but after
+they become so familiar that they are simply tokens in a language,
+typed by muscle-memory, their mnemonic qualities become much less important.
+<P>
+<H3> 3.2 Intuitive Arguments</h3>
+<P>
+For many commands, the arguments are obvious.
+If I am deleting files, 
+<UL>
+	del project.bak *.o
+</UL>
+it is obvious that the arguments will be the names of the files to be deleted,
+and the order of the arguments is of little consequence.
+<P>
+Where multiple arguments must be specified, it often helps if there
+is some rationale to the order.  So it is that the copy (<strong>cp</strong>)
+command takes source files as its first argument, and the destination
+as its last argument:
+<UL>
+	cp oldfile [to] newcopy
+	<br>
+	cp file1 file2 file3 [to] newdirectory
+</uL>
+We can almost see the implied word <strong>to</strong> in these
+commands, which makes the argument order intuitive.  This then
+becomes a convention, where all commands that take input and output
+file names interpret earlier file names as input files, and the 
+last file name as a target.
+<P>
+In cases where multiple arguments play more subtle roles (e.g. different
+types of input files which cannot be automatically distinguished from
+one another, or other types of arguments), 
+expecting people to remember the correct order for multiple
+arguments is a formula for disaster, so another syntax is required.
+UNIX has a <strong>dd</strong> (disk to disk copy)
+command that can be used to perform copies with specified blocksizes 
+(often important for the performance of large copy operations, or 
+when copying to record structured devices like magnetic tapes).  It has
+a dozen or more possible arguments, and allows them (only the necessary
+ones) to be specified in a <strong>name=value</strong> format:
+<UL>
+	dd if=/dev/disk01 of=/dev/tape bs=64K count=200
+</UL>
+<P>
+It does take a few more keystrokes to type the <strong>name=</strong>,
+but it replaces (hard to remember) argument order with (easier to
+remember) parameter names.  If most parameters have reasonable
+default values (so that they usually do not need to be specified),
+and the keywords have short abreviations (e.g. <strong>if</strong>
+for <strong>input file</strong>
+the result can be something that is both easy to remember and
+easy to type.
+<P>
+<H3> 3.3 Supporting CLI Infrastructure</h3>
+<P>
+Another way to make arguments easy to remember is to provide standard
+(command independent) means of specifying common arguments.  Almost 
+all commands have a notion of input and output files.  In UNIX, the
+shell program (the command interpreter) provided a general syntax
+for specifying input and output files:
+<table cellpadding=10>
+	<tr>
+	<td>ls > dir.out </td>
+	<td> # send the output to the file dir.out</td>
+	</tr>
+
+	<tr>
+	<td>sh < script </td>
+	<td> # run the commands in the file script</td>
+	</tr>
+
+	<tr>
+	<td>cc foo.c 2> errors </td>
+	<td> # send the errors to the file errors</td>
+	</tr>
+
+	<tr>
+	<td>grep ERROR log >> errors </td>
+	<td> # find lines in log that contain "ERROR" and
+	     append those lines to the existing file errors</td>
+	</tr>
+
+	<tr>
+	<td>ls | grep '*.c'</td>
+	<td> # list the files in this directory<br>
+	       and filter out only the names of the .c files</td>
+	</tr>
+
+</table>
+<P>
+Given that all UNIX shells support input and output redirection, most
+commands, if no specific files are specified:
+<UL>
+	<LI> read from their standard input (file descriptor 0)
+	<LI> write to their standard output (file descriptor 1)
+	<LI> send errors to their standard error (file descriptor 2)
+</UL>
+<P>
+As a result of this:
+<OL type=a>
+	<LI> users need not remember the syntax for specifying
+	     input and output files to various programs.
+	<LI> users can easily turn the output of one program
+	     into the input of another and use standard tools
+	     to process that output to obtain the desired information.
+</OL>
+<P>
+<H3> 3.4 Command Line Switches</h3>
+<P>
+Originally, in UNIX, there were two kinds of arguments:
+<UL>
+    <LI> the names of files to be operated on
+    <LI> switches (usually preceded by a <strong>-</strong>) that
+	 enabled various options.  
+</UL>
+DOS had similar conventions,
+but used a slash (<strong>/</strong>) to introduce 
+option controlling switches.
+If I wanted a listing of the directory <strong>foo</strong>, but I
+wanted a long listing (with all the details), I would add the
+<strong>-l</strong> (long) switch:
+<UL>
+	ls -l foo
+</UL>
+If I wanted to include all of the sub-directories under foo, I would
+also add the <strong>-r</strong> (recursive) switch:
+<UL>
+	ls -lR foo
+</UL>
+<P>
+To the extent that there are general qualifiers that are commonly used,
+it is a good idea to wrote new programs to use the same qualifiers that
+are used in popular existing programs:
+<UL>
+	<li> <strong>-l</strong> long (give me all the details)
+	<li> <strong>-v</strong> verbose (tell me every step)
+	<li> <strong>-q</strong> quiet (skip the commentary)
+	<li> <strong>-R</strong> operate recursively (files in sub-directories)
+	<li> <strong>-f</strong> force (I don't care if the file is read only)
+
+</UL>
+<P>
+These are quickly learned, and tend to work well.
+It is command specific switches that people have trouble remembering.
+Obviously, the letters should be mnemonically related to the functions
+the switches perform.  This can help users to remember the names of
+switches they have used before, but they don't do much for users who
+are trying to figure out how to use the program.  This is an area
+where (browsable) menus are clearly superior.  
+<P>
+CLI programs do not have run-time browsable menus, but they do tend
+to have usage messages.  Most CLI programs, if they detect an invalid
+switch (or missing or otherwise improper arguments) will print out
+a usage message that describes the expected arguments and enumerates
+all of the legal switch values.  Some programs make a point of ensuring
+that the argument <strong>help</strong> or the switch 
+values <strong>-h</strong> or <strong>-help</strong> are not otherwise
+legal, so that they can be specfically used to get the usage message.
+Another common convention is that if <strong>help</strong> is specified
+along with another legal option, to print out a more detailed usage
+message for the specified option.
+Usage messages  may be too short to completely describe the
+use of the program ... but they do go a long way to eliminate the problem
+of knowing what options are available, or remembering the switch name
+for a particular option.
+<P>
+<H3> 3.5 CLI Argument Standards</h3>
+<P>
+How does one specify multiple switches?
+<P>
+UNIX systems have tended towards single letter switches (which are easier 
+to type), and allows multiple switches to be combined into a single argument:
+<UL>
+	ls -alRu
+</UL>
+Which means
+<UL>
+	list <strong>a</strong>ll files (even hidden ones)<br>
+	give the <strong>l</strong>ong listing with lots of information<br>
+	<strong>R</strong>ecursively descend into sub-directories<br>
+	<strong>u</strong>se time of last reference to sort the output<br>
+</UL>
+This convention was encouraged through a standard argument processing
+function (getopt(3)).
+But the combination of multiple switches into a single argument fundamentally 
+assumes that all switches are single letters.
+If you wanted to support switches that could involve multiple letters,
+you would need to separate each switch into its own argument (as DOS did):
+<UL>
+	dir /verbose /wide /o:a
+</UL>
+Realizing that this involved considerably more typing, DOS also allowed
+users to specify unambiguous abbreviations for arguments:
+<UL>
+	dir /v /w /o:a
+</UL>
+<P>
+The older UNIX convention is indeed a little bit more concise, but
+much more cryptic.  Thus it is that newer UNIX/LINUX CLI programs
+have tended towards allowing (more mnemonic) multi-letter arguements
+and putting separating switches into distinct arguments (e.g. svn).
+<P>
+<H2>4 Common Problems and Solutions</h2>
+<P>
+As observed in the previous chapter, the basic principles of usability
+remain the same whether the interfaces are graphical or command line.
+The previous chapter discussed some of the unique problems that CLIs
+present in the areas of intuitiveness and simplicity.  There are other
+usability issues, where CLIs and GUIs face exactly the same problems,
+and address them in similar ways. 
+<P>
+<H3> 4.1 Robustness and Helpfulness</h3>
+<P>
+Most interesting programs are susceptible to errors (e.g. input syntax
+errors, missing files, failures of partner services).  The difference
+between more and less usable programs is often how they deal with
+these errors:
+<UL>
+	<LI> How completely, accurately, and understandably they
+	     describe the cause of the error.
+	<LI> How able they are to detect and correct simple, common,
+	     and obvious errors.
+	<LI> How reasonably they continue operation in the face of
+	     the error.
+</UL>
+<P>
+When an error is encountered, it must be described in a way that
+is clear enough to enable the user to easily find and fix the problem.
+Consider, for example, a compiler, and three possible ways of 
+reporting an error:
+<UL>
+	<LI> syntax error
+	<LI> foo.c 175: syntax error
+	<LI> line 175 of file foo.c, in function getDrive: <br>
+		expression beginning "(jbod.ndrives" contains
+		an invalid operator "RESERVE"
+</UL>
+<P>
+A GUI front end to the compilation process could further improve on
+this by going to the file in question and highlighting the offending
+token ... but not having graphical output seldom precludes doing
+a good job of describing a problem.
+<P>
+For some programs, an input error may justify a warning, but
+not prevent the program from going on to perform its other
+functions.
+Some errors may be temporary, and a program can recover from
+them by continuing to retry until the error condition has 
+been corrected.
+Even for programs where an input error precludes successful
+completion of the request, there may still value on continuing
+to check for other errors before aborting.
+<P>
+After encountering the above syntax error, the compiler could
+respond in many ways:
+<UL>
+	<LI> abort
+	<LI> resume compilation with the next file
+	<LI> resume compilation with the next statement
+</UL>
+<P>
+A GUI front end might actually give the user the opportunity to
+correct the error and immediately resume compillation ... but
+not being able to immediately ask the user for guidance does
+not preclude intelligent and graceful error handling.
+<P>
+A command that is implemented as a CLI has fewer opportunities
+for complex output and interaction with the user.  This is not,
+however, an excuse for lazy error handling.
+<P>
+<H3> 4.2 Adaptability and Configurability</h3>
+<P>
+Many programs have large numbers of specifiable options.
+Most try to reduce the resulting complexity by assigning reasonable
+default values to each.  To the extent that the default values are
+well chosen, users can avoid having to specify most parameters, and
+the use of the program can be greatly simplified.  This is equally
+true for both GUI and CLI programs.  
+<P>
+There are often parameters for which different users would want 
+different default values.  There are a few basic approaches that
+have been taken to this problem:
+<UL>
+	<LI> environment variables
+	<LI> per user (and/or) per application configuration files
+	<LI> system registries
+</UL>
+While each of these involves different details, they all share
+a few basic steps:
+<UL>
+	<LI> associate a variable name with each specifiable
+	     parameter or option.
+	<LI> when the program starts up,
+	     search the appropriate places (environment,
+	     configuration files, registries) to find values
+	     for those variables.
+	<LI> initialize the value of each configurable parameter
+	     or option from the corresponding variable.
+</UL>
+<P>
+Such external preference configuration mechanisms can have the effect 
+of specifying dozens or hundreds of parameter values every time
+the program runs ... and these are values that do not have to
+be specified on the command line.
+<P>
+A key difference between CLIs and GUIs is how these preferences
+are managed:
+<UL>
+	<LI> GUI programs tend to have preference configuration
+	     dialogs and maintain user preference files,
+	     where they automatically save the last specified
+	     values for each configurable property.  In this way,
+	     new sessions seem to automatically pick up where the 
+	     previous session left off.
+	<LI> CLI programs tend to use environment variables that
+	     are explicitly set by users (in shell session
+	     initialization scripts).  This enables users to very
+	     specifically control the default behavior of each
+	     application.
+</UL>
+<P>
+The GUI approach is much easier for a novice to use (since the
+preference dialogs can guide them through the available options).
+The CLI approach is much more amenable to scripting (because 
+environment variables are typically initialized by scripts).
+Also, the CLI approach makes it easy for a single user to have
+multiple profiles (using different default values for different
+situations).
+<P>
+Either way, the fundamental principle of configurable application
+design is to identify all configurable aspects of program behavior,
+and make it possible to externally specify (per user or per context)
+default values for each of them.
+<P>
+<H3>4.3 On-line Help</h3>
+<P>
+GUI programs often offer a rich assortment of help mechanisms:
+<UL>
+	<LI> entire on-line manuals with index and full-text search
+	     capabilities.
+	<LI> context sensitive guidance that automatically provides
+	     help information for the currently selected features
+	     and operations.
+	<LI> cursor sensitive tool-tip pop-ups that describe on-screen
+	     artifacts as the cursor moves over them.
+</UL>
+<P>
+For CLI programs, the options are a little bit weaker:
+<UL>
+	<LI> General usage messages in response to command line errors.
+	<LI> Specific usage messages in response to specific user
+	     requests for additional help information on a specific
+	     topic.
+	<LI> Problem assessments and corrective action suggestions
+	     printed in response to errors.
+	<LI> The user can often open on-line documentation in another window
+	     (and perhaps use full-text search capabilities there).
+</UL>
+While these options are indeed less elegant than those that can be offered
+by GUI applications, they still leave ample room for providing good on-line
+help information.
+<P>
+<H2>5. Summary</h2>
+<P>
+GUI applications enjoy fundamental usability advantages over CLI
+based applications:
+<UL>
+	<LI> the availability of an organized two dimensional
+	     display with rich content navigation widgets makes
+	     it possible to make more (and more complex) output
+	     easily understandable.
+	<LI> the availability of browsable menus and context
+	     sensitive help (including things like tool-tip pop-ups)
+	     makes it much easier for users to understand what their
+	     options are at any particular juncture.
+</UL>
+<P>
+None the less, there are many other factors that would drive a 
+decision to provide some functionality in a CLI form.  This is
+not a reason to give up on usability.  All of the basic principles
+of usability still apply to CLIs, and designing our software with
+these considerations in mind can result in significantly more
+usable programs.
+<P>
+
+</BODY>
+</HTML>

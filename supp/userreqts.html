@@ -1,0 +1,549 @@
+<HTML>
+<HEAD>
+<TITLE>User Requirements</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>The Gathering, Analysis and Management of User Requirements</H1>
+Mark Kampe<br>
+$Id: userreqts.html 49 2007-09-08 20:43:21Z Mark $
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+Project requirements come from a great many sources:
+<UL>
+  <LI>	The people who conceive a product usually start out with
+	a pretty good idea of what it should do.
+  <LI>	Competitive research can generate a list of the capabilities
+	of existing products.
+  <LI>	Industry articles and reviews can generate lists of the 
+	capabilities that are considered to be most important,
+	or are slated to be introduced soon.
+  <LI>	Sales and engineering people who work with a technology
+ 	know what features people are talking about.
+  <LI>	People who have supported existing products can be 
+	counted on to provide input on what is wrong with 
+	them, and what improvements are needed.
+</UL>
+All of these sources can be depended on to provide timely and
+well considered input on what the requirements for a new product
+should be.  In many cases, however, all of these sources are
+surrogates for the one source that really matters: 
+<u>the ultimate consumers of the product</u>.  
+An oft-quoted dictum of the Roman republic was<br>
+<UL>
+<i>vox populi vox Dei</i>
+<P>
+the voice of the people [is] the voice of God.
+</ul>
+There is great wisdom in this, but it is perhaps also good to recall
+the full text <I>Alcuin</i>'s advice to <i>Charlemagne</i> on this subject:
+<UL>
+<I> nec audiendi qui solent dicere vox populi vox Dei 
+quum tumultuositas vulgi semper insaniae proxima sit</I>
+<p>
+and those people should not be listened to who keep saying,<br>
+'The voice of the people [is] the voice of God,'<br>
+since the riotousness of the crowd is always very close to madness.
+</UL>
+<P>
+If we are designing a product that will help people with some
+activity, we have to get input from, and validate our plans
+with the intended users.  Even if they don't know what they want.
+There are many mature and popular methodologies for requirements
+development, elicitation and management.  Examples include
+<UL>
+   <LI>	<A Href=http://www.touchstone.com/tr/wp/IBIS.html>
+	Issue Based Information Systems method</a>
+   <LI> <A Href=http://en.wikipedia.org/wiki/Joint_application_development>
+	Joint Application Design</a>
+   <LI> <A Href=http://en.wikipedia.org/wiki/Quality_Function_Deployment> 
+	Quality Function Deployment</a>
+   <LI> 
+	Controlled Requirements Expression</a>
+   <LI> <A Href=http://www-cse.ucsd.edu/~ikrueger/publications/WhittleKrueger_SCESM04_final.pdf> 
+	Scenario Based Requirements Elicitation</a>
+</UL>
+Each of these approaches has considerable history and literature,
+and well elaborated discussions of all of the processes and
+problems.  This note is only intended as a brief introduction to
+the process of gathering and working with requirements from 
+potential users.
+<P>
+
+<H2>2. Identifying Potential Stake Holders</h2>
+<P>
+When defining a product it is important to identify all of
+the different types of people who would have a role in, or
+benefit from the proposed product.  This certainly includes 
+people from within your own organization (engineering, 
+manufacturing, sales, support, marketing, management) but
+it also includes potential partners and customers.  
+Different people have different perspectives.
+The more perspectives you look at, the less likely you are to miss
+something important.
+<P>
+For some products, it may be obvious who the potential users 
+and customers are.  For other products those people may be hidden
+within other organizations.  If we are going to get useful input 
+from potential users, we must:
+<OL type=a>
+   <LI> know what kind of people we are looking for
+   <LI> be able to find them
+   <LI> get them to talk to us
+</OL>
+<P>
+This may sound trivial, but it is vital that none of these steps be omitted.  
+<P>
+In the process of developing the product concept and initial requirements
+we will identify sub-classes of potential users.  If we have experience
+in the problem domain, we may understand exactly what types of people
+perform what operations.  If we do not, we will need to talk to people
+with domain experience to shore up our notions of who our users might
+be.  In some cases we may have domain experts we can ask (sales people
+often know a great deal about their customers).  In other cases, we may
+have to conduct customer interviews just to figure out who our customers
+might be.
+<P>
+Once we know what kinds of people we need to talk to, we have to find 
+them.  Perhaps we already have friends who work in such groups.  If
+not, sales people may be able to help us find people to talk to.  We
+must recognize, however, that the people we know (or are referred to)
+may not actually be the people to whom we need to talk.  In an initial
+phone call, we can introduce the type of product we are working on, and
+ask if they would be a good person to talk to, or if they can suggest
+people who would be more appropriate.
+<P>
+The final hurdle is convincing potential users to talk to you.  Most
+people dislike meetings, and the prospect of sending a half dozen people
+to a meeting called by some stranger may be particularly unattractive.
+There are, however, many good reasons why people choose to give up
+valuable time to participate in requirements sessions:
+<UL>
+   <LI> they are already partners with or customers of your organization,
+  	and have an interest in seeing you succeed.
+   <LI> they have serious problems that need solving, and contributing
+	to product requirements sessions increases the likelihood that
+	a product will be created that meets their needs.
+   <LI> they are not satisfied with existing products and want the
+	opportunity to more directly influence the next generation
+	of products.
+   <LI> they are curious about your group or the technology, and want
+	to learn more about planned products.
+   <LI> as a favor to someone in your group.
+</UL>
+<P>
+<H2>3. Requirements Elicitation</h2>
+<P>
+The process of getting potential users to tell you what they need is 
+called <strong>Requirements Elicitation</strong>, and it is a surprisingly
+fragile process.  It is very easy to go to a group of potential users, 
+describe to them what we propose to build, and ask them what they think
+of it.  The problem is that the potential customers say it sounds great,
+the developers build the product accordingly, and nobody uses it.  What
+went wrong?  At least two things:
+<OL type=1>
+   <LI> the feedback we get from such a session may have
+        as much to do with the presentation as with the product.
+   <LI> even if we did get valid feedback on the features we
+	discussed, we didn't actually find out what their overall
+	needs were and how well our proposed features addressed them.
+</ol>
+<P>
+Experience has shown that getting high quality input from potential
+users involves:
+<OL type=a>
+   <LI> a well crafted agenda (not an open discussion)
+   <LI>	very careful questioning (from general to specific)
+   <LI> a lot of listening (and very little talking)
+</OL>
+<P>
+It is common to send a great many people to a requirements gathering
+session ... but they are there not there to talk.  They are there to
+listen.
+<P>
+<H3>3.1 Introduction</h3>
+<P>
+A facilitator (ideally someone with some experience with this process)
+briefly lays out the goals and agenda for the meeting.  In general, 
+the goals will be to gain an understanding of (within the product domain)
+<UL>
+   <LI> what these people do
+   <LI> what activities they perform
+   <LI> what problems they confront
+   <LI> what kinds of solutions they would like to see
+   <LI> what characteristics such solutions should have
+</ul>
+<P>
+The agenda should include brief introductions of all participants.
+This is not merely a social formality.  When interpreting peoples'
+suggestions, it is often vital to understand their roles in the process.
+<P>
+The agenda should also include a brief introduction of the proposed
+product concept.  This is <strong>not</strong> a detailed description
+or a sales pitch.  It is only intended to be enough to establish the
+context for the discussion.  We are not here to describe a product
+to potential customers.  We are here to listen to potential users
+describe what features would be valuable to them.
+<P>
+The facilitator will then put a series of questions to the interviewees.  
+We will start with very general questions, and then move into more
+application specific questions.  Our questions should be open ended,
+because we want them to tell us long and detailed stories about 
+what they do.  We should start with very general questions because
+we want to give them opportunities to bring up subjects we didn't
+even know to ask about.
+<P>
+<H3>3.2 General Information</h3>
+<P>
+We want to start by asking what these people do (e.g. within
+their organization), and the environment in which they work.
+This may seem a meandering path to the goal, but it 
+establishes the context for the remainder of the discussions.
+<P>
+If we went straight to the activities that our product will facilitate,
+without understanding when, where and why  those activities are
+undertaken we might find ourselves optimizing details of their
+tasks while missing the fundamental point.
+When it comes to understanding your customers, there is no such
+thing as useless knowledge.
+<P>
+<H3>3.3 Application Specific Information</h3>
+<P>
+Once we understand the organizational and process context in 
+which they operate, we then ask people to describe the typical
+operations they perform, how they perform them, and what parts
+of this process do and do not work well.  We are also interested
+in how much of their time goes into which activities, and which
+activities seem to be the most troublesome.
+<P>
+This is also when we can ask them about experiences they have
+had with related software: what they liked about it, what they
+did not like about it, why they do or do not use it, etc.
+<P>
+<h3>3.4 Product Requirements</h3>
+<P>
+After they have described what they do, we should ask them for
+their suggestions on products to help them.  These too should
+be open-ended.  We don't want to limit their suggestions to
+features for the product we have envisioned.  It might turn
+out that a very different type of product would be much more
+valuable.
+<P>
+As they suggest features and characteristics they would like
+to see, we should (gently) try to ascertain
+<OL type=a>
+   <LI> the problem that is being addressed
+   <LI> as clearly as possible, what it would do
+   <LI> how valuable this feature would be
+   <LI> how generally accepted the belief in this feature is
+</OL>
+This must be done gently because we are not here to argue about
+feature sets of press people to give details they do not have.
+We just want to understand and capture their suggestions as 
+accurately as possible. 
+<P>
+<H3>3.5 Confirmation and Feedback on Previously Gathered Requirements</h3>
+<P>
+If we are conducting multiple requirements elicitations, we are
+apt to hear the same requirements over and over again.  This
+is a good thing (since it reaffirms the value of those requirements).
+If, however, we have other requirements that they did not mention,
+there is value in asking how this audience feels about those
+requirements.  We do not, however, want to raise these questions
+until we have finished gathering their requirements.  To do so
+might contaminate the interviewees with our thoughts.
+<P>
+Once we have gotten most of the suggestions that they have
+to offer, we can:
+<UL>
+   <LI>	present requirements we have obtained from other sources,
+	and ask for their comments (clarifications, value, etc)
+	on those requirements.
+   <LI> present a more detailed description of the product that
+	we are proposing to build, and ask for specific comments
+	on that proposal, or suggestions for how to improve it.
+</UL>
+<P>
+Even in these, however, we are still here to listen.  We are not 
+here to sell or defend our product concept.  We are here to 
+collect the assembled reviewers' responses to it.
+<P>
+<P>
+<H3>3.6 Detailed Notes</h3>
+<P>
+Setting up a requirements gathering session is a great deal of work.
+It would be a crime to go to all of this trouble and not diligently
+capture the input.  One or more people should be tasked with taking
+notes of the meeting.  It is not necessary to capture every word.  
+It is vital to accurately capture all descriptions of roles,
+tasks and problems, and of suggested features.  
+<P>
+If it is not distracting to do so, it may be a good idea to capture
+these, in real time, on posters or a white board as they come out.
+This has the advantage of letting everyone see that these things
+have been noted, and giving them the opportunity to correct, amend,
+or annotate these key points.
+<P>
+It is also a good idea to summarize key points received at the end
+of the meeting.  After the meeting, a formal report should be written,
+organizing the input and distilling out the key points learned.
+The original notes should be kept however ... as it is common for
+questions to arise about "exactly what he said" or "in what
+context that remark was made".
+<P>
+
+<h2>4. Requirements Analysis and Reconciliation</h2>
+<P>
+After we get back home, we look at the reports from our requirements
+elicitation sessions, and our lists of requirements and, we find
+(to our horror) that Alcuin was right: the people are insane!
+<UL>
+   <LI>	some of our requirements are incomprehensibly vague.
+   <LI> some of our requirements are too specific, detailing an implementation.
+   <LI> some of our requirements seem ridiculous.
+   <LI> some of our requirements seem trivial.
+   <LI> some of our requirements seem to conflict.
+   <LI> some of our requirements are explicitly contradictory.
+   <LI> some of our requirements seem like very good ideas,
+        except that there is no objective way to test them.
+</UL>
+<P>
+At this point, it is important to recognize that requirements 
+elicitation is a brain-storming activity.  The first phase is
+a non-critical gathering of all available input.  After this
+phase is complete, we move into the process of clarification,
+sorting, sifting and synthesis.
+<P>
+If requirements seem unreasonable (e.g. vague, trivial, ridiculous)
+we need to go back to their sources, and understand the context in
+which they were suggested.  Often this alone is enough to enable us
+to rephrase the requirement in a more reasonable way.  If this is
+not possible, we may be able to contact the person from whom we got
+the requirement, and seek a better understanding of its motivation.
+For all of these reasons, it is important to be able to trace every
+requirement back to its source.
+<P>
+Conflicting requirements should come as no surprise.  We are always
+forced to find balance between conflicting goals.  If we understand
+what motivated each of the requirements, and their respective priorities,
+it us usually possible to find a reasonable trade-off.  This is why
+we try to ensure we know what problem every requirement is intended
+to address, and to obtain priorities for all requirements.  Sometimes,
+however, there are directly contradictory requirements.  If you really
+believe them all to be equally valid, you have to try to find a way
+to reconcile them:
+<UL>
+  <LI> sometimes it is possible to find a solution that 
+	actually addresses (the underlying motivations for) 
+	both requirements.  
+  <LI> perhaps we need to define two different types of product, or
+       provide different behavior in different situations.
+  <LI> perhaps it means that we have to choose between two different 
+      sub-classes of users.
+</UL>
+<P>
+It is usually possible to work a list of requirements down to a
+high quality subset.  When we are done, our requirements should have 
+the following properties:
+<UL>
+   <LI> <strong>clear and unambiguous</strong><br>
+	The intent of every requirement is completely clear to both
+	the originators, and to the developers who will have to satisfy it.
+	When we discover misunderstandings, we must go back to the
+	source (see traceable) and clarify what the actual requirement
+	is.
+   <LI> <strong>complete</strong><br>
+	We believe that the union of the requirements satisfies the
+	necessary conditions for success, and that input from additional
+	sources would not materially improve them.  If we do not have
+	this confidence, it is important to understand where our
+	doubts lie.
+   <LI> <strong>testable</strong><br>
+	There is a relatively straight-forward process for determining
+	whether or not a product meets this requirement.  There is little
+	point is specifying requirements, compliance with which we do
+	not plan to measure.
+   <LI> <strong>consistent</strong><br>
+	There are not contradictions or unresolved conflicts between 
+	requirements.  If there appear to be conflicts, this may be
+	evidence that some of the requirements are vague, poorly
+	understood, or of lesser importance.  Whether by clarification,
+	or by prioritization, all conflicts must be resolved.
+   <LI> <strong>prioritized</strong><br>
+	Not all requirements are equally important.  Rating them
+	on clear scale will help us to resolve conflicts and deal
+	with scheduling problems.
+   <LI> <strong>necessary</strong><br>
+	We believe all of the requirements to be truly necessary for
+	success.  We have separated the "must do" from the "should do"
+	and "it would be nice" items.  We should be able to justify
+	each importance determination.
+   <LI> <strong>traceable</strong><br>
+	There should be no anonymous requirements.
+	We know where each requirement came from, and we can go back
+	to that source to clarify it or recheck its priority.  
+	This may become critical as we go through the prioritization
+	process and have to trade-off requirements and schedule. 
+   <LI> <strong>under version control</strong><br>
+	Requirements are continuously revised based on new input
+	and changes in priority.  They must be kept under version control
+	so that we can keep track of all of the changes.
+</UL>
+Reviewing all of the input we have received and turning it into a 
+list of requirements that have the above properties is often referred
+to as <strong>requirements analysis</strong>.  A set of requirements
+that has these properties is often referred to as <strong>validated</strong>.
+This term must be used carefully, however, because it can also refer to
+the process of confirming the details and importance of a requirement.
+<P>
+After being manipulated by this process, it may be necessary
+to go back to the various stake-holders
+(including potential users) and get their approval before continuing.
+<P>
+It is also a very good idea to have a change control procedure for
+requirements:
+<UL>
+   <LI> Requirements may represent a contract between a supplier and
+	a customer, so changes to the requirements must be made with
+	the full approval of all parties.
+   <LI> Requirements changes after the start of engineering can 
+	invalidate work that is already done.  Thus, it is important
+	that all changes be carefully weighed, and the affected 
+	parties consulted (or at least notified).
+</UL>
+<P>
+
+<h2>5. Final Requirements</h2>
+<P>
+Prior to the final evaluations and reconciliations, all of our
+requirements were "draft".
+The output of this process is a set of requirements that exhibit all
+of the above virtues.  If all stake-holders can agree on them, we 
+can declare these to be our "final" requirements.  This term must
+be taken with a grain of salt ... because there will almost surely
+be future changes.  In practice, the real meaning of "final requirements"
+is "a list that is, to the best of our knowledge, complete, and error free" ...
+and that isn't bad.
+<P>
+In what form should these final requirements be represented?
+<P>
+<H3>5.1 Forms of Requirements</h3>
+<P>
+It is tempting to want to express all requirements as simple, 
+declarative statements about capabilities and behaviors.  
+This is certainly the most explicit form, 
+the clearest to developers, and the easiest to verify.  
+<UL>
+   <LI> the product must be capable of doing X.
+   <LI> if the user does Y the product must do Z.
+</UL>
+<P>
+Requirements can also be expressed through use-cases that 
+describe scenarios the system must be able to support.  This
+form, while less precise, may be much more understandable to
+end users, and may in fact better capture the actual requirements
+<P>
+Processes may be best captured by flow-charts.  Information 
+presentation may be most easily charcterized by simulated 
+or sketched screen snapshots.  The navigational structure
+of information may be best represented with class or object 
+diagrams.
+<P>
+There are many possible forms in which requirements information
+can be captured.  There is no "best" form ... but there are 
+forms that are better and worse suited to particular applications,
+or particular audiences.  A good representation is anything
+that communicates clearly to the indended audience.
+<P>
+<H3>5.2 Requirements Stability</h3>
+<P>
+We have said that there will almost surely be future changes
+to the (in our dreams) <strong>final requirements</strong>.
+Why?
+<UL>
+   <LI> in many cases, customers do not actually know what
+	they want ... or engineering did a poor job of
+	trying to extract this information from them.
+   <LI> in the process of design, we may discover that
+	some things are much harder to do than initially
+	expected.
+   <LI> new stake-holders (with different needs) may enter
+	the scene after the requirements are finalized.
+   <LI> the technical and competitive markets will continue
+	to evolve during our implementation, and by the 
+	time we are done, new requirements may have arisen.
+   <LI> even if all of our requirements are correct, that
+	is no guarantee that any system that satisfies
+	those requirements will make the customer happy.
+</UL>
+<P>
+These and other forces are always acting on any set of requirements.
+This is why requirements, like schedules, are almost always considered
+to be <strong>living</strong> documents.
+<P>
+<H3>5.3 Requirements vs Specifications</h3>
+<P>
+At the product level, the distinction between requirements and 
+specifications can be a very subtle one:
+<UL>
+   <LI>	requirements identify capabilities that the product
+	must have.  Requirements come (primarily) from 
+	the intended users, and they are the basis for 
+	developing both the specifications and the acceptance tests.
+
+   <LI> specifications describe the form of a product (or component) 
+	and what it must do.  Specifications come from product
+	designers, and they are the basis for engineering
+	plans and designs.
+</ul>
+It is to be expected that the initial product specifications will 
+be based on, and imply the requirements.  If this is not the case, 
+the specified product may not satisfy the requirements.  
+Specifications usually provide a much more complete description
+of a product, and respond to the needs of development, manufacturing, 
+logistics, support, and other (non-user) stake-holders.  As we
+move from product specifications to component specifications, the
+difference becomes more clear ... because specifications 
+include design decisions that were specifically excluded from
+the requirements development process.
+<P>
+The waterfall model suggests that we go through a process of
+requirements elicitation, refinement, and reconciliation, to
+develop final requirements, that are the basis for product
+specifications.  In actual practice, the relationship between
+these activities is iterative.
+<UL>
+   <LI> we gather input
+   <LI> we develop a draft specification in response to that input
+   <LI> we put that specification out for review by potential
+	customers, and by the groups that will have to build the
+	product.
+   <LI> more detailed specifications elicit more detailed 
+	feedback, that would probably not have been triggered 
+	by the broader initial proposals.
+</UL>
+<P>
+It is actually quite common for requirements and specifications
+to evolve in tandem, hopefully with the requirements converging
+and the specifications becoming more complete and detailed with
+each iterative cycle.
+<P>
+A key distinction to keep in mind is that requirements describe the 
+manner in which the product should behave, rather than the manner in 
+which it should be implemented.
+<P>
+<h2>6. Conclusion</h2>
+<P>
+Users!  You can't live with them, and you can't live without them!
+<P>
+They are the people you have to satisfy, but they may not understand
+(or be able to articulate) what they want.  It is probably not possible
+to develop perfect requirements.  If, however, we are careful in our
+identification of stakeholders, the process we use to gather information
+from them, and the process we use to refine that raw input into product
+requirements, we can develop much better requirements.   
+
+</BODY>
+</HTML>

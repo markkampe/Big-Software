@@ -1,0 +1,225 @@
+<HTML>
+<HEAD>
+<TITLE>Testability</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Software Testability</H1>
+	Mark Kampe<br>
+	$Id: testability.html 149 2007-11-14 23:35:46Z Mark $<br>
+</CENTER>
+
+<P>
+We can define the testability of a system or component as
+<OL type=1>
+   <LI> the ease with which a system or component can be tested.
+   <LI> the extent to which testing gives us confidence about correctness.
+</OL>
+<P>
+Viewed in the abstract, software components take inputs 
+(parameters, messages, data structures, files) 
+compute internal state, and generate outputs (calls, messages,
+updated data structures, and files).  In software testing,
+we generate inputs and measure outputs, checking to see that
+the outputs are what we would have expected (as a function
+of the supplied inputs).  In more practical terms, 
+saying that a component is testable means:
+<OL type=1>
+   <LI> we can reasonably generate a range of inputs to
+	thoroughly exercise the component's functionality.
+   <LI> there is enough information in the available outputs
+	to enable us to confidently determine whether or
+	not the component has performed correctly.
+</ol>
+<P>
+The bottom line is that we can, relatively simply and economically 
+gain considerable confidence about a component's correctness.  
+This is clearly a good thing.  But what characteristics of a system
+or component make it <strong>testable</strong>?
+<OL type=1>
+   <LI> Observability of key events and state
+   <LI> Controllability 
+   <LI> Clear Definition of Correctness
+   <LI> Logical Isolatability of Functionality
+</OL>
+<P>
+
+<H2> Observability</h2>
+<P>
+How easy is it to capture the outputs of a component, and
+to what extent do these <strong>observable</strong> outputs
+permit us to infer the correctness of the computation?
+<UL>
+   <LI> If the component under test performs some memoryless
+	function on its input (e.g. sum, factorial, present 
+	worth, discrete cosine transform) we expect a simple
+	1x1 relationship between inputs and outputs.  
+	<P>
+	Given an input and an output, we can easily determine
+	whether or not the component properly processed the
+	supplied input.
+   <LI> If the component under test translates inputs into
+	protocol operations or protocol operations into
+	outputs, we can capture input calls, return values,
+	and messages sent and received.
+	<P>
+	It may be a little more work to capture messages
+	that are sent and received by the application, 
+	but given the inputs, outputs, and all of the
+	messages exchanged, we should be able to determine
+	whether or not the component properly processed
+	the supplied inputs.
+   <LI> If the component's functionality is statefull 
+	(determined by a long history of inputs, or the
+	interactions of inputs form independent sources)
+	there may be no simple relationship between the
+	most recent inputs and the current output.
+	<P>
+	There could be many errors in the component's
+	internal state that would not manifest themselves
+	in any particular output.
+</UL>
+<P>
+If we were not able to capture the input or output messages, 
+then we would not be able to observe enough key events to
+enable us to infer whether or not the component was working
+correctly.  These key events would not be <strong>observable</strong>
+to us.
+<P>
+If we had a way of dumping out the internal state of the
+component after each transaction, we could ascertain 
+whether or not the internal state had been properly
+updated.  If the internal state was not reasonably accessible
+to our testing tools, then this state would not be 
+<strong>observable</strong> to us.
+<P>
+If all key outputs, events, and state of a component can
+be observed by a testing framework, then it should be possible
+to determine whether or not the component is functioning 
+correctly.  If this is not the case, there may be unobservable
+errors hiding within the unexposed state.
+<P>
+When a statefull component, or one with complex outputs is being
+designed, thought must be given to how the state and outputs
+can be made accessible to testing software.
+<P>
+<H2> Controllability</h2>
+<P>
+How easy is it to drive the inputs of a component, and
+to what extent do these <strong>controllable</strong> inputs
+permit us to fully exercise its capabilities.
+<UL>
+   <LI> If we go back to a component that performs a direct
+	transformation on its input (e.g. factorial or 
+	discrete cosine transform) we pretty clearly have the
+	ability to generate any input we want.
+   <LI> If a component makes synchronous (or worse, asynchronous)
+	requests of other components, we may also have to be
+	able to simulate all possible responses from those
+	components (e.g. likely errors).
+   <LI> If the component's function is intrinsically statefull,
+	do we have the ability to accurately recreate any
+	reasonable initial state before running our tests?
+</UL>
+<P>
+If a component has sophisticated interactions with other components,
+we need a plan for simulating a wide range of behaviors on the part
+of the other components.  To the extent that we can do that, those
+inputs become <strong>controllable</strong>.
+<P>
+If a component operates on the basis of accumulated state, we need
+a plan for how we can put the component into any particular initial
+state, so that we assess its behavior to subsequent events.  To the
+extent that we can do this, that initial state becomes
+<strong>controllable</strong>.
+<P>
+<H2> Clear Definition of Correctness</h2>
+<P>
+Would you know correct behavior if you saw it?
+<P>
+This almost has to be a joke?  Right?
+<P>
+Some people attempt to design systems without a clear definition of
+correct behavior.   They do so on the assumption that they can then
+tune (or debug) the system until its behavior is satisfactory.  This
+approach works for training neural networks, but it is not a good plan
+for a designed system.
+<UL>
+   <LI> If you do not have a clear definition of correctness,
+	what will you design your system to do?
+   <LI> If you do not have a clear definition of correctness,
+	how will you determine whether not your system is doing it?
+</UL>
+<P>
+Having clear definitions of correct behavior (in this state,
+given these inputs, the system will xxx):
+<UL>
+   <LI> guides the design and implementation, making it much more 
+	likely that they will be correct.
+   <LI> identifies test cases that need to be run.
+   <LI> tells us what behavior we should expect.
+</UL>
+<P>
+It is even better if the definition of correctness is a
+<strong>concise</strong> one:
+<UL>
+   <LI> a shorter definition is easier to understand
+   <LI> a shorter definition is easier to review, and
+	hence more likely to be correct.
+   <LI> a shorter definition of the desired behavior
+	is likely to lead to a simpler implementation.
+   <LI> a shorter definition of the desired behavior
+	is likely to require fewer test cases to
+	verify it.
+</ul>
+
+<H2> Logical Isolability of Functionality</h2>
+<P>
+Is it possible to build and test each function in isolation, 
+or do we have to exercise everything to test anything?
+<P>
+If nothing works until everything works, we will find testing
+and debugging to be a painful process:
+<UL>
+   <LI> We may have to write a great deal of code before
+	we can start testing any of it.
+	<P>
+	It is much better if each routine or class can
+	be exercised as soon as it is written, and before
+	it is combined with other pieces.
+   <LI> when problems are found, it may be difficult to
+	figure out where in the hierarchy of functions
+	they originated.
+	<P>
+	If we can control the inputs and observe the outputs
+	of a single function, it is relatively easy to figure
+	out what that function did.  If we can only observe 
+	the operation of the entire program, it may be very
+	difficult to figure out where an incorrect result
+	came from.
+</ul>
+<P>
+There may be some components that cannot be tested in perfect
+isolation, but if there is a partial ordering of functionality
+testing that enables us to test all of the other sub-components
+first, we can be relatively sure that new problems are in the
+new code. 
+
+<H2> Conclusion</h2>
+<P>
+A testable system is one about which we can relatively simply 
+and economically gain considerable confidence about its correctness.  
+Testability is a characteristic of both good architecture
+and good design.  It is right up there with modularity in
+terms of its impact, but unfortunately it does not seem to
+receive much attention.
+<P>
+Testability follows directly from a few easily assessed properties
+a design, and this means that it is within our power to create
+components that are highly testable.  More testable components
+mean that we can more easily gain greater confidence of their
+correctness.  As a pleasant side effect, components developed
+with a clear definition of correctness are more likely to be 
+correct in the first case.
+</BODY>
+</HTML>

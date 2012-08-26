@@ -1,0 +1,298 @@
+<HTML>
+<HEAD>
+<TITLE>Data Driven Decisions</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Data Driven Decisions</H1>
+Mark Kampe<br>
+$Id: ddd.html 178 2009-07-27 01:41:26Z Mark $<br>
+</CENTER>
+<P>
+<H2>Introduction</h2>
+<P>
+We have all heard questions of the form: "How can you put a value on X!"
+This is usually a rhetorical question, with the implication that the value
+of X is infinite, or at least an order of magnatude greater than the value 
+of all the other factors combined ... making the decision a no-brainer.  
+Relatively few real-life decisions turn out to be no-brainers ... which
+means we will often be forced to compare apples and Orangutans, to
+put values on each, and to find a solution that optimizes our "goodness
+function".
+<P>
+Different stakeholders will argue, at length, for and against various approaches,
+and very few of the arguments will be so persuasive as to decisively
+resolve the question.  The decisions usually wind up being made by
+some combination of:
+<UL>
+   <LI> the loudest voice.
+   <LI> the most charismatic advocate.
+   <LI> the largest constituency.
+   <LI> the view that most impresses the leader.
+</UL>
+Unfortunately, experience has shown the first two to be (at best)
+uncorrelated go good solutions, and the second two to be highly
+hit-and-miss.
+We would like to be able to reduce such decisions to linear programming
+problems ... but there are a a few major obstacles to that approach:
+<OL type=1>
+   <LI> The "goodness function" is seldom specified.
+   <LI> Most of the attributes of most proposals are non-numerical,
+   	(or have inconformable units) and thus difficult to compare.
+   <LI> The degrees to which the various alternatives contribute
+        to terms of the goodness function may not be completely
+	understood.
+</OL>
+<P>
+<H2>Goodness Functions</h2>
+<P>
+In our personal lives, we get to define our own "goodness functions"
+... and I like to think that as we mature we gain an ever-better
+understanding of their key terms (be they "<i>career advancement</i>", 
+"<i>time with friends and family</i>" or 
+"<i>readiness to have our hearts weighed against Maat's feather of Truth</i>").
+These understandings result from a lifetime of experiences.  How can a
+group of very different people possibly agree on a "goodness function" 
+in a reasonable period of time?
+Fortunately, it is much easier for a group!  It takes most people
+a lifetime to figure out the goals for their lives.  When a
+group of people band together, however, it is usually to achieve fairly clear
+and specific goals (e.g. mastering a skill, getting a good grade on a project, solving a
+problem, building a product, becoming better musicians, etc).  Those goals form the basis for the group's goodness function.
+<P>
+In the Wiegers paper on <strong>Prioritizing Requirements</strong> he suggested
+making a list of the requirements, and assigning a relative weight to each.
+The same approach can be used to deciding how to evaluate proposals.  It is often
+easiest to do this in a top-down manner:
+<OL type=1>
+    <LI> 65% of the weight should be for satisfying basic customer requirements.
+    <OL type=a>
+    	<LI> 50% of the weight should be for the <strong>must-have</strong> requirements.
+	<OL type=i>
+	    <LI> 20% should be for core functionality requirements
+	    <LI> 10% should be for competitive requirements
+	    <LI> 10% should be for ease-of-use requirements
+	    <LI> 10% should be for robustness and reliability requirements
+	</OL>
+    	<LI> 15% of the weight should be for the <strong>should-have</strong> requirements.
+    </OL>
+    <LI> 25% of the weight should be for achieving organizational goals.
+    <OL type=a>
+    	<LI> 15% of the weight should be for progress against our technology roadmap.
+	<LI> 10% of the weight should be for the development of desired capabilities.
+    </OL>
+    <LI> 10% of the weight should be for achieving personal goals.
+    <OL type=a>
+	<LI> 5% of the weight should be for established educational/developmental goals.
+	<LI> 5% of the weight should be on fun and interesting.
+    </OL>
+</OL>
+<P>
+What amazes me, whenever I go through the process of agreeing on weights, is how well it works.
+Even though different stake-holders may have very different perceptions of what
+is important, converging on a set of weightings generally goes smoothely and quickly.
+Why? 
+<UL>
+    <LI> everybody wants the group to succeed, and even though different people 
+         may have very different hopes and fears, their views on what constitutes
+	 success tend to be well clustered.
+    <LI> at each level, it is usually obvious what the most important 2-3 items are,
+    	 and (because of their importance) their weights tend not to be very
+	 controversial.
+    <LI> secondary items are pretty easy to add to the list.  We all probably agree 
+    	 on the list of secondary considerations.  
+    <LI> it is pretty easy to organize the items into three crude buckets (critical,
+    	 important, and valuable). 
+    <LI> the weights of the <strong>critical</strong> items tend not to be very 
+         controversial, and the weights of the <strong>valuable</strong> items
+	 turn out not to matter (their coefficients being sufficiently small
+	 that tweaking them makes no difference).
+</UL>
+<P>
+Not only does this process tend to converge fairly quickly, but having gone
+through this process leaves everyone with a better understanding of all of
+the properties that must to combine in order to achieve success.
+The process of defining goodness by a top-down weight assignment and refinement
+is an effective way to guide complex decisions.  People sometimes fear that
+"decision methodology" will suppress the views of indvidual stake-holders.
+Quite to the contrary, it creates a framework within which all of the competing
+concerns can be combined and balanced.
+<P>
+This appoach is widely used, and not merely in business settings.  It is common
+for grant proposals to be scored in this way (with points awarded for specific
+weighted factors) ... and it is the process that has been used to determine the 
+formula for computing your grade in this course.  
+<P>
+<H2>Comparing Un-Like Quantities</h2>
+<P>
+A proposal must be evaluated in a great many dimensions, most of which do not
+have neatly calibrated axes.  There are three basic 
+approaches that can help with this problem:
+<OL type=1>
+    <LI> reducing characteristics to common units
+    <LI> criterion-referenced scores
+    <LI> don't get hung up on meaningless precision
+</OL>
+<H3>Reduction to Common Units</h3>
+<P>
+In every endeavor, there are a few fundamental units of cost and benefit.
+Whenever possible, all costs should be converted into fundamental cost
+units, and all benefits into fundamental benefit units.
+In commercial enterprises, time and money are often the obvious fundamental
+units:
+<UL>
+    <LI> pursuing any option costs time and money
+    <LI> risks carry likely costs in time and money
+    <LI> having a product by a certain date, is likely to result in a monetary reward.
+         Having a different product, on a different date, is likely to result in a 
+	 different monetary reward.
+</UL>
+This provides a relatively objective basis for assigning a value every 
+option.  Where probabilities are involved (with either costs or benefits)
+we can use expectancies ... or if we want to get really tricky, we can
+do Monte-Carlo simulations against distributions.  
+<P>
+But everything doesn't reduce to money.  There are other kinds of costs
+(e.g. hours away from fun/friends/family, angst/aggrivation, telescope-hours) 
+and other kinds of benefits (e.g. publishable papers, grades, hours of fun).  The
+point is not to reduce everything to dollars, but merely to comparable units.
+If we could distil three project alternatives down to:
+<OL type=a>
+	<LI> 15 days of work, likely to earn 80 points
+	<LI> 20 days of work, likely to earn 90 points
+	<LI> 40 days of work, likely to earn 95 points
+</OL>
+Would this help you to make the choice?
+<P>
+<H3>Criterion-Referenced Scores</h3>
+<P>
+Some things are never going to be numerically reduceable to cost and
+reward units ... but having decided on weighting actually goes a long way 
+towards making them quantifiable.
+<P>
+Suppose we have decided that meeting a certain requirement is worth ten
+points.  We could then define a scoring system:
+<UL>
+	<LI> 10: clearly and completely satisfying the requirement.
+	<LI>  8: likely to satisfy the requirement.
+	<LI>  6: likely to address most instances of the requirement
+	<LI>  4: likely to address most important instance(s) of the requirement
+	<LI>  2: responds to the requirement
+</UL>
+<P>
+It is not hard to come up with a set of criteria for evaluating each
+product characteristic.  But how do we decide what scores to assign to
+partial satisfactions.  A non-arbitrary basis would be the estimated
+probability that the product could still be successful, given the 
+degree of requirement satisfaction.  If we are pushing on the state-of-the-art,
+even partial progress against the goal may represent a major success.  
+If we are talking about a characteristic for which the market already has
+high expectations, even a small shortfall might make the result completely
+unacceptable.  
+<P>
+The shape of the scoring function is driven by an understanding of 
+the nature, importance, and meaning of each requirement.   Fortunately,
+having gone through a requirements elicitation and validation process,
+you are prepared to offer informed opinions on these subjects.
+<P>
+<H3>Meaningless Precision</h3>
+<P>
+None of the above-suggested processes are particularly precise.
+These processes are intended to use our best undersanding of
+our goals and proposals to assess the relative costs and
+probabilities of success.
+It is highly unlikely that any of the results will be "accurate"
+(what ever that might mean) to within 10%.  It is
+a relatively crude process that is intended to:
+<UL>
+    <LI> separate the contenders from the non-contenders
+    <LI> highlight the differences between the contenders
+</UL>
+<P>
+Sometimes a clear star emerges.  Sometimes there are a couple
+of options that all seem equally good ... in which case we can
+shift our attention to a more precise analysis of their key
+differences.  Sometimes there are no survivors ... in which 
+case we at least know how they all fell short, and what a
+winning proposal would need to address.
+<P>
+Because of the relatively large uncertainty in these numbers,
+there is no point in arguing about small differences in
+secondary and tertiary weights or scores.  They won't make
+a difference in the final decision.  Once you have your
+numbers in the right ball-park, move on.  Later, <strong>if</strong> 
+there are multiple contenders, we can try to improve the precision
+of our estimates <i>in the areas where they differ</i>.
+<P>
+<P>
+<H2>Attributes of the Proposals</h2>
+<P>
+So we have a matrix, with columns for each proposal, and (weighted) rows
+for (10-100?) characteristics of each proposal.  All we have to do is
+fill in all the cells, and we have our answer ... but there are a lot of
+cells to fill in.  How are we going to do it?
+<P>
+A good proposal is one that makes it easy to fill in most of the cells
+of a comparison matrix:
+<UL>
+    <LI> it should explain the manner in which it responds to
+         each of the major requirements.
+    <LI> it should (crudely) enumerate the major work items, and
+         estimate the likely size (e.g. power of 2 hours) for each.
+    <LI> it should articulate the major risks, associating a
+         (crude) probability (e.g. high/medium/low) and cost
+	 (e.g. hours/days/weeks/failure) with each.
+</UL>
+This would seem to presume that the decision matrix was known
+before the proposals were written.  Often this is the case
+(e.g. it is common procedure for grant RFPs), but much of
+it is obvious:
+<UL>
+    <LI> the requirements to which the proposal is responding
+     	 should be well known.
+    <LI> the likely costs and risks follow from the proposal,
+         and estimating them is part of preparing the proposal.
+    <LI> each approach is likely to have numerous advantages
+         beyond the manner in which it responds to basic
+	 requirements.  These should be clearly articulated
+	 in the proposal ... and those that are found to be
+	 compelling, will become rows in the comparison
+	 matrix.
+</UL>
+<P>
+The point here is that the values that go in most of the cells
+will be quick and clear.  There will surely be discussions, but
+they are likely to be:
+<OL>
+    <LI> explorations of specific cost and risk estimates.
+    <LI> explorations of how well a particular proposal
+         responds to a particular requirement.
+</OL>
+and these are very valuable discussions to have.
+<P>
+<H2>Summary</h2>
+<P>
+It is not the case that a sound decision-making methodology will eliminate
+all arguments or inevitably lead to a quick convergence on a good decision.
+It can, however, change the arguments, and result in a well-justified decision.
+Instead of arguing about "which proposal is best", the arguments will focus on
+the key elements of success, the probabilities of success and failure of
+various sub-tasks, and the degrees to which particular characteristics are
+likely to contribute to our overall success.   Those are much better arguments
+because:
+<UL>
+    <LI> they focus on issues that are critical to our success,
+    	 encouraging us to "<i>keep our eyes on the ball</i>".
+    <LI> they are sufficiently fine-grained that they are more
+    	 likely to be argued with data, or at least with more
+	 readily justified/evaluated opinions.
+</UL>
+<P>
+To the extent that you can arrange for most of your arguments to be resolvable questions
+about key issues, backed-up by the best available information, your success
+(in all your endeavors) is "in the bag".
+
+<P>
+
+</BODY>
+</HTML>

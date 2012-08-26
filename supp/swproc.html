@@ -1,0 +1,326 @@
+<HTML>
+<HEAD>
+<TITLE>Intro to S/W Process</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Introduction to Software Process Models</H1>
+Mark Kampe<br>
+$Id: swproc.html 9 2007-08-26 20:01:58Z Mark $<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+Process, and Process Models are considered, by many people, to be 
+among the most theoretical areas of software engineering.  This
+view reminds me of the response an Irish musician once gave
+an American interviewer who asked if there was any Irish tradition
+of <strong>fight songs</strong>.  His answer was:
+<UL>
+	Oh, no!<br>
+	When there's fightin' to do, we get right to it.<br>
+	We don't bother singin' about it first.
+</UL>
+Is there, in fact, any value in "singin' about it first"?
+Why should we study and discuss abstract models of development processes?  
+It turns out there are some very practical benefits to this study:
+<UL>
+   <LI> It gives us a richer vocabulary of terms for discussing
+	software development and the ways we propose to organize
+	our work.
+   <LI> Development models are simple ways of organizing
+	development plans, and effective metaphors for describing 
+	them to others.
+   <LI> Different models are not merely abstractions.  They
+	are suited to different types of problems.
+	Choosing the right model sets reasonable expectations,
+	and lays a foundation for an effective attack on the
+	problem.  
+	Choosing the wrong model sets false expectations, and
+	sketches out a plan for failure.
+</UL>
+
+<H2>2. Software Development Activities</h2>
+<P>
+In the readings on formal process models, and agile process we will
+see that there are a great many ways to structure the software
+development process.  All models, however, seem to agree that the
+work can be divided into a few basic <strong>phases</strong>.
+<OL type=1>
+   <LI> <strong>definition</strong> ... figuring out what to build.
+	<P>
+	This includes activities like creating the initial concept, 
+	developing product descriptions, gathering requirements, 
+	and negotiating specifications.
+   <LI> <strong>planning</strong> ... figuring out how to build it.
+	<P>
+	This includes both technical planning (architecture, designs,
+	modeling, prototypes) and managerial planning (people, budgets,
+	schedules) and the validation of those plans.
+   <LI> <strong>construction</strong> ... building it.
+	<P>
+	This includes the coding of both the product and testing
+	tools, unit testing, the development of content and
+	documentation, integration, whole system testing, and
+	acceptance testing.
+   <LI> <strong>deployment</strong> ... getting it to its users.
+	<P>
+	This includes activities like release packaging and product 
+	manufacturing, early access programs, distribution, support,
+	bug-fixing, patches, and on-going maintenance and enhancement.
+</OL>
+<P>
+Exactly what each one of these activities implies may be different 
+for every project, but most of these activities are (in some form)
+applicable to most software projects.  Where people differ is on how
+to structure these phases and activities into a software project.
+<P>
+<H2>3. Software Process Models</h2>
+<P>
+There are a few basic models, into which the above phases are 
+traditionally organized.
+<P>
+<H3>3.1 The Waterfall Model</h3>
+<P>
+The first, and most primitive development model is the 
+<strong>waterfall model</strong> so named because its diagram
+resembles a succession of cascading waterfalls, where each
+waterfall in the cascade feeds the pond that supplies the next.
+It is a simple and intuitive model, where each phase is completed (and verified)
+before the next phase is begun, and the whole sequence culminates
+in a finished product. 
+<P>
+Experience has shown this model to be a simpler solution than most
+interesting software projects will admit of.
+We seldom know enough (about the problem to be solved or 
+the obstacles we will encounter) to enable us to completely specify 
+the solution up front.  As a result, very few problems can actually
+be solved in a simple one-pass waterfall project.
+<P>
+If we cannot solve our problem in one-pass, we will have to solve
+it with a series of successive approximations.  All of the other models
+represent different ways of structuring that succession.
+<P>
+<H3>3.2 The Incremental Model</h3>
+<P>
+Often, we have a grand vision, but we clearly understand how to realize
+only a small subset of it.  If that initial subset would be a useful
+product in its own right, there is no reason for us to even try to
+create the whole grand vision in a single project.
+<P>
+Define, plan, build, and deploy the initial subset that we understand.
+In this process we will learn valuable lessons about both the problems
+to be solved, and how users use the software.  Based on this new information,
+we can define and plan the next release, with additional features.
+<P>
+This model of successive releases is employed in most major software
+projects.  Each successive release is much simpler than the grand vision,
+and we only build the parts for which we have a good understanding of
+the requirements and design.  This approach has the potential to get
+us to our desired end point, in a series of smaller, simpler, safer steps.
+<P>
+<h3>3.3 Iteratitive vs. Incremental (Research vs. Development)</h3>
+<P>
+It is important to recognize the difference between research and development:
+<UL>
+   <LI> a <strong>development</strong> model is appropriate when we are 
+	pretty sure that we know what we want to build, and how to build it.  
+	A development project is expected to culminate in a product..
+   <LI> If we are trying to figure out what we should build, or how to
+	build it, those are <strong>research</strong> problems.   
+	A research project is expected to culminate in answers to questions, 
+	and usually additional questions.
+</UL>
+<P>
+The difference between Incremental and Iterative models is the difference
+between a cascading succession of development projects, and a cascading
+succession of research projects.
+<P>
+If our goal is to figure out what to build (or how to build it), we cannot
+be certain that, at the end of the next cycle of activities, we will have
+a product, or that we will even have a clear definition and plan for a product.
+We may have go through many iterations of definition, planning, construction,
+and evaluation before we are prepared to define and plan a product cycle.
+Because these models go through an unpredictable succession of development 
+cycles, they are often referred to as <strong>spiral models</strong>).
+<P>
+<H3>3.4 Choosing a Model</h3>
+<P>
+The decision of whether to use a waterfall, incremental, or iterative model
+is not a matter of personal choice.  It is a characterization of our goals
+and how confident we are of them:
+<UL>
+   <LI> If we are building a one-time project with clear requirements,
+	and no major problems anticipated, a simple waterfall model
+	is the right one.
+   <LI> If we are planning to deliver a succession of products, each
+	with incremental capabilities, and benefiting from lessons
+	learned in prior releases, an incremental model describes
+	our approach.
+   <LI> If we are investigating potential products or ways of building
+	them, and our goal is to experiment with and validate
+	alternative approaches, a spiral model is the one that best
+	suits the problem.
+</UL>
+You are not forced to choose one model or the other.  You are free 
+to arrange activities and to create a hybrid model that best fits your 
+problem.  
+For instance, it might seem tautological that you can't (or at least shouldn't) 
+build something until after you have figured out what to build.
+But projects often involve building many different things, some
+of which are much better understood than others.  Must we have
+defined <em>everything</em> before we can start building
+<em>anything</em>?  
+<UL>
+   <LI>	If we started building a well-understood task A, and
+	then later found that the best solution to task B 
+	involved a redefinition of task A, we might find
+	ourselves having wasted a great deal of effort.
+   <LI> If we were sure that task A was truly independent
+   	of task B, but the same people would be used for
+	clarifying task B and implementing task A, doing
+	task A first 
+	might be accelerating a low-risk activity at the
+	cost of delaying a higher-risk activity.  It is
+	generally prudent to deal with higher risk problems
+	sooner.
+   <LI>	But if task A was truly independent of task B
+	(in both requirements and resources) applying our 
+	developers and testers to task A while the managers 
+	and architects argued about task B might be a very 
+	good use of both time and resources.
+</UL>
+How safe it is to overlap project phases depends on how confident
+we are that we have correctly understood the work that we propose
+to start sooner.  The benefits from such phase overlap depend on
+whether or not there are different resources that can reasonably
+be working on the different phases in parallel.
+
+<P>
+<H2>4. Processes Definitions</h3>
+<P>
+The high level models describe a general sequencing of activities,
+and set expectations for what kind of a project we are undertaking.
+They do not actually tell us what we have to do.  In section 2, 
+I gave a sample list of activities for each phase, but for any
+given project, this list might have inappropriate or be missing
+important activities.  Any one of those activities (e.g. gathering
+requirements) could be broken down into a more detailed list of
+tasks:
+<OL type=a>
+   <LI> identifying potential stake holders
+   <LI> preliminary requirements elicitation
+   <LI> clarification of unclear requirements
+   <LI> reconciliation of disparate priorities
+   <LI> prioritization of requirements
+   <LI> preparation of requirements specification
+   <LI> validation of requirements specification
+</OL>
+And for each of these tasks, we could, in turn further enumerate
+and refine lists of sub-tasks.  Most large software development
+organizations have such process specifications.  They may spell out
+<UL>
+   <LI> project phases
+   <LI> activities that are expected to be completed during each phase.
+   <LI> tasks and sub-tasks that are included in each activity
+   <LI> what outputs are expected from each activity
+   <LI> project approval decision points, 
+	and how the decisions are to be made.
+</UL>
+<P>
+Many people consider these specifications to be very helpful, as
+they guide the project team from one step to the next, and clearly
+spell out what is expected of them at each point.  Other people
+consider such specifications to be meddlesome micro-management,
+focusing on forms and process rather than working software.
+There is validity to both views.  More enlightened processes
+ensure that the important things are covered while giving 
+projects wide lattitude in the interpretation of requirements
+and means of demonstrating satisfaction.
+<P>
+<H3>4.1 Checklists</h3>
+<P>
+It may be tempting to thing of check-lists as mnemonic aids for
+people who have not yet mastered the concepts.  This would be a
+mistake.  
+Jet Fighter pilots are some of the smartest, proudest, and highly 
+trained people in the world, and they depend heavily on check-lists.
+They do not use check-lists because they haven't been adequately
+trained, or haven't yet memorized the procedures.  They use check-lists
+because they perform complex tasks, where any mistake is
+likely to result in disaster.  In times of emergency, when response
+time is most critical, they still adhere rigorously to their check-lists.
+Check-lists are for people who can't afford to make mistakes.  
+<P>
+Most software process definitions, and most software engineering texts,
+contain numerous check-lists: things that you should make sure have 
+been covered.  There is considerably more variation among software
+projects than there is in flight operations, which means that these
+check-lists are not as comprehensive, and may contain steps that are
+not applicable to all projects:
+<UL>
+   <LI> it is easy to say "not applicable" as you run your finger
+	down the check list.
+   <LI> if you find important considerations that are missing from
+	the standard check-lists, create your own.
+</UL>
+Don't gloss over those minute details, or resent the seemingly endless
+lists of items to check.  Every item on those lists is there because
+smart people have forgotten about them, and come to bad ends as a result.
+Check lists represent a great deal of collected wisdom.  Using them will
+save you a great many mistakes, and make you a much better engineer.
+<P>
+<H3>4.2 Process Taxonomy</h3>
+<UL>
+   <LI> phase<br>
+	broad characterization of the evolutionary state of
+	a process.  Typical phase names (e.g. definition, 
+	planning, construction, deployment) have been discussed,
+	but different organizations can define different sets
+	of phases for a project.  The real meaning of a phase
+	is best understood by the activities it encompasses.
+	<P>
+	The transition from one phase to another is often
+	accompanied by a review and approval.
+   <LI> task<br>
+	a well defined assignment, involving enumerated steps,
+	to be carried out by a specific person or group.  A
+	task might be the development and execution of a
+	unit test suite for a particular module.
+   <LI> activity<br>
+	general characterization of work, that may encompass
+	a great many tasks: unit testing might be an activity
+	within the construction phase.
+	<P>
+	Some people use the term <strong>task</strong> to refer
+	to something that has a clear beginning and end (e.g.
+	reading this article), whereas an <strong>activity</strong>
+	(e.g. learning software engineering principles) may 
+	continue indefinitely.
+   <LI> work-product<br>
+	any process-defined output of a task.  They might
+	be primary products (e.g. code), key inputs to other
+	tasks (designs), or evidence of compliance (review
+	or test reports).
+	<P>
+	Any work-product definition must specify the
+	required content and qualities, and many organizations
+	specify standard forms for each standard work product.
+	Many people believe that all specified work products
+	should be inputs to subsequent process steps.  
+	<UL>
+	   <LI> don't specify it unless you plan to measure it.
+	   <LI> don't require it unless you plan to use it.
+	</UL>
+</UL>
+
+<h2>5. Conclusions</h2>
+<P>
+An understanding of the basic process models and taxonomy enables
+us to more intelligently plan and discuss projects.  An understanding
+of the relationship between abstract software process models and 
+real software processes keeps those discussions real (useful).
+</BODY>
+</HTML>
+
+

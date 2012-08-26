@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<TITLE>Content Architecture</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>An Introduction to Content Architecture</H1>
+Mark Kampe<br>
+$Id: contentarch.html 120 2007-11-01 03:17:50Z Mark $<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+Algorithms, routines, and programs come into being as elaborations 
+of an already conceived design.  That design may evolve
+based on understandings we gain during its implementation, but we
+cannot write even a single line of code until we have some 
+conception of how the program will work.
+The same can be said for data structures.  
+We quickly form a sense of the key domain objects and their
+properties and relationships to one another, and this guides
+even our earliest design and implementation efforts.
+The design of application objects, and the underlying data 
+structures and algorithms are well taught in computer science courses.
+<P>
+The advent of HTML, browsers, and the world wide web has given rise 
+to new (and very different) classes of application that are more dominated
+by content (information to be displayed) than 
+functionality (services to be performed).  
+Because web sites are so easy to build, 
+they often start out as an assembly of content, 
+whose structure is added in afterwards.
+For simple web sites, this may be an economical prototyping approach.  
+For more complex web sites, 
+it can result in poor usability and considerable rework.
+<P>
+The same skills that we apply to develop a system architecture
+can be (very profitably) applied to the task of structuring 
+content-rich applications.
+This paper is intended as a superficial introduction to the emerging 
+disciplines of <strong>Content Modeling</strong>, 
+and <strong>Relationship</strong> 
+and <strong>Navigation Analysis</strong>.
+<P>
+In this paper, I will use the term "application" rather than "web site" 
+to describe the things we are designing, 
+because the principles apply equally to any content-rich application, 
+whether it is implemented via HTTP/HTML or code and GUI.
+<P>
+
+<H2>2. Content Models</h2>
+<P>
+We begin by defining what the "content" portion of our
+application is.  There are two general approaches to this
+problem:
+<UL>
+   <LI> enumerate all of the various types of document, images,
+        audio, etc, that will be accessible through this
+	application.
+   <LI> look at the user' world-view (as described in the use
+	cases and user interviews) and describe the implied
+	hierarchy of user-visible objects.
+</UL>
+<P>
+These two approaches are actually high complementary, with the
+former approach generating a list of content that must be 
+accommodated and the latter generating a structure into which
+it can be organized.  Elaborating this model (e.g. as a UML
+class model) will bring us to a better understanding of the 
+various content-subtypes, and the attributes associated with each.
+Note, however, that there may not be a simple one-to-one mapping
+between content-subtypes and user-view objects.  In such cases,
+it is critical that the mapping from user-view to specific content
+items be well defined.
+<P>
+The content model should be reviewed:
+<UL>
+   <LI> by the intended users, to ensure that it matches their
+	world view, and satisfies their expectations.
+   <LI> by the content providers, to ensure that it encompasses
+	all of the content they are intending/able to provide.
+   <LI> by domain experts, to ensure that it reasonably captures
+	the key attributes of each content object.
+</UL>
+
+<H2>3. Relationship Analysis</h2>
+<P>
+The next step is to map out <strong>all</strong> of the relationships 
+among objects in the content model.
+Many of these relationships will be obvious
+(aggregation, composition, and direct reference).  
+Other associations may not be obvious from the basic class
+hierarchy, but may be implied by use cases 
+(e.g. the ability to get from a customer to any order that customer
+has submitted).
+<P>
+Relationships among obvious application domain objects 
+(e.g. items in a sales catalog) are not difficult to map.  
+For some content, however, the structuring relationships may
+be less clear cut (e.g. how we might organize music or
+family pictures).  In such cases we must look for inherent
+sub-classes (e.g. musical pieces in the same genere, or by
+the same performers), or we may even have to make up an
+organizational structure (e.g. vacation pictures by trip,
+family pictures by event, etc).  What ever axes we choose
+to sub-class our content and establish interconnections must
+make sense in the world view of our intended users.
+<P>
+This process may lead to the breaking up of composite objects into
+distinct sub-pieces, or the creation of new association classes to
+represent non-obvious relationships.  Each of these must have a
+rational mapping into the users' world view.
+The result of this process will be a richer version of the content
+model, which must again be reviewed.
+<P>
+Once we have (what we believe to be) a fairly complete model of
+the content objects and their relationships, what remains is to
+propose the mechanisms by which the implied object hierarchy will
+be navigated.
+<H2>4. Navigation Analysis</h2>
+<P>
+Deciding how users will navigate the object hierarchy breaks down
+into two (largely independent) sub-analyses:
+<OL type=1>
+   <LI> which relationships are users likely to need to traverse,
+	how often, and under what circumstances?
+   <LI> what user-interface widgetry should we use to 
+	represent and implement each traversal?
+</OL>
+<H3>4.1 Understanding Navigational Requirements</h3>
+<P>
+Some objects will be primary entry points into the hierarchy:
+<UL>
+   <LI> the user interface might start out at such an entry-point.
+   <LI> the user interface might include some widget (e.g. a
+	selection item, menu, or drop-down list) from which primary 
+	entry-point objects can be selected at any time.
+   <LI> it might be possible to select primary objects based
+	on specified search criteria, and the user interface
+	might include a search window or some other obvious
+	widget for entering search criteria.
+</UL>
+We must identify which objects are the primary points of entry
+into the content hierarchy, and the general manner in which the
+desired object can be chosen (e.g. range of valid search criteria).
+<P>
+Just as some objects will be viewed as primary, so will some
+interconnections.  From our use-case scenarios, or perhaps
+just from our understanding of the object model, we can identify
+some relationships that we expect to be traversed "all the time".
+These must be recognized so that we can give them a clear
+visual representation, and a traversal mechanism that involves
+a minimum amount of user effort (e.g. a short mouse movement
+and single button click).
+<P>
+Other interconnections will be designated as being secondary (not all 
+the time, but regularly) or tertiary (only used in exceptional situations).  
+Knowing that a relationship is tertiary gives us the latitude to 
+represent it in a less obtrusive way (thus reducing visual clutter)
+or to require more elaborate interaction in order to traverse it.
+<P>
+Note that in this process, we may find that we create new
+objects, relationships, and navigational requirements.  
+Suppose that a search can return a long list of objects
+(e.g. recipies).  We will need a way to browse that list 
+(forward or backwards in large or small increments) as well 
+as a means to select desired recipies.  Thus, even if we
+didn't consider "list of returned recipies" as an class in
+our original model, that class might well emerge as an 
+artifact of decisions about how to select and navigate a
+large database of recipies.
+<P>
+<H3>4.2 Selecting Navigational Idioms</h3>
+<P>
+The available navigational idioms (links, tabs, action bars,
+right-click menus, etc.) may be fundamentally constrained by 
+our user interface technology, and further limited by the 
+basic User Interface design.  The selected user interface
+technology and toolkit will support only certain types of
+widgets, and our choices are limited to these.  There may
+also be a higher level product style-guide that dictates
+whether we should use (for instance) tabs, menus, or action bars.
+<P>
+From the available widgets:
+<UL>
+   <LI> some may involve only a mouse click in the
+	active region of the screen.
+   <LI> some may involve moving the cursor to another
+	area of the screen and clicking a choice.
+   <LI> some may involve interacting with menu systems.
+   <LI> some may involve multi-step navigation
+   <LI> some may involve complex dialogs (themselves involving
+	entering information and making selections).
+</UL>
+For each object, and for each traversable relationship from
+that object, we must define the widgetry through which the
+user will be enabled to traverse that link.
+<P>
+The quicker and more central mechanisms should be used for the
+most commonly followed paths.  The peripheral mechanisms may be
+better suited for less common actions and relationships.  More
+obscure and complex interactions should be reserved for exceptional
+situations.  It is not sufficient, however, to merely assign
+widgets to relationships in a way that minimizes hand motion.
+If the proposed user interface is to be learnable, there must
+be a consistent set of principles that determine which types
+of relationships are mapped onto which types of widgets.
+In similar situations, users should be presented with similar
+options with similar placements and representations.
+Consistentcy of organization, metatphor, placement, and presentation
+make a system much easier to learn and use.
+In all cases we must ask whether or not it will be
+obvious to the user what is options are, and how to accomplish
+all reasonable (at this juncture) objectives.
+<P>
+We must also consider how the user can reverse each decision,
+or recover from an accidental mis-choice at any juncture.
+It would be unfortunate if <strong>one</strong> misplaced 
+mouse-click could result in data loss, or necessitated a
+long and complex series of interactions to get back to
+the place where the error was made.
+Sometimes, the answer may be to do all navigation on a
+stack, and to provide a "back" operation to return you
+to the previous state and contents.  We may decide that
+a stack only makes sense for a few relationships, but we
+still have to consider how a user will be able to recover
+from mistakes like following the wrong link.
+<P>
+<H2>5. Conclusions</h2>
+<P>
+We use methodology to guide us through processes that are too
+complex or critical to be trusted to chance.  A content-rich application
+whose content parallels an obvious world-view will be easier to understand.  
+Navigation that has been designed with consideration
+for the full range of relationships, and the manner in which users are
+likely to want to traverse them is likely to be more convenient and intuitive.
+<P>
+The application of content modeling, and relationship and navigation
+analysis to such problems can help us to reliably achieve these goals.
+<P>
+<H2>Further Reading</h2>
+<P>
+A more complete discussion of Content Modeling can be found in a 2001
+paper by Sridhar and Mandyam,
+<A Href=http://www2002.org/CDROM/alternate/698>
+"Effective Use of Data Models in Building Web Applications"</A>.
+<P>
+Relationship Navigation Analysis is a much richer field than is implied
+by the simple suggestions made above.  A (non-trivial) introduction to
+the richer subject can be found in a 2000 paper by Yoo and Bieber,
+<A Href=http://web.njit.edu/~bieber/pub/hicss00/INWEB02.pdf>
+"Toward a Relationship Navigation Analysis"
+</A>.
+</BODY>
+</HTML>

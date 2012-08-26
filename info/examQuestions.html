@@ -1,0 +1,195 @@
+<html><head><title>Testing</title>
+
+
+
+<style type="text/css">
+P.quest		{font-style: tt; color:green}
+LI.quest	{font-style: tt; color:green}
+P.ansr		{font-style: italic; color:blue}
+</style></head><body>
+<center>
+<h1> Testing (quizzes, and exams)</h1>
+<h2> Instructor: Mark Kampe</h2>
+</center>
+
+<h1>Quizzes</h1>
+<p>
+All of the quizzes combined are worth a measurable fraction of the
+course grade, and each quiz covers
+one day's assigned reading.
+One will be given in the first five minutes of every lecture period for 
+which reading was assigned.  
+The primary purposes of the quizzes is to encourage you to do 
+the reading, and thus come to each lecture well prepared to understand the
+material that will be presented.  A secondary purpose of the quizzes is to
+enable me to assess what concepts you are having trouble with, so that I
+can give them greater emphasis in future lectures.
+</p><p>
+Each quiz will have four or five questions.
+Quiz questions usually ask for the definition of a key term, distinctions
+between two key terms, or examples of a key concept.  Most quiz questions
+can be answered in a single sentence (or even a few words).
+</p><p>
+There are no make-ups for missed quizzes.
+</p><p>
+</p><h2>Typical quiz question, and full credit answer</h2>
+<p>
+</p><ul>
+<p class="quest">
+What is "white box testing"?
+</p><p class="ansr">
+White box test cases are informed by an understanding of the
+design of the component to be tested.
+</p></ul>
+<p>
+
+
+</p><h1>Exams</h1>
+<p>
+There are two exams, each covering
+approximately 14 lectures worth of material.  
+The first will be given near the end of the eighth week.
+The last is given during the final exam period.  
+These are closed book exams.
+The purpose of these exams is to determine whether or not you understand
+the key concepts that have been discussed in the preceding lectures and
+chapters.
+</p><p>
+A typical exam will be comprised of roughly 10-20 questions.  
+Some may ask for definitions and examples, but most will ask you to 
+describe how or why something works, to contrast related concepts, 
+to explain which principles are applicable, or to predict what would 
+happen in some situation.  
+The vast majority of these questions will pertain to designated 
+<a href="keys.html">key concepts</a>, 
+and in most cases the answers will have been presented in 
+the text, the lectures or both.  Most exam questions have brief (2-4
+sentence or a simple diagram) answers.  Though there will be a few
+more difficult questions.
+</p>
+<p>
+</p><h2>Typical concept exam question, and full-credit answer</h2>
+<p>
+</p><ul>
+<p class="quest">
+Define "Legacy Software", and explain why it is difficult to maintain.
+</p><p>
+</p><p class="ansr">
+	Legacy software is software that is old, but is still used for
+	critical business functions, and that the customers don't want
+	to replace (for fear of disrupting their business).
+</p><p class="ansr">
+	It is hard to maintain because it has far-outlived its design,
+	is technologically obsolete, increasingly hard to add new
+	features to, and the original designers are long gone.
+</p></ul>
+</p><p>
+</p><h2>Typical practical exam question, and full-credit answer</h2>
+<p>
+</p><ul>
+<p class="quest">
+Create a UML diagram for the interaction between a user and digital camera, 
+where a half-press checks focus/exposure (confirmed w/lights), and a full 
+press takes a picture (confirmed w/beep).
+</p><p>
+</p><p class="ansr">
+<IMG src=sol6b.JPG>
+</p>
+</p></ul>
+</p><p>
+
+</p><h2>Typical difficult exam question, and full credit answer</h2>
+<p>
+</p><ul>
+<p class="quest">
+Consider the version and change control needs of two different environments, 
+and suggest an appropriate source tree strategy and version/change control 
+discipline for each.
+</P>
+<UL>
+<p class="quest">
+	(a) a new (not yet delivered) ten person project, 
+	where each component has a single primary engineer.
+</P>
+<p class="quest">
+	(b) a three hundred person engineering department, 
+	supporting dozens of projects on a large source-base for a 
+	mature product that does weekly builds.  
+	A particular component may or may not have a primary engineer, 
+	but many people might have occasional need to change that component 
+	(for bug fixes, or to add features for their own projects).
+</P>
+</UL>
+<p class="quest">
+The next three questions are general, and do not refer specifically to the above situations.
+</P>
+<UL>
+<p class="quest">
+	(c) discuss the respective advantages of blocking and warning when 
+	someone attempts to check out a module that someone else is already 
+	working on.
+</P> <p class="quest">
+	(d) why would a change control system need to know what version someone 
+	started with when they attempt to check-in a change.
+</P> <p class="quest">
+	(e) suggest two different and reasonable ways of dealing with the 
+	problem in part (d).
+</P>
+</UL>
+</p><p class="ansr">
+(a) ten person new project
+</p>
+<UL><p class="ansr">
+	People can safely make all of their changes to the live sources,
+	because nobody else should be making conflicting changes or be
+	adversely affected by their work-in progress.
+</p></UL>
+<p class="ansr">
+(b)300 person stable product
+</p>
+<UL><p class="ansr">
+	In this situation there should be a master source tree, and only
+	completely tested projects ready to integrate back should be 
+	checked in to it.  Work in progress should be done in a local
+	copy of that source tree, and the many changes made in that 
+	working tree should be put back into the master tree as a single 
+	huge transaction when the project is ready to integrate.
+</p></UL>
+<p class="ansr">
+(c) block vs warn<br>
+</p>
+<UL><p class="ansr">
+	Blocking a second person from checking out a source for change
+	is an effective way to prevent conflicting check-ins ... but it
+	precludes coordination as described below.  Warnings allow people
+	to continue and manage the conflict in their own way ... but it
+	leaves open the possibility of a failed put-back later.
+</p></UL>
+<p class="ansr">
+(d) knowing starting version
+</p>
+<UL><p class="ansr">
+	Knowing what version someone started with enables the change control
+	mechanism to detect check-ins that may have been invalidated by 
+	intervening changes made by other users between the time of check-out
+	and check-in. 
+</p><p class="ansr">
+	It also enables the version control mechanism to figure out exactly
+	what changes you made (by comparing it with your starting point).
+</p></UL>
+<p class="ansr">
+(e) conflicting check-ins
+</p>
+<UL><p class="ansr">
+	We could try to preempt the conflict, by noticing someone else was
+	already working on the module and talking to them about how to 
+	coordinate our changes.
+</p><p class="ansr">
+	Alternatively, the second person to put-back could re-check out the
+	updated version and re-make their changes to the current version.
+</p></UL>
+
+<p>
+
+
+</p></body></html>

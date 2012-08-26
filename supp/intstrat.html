@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>Integration Strategy</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Integration Strategy </H1>
+version 1.0<br>
+Mark Kampe<br>
+$Id: intstrat.html 7 2007-08-26 19:52:08Z Mark $<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+Many people talk about phased or incremental integration,
+or top-down vs bottom-up, as if it were a matter of taste
+(like which shirt to wear), or perhaps an article of conviction
+(like which end of a soft-boiled egg you should crack). 
+Nothing could be further from the truth:
+<P>
+<UL>
+   <LI> integration strategy is the order and manner in
+	which independent pieces of a system are combined.
+   <LI> integration order needs to parallel the order
+        in which components are built.
+   <LI> the order in which components are built responds
+	to the integration strategy, but is also driven
+	by risk and resource issues.
+   <LI> the testing strategy is driven by the order and
+	context in which components can be tested, which
+	is determined by the integration strategy.
+   <LI> the manner and order in which components can be
+	incrementally assembled is largely dictated 
+	by the system architecture.
+</UL>
+<P>
+Integration strategy is also often discussed as if we had 
+a bunch of complete components, and were just trying to
+figure out the order in which we should add them to the
+system.  In new products, components usually continue
+to evolve after their initial integration.  The integration
+strategy must order, not only the components, but the
+implementation of features and functions within each 
+component.
+<P>
+Integration strategy is a crucial and inseparable element
+of the product architecture and project development plans.
+A good integration strategy is one that, in combination with
+the architecture:
+<UL>
+   <LI> makes it possible to build and test a relatively complete 
+	(tho perhaps initially boring) product from day one.
+   <LI> allows components to be constructed independently,
+	and in a natural order (as dictated by risk, resources,
+	and other external drivers).
+   <LI> allows components to be integrated in an incremental
+  	fashion to ease testing and debugging.
+   <LI> provides a meaningful framework for each new component
+	to integrate into.
+   <LI> makes it possible to integrate and exercise earlier
+     	components without having to wait for later components.
+   <LI> delivers incrementally usable and testable functionality
+	with successive integrations.
+   <LI> reduces the impact that delays or difficulties in
+	the construction of one component can have on others.
+</UL>
+<P>
+Many discussions of integration strategy are predicated on the
+assumption that we are combining multiple components that have
+never seen one-another before.  This is probably the worst-case
+scenario, and the one that demands the most thorough analysis.
+It is not, however, a common situation.  More common are
+situations where there is an existing system, into which a few
+new components and functions are to be introduced.  In such
+cases, the integration will be incremental, and the starting
+point is a given ... but careful consideration may still be 
+required in the introduction of new functionality.
+<P>
+<H2>2. Integration and Testing</H2>
+<P>
+There are three principles of testing that bear on 
+integration strategy:
+<OL type=1>
+   <LI>	Test new code as soon and thoroughly as possible.
+   <LI> Test component interfaces as soon and thoroughly as possible.
+   <LI> Add new functionality and then test it in small, progressive increments.
+</OL>
+<P>
+All three of these principles follow from the simple realizations 
+that it is easier to test a small amount of code than a large amount 
+of code, and it is easier to test a change, when the pre-existing
+code was known to be working.
+<P>
+We can always build a special test harness to exercise new code,
+but it is often preferable to exercise the new code in a complete
+system:
+<UL>
+   <LI> The complete system often has external interfaces (e.g. driving
+	GUIs, command line arguments, or input files) that can be used
+	to drive scenarios.
+   <LI> Exercising a component in a complete system tests it in a more
+	realistic environment.
+   <LI> Custom exercise harnesses are always extra work, and usually
+        thrown away as soon as the component can be integrated into
+	a more complete system.
+</UL>
+<P>
+Thus, for each component, we must ask ourselves how we will exercise it
+in its early stages of development.  An integration strategy that provides
+an exercise frameworks for new components as they are added is a good one.
+Note, however, that custom exercise harnesses are not always a bad idea.
+Some components have such rich and complex interactions with other 
+components, that unit testing can be performed much more efficiently
+and effectively with a custom exercise harness.  In these cases, the
+component should be designed with the exerciser in mind, and the 
+exerciser should be built to last ... because it may continue to be
+the preferred means of unit testing changes to the component, 
+even after integration has completed.
+<P>
+It is often desirable to verify that a component correctly implements
+the specified interfaces with unit test cases (whether applied to
+the component in-vacuuo or in-situ).  Many problems, however, result
+from misunderstandings of the interface specifications.  The best way
+to shake out such problems is by combining the interacting components
+and exercising them together.  In planning the integration order of
+components and functionality, we should ask when we will be able to
+exercise each interfaces, which components need to be present (with
+what level of functionality) to begin such exercising, and how we
+will drive the testing.  The integration strategy should ensure that
+as soon as two components are available, it will be possible to exercise
+and observe their interactions.
+</UL>
+<P>
+<H2>3. Integration and Scheduling</H2>
+<P>
+It is prudent to schedule riskier activities sooner.  If it is going
+to take a while to get a tricky component right, starting it sooner
+reduces the likelihood that those difficulties will cause us to miss
+our schedule.  If we expect to encounter problems in the construction
+of a new component, we have to be prepared to change our plans in
+response to those problems.  Conducting those investigations up front
+gives us the opportunity to change our designs before building the other
+components that might be affected by those changes.  There may be other
+reasons to schedule some components sooner than others (e.g. we plan
+to use them as learning exercises, or they may require resources that
+will not be available later).  The point is that external considerations
+may determine the relative order in which some components are to be
+built.
+<P>
+The product integration strategy must acommodate such requirements,
+making it possible to integrate (giving them set of components with
+which they can be combined) and test (providing a framework for exercising
+them and observing their behavior) components in the order in which
+their construction must be scheduled.
+<P>
+<H2>4. Integration and Architecture</H2>
+<P>
+The architecture of a system resolves its functionality into distinct
+components, and defines the functions of each component, and the interfaces
+between them.  When we talk about integration strategy, it is natural to
+describe that strategy in terms of which components will be introduced,
+in which order, with what subsets of their specified interfaces and
+functionality.
+<P>
+When we define each component, we must consider:
+<UL>
+   <LI> how we would construct dummy versions of that component 
+        that would permit complete systems to be built, even though 
+        none of the components was actually complete.
+   <LI> how the specified interfaces would enable us to drive
+	unit test cases ... ideally with the component embedded
+	in a complete system.
+   <LI> how we would provide simple simulations of later components
+	to enable earlier components to be tested as soon as possible.
+   <LI> how we would determine who was at fault when new versions
+	of multiple components interacted for the first time.
+   <LI> the increments in which that component's functionality
+        should be delivered, and how these should be phased with
+	the functionality of other components in order to enable
+	new features to be tested as soon as they are ready.
+</UL>
+<P>
+The architecture of the system, and each of its sub-components must
+be designed to support an integration strategy.  The integration
+strategy dovetails a testing strategy with an implementation 
+schedule.  The integration strategy is ultimately dictated by 
+the schedule and the architecture.  
+None of these can be designed without considering the others.  
+<P>
+As I have said may times before,
+<strong>architecture is compromise</strong>.
+<P>
+</BODY>
+</HTML>

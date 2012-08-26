@@ -1,0 +1,320 @@
+<HTML>
+<HEAD>
+<TITLE>Testing Harnesses</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Testing Harnesses </H1>
+Mark Kampe<br>
+$Id: testharness.html 7 2007-08-26 19:52:08Z Mark $<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+<P>
+When we think about a test case, we probably think something like:
+<UL>
+	<LI> run program P with arguments A and input I
+	<LI> ensure that the output (O) satisfies requirements R.
+</UL>
+This is, in fact, a reasonable characterization of a test case.
+When we are defining test cases, we don't spend much time thinking 
+about:
+<UL>
+	<LI> how a system will come to have program P installed on it
+	<LI> how program P will come to be run
+	<LI> who will pass it the specified arguments (A)
+	<LI> who will create the specified input files (I)
+	<LI> who will capture the output (O)
+	<LI> how we will determine whether or not the output (O) 
+		satisfies the requirements (R)
+</UL>
+These are important logistical details, that we would like to have
+someone else take care of for us.  These things are normally handled
+by a <strong>test harness</strong>.
+<P>
+The primary characteristics of a good test case include:
+<OL type=1>
+	<LI> <strong>automation</strong><br>
+	It is possible to run the test case without human assistance.
+	<LI> <strong>reproducibility</strong><br>
+	If the same tests are run on the same target, they will 
+	reliably yield the same results.
+	<LI> <strong>isolation</strong><br>
+	The results of any particular test case do are not affected
+	by whether or not any other test cases have been run.
+	<LI> <strong>completeness</strong><br>
+	It includes everything that is necessary to set
+	up, run, evaluate, and clean-up that test case.
+</OL>
+What is interesting about these all of these characteristics is they
+have more to do with the test harness than they do with the actual
+test case {P,A,I,O,R}.  Good test harnesses are critical to good
+testing.  A good test harness makes it easy to:
+<UL>
+	<LI> write and add new test cases
+	<LI> organize test cases into test suites
+	<LI> run desired tests regularly, or whenever they are needed
+	<LI> produce easily digested reports of each test run
+</UL>
+In summary, a good test harness encourages both good and regular testing.
+<P>
+<H2>2. Basic Functionality</H2>
+<P>
+There are many different types of test harnesses, adapted for testing
+different types of software, and providing different features.  All,
+however, impose a fairly standard form on each test case:
+<OL type=1>
+	<LI> set-up
+	<LI> test execution
+	<LI> assessment
+	<LI> clean-up
+	<LI> reporting
+</OL>
+<P>
+<H3> 2.1 Set-up</h3>
+<P>
+Many test cases require nothing more than a system with the
+appropriate software installed.  Others, however, may have
+complex preconditions (directories of files with specified
+contents and characteristics, established connections to other
+services, pre-initialized databases or program state, etc).
+<P>
+Before running actual test case, the test harness will first
+invoke a test case set-up method, whose purpose is to create the specific
+context in which this test case is expected to run.  It is the
+set-up method that ensures the <strong>completeness</strong> of
+the test case.
+<P>
+<H3> 2.2 Test Execution</h3>
+<P>
+The test-case itself will usually involve one or more program or
+method invocations, with specified parameters, operating in the
+context established by the set-up method.  
+<P>
+Once the set-up is complete, the test harness will invoke a
+test-case execute method.  This method is responsible for
+initiating the specified actions, as well as capturing return
+codes and any other output.
+<P>
+Given that the system has been put into the correct initial state
+by the set-up method, and that the test case always executes the
+specified test actions in the same way, we should have a high
+expectation that our results will be reproducable.
+<P>
+<H3> 2.3 Assessment</h3>
+<P>
+After the test case has been executed, we need to examine the captured
+return codes, and output, any files that may have been modified, 
+any messages that may have been sent, etc.
+<P>
+After the test case actions have been executed, the test harness will
+invoke a test-case assessment method.  This method will examine all of
+the captured results, and determine whether or not the test case completed
+successfully.  It may also produce additional diagnostic information to
+further clarify the tested program's performance, or to better characterize
+the any failures.
+<P>
+In some cases, this assessment is as simple as comparing the return codes
+and output with "golden values" (copies of <strong>correct</strong> results).
+In other cases they analysis may be require complex processing.  However
+the correctness determination is made, the assessment method is responsible
+for reducing all of the produced information into a simple PASS/FAIL indication.
+<P>
+<H3> 2.4 Clean-up</h3>
+<P>
+After the actions have been performed and the results assessed, it is 
+necessary to completely clean up the test environment to restore the
+system to its initial (before we started this test-case) state.  
+<P>
+The set-up and clean-up methods create are supposed to insure the
+<strong>isolation</strong> of the various test cases.  Each test case
+leaves the system in its initial state, so as not to affect the execution
+of any other test cases.
+<P>
+<H3> 2.5 Reporting</h3>
+<P>
+A test harness is typically asked to run a great many test cases, and
+to produce a report of their execution.  These reports often contain
+a great deal of information (the times at which each test case was run,
+and diagnostic output associated with each action).   Usually, however,
+they also include a summary report, which simply lists the test cases
+that were run and whether each passed or failed.
+<P>
+<H2>3. Testing Different Types of Software</H2>
+<P>
+The above description is very general, and is applicable to most of 
+the hundreds of commercial and open-source testing frameworks in
+use today.  The above described steps take very different forms with
+different types of software.
+<P>
+<H3> 3.1 Whole Program Testing</h3>
+<P>
+When whole programs are to be tested, it is common to write each
+of the test-case methods in some command scripting language
+(bash, perl, javascript, etc).  In addition to the scripts for each
+of the primary methods (set-up, execution, assessment, clean-up),
+the test case may also include a directory full of data that can
+be used to provide input, initialize files, etc.
+<P>
+The test harness typically initializes a set of (well defined)
+environment variables to the locations where the target software
+resides, where test-case data files can be found, where temporary
+files can be created, where output can be placed, etc.  
+<UL>
+	<LI> The set-up script creates an appropriate file context.  
+	<LI> The execution script runs the target commands with the 
+	     specified arguments and captures the results. 
+	<LI> The assessment script examines the captured results
+	     and determines whether or not they are correct 
+	     (perhaps by comparing them with golden output samples).  
+	<LI> The clean-up script deletes all of the files created
+	     by the execution of the test case.
+</ul>
+<H3> 3.2 Routine Testing</h3>
+<P>
+When routines are to be tested (rather than whole programs), it is
+common to create a routine to carry out each test case.  This routine
+will call:
+<UL>
+	<LI> a set-up routine to create the required context.
+	<LI> an execution routine to make the calls to be tested
+	     and capture results.
+	<LI> an assessment routine to determine whether or not the
+	     test case succeeded.
+	<LI> a clean-up routine to restore the environment to its
+	     previous state.
+</UL>
+The test case routines are then configured into a table, which
+is combined with a standard test-program (that comes with the
+testing harness) to build a test program.  When the test program
+is executed, it will work its way through all of the configured
+test cases, calling each of the basic methods, and gathering the
+results.  After all tests are complete, the test program generates
+a test report.
+<P>
+Routine testing harnesses tend to be language-specific, or perhaps
+to have different versions to provide the same services for testing
+routines written in different languages (e.g. xUnit has bindings for
+most major programming languages: JUnit, CUnit, CPPUnit, PyUnit, LUnit,
+FUnit, etc).
+<P>
+<H3> 3.3 Automated Testing of GUI Applications</h3>
+<P>
+There are problems associated with providing canned input to 
+graphical applications, and with extracting content from their
+output.  Older systems tried to play back sequences of mouse
+motions, and to compare screen images with golden copies.  The
+problem with these approaches is that many factors (like
+screen size and language) can affect the locations of dialog
+boxes, and any such movements completely invalidate the standard
+cursor motion and screen snapshots.
+<P>
+More sophisticated tools (e.g. Segue Silk) operate at the toolkit 
+level, and enable scripts to generate events on widgets and
+to query their properties.  Such scripts are general, robust
+and highly readable.  Tools such as these are often essential
+to automate the testing of graphical applications.
+<P>
+<H3> 3.4 Operating on Complex State</h3>
+<P>
+If the component to be tested has complex internal state, it
+is not uncommon to write special purpose state compilers and
+dumpers to assist with component testing and problem diagnosis.
+The following discussion assumes that the internal state is
+captured in an in-memory database, but the same principles 
+apply to any combination of in-memory data-structures.
+<P>
+A state compiler might except a textual representation for
+information in an internal database, and generate a database
+that has been initialized accordingly.  A state dumper would
+gather the internal database and render its contents in the
+standard textual representation.
+<P>
+Such tools can be used to initialize a database to a known state
+before a test, or to capture and analyze the state of a database
+after the test cases have been executed.  If a problem arises,
+the same tools can be used to capture the state of the internal
+database (for diagnosis) or to recreate that state (in order to
+reproduce the problem).
+<P>
+Whenever you are working on a component that has complex internal
+state, you should consider whether it might be worthwhile to build
+such tools.  In my experience, they pay for themselves very quickly.
+<P>
+<H2>4. Advanced Features</H2>
+<P>
+The previous chapters have discussed the basic features of any test
+harness.  This chapter briefly overviews more advanced features that
+are often found in more sophisticated test harnesses.
+<P>
+<H3> 4.1 Test Selection</h3>
+<P>
+Test cases are usually organized into suites (a group of test cases that
+exercise related aspects of a single component).   In simple systems,
+developers add their test cases to a particular suite, and then run
+the entire suite.  In more sophisticated systems, it is possible to
+select specific suites and/or test cases to be run.  This is particularly
+valuable if you have just made a fix, and only want to run the most
+relevant tests (which will take seconds rather than minutes or hours).
+<P>
+<H3> 4.2 Test Results Archival</h3>
+<P>
+Simple testing systems just produce a report.  More sophisticated 
+systems maintain a database of all test results, and make it
+possible to browse the results of all runs,
+and then drill down to the diagnostic output from a particular
+execution.  These capabilities are very valuable if we want to extract
+data about how the number of test cases passed changed over a period
+of time, or to find the point at which a particular bug appeared or 
+disappeared.
+<P>
+<H3> 4.3 Test Scheduling</h3>
+<P>
+Most test harnesses are designed to run without human assistance.
+Some systems support the scheduling of automated test executions.
+We might, for instance, schedule a complete test of our product
+to run (on the latest build) every night at midnight, so that the
+results are waiting for us when we come back in the morning.
+Such automated runs make it more likely that problems will be
+found (and resolved) promptly after they are introduced.
+<P>
+<H3> 4.4 System Allocation</h3>
+<P>
+Some (very sophisticated) test harnesses schedule machines as
+well as tests.  A test suite might specify a required 
+configuration of systems.  An automated test management package
+might (without human assistance):
+<UL>
+	<LI> identify and allocate a set of appropriate machines
+	<LI> install the appropriate software on them
+	<LI> configure them as specified for the tests
+	<LI> run specified test suites on the selected machines
+	<LI> gather and archive the results
+	<LI> return the test machines to the free pool
+</UL>
+<P>
+
+<H2>5. Conclusions</H2>
+<P>
+A good automated test harness encourages developers to create
+test cases - by making them easy to add and easy to run.
+<P>
+A good automated test harness eases development by making it
+easy to run the appropriate unit tests after each change is
+made. 
+<P>
+A good automated test harness makes it trivial to regularly
+run as many tests as possible. 
+<P>
+Because test cases are easy to add we can easily amass large
+collections of tests for every feature and bug we have ever
+encountered.  Because it is easy to automatically run all of
+these tests, we get automatic regression testing (to make sure
+that old bugs do not resurface).
+<P>
+More and better test cases, and regular testing yield greatly
+superior products.
+<P>
+
+</BODY>
+</HTML>
