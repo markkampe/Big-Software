@@ -43,6 +43,9 @@ it provides are generally summed up under the two terms
 		conflicting changes to the same, or related, modules.
 	   <LI> ensure that sensitive modules are only updated by
 		(or with the approval of) designated experts.
+	   <LI> ensure that all changes are properly reviewed and tested.
+	   <LI> ensure that people who might be affected by changes 
+		are aware of them.
 	   <LI> stabilize (reduce the changes being made to) a
 		program that is about to be released.
 	</UL>
@@ -174,7 +177,7 @@ label every output page with information about when it was printed,
 most version control systems have a means of automatically putting
 identification information into every extracted file.
 <P>
-Most of these mechanisms involve some sort of macro expansion capability,
+Many of these mechanisms involve some sort of macro expansion capability,
 where:
 <UL>
    <LI> uses of specialized macros or keywords are placed in the file 
@@ -195,6 +198,25 @@ such version labels:
    <LI> because these labels make it possible to confirm (when talking
 	to someone else) that we are indeed talking about the same version.
 </ol>
+<P>
+It has, however, been argued that "version number stamps" are an
+over-simplified notion, increasingly difficult to apply to real products:
+<UL>
+   <LI>	a software product is probably built up from hundreds
+	(if not tens of thousands) of distinct modules, each of
+	which has its own version.  An accurate version label would
+	be a tupple comprised of thousands of individual module
+	versions.
+   <LI> in a distributed version control system, a module does not
+	have a version, but rather a history, and may be characterized,
+	not by a monotonically increasing version number, but rather 
+	by a SHA-1 hash code.  While descriptively accurate, these
+	are pretty much impossible to use in conversation.
+</UL>
+Thus, it has become increasingly common to associate version numbers with
+builds rather than with components, and to create (for each build) a 
+detailed manifest of all of the individual component versions that went
+in to it.
 
 <H4>Versioned Objects Exist in Multiple Branches</h4>
 <P>
@@ -300,7 +322,8 @@ directories, etc).  The basic usage cycle is pretty simple:
 	control system) a command is run to add each file to the
 	repository.
 	<P>
-	It is a good idea to ensure that each file contains the
+	If your version control mechanism uses ID macros, 
+	it is a good idea to ensure that each file contains the
 	appropriate version ID/macro/strings to ensure that every
 	copy extracted from the repository will contain appropriate
 	version identification information.
@@ -313,7 +336,7 @@ directories, etc).  The basic usage cycle is pretty simple:
 	against the repository, and tell you (a) what files you have
 	changed and (b) what other changes have been made to the 
 	repository in the interim.
-   <LI> There are usually commands to help you identify and reconcile
+   <LI> There are commands to help you identify and reconcile
 	potentially conflicting updates.
    <LI> There is a command that checks your changes in to the repository.  
 	<P>
@@ -342,6 +365,13 @@ version control, where there is an official master repository and a definitive
 lineage for any branch.  This is the most common model for most commercial 
 and personal software projects.  It is not the only model.  
 <P>
+In a centralized version control system, workspaces exist in a relatively
+stable tree-like hierarchy.  Changes are submitted up from child to parent 
+(with the parent's permission), and propagated back down from parent to child 
+(when the children are ready).  In a distributed version control regime some
+workspaces may exist in tree-like hierarchies, but (in principle) changes
+can propagate from any workspace to any workspace (with cycles allowed).
+<P>
 Consider an
 open source product under active development by many people to support a
 wide range of needs ... Linux for example.  
@@ -351,7 +381,8 @@ accepted into Linus' main branch, and it may take many months for
 particular change to find its way into the main branch.  People who need 
 an update are not willing to wait until that change (perhaps) appears 
 in the main branch.  Rather, these changes (patches) are continuously 
-passed around the Linux community (like cookie recipes).  
+and freel passed around the Linux community (e.g. like restaurant 
+recommendations).  
 <P>
 In a centralized version control system version one might:
 <UL>
@@ -361,14 +392,16 @@ In a centralized version control system version one might:
   <LI> add a description of what we did and why</li>
   <LI> check the updated version back in as version 1.3.3</li>
 </UL>
-If I wanted these changes,  I would check out the new version.
-In a distributed version system we might start with the same version,
+If I wanted these changes,  I would check out that (1.3.3) version.
+<P>
+In a distributed version system one might start with the same version,
 make the same changes, and commit them back with the same comments.  
-The difference is I would get these changes into my own source tree.
+The difference is how I would get these changes into my own source tree.
 <UL>
-  <LI> look at the changed branch, and find the commit that included the desired changes.
+  <LI> look at the changed branch in the fixer's repository, and 
+       find the commit that included the desired changes.
   <LI> apply those same changes to my own branch.
-  <li> check the updated version back in
+  <li> check the updated version back in my own repository
 </UL>
 The trick is that middle step.  If my code was identical to the creator's version
 1.3.2, applying the same changes would be trivial.  If my code has greatly diverged 
@@ -409,12 +442,13 @@ distributed version control:
 </UL>
 Although distributed version control arose to support different development
 paradigms, many people feel that distributed version control tools are simply
-more general/powerful and use them to manage more tradtitional main-trunk
-development.
+more general/powerful.  One can use (more powerful) distributed
+version control tools, but still choose to do manage change propagation
+in centrally managed model with hierarchically structured workspaces.
 
 <H2>3. Build Automation</h2>
 <P>
-As programmers, we it might be natural to think of programs as
+As programmers, it is natural to think of programs as
 things that human beings create in text editors ... but this is
 only the first step in its creation.  Our source files will be run
 through a several passes of  compilers, library builders, linkage
@@ -476,6 +510,13 @@ is one that is:
    <LI> robust in the face of errors
    <LI> yields highly predictable and dependable results
 </ol>
+<P>
+Two of the most common build automation tools are
+<A href="http://en.wikipedia.org/wiki/Make_%28software%29">make</a> and 
+<A href="http://en.wikipedia.org/wiki/Apache_Ant">Apache Ant</a>.  For
+large projects, even building a <em>makefile</em> can be a daunting task.
+A good example of a tool to assist developers with this problem is
+<A href="http://en.wikipedia.org/wiki/Automake">Automake</A>.
 
 <H2>4. Build Environment</h2>
 <P>
@@ -559,7 +600,7 @@ where they can find the correct tools.
 <P>
 <H2>5. Change Control</h2>
 <P>
-There are reasons to limit peoples abilities to make changes:
+There are many possible reasons to limit peoples abilities to make changes:
 <UL>
    <LI> When one developer is making changes to a module, it may make
 	sense to lock it, as a warning to others that these changes
@@ -572,17 +613,22 @@ There are reasons to limit peoples abilities to make changes:
    	<UL>
 	   <LI> requirements may have a contractually mandated change 
 		procedure, involving multi-party sign-offs.
+	   <LI> it might be required that all changes be associated
+		with an approved bug report or feature request.
 	   <LI> we may want to ensure that changes to critical or 
 		(particularly delicate modules) are only made by
-		a designated expert, or at least reviewed by one
-		before they are checked-in.
+		designated experts.
+	   <LI> we may require that changes be reviewed before they
+		can be checked in.
 	   <LI> there may be a process check associated with changes
 		that go into a release, to ensure that all of the
 		required testing and documentation have been 
 		completed and that this software has indeed been
-		approved for release.  Such checks are often referred
-		to as <strong>Gate Keeping</strong>.
+		approved for release.  
 	</UL>
+	The process of evaluating a proposed set of changes 
+	against such check-lists is often referred to as
+	<strong>Gate Keeping</strong>.
    <LI> Any change has the potential to introduce new problems, and
 	so it is common, as a product approaches release, to prohibit
 	any changes except for fixes to a few designated critical bugs.
