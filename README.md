@@ -1,6 +1,6 @@
 Big-Software
 ============
 
-Materials for use in my Software Engineering Course
+Materials, created by me, for use in my Software Engineering Course
 
 
