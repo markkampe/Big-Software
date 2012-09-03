@@ -1,0 +1,159 @@
+<html>
+<head>
+<title>Git Cheat Sheet</title>
+</head>
+
+<body>
+<H1>
+<center>
+Git Links and "Cheat Sheet"
+</center>
+</h1>
+
+<P>
+All written work products for the projects in this course should
+be maintained on GitHub.  <em>Git</em> seems to be the dominant
+open source distributed version control system, and 
+<A href="http://github.com">GitHub</a> offers free accounts
+and a good set of tutorials.
+<P>
+There are a few steps you will have to follow, but they are not difficult:
+<P>
+<OL type=1>
+   <LI>
+	Each student will need to 
+	<A Href="https://github.com/signup/free">Create a GitHub account</a>
+	, which is free, fast and easy.
+   </LI>
+   <LI>
+	Each student will need to 
+	<A Href="https://help.github.com/articles/set-up-git">
+	download, install, and configure</A>
+	the Git software, and will almost surely want to
+	<A Href="https://help.github.com/articles/generating-ssh-keys">
+	generate and install ssh keys</A> 
+	(essential for people who work on multiple computers).
+   </LI>
+   <LI>
+	One member of each team will need to
+	<A Href="https://help.github.com/articles/create-a-repo">create a repository</a>
+	for each project.
+   </LI>
+   <LI>
+	The simplest collaboration model is for the repository owner
+	to add the other team members as
+	<A Href="https://help.github.com/articles/how-do-i-add-a-collaborator">
+	collaborators</A> in that repository.  Once this has been done, all
+	of the team members will be able to directly push
+	updates back to the project repository.
+	But, if you are feeling frisky a little later in the semester,
+	and want to see learn how the <em>big kids</em> do it, you can try
+	managing your project repo with
+	<A Href="https://help.github.com/articles/fork-a-repo">
+	forks and pull requests</A>.
+   </LI>
+</OL>
+<P>
+You will probably want to do some background reading on <em>git</em>.  
+At the very least you should read:
+<UL>
+    <LI>
+     <A Href="http://git-scm.com/book/en/Getting-Started"> 
+	Pro Git chapters 1-1.3</a> ... Introduction to Git concepts
+    </LI>
+    <LI>
+     <A Href="http://git-scm.com/book/en/Git-Basics"> 
+	Pro Git chapters 2-2.3</a> ... Basic commands
+    </LI>
+</UL>
+Before too long you will probably also want to read:
+<UL>
+    <LI>
+	<A Href="http://git-scm.com/book/en/Git-Basics-Undoing-Things">
+		Pro Git section 2.4</A> Discarding bad updates.</A>
+    </LI>
+    <LI>
+	<A Href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes">
+		Pro Git section 2.5</A> Working with remote servers 
+		(<em>clone</em> and <em>push</em> operations).
+    </LI>
+    <LI>
+	<A Href="http://git-scm.com/book/en/Git-Basics-Tagging">
+		Pro Git section 2.5</A> Creating and using <em>tags</em>.
+    </LI>
+</UL>
+And you can use Git <em>in anger</em> you will need to understand branches:
+<UL>
+    <LI>
+	<A Href="http://git-scm.com/book/en/Git-Branching">
+		Pro Git Chapter 3</A> Branching.</A>
+    </LI>
+</UL>
+<H2>Cheat Sheet</H2>
+<P>
+To get you started, these are the commands you will use most often:
+<UL>
+    <LI>
+	<strong>git clone git://github.com</strong>/<em>username</em>/<em>repository</em>.git <br>
+	Create a local copy of the specified repository (owned by the specified user).<br>
+	By default it will be created in the current working directory with the 
+	same name it has on GitHub, but you can specify the name that the local
+	directory should be given.
+    </li>
+    <LI>
+	<strong>git status</strong><br>
+	List all of the differences (both un-tracked, and uncommitted)
+	between the current workspace and the
+	committed state of the repository from which it came.
+    </li>
+    <LI>
+	<strong>git add</strong> <em>file</em> ...<br>
+	Note that the specified files have been created or changed, and should
+	be included in the next commit.
+    </li>
+    <LI>
+	<strong>git diff</strong> <em>file</em><br>
+	Display a list of the differences between the specified file in the
+	current workspace and the last committed version.
+    </li>
+    <LI>
+	<strong>git rm</strong> <em>file</em> ...<br>
+	Note that the specified files have are being deleted and should no longer
+	be included in the repository.
+    </li>
+    <LI>
+	<strong>git commit -m</strong> "<em>comments</em>" <em>file</em><br>
+	Commit all of the staged changes, and associate the specified comment
+	with this commit.<br>
+	Note that this change has only been made to the local
+	repository, and has not yet been pushed back to GitHub.
+    </li>
+    <LI>
+	<strong>git log</strong> <em>file</em><br>
+	Display the commit history for the specified file.
+    </li>
+    <LI>
+	<strong>git tag -a</strong> <em>tagname</em> -m "<em>description</em>"<br>
+	associate the specified <em>tagname</em> and <em>description</em>
+	with the currently committed versions.
+    </li>
+    <LI>
+	<strong>git pull</strong><br>
+	Go back to the repository from which this local copy was cloned, 
+	obtain all of the recent changes that have been made there, and
+	merge those changes into the local copy.<br>
+	If you want to get fancy (e.g. and review the changes before you
+	try to merge them) you can do this in separate <strong>fetch</strong> 
+	and <strong>merge</strong> operations.
+    </li>
+    <LI>
+	<strong>git push origin master</strong><br>
+	Take all of the changes that have been made in the local copy, and
+	send them back to the master copy on GitHub.  Note that this operation
+	will fail if there are changes on the master copy that have not yet
+	been merged into the local copy (this is a safety feature).
+    </li>
+</UL>
+
+</body>
+</html>
