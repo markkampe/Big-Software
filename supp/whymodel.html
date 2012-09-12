@@ -22,8 +22,9 @@ six years and $2B developing for the FAA).  If a project is too large
 to be "thrown away" we must be able to convince
 ourselves that it will work <strong>before</strong> we invest vast amounts of time
 and money in its construction.
-We model things that we propose to build, in the hope that doing
-so will enable us to discover and avoid potential problems.
+We model things that we propose to build, so that we can
+explain them to others, better understand them, 
+and discover and avoid potential problems.
 <P>
 A model is a smaller or simplified representation of a larger or more 
 complex object or system.
@@ -49,20 +50,11 @@ represent a model is primarily driven by the goals we want that model
 to achieve.  Representational and analytical models have very different 
 goals (the former are intended to be evocative, while the latter are
 intended to be solved or executed in a way that is predictive of the
-behavior of the intended system).   This paper will focus primarily
-on analytical models and prototypes.  This choice should not be construed
-to imply that representational models are less important or interesting
-than analytical models.  Rather it is a recognition of the fact that
-introductory books and papers on representational modeling abound ...
-whereas I had a hard time finding a brief introduction to the goals
-and most common forms of analytical models.  The last chapter of this
-paper,
-however, will briefly touch on an evolving convergence of these two 
-classes.
+behavior of the intended system). 
 <P>
-Because models are smaller and simpler than the real system, they can
-be constructed much more quickly and economically.  They give us the
-opportunity to identify issues early, and perhaps to learn from mistakes 
+Because analytic models are smaller and simpler than the real system, they can
+be constructed much more quickly and economically.
+They give us the opportunity to identify issues early, and perhaps to learn from mistakes 
 before we are committed to them.  Through models, we can examine (in
 hours or days) systems that might take decades to actually build and test.
 A model's simplicity may make it much easier to understand and
@@ -80,7 +72,7 @@ evolving with and informing the evolution of the system.  Some models
 to be used in training and support.
 <P>
 The following chapters will briefly overview two major types
-of analytical models (mathematical models and prototypes), 
+of representational and analytic models,
 and the principles that can guide their
 construction and use.  If we have a clearer notion of what we want
 a particular model to accomplish for us, we are more likely to build
@@ -88,7 +80,100 @@ the right kind of model, which (in turn) will be more likely to
 give us the information we need to ensure that our software works
 as well in a computer as it did in our imagination.
 <P>
-<H2>2. Mathematical Models</h2>
+<H2>2. Representational Models</h2>
+<P>
+Five hundred years ago, Alchemists sought to understand an impossibly
+complex world through the process of <em>Solve et Coagula</em>:
+<ol type="1">
+   <li> break a complex substance down into its constituent parts</li>
+   <li> distill each constituent to its basic essences</li>
+   <li> recombine the essences to create a new and more perfect whole</li>
+</ol>
+<P>
+We still use essentially the same paradigm to understand complex systems:
+<ol type="1">
+   <li> decompose them into simpler sub-systems that can be understood in isolation</li>
+   <li> abstract away non-essential details 
+	to create simplified views of the individual components</li>
+   <li> progressively recombine the simplified components, 
+	and correct over-simplifications until we have reassembled
+	a satisfactory model of the whole system
+</ol>
+<P>
+As to the question of what form these simplified representations should take,
+we generally come to understand complex systems in terms of
+<ol type="a">
+    <li> the structural relationships of the various sub-systems and components,
+    <li> the interactions and interactions between the various subsystems and components.
+</ol>
+Most of us find both types of information easier to absorb 
+through visual metaphors.  
+So it is that the most common form for representational models of 
+software systems is graphical depictions of their structure and
+the interactions between their key components.
+<P>
+<H3>2.1 Representating Structure</h3>
+The three fundamental structural relationships are layering, 
+logical hierarchy, and physical containment (deployment) ... 
+and there are fairly obvious graphical representations for each:
+<table>
+<tr>
+<td> <IMG src="Layering.jpg" width="400" align="middle"> </td>
+</tr>
+<tr>
+<td> <IMG src="Hierarchy.jpg" width="600" align="middle"> </td>
+</tr>
+<tr> 
+<td> <IMG src="Containment.jpg" width="600" align="middle"> </td>
+</tr>
+</table>
+<P>
+UML, with its richer graphical vocabulary is capable of
+communicating more information in a (still quite
+understandable) Deployment Diagram:
+<P>
+<IMG src="UMLdeploy.png" width="800" align="middle">
+<P>
+The relationships to be expressed may become sufficiently 
+complex as to require a much more formalized representation 
+(e.g. UML class diagrams).  Such diagrams may rival 
+the expressive power of a programming language, but this
+comes at the cost of obviousness.  
+They may be impenetrable to people who have not been trained 
+in UML and require study even for people who have the training.
+<P>
+<IMG src="UMLclass.jpg" width="600" align="middle">
+<P>
+If the primary motivation for using graphical representations
+is the ease with which they can be absorbed, there is a point
+at which added expressive power becomes self-defeating.
+To ensure good communication, 
+you are probably better off using the simplest model
+that will communicate the relationships you need to
+describe.
+<P>
+<h3>2.2 Representing Interactions</h3>
+<P>
+One of the most common interaction depictions is the
+exchange of messages between distinct components:
+who sends what information to whom via what protocol.
+This is usually done with the addition of arrows and
+labels to a structural diagram:
+<P>
+<IMG src="Lookup.jpg" width="600" align="middle">
+<P>
+UML Sequence diagrams provide a much more powerful language
+for describing message interchanges ... but at that point we
+are probably no longer trying to describe an architecture,
+but rather a protocol.
+If the data being exchanged between components is a
+stream (rather than discrete requests), it may be more
+appropriate to represent this with an information 
+flow diagram:
+<P>
+<IMG src="InfoFlow.jpg" width="800" align="middle">
+<P>
+<H2>3. Mathematical Models</h2>
 <P>
 A mathematical model represents (in some mathematical form)
 critical aspects of a system.  The advantage of such representations
@@ -113,7 +198,7 @@ model).  Some models can be developed and understood by anyone with a
 high school education, while others may only be understandable by
 a hand-full of domain experts.
 <P>
-<H3>2.1 Simple Mathematical Models</h3>
+<H3>3.1 Simple Mathematical Models</h3>
 <P>
 Simple mathematical models are very valuable for estimating
 throughputs, capacities and other characteristics of a system.
@@ -121,7 +206,7 @@ Most such models are probably understandable to anyone who has
 had a year of high school algebra.  Despite their simplicity,
 such computations can be very useful in understanding a problem.
 <P>
-<H4>2.1.1 Capacity Estimates</h4>
+<H4>3.1.1 Capacity Estimates</h4>
 <P>
 Consider, for instance, a home music server.  How much disk space
 should it have?  
@@ -136,7 +221,7 @@ somewhere in the range of 25-250GB of music storage in our system.
 <LI> Given that ubiquity of 500GB SATA drives, this seems quite reasonable.
 </UL>
 <P>
-<H4>2.1.2 Rate/Cost Estimates</h4>
+<H4>3.1.2 Rate/Cost Estimates</h4>
 <P>
 Later, when we have built the music server, we need to estimate the
 staffing that will be required to handle support calls:
@@ -167,7 +252,7 @@ volume should we expect?
 	is unreasonable ... but queueing theory can help us with this
 	problem.
 <P>
-<H4>2.1.3 Reliability Estimates</h4>
+<H4>3.1.3 Reliability Estimates</h4>
 <P>
 We have observed that our power supplies seem to experience
 failures about once every 50,000 hours.  We are building a
@@ -189,7 +274,7 @@ outage due to the failure of both power supplies.
 	 35% x .04% = 0.014%
 </UL>
 <P>
-<H4>2.1.4 Finding Coefficients</h4>
+<H4>3.1.4 Finding Coefficients</h4>
 <P>
 In models like these, the equations themselves tend to be
 simple and obvious.  The trick is usually in getting reasonable
@@ -223,7 +308,7 @@ Often, even very crude estimates are enough to tell us whether or
 not an approach might be practical ... 
 and that is (often) all we needed to know.
 <P>
-<H3>2.2 Advanced Modeling Techniques</h3>
+<H3>3.2 Advanced Modeling Techniques</h3>
 <P>
 A great many interesting things can be expressed (or approximated)
 as simple linear functions.  There are, however, many interesting
@@ -239,7 +324,7 @@ Even if you never develop the ability to build
 such models yourself, you should know that they are available, and the
 types of problems to which they can be applied.
 <P>
-<H4>2.2.1 Queueing Models</h4>
+<H4>3.2.1 Queueing Models</h4>
 <P>
 When we looked at the expected support calls that would be generated
 by our music server, we estimated that in the first three months
@@ -273,7 +358,7 @@ arrival and service times, it yields closed-form solutions for
 Such models are often crucial in estimating how a
 system will behave under load.  
 <P>
-<H4>2.2.2 Markov Models and Petri Nets</h4>
+<H4>3.2.2 Markov Models and Petri Nets</h4>
 <P>
 In the simple model discussion we estimated the probability of
 a dual power supply failure.  That simple estimate was based
@@ -315,7 +400,7 @@ systems in a single state model.  If you find your Markov
 models becoming to complex, you should look into this more
 powerful representation.
 <P>
-<H3>2.3 Discrete Event Simulations</h3>
+<H3>3.3 Discrete Event Simulations</h3>
 <P>
 Queueing Theory and Markov Modeling are highly developed
 and powerful tools for exploring the behavior of a few
@@ -388,7 +473,7 @@ start out using captured data (to study options), and later move to
 load simulation (after they have come to a good understanding of what
 real traffic looks like).
 <P>
-<H3>2.4 Summary of Modeling and Simulation</h3>
+<H3>3.4 Summary of Modeling and Simulation</h3>
 <P>
 There is no best modeling technique.  Different techniques
 can be applied to different questions.  If you are aware
@@ -420,7 +505,7 @@ the life of the product.  Such models may be maintained,
 reviewed, refined, and tested every bit as carefully as
 the product they represent.
 <P>
-<H2>3. Prototypes</h2>
+<H2>4. Prototypes</h2>
 <P>
 Mathematical models are used to predict quantities whose values
 are non-obvious ... but a system must be pretty well understood,
@@ -475,7 +560,7 @@ bypassed, with disastrous consequences: spending a great deal
 of time and money on a prototype that doesn't actually answer
 the key questions.
 <P>
-<H3>3.1 User Interface Prototypes</h3>
+<H3>4.1 User Interface Prototypes</h3>
 <P>
 There are some things (perhaps fewer than we would like) that
 can be properly designed.  Given an understanding of the problem, 
@@ -526,7 +611,7 @@ and database access.  Such (user interface only) prototypes
 can give extremely (perhaps misleadingly so) realistic 
 demonstrations.
 <P>
-<H3>3.2 Mechanism Prototypes</h3>
+<H3>4.2 Mechanism Prototypes</h3>
 <P>
 Much of software development is fixing bugs and adding minor
 features in existing software, and the changes are often only
@@ -564,7 +649,7 @@ Such efforts can very quickly and efficiently answer
 questions, clarify issues, resolve doubts, and reduce
 the risk associated with a proposed project.
 <P>
-<H3>3.3 Mine Sweeping</h3>
+<H3>4.3 Mine Sweeping</h3>
 <P>
 Suppose we have been asked to build a product to automate the
 transformation of one type of image into another.  We think we
@@ -581,7 +666,7 @@ complicating issues we had not appreciated (which there always are),
 we give ourselves the opportunity to discover and investigate
 them before we commit to a schedule.
 <P>
-<H3>3.4 Tool and Platform Viability Prototypes</h3>
+<H3>4.4 Tool and Platform Viability Prototypes</h3>
 <P>
 Often a new software project involves the use of a new (or
 unfamiliar) development tools, middle-ware, programming languages, 
@@ -608,7 +693,7 @@ This is all time very well spent, and can quickly and
 greatly reduce the uncertainty associated with new
 tools and platforms.
 <P>
-<H3>3.5 Proofs of Concept</h3>
+<H3>4.5 Proofs of Concept</h3>
 <P>
 In the previous sections, we have talked about different types
 of prototypes that we build in order to reduce uncertainty.
@@ -657,7 +742,7 @@ by simulated products and demonstrations.  Great demos can be as
 much about imagination as technical achievement.  
 Don't underrate the value of showmanship and a flare for the dramatic.
 <P>
-<H3>3.6 Summary of Prototypes</h3>
+<H3>4.6 Summary of Prototypes</h3>
 <P>
 Much like mathematical models, we construct prototypes to answer
 specific questions or to prove the viability of specific assertions.
@@ -701,7 +786,7 @@ You can protect yourself (and your customers) from this by:
 	prototype does and does not do.
 </OL>
 <P>
-<H2>4. Executable Designs</h2>
+<H2>5. Executable Designs</h2>
 <P>
 In the first chapter, I made a distinction between analytical modes
 (that we build to answer questions about a system) and designs
@@ -754,7 +839,7 @@ proposed design by processing the design itself.
 Such evolution may not fundamentally change the types of models we 
 construct and the questions they can help us answer ... but it may
 radically change the processes we use to construct those models.
-<H2>5. Conclusions</h2>
+<H2>6. Conclusions</h2>
 <P>
 A good model can give us answers when our experience and intuition cannot.<br>
 A good model can give us confidence, where before we had doubt.<br>
