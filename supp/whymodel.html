@@ -52,6 +52,8 @@ goals (the former are intended to be evocative, while the latter are
 intended to be solved or executed in a way that is predictive of the
 behavior of the intended system). 
 <P>
+Because representational models are much simpler than the full system,
+they can be more easily grasped.
 Because analytic models are smaller and simpler than the real system, they can
 be constructed much more quickly and economically.
 They give us the opportunity to identify issues early, and perhaps to learn from mistakes 
@@ -68,10 +70,10 @@ Some models (e.g. a required throughput estimation) are ephemeral, created
 to answer a single questions, and discarded once that question has been 
 answered.  Some models (e.g. user interface prototypes) are progressive,
 evolving with and informing the evolution of the system.  Some models 
-(e.g. architecture representations) are permanent artifacts of the system,
-to be used in training and support.
+(e.g. architecture representations or performance predictions) are 
+permanent artifacts of the system, to be used in training and support.
 <P>
-The following chapters will briefly overview two major types
+The following chapters will briefly overview the major types
 of representational and analytic models,
 and the principles that can guide their
 construction and use.  If we have a clearer notion of what we want
@@ -82,7 +84,7 @@ as well in a computer as it did in our imagination.
 <P>
 <H2>2. Representational Models</h2>
 <P>
-Five hundred years ago, Alchemists sought to understand an impossibly
+Five centuries ago, Alchemists sought to understand an increasingly
 complex world through the process of <em>Solve et Coagula</em>:
 <ol type="1">
    <li> break a complex substance down into its constituent parts</li>
@@ -104,16 +106,16 @@ As to the question of what form these simplified representations should take,
 we generally come to understand complex systems in terms of
 <ol type="a">
     <li> the structural relationships of the various sub-systems and components,
-    <li> the interactions and interactions between the various subsystems and components.
+    <li> the interconnections and interactions between the various subsystems and components.
 </ol>
 Most of us find both types of information easier to absorb 
 through visual metaphors.  
 So it is that the most common form for representational models of 
-software systems is graphical depictions of their structure and
-the interactions between their key components.
+software systems is graphical depictions of the structure and
+interactions between their key components.
 <P>
 <H3>2.1 Representating Structure</h3>
-The three fundamental structural relationships are layering, 
+The three most fundamental structural relationships are layering, 
 logical hierarchy, and physical containment (deployment) ... 
 and there are fairly obvious graphical representations for each:
 <table>
@@ -129,7 +131,7 @@ and there are fairly obvious graphical representations for each:
 </table>
 <P>
 UML, with its richer graphical vocabulary is capable of
-communicating more information in a (still quite
+communicating more information in a (still relatively
 understandable) Deployment Diagram:
 <P>
 <IMG src="UMLdeploy.png" width="800" align="middle">
@@ -138,8 +140,8 @@ The relationships to be expressed may become sufficiently
 complex as to require a much more formalized representation 
 (e.g. UML class diagrams).  Such diagrams may rival 
 the expressive power of a programming language, but this
-comes at the cost of obviousness.  
-They may be impenetrable to people who have not been trained 
+comes at the cost of obviousness,
+and may be impenetrable to people who have not been trained 
 in UML and require study even for people who have the training.
 <P>
 <IMG src="UMLclass.jpg" width="600" align="middle">
@@ -166,13 +168,30 @@ UML Sequence diagrams provide a much more powerful language
 for describing message interchanges ... but at that point we
 are probably no longer trying to describe an architecture,
 but rather a protocol.
+<P>
 If the data being exchanged between components is a
 stream (rather than discrete requests), it may be more
 appropriate to represent this with an information 
-flow diagram:
+flow diagram (one of the few common system depictions
+not included in UML).  An information flow diagram usually
+includes:
+   <UL>
+	<LI> information generating or processing agents
+	<LI> information sources and repositories
+	<LI> arrows indicating the flow between them
+   </UL>
 <P>
 <IMG src="InfoFlow.jpg" width="800" align="middle">
 <P>
+Another commonly represented interaction is call structure: 
+who calls whom.  UML component diagrams are a relatively
+intuitive graphical representation of both static and 
+dynamic invocation relationships.  The exposed interfaces
+can be high level (e.g. classes) or detailed (individual methods). 
+<P>
+<IMG src="UMLcomp.jpg" align="middle">
+<P>
+
 <H2>3. Mathematical Models</h2>
 <P>
 A mathematical model represents (in some mathematical form)
@@ -218,7 +237,7 @@ tracks in his collection.
 the conclusion that a typical one-track mp3 occupies about 5MB.
 <LI>This leads us to the conclusion that we will need to provide
 somewhere in the range of 25-250GB of music storage in our system.
-<LI> Given that ubiquity of 500GB SATA drives, this seems quite reasonable.
+<LI> Given that ubiquity of multi-terabyte SATA drives, this seems quite reasonable.
 </UL>
 <P>
 <H4>3.1.2 Rate/Cost Estimates</h4>
@@ -314,9 +333,9 @@ A great many interesting things can be expressed (or approximated)
 as simple linear functions.  There are, however, many interesting
 things that cannot be expressed so simply.  More advanced techniques
 have evolved to address such problems.  Every discipline has such
-tools.  In other disciplines they include included The Calculus, 
+tools.  In other disciplines they include The Calculus, 
 Complex Analysis, Tensors, Fourier transforms, etc.
-In computer science we have Queuing theory, Markov models, and discrete event
+In Computer Science we have Queuing theory, Markov models, and discrete event
 simulations.  These techniques have proven to be extremely useful in 
 modeling the behavior of computer systems ... and you would do well 
 to learn a little about them.  
@@ -371,7 +390,9 @@ inter-dependencies the computation becomes much more complex.
 Complexly interacting systems are often best represented in
 state models.  Markov models are state models where transitions
 between any pair of states can be characterized by a constant
-rate or probability.  This property is interesting because it
+rate or probability (independent of the prior history of
+the system).  This property (the <em>Markov</em> property) 
+is interesting because it
 makes these models <strong>solvable</strong>: given the rates 
 or probabilities of all transitions, we can compute the amount
 of time that the system will spend in each state.
