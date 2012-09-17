@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE>Big Ball of Mud</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Big Ball of Mud (Digest)</H1>
+	Brian Foote and Joseph Yoder<br>
+	(brutally digested by Mark Kampe)<br>
+</CENTER>
+<P>
+A few years ago Brian Foote and Joseph Yoder wrote an oft-quoted
+paper about the here-to-fore undocumented 
+<em>Big Ball of Mud</em>
+architectural design pattern.
+While the tone of their paper is undeniably satircal, the issues 
+they raise are all-too-real.  Because the
+<A Href="http://www.laputan.org/mud/mud.html">complete paper</a>
+is fairly long (with examples, explorations, and surveys of
+related work), I have prepared a very brief digest of its 
+key messages.
+<P>
+The title of this pattern distinguishes it from other better known
+structural metaphors like PIPELINE and LAYERED ARCHITECTURE:
+<UL><em>
+	A BIG BALL OF MUD is haphazardly structured, sprawling, sloppy, 
+	duct-tape and bailing wire, spaghetti code jungle. 
+	We’ve all seen them. These systems show unmistakable signs of 
+	unregulated growth, and repeated, expedient repair. 
+	Information is shared promiscuously among distant elements of 
+	the system, often to the point where nearly all the important 
+	information becomes global or duplicated. The overall structure 
+	of the system may never have been well defined. 
+	If it was, it may have eroded beyond recognition. 
+	Programmers with a shred of architectural sensibility shun these quagmires. 
+	Only those who are unconcerned about architecture, and, perhaps, are 
+	comfortable with the inertia of the day-to-day chore of patching 
+	the holes in these failing dikes, are content to work on such systems. 
+</em></UL>
+<P>
+The basic message of the paper is that unless we are continuously and
+actively diligent in the development and maintenance of system architecture,
+inexorable forces and entropy-driven processes will inevitably reduce any 
+system to a <em>big ball of mud</em>.   Developing and maintaining a good
+architecture is both difficult and expensive ... but maintaining a product
+without a good architecture is (over the long term)
+much more difficult, and much more expensive.
+<P>
+Most of the paper is a detailed (and humorous) examination of those forces 
+and processes, and of a few paths to salvation.
+
+<H2>Anti-Architectural Forces</h2>
+<P>
+There are powerful forces in operation that oppose the creation of
+good architecture:
+<P>
+
+    <ul>
+	<li>time<br>
+		Architecture takes time, and increased time to market
+		usually translates into reduced opportunity.
+	<li>cost<br>
+		Architecture costs money.
+		The savings associated with not investing in architecture 
+		are immediate, while the costs come due at a later
+		(much sooner than you might think).
+	<li>skill and experience<br>
+		Different people have different levels of skill and 
+		experience, and a deeper understanding of the problems 
+		and tools results in a much better architecture.
+	<li>inherent complexity<br>
+		The larger the system, the more difficult it is to 
+		manage its complexity (see skill and experience).
+	<li>scale<br>
+		Many people come up with solutions that make sense
+		in a small environment, but break down at scale
+		(see skill and experience).
+	
+    </ul>
+<P>
+
+<H2>Proceses that give rise to Big Balls of Mud</h2>
+    <ul>
+	<li>Shanty Towns<br>
+	Shanty Towns are easily built by unskilled labor with inexpensive materials,
+	but the buildings are weak, function poorly, and require continuous maintenance.
+	The same is true of much software ... where there is great pressure to get 
+	something out there as quickly as possible, and great resistance to investing
+	up-front in design and infrastructure.
+
+	<li>ThrowAway Code<br>
+	Much software is written, knowing that it is not suitable for production use
+	... but once it exists time pressures create a powerful incentive to ship it
+	as is rather than rewriting it.  Again, the time and cost savings are immediate,
+	while the expenses are in the future.
+
+	<li>Piecemeal Growth<br>
+	Up-front Top-Down design is doomed to failure because of the impossibility
+	of properly anticipating all future requirements.  When new requirements
+	arise that are not naturally handled within the existing architecture a
+	choice must be made between rearchitecting to meet new requirements or
+	kludging together a one-off solution that will kind-of-work.  
+	Since the latter option is usually (in the short term) the more
+	expedient,
+	the system becomes dominated by these bolted-on extensions and there 
+	ceases to be any useful architecture.
+
+	<li>Keeping it Working<br>
+	Our software is critical, and major changes are sure to be disruptive.
+	Therefore smaller (less disruptive) changes are far preferable to 
+	large scale changes (that would eventually solve more problems).
+	The world of external requirements is constantly changing.  If the
+	software is not continuously adapting in response to those changes,
+	it is on a path to obsolescence and uselessness.
+    </ul>
+
+<H2>Paths back towards the light</h2>
+    <ul>
+	<li>Shearing Layers<br>
+	Software becomes good when it does a few things very well, but
+	continuously changing requirements will demand that software 
+	be able to adapt to those changes.  In a well designed system,
+	lower level infrastructure can be very stable as peripheral and
+	higher level functionality evolve.  
+	If designers fail to contemplate the types of change that are 
+	likely, even simple changes to requirements may require wide-spread
+	changes throughout the product ... making all changes difficult,
+	disruptive, and expensive.
+
+	<li>Sweeping it Under the Rug<br>
+	If you sweep all of the dirt into one neat pile, and then hid that pile
+	under the rug, the room is in some sense cleaner.  The same is often true
+	of code.  If you can isolate the cruft into one component, and then 
+	encapsulate it 
+	<strong>in a more reasonable set of interfaces</strong>
+	the remainder
+	of the system is simplified, and the code that most needs cleaning up
+	has been gathered in a single place, making it much easier to fix.
+	But defining that more reasonable set of interfaces requires 
+	significant architectural planning.
+
+	<li>Demolition and Reconstruction<br>
+	It is difficult to decide whether an old system should be repared
+	or demolished and rebuilt from scratch.  The cost and disruption
+	may be significant, but we may now have better
+	tools, and a better understanding of the problem that will permit us
+	to build a much better product.  If the system has become a big ball
+	of mud, it may be too late to try to save it, and reconstruction may
+	be the only option.
+   </ul>
+
+</BODY>
+</HTML>
+
