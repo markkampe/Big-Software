@@ -1,0 +1,200 @@
+<HTML>
+<HEAD>
+<TITLE>Architecture Does All That?</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Architecture Does All That?</H1>
+	Mark Kampe
+</CENTER>
+<P>
+
+<H2>1. Introduction</h2>
+
+A software product is more likely to work if it is designed before it is built.
+If the product is comprised of multiple interacting components, we also have to
+design those interactions.  If all we cared about was functionality, 
+architecture would be a simple matter of finding a set of component
+definitions that could (working in concert) deliver the required 
+functionality ... and there are surely numerous viable approaches.
+<P>
+As you have probably begun to recognize, we often need a great deal more
+than <em>functionality</em> from our software ... and it turns out that
+most of those other things are also driven (even more than functionality)
+by architecture.  And as we try to address increasingly more of these goals
+the problem of finding a viable architecture becomes much more difficult
+... but being aware of those other goals greatly increases our chances
+of achieving them.
+<P>
+This paper is a brief overview of the other kinds of problems that
+architecture may be required to solve.
+<P>
+
+<H2>2. Architecture and Performance/Reliability/Availability</h2>
+<P>
+One might guess that performance is mostly a matter of 
+<em>"algorithmic efficiency"</em>.  Poor 
+choices 
+(e.g. using an n<sup>2</sup> search rather than a log<sub>n</sub> search) 
+can certainly create problems.  But many (if not most) performance problems
+are caused by architectural decisions.  A few examples
+are:
+<UL>
+   <LI> the number of layers through which a request
+	must be processed.
+   <LI>	directing a high volume of traffic through a 
+	single low-bandwidth component or channel.
+   <LI>	the number of messages that have to be exchaged
+	to perform an operation.
+   <LI> important operations that complete slowly because 
+	they must wait in long lines.
+</UL>
+<P>
+Similarly one might guess that reliability and availability
+were the result of well reviewed and tested code.  Again,
+poorly reviewed and tested code can certainly create 
+reliability/availability problems ... but simple bugs are 
+not the only causes of system failures:
+<UL>
+   <LI> disks and memory are notoriously unreliable.
+   <LI> computers and network links go down regularly.
+   <LI> the software with which we interact may behave badly.
+   <LI> many failures are the results of external factors
+	like power outages and operator errors.
+</UL>
+To be robust in the face of such failure:
+<UL>
+   <LI> alternates and recovery procedures must exist for every component.
+   <LI> component interfaces must prevent the failure of one component
+	from triggering a cascade of secondary failures.
+   <LI> component interfaces must be designed so that any component
+	can be replaced or restarted at any time, while the system
+	continues to operate.
+</UL>
+These capabilities arise, not from careful coding, 
+but from the architecture.
+<P>
+<H2>3. Architecture and Construction</h2>
+<P>
+If a system is to be buildable with existing tools and 
+skills, then each component must be specified to 
+be implementable within the limitations of those 
+skills and tools.  This may greatly limit the range
+of viable component specifications.
+<P>
+If a system is to be buildable using off-the-shelf technology,
+the interfaces to those components must be defined to match
+those of the available technology.  If a system is expected
+to create new reusable components, the interfaces to those
+components must be designed to meet the needs of future
+clients as well as the current one.
+<P>
+If we want to enable independent, parallel development of
+distinct components their interfaces must sufficiently well
+abstracted as to permit them to be designed independently,
+and sufficiently well defined that each can be tested for
+interoperability before the other is available.
+<P>
+If we want to enable continuous integration, each component
+must have functional interfaces that are easily stubbed or
+simulated until more complete implementations are available,
+and the details of those interfaces may well determine the
+order in which specific features must be implemented.
+<P>
+If we want to be able to gain confidence about the correctness
+of a component implementation, the component interface
+specifications must include the ability to generate all 
+behavioral scenarios, and definitively ascertain the correctness 
+of the components behavior in every case.
+<P>
+All of these characteristics are enabled by the system architecture.
+<P>
+<H2>4. Architecture and Diagnosibility/Servicability</h2>
+<P>
+When a system misbehaves in the field, it should be possible
+to diagnose all likely errors (or at least isolate them to 
+a particular component) by looking at a small number of
+control points.  When we think we have isolated the failure
+to a particular component, it should be possible to confirm
+this diagnosis by sending test operations through the
+component in question.  This will only be possible if the 
+components and their interfaces were defined with such 
+diagnostic procedures in mind.
+<P>
+When a failure has been diagnosed to a particular component, 
+it should be possible to reset, restart, replace, or update
+that component without reinstalling the entire system.  
+If a system is to support such incremental repairs, all
+of the components must have been designed with these procedures
+in mind.
+<P>
+All of these characteristics arise from the architecture.
+<P>
+<H2>5. Architecture and Evolution</h2>
+<P>
+Few programs are "write and forget".
+We will be adding new features to them and adapting them to
+exploit new platforms and to be used in new ways.  If the software
+has been designed with consideration given to likely changes,
+these future extensions may be easy.  If not, they may
+be impossible (i.e. extending it will be more expensive than
+throwing it away and starting from scratch).
+Unfortunately, 
+as a great commentator on the human condition
+(Yogi Berra) once observed:
+<UL><em>
+	Prediction is very hard,<br>
+	especially about the the future.
+</em></UL>
+<P>
+How can we predict what kinds of change will be necessary?
+Fortunately, many types of change are predictable:
+<UL>
+   <LI> recognized limitations we didn't have time to fix.
+   <LI> poorly implemented features that will need later improvement.
+   <LI> features we left out for want of time.
+   <LI> features we left out because we weren't yet sure how to implement them.
+   <LI> additional plug-in extensions
+	(e.g. support for additional MIME types or authentication methods)
+        that are likely to be added later.
+   <LI> features that are not yet required, but will likely become
+	required later (e.g. internationalization/localization).
+   <LI> policy decisions that might need to be made differently in the future
+	(e.g. role based access control).
+   <LI> ports to other platforms (e.g. Android and IOS).
+</UL>
+All of these should already be well known to the developers.
+Even if we don't have time to create those implementations
+at this time, we can consider what a future implementations
+might look like, and then ...
+<UL>
+   <LI> if mechanisms are likely to change, define more abstracted 
+	interfaces that can encompass a wider range of implementations.
+   <LI> if underlying services are likely change, encapsulate them
+	in a layer of abstraction hide the differences.
+   <LI> if alternative implementations of something are likely to be
+	needed, create plug-in interfaces to enable the addition of 
+	new providers (even at run-time).
+   <LI> if smarter implementations are likely to be required in the
+	future, design the interfaces to support smarter services, and
+	then provide degenerate (e.g. hard-coded) implementations 
+	to provide simple default behavior in the first release.
+</UL>
+<P>
+It is good to consider where more general abstractions are likely
+to be important ... but this can be a trap.  Creating layers of
+abstraction that will never be exploited can complicate and slow
+down the code for no benefit.  Ask yourself:
+<OL type=1>
+  <LI> how likely is this change I am trying to anticipate?
+  <LI> how hard would it be to accommodate it later if I did not
+       make provisions for it now?
+</OL>
+If a change is unlikely, or if it would not be very difficult
+to accommodate in the future, there is little pay-off for doing
+extra work now to enable something that might happen in the future.  
+This is a cost/benefit expectancy decision.
+One of the principles of agile development is not to get too 
+far ahead of yourself, designing features that you may never need.
+</BODY>
+</HTML>
