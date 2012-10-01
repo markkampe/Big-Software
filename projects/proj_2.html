@@ -89,7 +89,9 @@ This project will exercise a great many key design skills:
 <P>
 <UL>
    <LI> coming up with a viable high level architecture
-   <LI> working out the details to validate that architecture
+   <LI> working out the implications of your architecture to component definitions
+   <LI> identifying questions and risks best addressed through prototypes
+   <LI> validate your architecture against your requirements (and general goodness properties)
    <LI> describing that architecture well enough that others can understand it
    <LI> reviewing someone else's design, understanding the issues, and
         articulating them in a useful form
@@ -113,7 +115,9 @@ own goals, processes, and deliverables:
 		You will develop an architecture and high level component 
 		specifications for your project (probably going through 
 		many internal revisions and reviews before you have a
-		design that works).
+		design that works).  Where critical questions exist, 
+		you will define and carry out research and prototyping 
+		efforts to answer them.
 		Once you believe that you have a viable architecture, you
 		will document it, and submit it for design review by another
 		team.
@@ -288,8 +292,14 @@ Every major component should be analyzed to this "feasibility" level.
 Each member of the team should take ownership of the analysis
 for at least one major architectural component.  If you have many
 more components than people, each person should choose at least 
-one <em>interesting</em> component for thorough analysis, and you
-can do a less complete job on the simpler components.
+one <em>interesting</em> component for thorough analysis or one
+interesting question to resovle through a prototyping effort.
+<P>
+If you have too many questions and components, it will be impossible
+for you to do all of the necessary design and prototyping within a 
+few weeks.  After each person has taken on a difficult component or
+question, you can do a more superficial job on the simpler questions 
+and components (but note explicitly in each that you are doing so).
 In the unlikely situation that you have more people than 
 interesting components, 
 sub-divide your major components to create more pieces or find a
@@ -313,8 +323,8 @@ Your architectural description should include:
    <LI> Discussions of the key issues that arose in the development of
 	this architecture and the rationale that drove the selection of
 	the chosen approach.  
-   <LI> Discussions of major issues (anything that causes you to doubt
-	that it will be possible to successfully build this system on a
+   <LI> Discussions of major issues still outstanding (anything that causes 
+	you to doubt that it will be possible to successfully build this system on a
 	predictable schedule): what the problem is, what options have been
 	considered, and how those options fall short.
 </UL>
@@ -395,11 +405,15 @@ This submission be graded on the basis of:
 	     </ul>
 	<li> 24% prototypes and component design analyses<br>
 	     <ul>
-		<li> how clear it is that your component can be implemented
-		<li> how reasonable the proposed implementation is
-		<li> how clear it is that your implementation will work
-		<li> how clear it is that your component can meet its requirements
-		<li> quality of the analysis, how well the rationale was captured,
+		<li> analysis: how clear it is that your component can be implemented
+		<li> analysis: how reasonable the proposed implementation is
+		<li> analysis: how clear it is that your implementation will work
+		<li> analysis: how clear it is that your component can meet its requirements
+		<li> prototype: is this indeed an important question to investigate
+		<li> prototype: does this investigation have clear and appropriate goals
+		<li> prototype: reasonablness of the planned investigation
+		<li> prototype: quality of the implementation of that plan
+		<li> both: quality of the analysis, how well the rationale was captured,
 		     and value added by this analysis.
 	     </ul>
 	<li> 20% overall quality of the architecture<br>
@@ -459,7 +473,11 @@ to our solution.
 Each team will read over another team's architectural presentation,
 prepare detailed notes, conduct a formal design review, produce a
 written report, and work with the designing team to ensure reasonable
-resolution of all outstanding issues.
+resolution of all outstanding issues.  You will select a moderator, 
+who will work with the submitting team to ensure that the package
+is ready for review before it is sent to the rest of your team for
+review.  Please document any discussions between your moderator and
+the submitting team.
 
 <H4>2.3.1 Deliverables</h4>
 
@@ -467,7 +485,10 @@ resolution of all outstanding issues.
 Prior to your review meeting, each of you (individually) will read
 the submitted architecture description and prepare detailed notes
 on all questions and concerns.  These notes must be submitted at
-least 24 hours prior to the actual review session.
+least 24 hours prior to the actual review session.  They should be
+neat notes, describing legitimate issues clearly enough to be sent
+as email, and organized for discussion (e.g. in the recommended 
+review order).
 
 <H5>2.3.1.2 Review Meeting</h5>
 Your team will conduct a formal design review of the submitted
@@ -479,7 +500,20 @@ in the process.
 The designated scribe for your review session will write up a report
 of all conclusions reached in the design review.  This is specifically
 not "meeting minutes".  Rather it is a distillation of key issues and
-decisions.  It should be carefully written and reviewed.
+decisions.  It should be carefully written and reviewed.  It must contain:
+<UL>
+   <LI> a clear summary of each important issue rased
+   <LI> a characterization as a defect, question, or issue
+   <LI> a characterization as must-fix, should-fix, or comment
+   <LI> a disposition for the entire project of
+   <UL>
+	<li> approved
+	<li> approved with required changes
+	<li> requires another meeting
+	<li> rejected (this cannot be made to work)
+   </UL>
+</UL>
+
 
 <H5>2.3.1.4 Issue Resolution</h5>
 You will work with the submitting team to ensure satisfactory resolution
@@ -505,7 +539,6 @@ These submissions be graded on the basis of:
 		<li> meaningful discussions of in-scope issues
 		<li> each discussion ends in a clear issue disposition
 		<li> culminates in a clear project disposition
-		<li> disposition of the entire project
 		<li> all viewpoints heard, avoid rat-holes
 		<li> ensure issues are understood, but do not try to resolve them
 		<li> all discusion is within scope
@@ -612,6 +645,8 @@ You will get considerable feedback on your initial architecture proposal
 from the professor, the grutor, and the team that reviews it.  Based
 on this feedback, you should revise your architecture to address all
 of the must-fix issues, and as many as possible of the should-fix issues.
+You will be graded on these resolutions, so make sure you document all
+changes made and agreement from the reviewers.
 
 <H4>2.4.1 Deliverables</h4>
 
