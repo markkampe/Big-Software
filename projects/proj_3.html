@@ -49,13 +49,13 @@
   <tr>
 	<td> <A href=#sub_6>~11/25</A> </td>
 	<td> <A href=#desc_6>Review Report</a> </td>
-	<td> <A href=#grade_6> 10 </a> </td>
+	<td> <A href=#grade_6> 5 </a> </td>
   </tr>
 
   <tr>
 	<td> <A href=#sub_7>Sun 12/02</A> </td>
 	<td> <A href=#desc_7>Final Specifications, Design and Test Plan</a> </td>
-	<td> <A href=#grade_7> 10 </a> </td>
+	<td> <A href=#grade_7> 15 </a> </td>
   </tr>
 
   <tr>
@@ -168,7 +168,7 @@ own goals, processes, and deliverables:
 </a>
 The amount of work required to refine your architecture to the point that
 it is possible to identify and specify your chosen components will vary
-greaty from one project to the next, and I would encourage you to get
+greatly from one project to the next, and I would encourage you to get
 this behind you as quickly as possible.  Once you have a sense of what
 the chosen components are, you should have a pretty good idea of how much
 work it will be to do the designs and test plans.  You should, however,
@@ -187,7 +187,8 @@ checks, the results of which should be recorded in the plan document.
 As your understanding of the problem
 evolves and you respond to unanticipated events, 
 you will have to revise your plan (not merely estimates, but
-the work to be done).
+the work to be done).  Make sure that you document each of these
+problems and the manner in which you decide to respond to it.
 If deadlines are missed, or deliverables fail to pass review, the fact, as well
 as the causes and the plan to remedy them must be documented.
 
@@ -209,7 +210,7 @@ Your initial Management Plan will be graded on the basis of:
 
 Maintain your plan on github. 
 You will surely be updating it, and we will be reviewing your history
-(changes and comments).
+(changes and comments) to see how you dealt with problems.
 When you are ready to submit it for grading, fill
 out the following form and e-mail it to the submission alias.
 
@@ -277,7 +278,7 @@ include:
 	A complete specification of all external interfaces to this component
 	(both form and functionality).
     <LI>
-	A complete set of rquirements that must be satisfied by this component.
+	A complete set of requirements that must be satisfied by this component.
 </OL>
 
 <a name="grade_2">
@@ -359,7 +360,9 @@ Each module design should include:
 </UL>
 
 If any of these design elements are non-obvious, the rationale 
-for those decisions should be presented.
+for those decisions should be described so that the implementer
+can better understand what they are to do.  People are more likely
+to make mistakes when working on things they do not understand.
 <P>
 <H4>2.3.1 Deliverables</h4>
 <P>
@@ -442,17 +445,20 @@ that it actually works.
 	Consider your component's interfaces and all of the above test
 	cases, and design a means for performing all of those test cases
 	in a fully automated fashion ... ideally using an existing
-	unit testing framework.
+	unit testing framework (to structure your test case implementations,
+	invoke them, and collect the results).
+
    <LI>
 	Review the overall list for completeness (is everything covered),
 	efficiency (are there redundant tests) and value (are there
 	tests for things that don't matter or will never happen), and
-	try to optimize out any problems.
+	try to optimize out the low-value tests.  If the optimizations
+	are not obvious, you should document these decisions in your test plan.
 </UL>
 It is likely that, in the process of developing your test plan, you
 assertions that are hard to measure, or functionality that is difficult
 to verify (or verify automatically).  If this happens, you may need to
-revisit your specifications and design.
+revisit your requirements, specifications and design.
 
 <H4>2.4.1 Deliverables</h4>
 
@@ -537,7 +543,7 @@ fill out the following form and e-mail it to the submission alias.
 Each member of the team will submit his preliminary specifications,
 design and test plans for review by the other team members.  Each
 team member will participate in the reviews of the designs and plans
-submitted by the other members of his team.
+submitted by the other members of his/her team.
 
 <H4>2.5.1 Deliverables</h4>
 
@@ -595,12 +601,15 @@ same as for the architectural review ... but because you have already
 followed this process (for your architectural reviews) these
 reviews will not be observed and graded.  But you are still 
 responsible for producing a report for each review, and these reports
-will be graded.  
+will be graded.   Each team member will lead one design review, and
+act as scribe for one design review.
 <P>
 As with the architectural review,
 this is not "meeting minutes".  Rather it is a distillation of key issues and
 decisions.  It should be carefully written and reviewed.  It must contain:
 <UL>
+   <LI> the time, date, and attendees
+   <LI> the component to be reviewed
    <LI> a clear summary of each important issue rased
    <LI> a characterization as a defect, question, or issue
    <LI> a characterization as must-fix, should-fix, or comment
@@ -625,8 +634,8 @@ one of the design reviews.
 Each review report will be graded on the basis of:
 <ul>
 	<li> 10% form: time, place, project, attendees
-	<li> 30% clear disposition for each issue
-	<li> 20% clarity with which issues are presented
+	<li> 20% clear disposition for each issue
+	<li> 30% clarity with which issues are presented
 	<li> 20% scope of the report (just issues, no opinions)
 	<li> 10% completeness and accuracy
 	<li> 10% disposition of the entire project
@@ -681,11 +690,11 @@ reviewers that the issues have been satisfactorally addressed.
 
 This submission be graded on the basis of:
 <ul>
-	<li> 20% reasonabless of responses to raised issues
-	<li> 20% completeness of responses to raised issues
-	<li> 20% quality of final specifications (using 2.2 grading metrics)
-	<li> 20% quality of final design (using 2.3 grading metrics)
-	<li> 20% quality of final test plan (using 2.4 grading metrics)
+	<li> 25% responses to raised issues and resolution w/reviewers
+	     (as verified by e-mail or plan updates)
+	<li> 25% quality of final specifications (using 2.2 grading metrics)
+	<li> 25% quality of final design (using 2.3 grading metrics)
+	<li> 25% quality of final test plan (using 2.4 grading metrics)
 </ul>
 
 <a name="sub_7">
@@ -797,9 +806,9 @@ and the work:
 	 Problems that come up should be recorded as updates 
 	 to the project plan and discussed in your post-mortem.
     <LI> Reasonably adjust the plan in response to problems.<br>
-	 Detected problems and responses should be discussed
-	 in your post-mortem, and reflected in revisions to
-	 the plan.
+	 Detected problems and responses should be 
+	 reflected in revisions to the plan, and discussed
+	 in your post-mortem.
 </OL>
 
 <A name="rules">
