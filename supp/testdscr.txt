@@ -1,0 +1,263 @@
+	Proposed Unit-Test Cases for Filesync
+
+	Version 1.8 of 07/12/96
+
+
+Tests that do not require data trees:
+
+    postitive evaluation testing
+
+	test program for qualify, expand, wildcards, cannonize
+	specially compiled and built, runs off of a list of
+	input and expected output strings.
+
+	cases to be tested:
+
+		variables embedded in different places
+		undefined variables
+		escape sequences
+		embedded ..s
+		symbolic links
+		try to confuse the qualifier
+		wildcard tests
+			escaped and unescaped
+			*, ?, [], {},
+
+    ignore evaluation testing
+
+	general goals:
+		to confirm that the ignore engine properly records and matches
+		patterns.
+
+	methodology:
+		test program reads input file, makes calls, checks results
+		with expected results recorded in file.
+
+	cases to be tested:
+		literals
+		wild cards
+			embedded slashes
+			*
+			?
+			[]
+			{}
+			escaped wild card characters
+				escaped with ' and \
+		programs/scripts to run
+		
+		run test data through and see what bites
+		verify that reset works by resetting, putting
+		in a simple, and rerunning the regression set again
+
+		
+   error case and setup testing
+
+	general goals:
+		confirm argument processing and rules/baseline location
+		confirm basic error reporting
+
+	methodology:
+		run with various parameters
+		check exit codes and stderr
+
+	cases to be tested:
+		missing required arguments
+			name w/o s
+			name w/o d
+			name w/o either
+			r w/o arg
+			s w/o arg
+			d w/o arg
+			o w/o arg
+			f w/o arg
+
+		access to each file (rules/baseline and default/override)
+			non-existant in read-only dir
+			no access
+			read-only
+			write-only
+
+Tests that do require data trees:
+
+   rules testing		(enumerated)
+
+	general goals:
+		confirm that command line rules make it into the rule file
+		properly and that rule file updates work properly.
+
+	methodology:
+		run command lines and check the resulting rule files
+		against standardized output
+
+	cases to be tested:
+		default and override locations
+		non-existant in read-write dir
+			right one created in right place, properly updated
+		read-write 
+			right one read and properly updated
+
+		with a new one, and adding to an existing
+		    alternating among existing and new bases
+			one file 
+			one directory
+			one file in a directory
+			multiple files and directories
+			simple wild cards expanded by shell
+			compound wild cards expanded by shell
+			escaped wild-cards to go into rules
+
+
+    evaluation/analysis testing
+
+	general goals:
+		ensure that we evaluate everything we are supposed to evaluate
+		ensure that restrictions keep us out
+		ensure that ignores keep us out
+		ensure that we find all files we should
+		ensure that we ignore files of bogus types
+		ensure that we notice all relevent changes on both sides
+		ensure that initial propagations are properly analyzed
+
+	methodology:
+		construct a tree
+		initial propagation of a tree w/ignores and restricts
+		repropagations relaxing restricts
+		repropagations relaxing ignores
+
+		check the baseline
+		check the -v output
+		confirm identical trees with new treecmp utility
+
+	cases to be tested:
+		multiple bases
+		files 1, 2, and 3 down
+		directories 1, 2, and 3 down
+		directories and files 3 levels below listed files
+		files of all types
+			normal
+			directories
+			block
+			char
+			symlinks
+			fifo
+			socket
+
+		all files touched and untouched
+		use restrictions in multiple bases and subdirectories
+		use ignores
+			simple names
+			wild cards
+			wild cards with slashes
+			programs
+
+		types of changes (lots of combinations)
+			exsistance (create, delete, initial)
+			mod time
+			modes
+			owner
+			group
+			inode number
+			size
+			contents
+	
+		wrong directory testing
+			top level
+			2 level down listed
+		...
+
+    reconciliation testing
+
+	general goals:
+		ensure we properly identify files requireing no action
+		ensure we recognize forbidden actions
+		ensure we use the force flags
+		ensure we properly identify files requirng action
+		ensure we properly identify files where action wouldn't help
+		ensure we recommend proper action for all files
+
+	methodology:
+		construct duplicate trees
+		introduce a variety of changes on both sides
+		run filesync -n
+		validate action output
+
+	cases to be tested:
+		recognize what has changed
+		decide what to do about it
+			initial cases
+				each side
+				with and without one-way
+				with identical
+				with identical but admin
+				with different
+			one-sided changes
+				data non-changes
+				data changes
+				i# changes
+				mode
+				owner
+				group
+				owner + group
+				onwer + group + mode
+				simple rename
+				new link
+				lose one link
+				delete
+				rename one link
+				data changes to a multi-linker
+				admin changes to a multi-linker
+				admin changes I can't help
+				admin changes I can't help w/-e
+				admin changes as super user
+				mtime propagation
+			file types
+				directories
+					create
+					delete
+					rename
+				symlinks
+					create
+					delete
+					rename
+					change contents
+			conflicting changes
+				conflicting non-changes
+				data/data
+				data/admin
+				admin/admin
+				data/remove
+				admin/remove
+				data/links
+				admin/links
+			conflicting changes with force
+				same cases as above
+			conflicting changes with one-way
+				same changes as above
+			conflicting changes against one-way
+				same changes as above
+
+    reconciliation action testing
+
+	general goals:
+		to ensure that reconciliation actions actually work
+		to ensure that error checking and reporting works
+		to ensure baseline is updated accordingly
+
+	methodology:
+		construct duplicate trees
+		introduce a variety of changes
+		confirm the right changes were propagated
+		confirm the right changes were not propagated
+		confirm the baseline always reflects last agreement
+		check the baseline to see that right things didn't change
+		check the baseline to see that right things did change
+		check exit codes associated with eval/anal/recon conditions
+
+	cases to be tested:
+		same cases as above
+
+
+things to be covered in other tests
+
+	include deep enough trees and confusing symlinks to
+	break push/pop/get_name

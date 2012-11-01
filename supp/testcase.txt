@@ -1,0 +1,70 @@
+# TEST SUITE:	filesync-reconciliation
+# TEST CASE:	cflct-data-atr 
+# SUMMARY:	conflicting changes: data vs attributes
+# VERSION:	1.2 of 6/18/96
+# DESCRIPTION:
+#	conflicts where one side had contents changes, and
+#	the other side had attribute changes should be correctly
+#	detected and automatically reconciled
+#
+
+set-up:
+	Create six files that will be identical on both sides,
+	with known contents, modes, owner, and group
+		.../cflct-data-atr-md
+		.../cflct-data-atr-od
+		.../cflct-data-atr-gd
+		.../cflct-data-atr-ms
+		.../cflct-data-atr-os
+		.../cflct-data-atr-gs
+
+	reconcile and ensure no differences were found and establish baseline
+
+test:
+	1. on the source side
+		new contents .../cflct-data-atr-md
+		new contents .../cflct-data-atr-od
+		new contents .../cflct-data-atr-gd
+		change modes .../cflct-data-atr-ms
+		change owner .../cflct-data-atr-os
+		change group .../cflct-data-atr-gs
+
+	2. on the destination side
+		new contents .../cflct-data-atr-ms
+		new contents .../cflct-data-atr-os
+		new contents .../cflct-data-atr-gs
+		change modes .../cflct-data-atr-md
+		change owner .../cflct-data-atr-od
+		change group .../cflct-data-atr-gd
+
+	3. reconcile with verbose output
+
+expectations:
+	1. successful reconciliation with warnings (RC=1)
+
+	2. stderr should describe six conflicts
+		.../cflct-data-atr-md: contents and protection
+		.../cflct-data-atr-od: contents and owner
+		.../cflct-data-atr-gd: contents and group
+		.../cflct-data-atr-ms: contents and protection
+		.../cflct-data-atr-os: contents and owner
+		.../cflct-data-atr-gs: contents and group
+
+	3. stdout should describe
+		three successful data copies from src to dst
+		three successful data copies from dst to src
+		three successful attribute changes from src to dst
+		three successful attribute changes from dst to src
+
+	4. final audit should show
+		all six files with new contents
+		cflct-data-atr-m[sd] with new protections
+		cflct-data-atr-o[sd] with new owner
+		cflct-data-atr-g[sd] with new group
+
+verification:
+	compare rc, stderr, stdout and audit with golden output
+	report any differences as an error
+
+cleanup:
+	none required (uses unique files)
