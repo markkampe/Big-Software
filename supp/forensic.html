@@ -11,27 +11,41 @@
 
 <H2>1. Introduction</H2>
 <P>
-Usually debugging is an interactive process.
-You observe anomalous behavior, and if the cause is not
-obvious, you:
+Usually debugging is an interactive process.  If you observe
+anomalous behavior in a program, you might simply try to reproduce
+the problem and observe the situations under which it does and does
+not behave correctly.  Often, if you are familiar with the code,
+this alone is enough to identify the cause of the problem.
+If the precipitating circumstances don't provide enough information
+to reveal the problem, you might try running your program under
+a system call tracing framework to see what it was actually doing:
+<P>
+Sample strace output:
 <UL>
-   <LI> reproduce the failure to make sure that you 
-	understand the situation that caused it.
-   <LI> re-run the program with slightly different data
-	or parameters to see how the output is affected
-	by changes in the input.
-   <LI> re-run the program under a debugger so that you
-	can more closely observe the process leading to
-	the unexpected behavior.
-   <LI> add some diagnostic instrumentation to the 
-	program and then re-run the failure condition
-	to generate more information.
+   ...<br>
+   open("/etc/ld.so.cache", O_RDONLY)      = 3<br>
+   open("/lib/libselinux.so.1", O_RDONLY)  = 3<br>
+   read(3, "\177ELF\1\1\1\3\3\1\260G004"..., 512) = 512<br>
+   open("/lib/librt.so.1", O_RDONLY)       = 3<br>
+   read(3, "\177ELF\1\1\1\3\3\1\300\30004"..., 512) = 512<br>
+   open("/lib/libattr.so.1", O_RDONLY)     = 3<br>
+   read(3, "\177ELF\1\1\1\3\3\1\360\r004"..., 512) = 512<br>
+   open("/proc/filesystems", O_RDONLY|O_LARGEFILE) = 3<br>
+   read(3, "nodev\tsysfs\nnodev\trootfs\nnodev\tb"..., 1024) = 315<br>
+   read(3, "", 1024)                       = 0<br>
+   open("/usr/lib/locale/locale-archive", O_RDONLY|O_LARGEFILE) = 3<br>
+   open("/home", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3<br>
+   ...<br>
 </UL>
 <P>
-Modern source level debugging tools make it very easy to quickly
+If this still not sufficient to reveal the problem you could try 
+enabling (or adding) diagnostic instrumentation, or running your
+program under a debugger so that you can observe its progress
+and changing state.
+Modern tracing and source level debugging tools make it very easy to quickly
 zero in on the causes of most failures, and have greatly improved
-the productivity of developers.   Unfortunately, interactive
-debugging is not always possible:
+the productivity of developers.   
+Unfortunately, interactive debugging is not always possible:
 <UL>
    <LI> Some bugs only manifest under very complex combinations
 	of circumstances, which happen very rarely and would be
@@ -128,17 +142,19 @@ key program died (e.g. with a segmentation violation), or
 perhaps the core dumps were forced (manually or automatically)
 to capture the state of a system that didn't seem to be
 working properly.
-<P>
-For an application program, a core dump is a copy of the
-contents of the writeable (e.g. data and stack) segments from
-its address space.  The operating system regularly takes
-such snapshots whenever a process dies unexpectedly, and
-there are often means to force a coredump of a running
-program.
-<P>
-If the operating system finds itself in trouble, it may save
-the entire contents of memory, as well as system logs and 
-other information.
+<UL>
+   <LI>
+	For an application program, a core dump is a copy of the
+	contents of the writeable (e.g. data and stack) segments from
+	its address space.  The operating system regularly takes
+	such snapshots whenever a process dies unexpectedly, and
+	there are often means to force a coredump of a running
+	program.
+   <LI>
+	If the operating system finds itself in trouble, it may save
+	the entire contents of memory, as well as system logs and 
+	other information.
+</UL>
 <P>
 In some cases, the core dump immediately explains the entire
 problem, because we can see (e.g. on the stack) the entire sequence
@@ -150,14 +166,72 @@ it was fired.
 <P>
 <H4>2.1.1 Stack Traces</h4>
 <P>
-One of the most interesting things in a core dump is a stack trace,
-a list of all of the subroutine calls and parameters that were on 
-the stack at the time of death.  Almost any debugger will produce
-such a trace from a coredump.  If the failure was precipitated
-by an addressing error, resulting from trusting a bad argument, we can
+One of the most interesting things we can get is a stack trace, a list 
+of all of the subroutine calls (and if we are lucky parameters) 
+that were on the stack at the time of death.  For interpreted languages
+the stack trace may be produced directly by the interpreter.
+<P>
+Example: Java stack trace
+<UL>
+   java.lang.NullPointerException<br>
+    <UL>
+         at MyClass.mash(MyClass.java:9)<br>
+         at MyClass.crunch(MyClass.java:6)<br>
+         at MyClass.main(MyClass.java:3)<br>
+    </UL>
+</UL>
+<P>
+Example: Python stack trace
+<UL>
+   Traceback (most recent call last):
+    <UL>
+     File "throwing.py", line 10, in module
+        <UL>
+		main()
+	</UL>
+     File "throwing.py", line 7, in main
+        <UL>
+		throws()
+        </UL>
+     File "throwing.py", line 4, in throws
+        <UL>
+		raise RuntimeError('this is the error message')
+        </UL>
+   </UL>
+   RuntimeError: this is the error message
+</UL>
+<P>
+For compiled languages it is usually necessary to run a debugger to
+interpret (with the help of a symbol table from the running program)
+the contents of a core dump.
+<P>
+Example: C stack trace with parameters and line numbers
+<UL>
+  #0  m4_traceon (obs=0x24eb0, argc=1, argv=0x2b8c8) at builtin.c:993<br>
+  #1  0x6e38 in expand_macro (sym=0x2b600) at macro.c:242<br>
+  #2  0x6840 in expand_token (obs=0x0, t=177664, td=0xf7fffb08) at macro.c:71<br>
+  ... <br>
+</UL>
+The debugger in the above case was able to determine the parameters 
+and line numbers because the program had been compiled with debug
+symbols enabled.  Without this information, a stack trace may be
+much cruder:
+<P>
+Example: C stack trace with only global symbols
+<UL>
+  #0  0x4007fc13 in _IO_getline_info () from /lib/libc.so.6<br>
+  #1  0x4007fb6c in _IO_getline () from /lib/libc.so.6<br>
+  #2  0x4007ef51 in fgets () from /lib/libc.so.6<br>
+  #3  0x80484b2 in main () from segfault.o<br>
+  #4  0x40037f5c in __libc_start_main () from /lib/libc.so.6<br>
+</UL>
+<P>
+It is often possible to infer the cause of the error directly from
+the stack trace.
+If, for instance, the failure was precipitated by an addressing error, 
+resulting from trusting a bad argument, we can
 usually see the whole history of where that argument came from, and
 can often infer the cause of the problem from this information alone.
-<P>
 Even if the cause of the corruption is not immediately obvious 
 from the stack trace, knowing what routine we were in, and the
 sequence of calls that led us here can often tell us a great deal 
@@ -165,20 +239,28 @@ about the sequence of events leading up to the crash.
 <P>
 <H4>2.1.2 Contents of Variables</h4>
 <P>
-Since the core dump contains all of the data and stack segments of
-the aborted process, we can usually use a debugger to show
-us the contents of any global variable, and any local variable within
-any stack frame.  Cruder debuggers may give us only hex dumps,
-from which we must infer the contents of specific fields.  Nicer
-debuggers can print out beautifully formatted snapshots of even
-very complex data structures.
-<P>
 If merely seeing the sequence of calls and parameters is not enough
 to enable us to infer the cause of a failure, going back and forth
 between the code and the contents of variables will usually paint
 a pretty complete picture of what the program thought it was
 supposed to be doing, who was just passing on parameters, and who
 it was who first found the bogus value.
+Since the core dump contains all of the data and stack segments of
+the aborted process, we can usually use a debugger to show
+us the contents of any global variable, and any local variable within
+any stack frame.  Cruder debuggers may give us only hex dumps,
+from which we must infer the contents of specific fields.  Some
+debuggers can print out formatted snapshots of even
+very complex data structures:
+<P>
+<UL>
+    (gdb> p head<br>
+    0x0001d0c4<br>
+    (gdb) p *head<br>
+    { next = 0x0001fc24, prev = 0x0001e26c }<br>
+    (gdb) p head->next<br>
+    { next = 0x0001f0d8, prev = 0x0001d0c4, priority = 6, name = "truth" }<br>
+</UL>
 <P>
 <H4>2.1.3 Patterns in the Garbage</h4>
 <P>
@@ -189,7 +271,7 @@ through it, losing his own data and destroying someone elses
 in the process.
 These problems usually turn up millions (or billions) of
 instructions later when some innocent victim attempts to
-use the corrupted data and dies because of its ludicrous
+use the corrupted data and dies because of its inappropriate
 contents.  The victims are easy to find, but what we are
 really looking for is the psychopath who is storing his
 values through bad pointers.
@@ -221,7 +303,7 @@ corruption itself:
 Studying these characteristics will tell us a great deal about the
 source of the corruption (which fields of what data structure they
 seem to be).  Knowing what data has been stored (in the wrong place)
-may suggests (probably very) small number of places that store those
+may suggest a (probably very) small number of places that store those
 fields as likely suspects.
 <P>
 <h3>2.2 Files</h3>
@@ -241,7 +323,7 @@ understand what the program was doing shortly before it encountered the
 problem.
 The output may help us to understand both what the program was doing,
 and more precisely when the problem took place 
-(e.g. if the output is interrupted).
+(e.g. the point at which invalid output begins).
 <P>
 
 <h3>2.3 Logs</h3>
@@ -267,7 +349,8 @@ the capturing and management of logged information.  See, for instance:
 </UL>
 <P>
 Most file I/O is bufferred (written into a buffer, until the buffer
-is full, at which point it is flushed out to disk).  If a process
+is full, at which point it is flushed out to disk).  This bufferring
+greatly reduces the expense of logging, but comes at a price.  If a process
 (or the OS) crashes, the last buffer full of data may not have been
 flushed out to disk, and so the log file may be incomplete.  If there
 is a core dump, however, it should be possible to find the last few
@@ -399,7 +482,19 @@ And therefore as a stranger give it welcome.<br>
 There are more things in heaven and earth, Horatio,<br>
 Than are dreamt of in your philosophy.<br>
 </UL>
-
+<P>
+What we want to get out all this reverie and detective work 
+is confirmation of our hypothesis:
+<UL>
+   <LI> it should be able to explain all of the anomalous symptoms we have observed.
+   <LI> it should enable us to predict new observations 
+        (perhaps not previously noticed) that offer further confirmation.
+   <LI> it should enable us to precipitate the problem at 
+	will.
+</UL>
+Sometimes the circumstances of a bug are extremely difficult to precipitate
+and/or the consequences too complex to enable clean predictions, but this
+is the level of certainty for which we should strive.
 
 <H2>4. Anticipating Future Needs</h2>
 <P>
