@@ -208,11 +208,13 @@ screen size and language) can affect the locations of dialog
 boxes, and any such movements completely invalidate the standard
 cursor motion and screen snapshots.
 <P>
-More sophisticated tools (e.g. Segue Silk) operate at the toolkit 
-level, and enable scripts to generate events on widgets and
-to query their properties.  Such scripts are general, robust
-and highly readable.  Tools such as these are often essential
-to automate the testing of graphical applications.
+In modern graphical applications, the interpretation of 
+mouse motions and the rendering of widget status into pixels
+is all done by toolkits, and has very little to do with the
+application in question.  Modern GUI testing tools tend to
+operate at the widget level: setting and querying properties
+and generating events.  This approach makes it relatively easy
+to develop fully automated GUI testing tools
 <P>
 <H3> 3.4 Operating on Complex State</h3>
 <P>
