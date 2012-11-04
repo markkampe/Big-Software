@@ -1,0 +1,745 @@
+<html><head>
+
+<title>Project 4 - Implementation and Testing Sprint</title>
+</head><body>
+<center>
+<h1>Project 4 - Fall 2012</h1>
+<h2>Implementation and Testing Sprint</h2>
+</center>
+<p>
+<table align="center" border="1" cellpadding="5" cellspacing="0">
+
+<tbody>
+  <tr>
+	<th>Due Date<sup>1</sup></th>
+	<th>Assignment<sup>2</sup></th>
+	<th>Value<sup>3</sup></th>
+  </tr>
+
+  <tr>
+	<td> <A href=#sub_1>Sun 12/16</A> </td>
+	<td> <A href=#desc_1>Final Code</a> </td>
+	<td> <A href=#grade_1> 20 </a> </td>
+  </tr>
+  <tr>
+	<td> <A href=#sub_2>Sun 12/16</A> </td>
+	<td> <A href=#desc_2>Pair Programming Report</a> </td>
+	<td> <A href=#grade_2> 10 </a> </td>
+  </tr>
+
+  <tr>
+	<td> <A href=#sub_3>Sun 12/16</A> </td>
+	<td> <A href=#desc_3>Code Review Notes and Report</a> </td>
+	<td> <A href=#grade_3> 20 </a> </td>
+  </tr>
+
+  <tr>
+	<td> <A href=#sub_4>Sun 12/16</A> </td>
+	<td> <A href=#desc_4>Test Driven Development Report</a> </td>
+	<td> <A href=#grade_4> 10 </a> </td>
+  </tr>
+
+  <tr>
+	<td> <A href=#sub_5>Sun 12/16</A> </td>
+	<td> <A href=#desc_5>Final Test Suite</a> </td>
+	<td> <A href=#grade_5> 20 </a> </td>
+  </tr>
+
+  <tr>
+	<td> <A href=#sub_6>Sun 12/16</A> </td>
+	<td> <A href=#desc_6>Sprint Review/Demo</a> </td>
+	<td> <A href=#grade_6> 10 </a> </td>
+  </tr>
+
+  <tr>
+	<td> <A href=#sub_pm>Sun 12/16</A> </td>
+	<td> <A href=#desc_pm>Post-Mortem Report</a> </td>
+	<td> <A href=#grade_pm> 10 </a> </td>
+  </tr>
+</tbody>
+</table>
+<UL>
+<sup>1</sup> Submissions are due by mid-night of the due-date, and must be e-mailed to
+	<a href="mailto:cs181-f@cs.pomona.edu"> cs181-f@cs.pomona.edu </a>.<br>
+<sup>2</sup> Unless otherwise specified, all written materials should be
+	     submitted as URLs to ASCII text files on <a href="https://github.com">github</a>.<br>
+<sup>3</sup> less 10% for each <a href=#latepolicy>unexcused</a> late day.<br>
+</UL>
+<P>
+<H2>Table of Contents</h2>
+<OL type=1>
+  <LI> <A href=#intro>Introduction</a> </LI>
+  <LI> <A href=#desc>Major Activities and Deliverables</a> </LI>
+  <LI> <A href=#rules>Rules</a> </LI>
+</OL>
+
+<A name="intro">
+<H2>1. Introduction</h2>
+</a>
+
+The first three projects took us through all of the activities that precede
+implementation.  In this final project you will actually implement the components
+you designed in project 3 ... and by now it should come as little surprise to you
+that only part of your time will be spent coding, and (if you do it right) very 
+little of your time will be spent debugging.
+<P>
+
+<A name="desc">
+<H2>2. Major Activities and Deliverables</h2>
+</a>
+<P>
+The major activities in this project are:
+<ol type=1>
+	<li><b>Implement your components</b><br> 
+		Each of you will implement the component you designed in project 3.
+	<li><b>Pair Programming exercise</b><br> 
+		Two of you will spend (at least) one session doing pair-programming
+		on one of these components, after which you will write a brief
+		(joint) report on the experience.
+	<li><b>Test Driven Development</b><br>
+		(at least) one of you will develop your component in a Test Driven
+		fashion (implementing and running tests as you complete each routine
+		or feature), and then write a brief report on the experience.
+	<li><b>Code Review</b><br>
+		(at least) one of you will implement your component and then submit
+		it for code review by the other members of your team.  The reviewers
+		will submit their notes, and the reviewee will write a brief report
+		on the experience.
+	<li><b>Test Suite</b><br>
+		Each of you will implement the component test plan you designed in
+		project 3, and use it to validate the correctness of your component
+		implementation.
+	<li><b>Sprint Review/Demo</b><br>
+		You will, as a team, prepare a brief sprint review:
+		<UL>
+		   <LI> describing the components you implemented and their functionality
+		   <LI> demonstrating a successful build and test execution for each
+			component
+		   <LI> demonstrating the functionality of the combined set of components.
+		   <LI> summarizing your key accomplishments and what progress this
+			represents for the (greater) project.
+		</UL>
+	<li><b>Post Mortem</b> <br>
+		You will, as a tream, review the process you followed in this project
+		to see what lessons you can learn for how to do things more effectively
+		in the future.
+</ol>
+Each member of the team must incorporate one of the three development exercises
+(Pair Programming, Test Driven Development, or Code Review) into his/her
+implemenation, and all team members will participate in at least on code 
+review.
+<P>
+You may note that there is no management plan or grade associated with this
+project.  You should, by now be able to plan and coordinate activities for
+yourselves, and you are already being graded on your ability to deliver the 
+required work on schedule ... which is the point.
+
+
+<a name="desc_1">
+<H3>2.1 Final Code</h3>
+</a>
+
+The primary activity in this project is for each person to implement
+and test the component they designed in project 3.  There will be
+many processes and exercises surrounding this implementation, but
+the primary deliverable is working code that implements the requirements
+and specifications set out in project 3.
+
+<H4>2.1.1 Deliverables</h4>
+
+Source files and instructions/scripts (e.g. ant/makefile) required to build them.
+Also include the specifications and design for this component (from project 3,
+with any changes you have made since then).
+
+<a name="grade_1">
+<H4>2.1.2 Grading</h4>
+</a>
+
+This submission be graded on the basis of:
+<ul>
+	<li> 10% appropriateness of chosen languages and frameworks
+	<li> 20% completeness relative to project 3 design and specifications
+	<li> 20% how well it corresponds to the (revised) design
+	<li> 20% code quality (idioms, simplicity, efficiency)
+	<li> 20% code understandability (structure, layout, comments)
+	<li> 10% grader is able to build it from source
+</ul>
+
+<a name="sub_1">
+<H4>2.1.3 Submission</h4>
+</a>
+
+After you have completed all of your implementation and testing, and
+you believe your code is entirely complete, fill
+out the following form and e-mail it to the submission alias.
+
+<PRE>
+    Team: name-of-your-team
+
+    Members: person1, person2, person3, person4
+
+    Project: 4A - Final Code - Component X
+       design: https://github.com/your_repo/...
+       source: https://github.com/your_repo/...
+       tuild:  https://github.com/your_repo/...
+       primary author: person1
+
+       if you have other files to submit, please include a brief
+       description of each.
+
+    Late points:
+        if this submission is late, who is using up how many late points
+</PRE>
+
+<a name="desc_2">
+<H3>2.2 Pair Programming Exercise</h3>
+</a>
+
+At least one member of the team will ask another member to join
+them for at least one pair-programming session.  How you divide
+up your effort (think/code, code/review, code/test) is entirely
+up to you, and you are welcome to try various approaches.
+<P>
+For all work done in a pair-programming mode, the commit comments
+should reflect the division of responsibilities under which that
+work was done.
+<P>
+NOTE: what ever component this is done for should not also be used
+for code review or Test Driven Development.
+
+<H4>2.2.1 Deliverables</h4>
+
+After the end of each pair-programming session, each of the
+people involved should jot down notes on what happened.  After
+the component has been completed, the two people should get
+together and write up a report on the experience.  This report
+should cover:
+<UL>
+   <li>	what role divisions you tried and how you decided how to organize those activities.
+   <li> how effectively each persons time was used (with each division of roles).
+   <li> the speed of code development, vs working alone.
+   <li> the quality of the code, vs working alone.
+   <li> pleasant or unpleasant aspects of the experience.
+   <li> how you would do this differently next time.
+</UL>
+
+<a name="grade_2">
+<H4>2.2.2 Grading</h4>
+</a>
+
+This activity and report be graded on the basis of:
+<ul>
+	<li> 20% documentation of collaboration in commit comments
+	<li> 20% reasonable role divisions, reasonably carried out
+	<li> 20% amount of work accomplished in this mode
+	<li> 20% quality of work accomplished in this mode
+	<li> 20% reasonable insights into the process
+</ul>
+
+<a name="sub_2">
+<H4>2.2.3 Submission</h4>
+</a>
+
+When you are ready to submit this report for grading, fill
+out the following form and e-mail it to the submission alias.
+
+<PRE>
+    Team: name-of-your-team
+
+    Members: person1, person2, person3, person4
+
+    Project: 4B - Pair Programming Report - Component X
+       report: https://github.com/your_repo/...
+       authors: person1, person2
+
+       if you have other files to submit, please include a brief
+       description of each.
+
+    Late points:
+        if this submission is late, who is using up how many late points
+</PRE>
+
+<a name="desc_3">
+<H3>2.3 Code Review</h3>
+</a>
+
+At least one member of the team will write all of his/her code,
+and before running test suites against it, submit that code for
+review by the other members of their team.  The other team members
+will study the code, prepare, nodes and conduct a formal code review,
+producing a report with must-fix/should-fix/advice items.
+<P>
+The author will make the appropriate revisions, and then move on
+to testing.  After the code is working, the author will write
+up a report on the process.
+<P>
+NOTE: What ever component this is done for should not also be used for
+TDD or pair programming.
+
+<H4>2.3.1 Deliverables</h4>
+
+The author will prepare a review package containing the component 
+requirements, specifications, and design (from project 3), and the
+implementing code.
+<P>
+Each of the other team members will review that package and prepare
+written notes, which will be checked in to github prior to the review.
+<P>
+After the review, a formal report will be prepared (listing all important
+conclusions) and checked in to github.
+<P>
+After completing testing, the author will write a report addressing the
+following questions:
+<UL>
+   <LI>	how valuable the input received from the code review process was, 
+  	and what kinds of problems it turned up.
+   <li> what kinds of problems remainined in the code after the code
+	review process.
+   <li> the relative merits of doing code review before or after testing.
+   <li> would knowing that you were going to have a code review have
+     	caused you to make any changes to your test plan?
+   <LI> how would you do this differently next time?
+</UL>
+
+
+<a name="grade_3">
+<H4>2.3.2 Grading</h4>
+</a>
+
+Team submissions
+<ul>
+	<li> 10% notes: submitted well before scheduled review
+	<li> 40% notes: thoroughness of study to which they attest
+	<li> 5% notes: articulation and organization of issues
+	<li> 5% notes: comments appropriate and within scope
+	<li> 15% report: completness with respect to issues raised
+	<li> 10% report: clear disposition of every issue
+	<li> 10% report: issue clarity
+	<li> 5% report: all comments appropriate and within scope
+</ul>
+
+Author's submissions:
+<ul>
+   <li> 10% review package: adequate background
+   <li> 20% review package: clarity of requirements, specifications, design
+   <li> 20% review package: code quality
+   <li> 10% review package: code understandability
+	
+   <li> 20% report: code improvement value extracted from the review process
+   <li> 20% report: insights gained from the process
+</ul>
+
+<a name="sub_3">
+<H4>2.3.3 Submission</h4>
+</a>
+
+When you have your code package ready for review, fill 
+out the following form and e-mail it to the submission alias.
+
+<PRE>
+    Team: name-of-your-team
+
+    Members: person1, person2, person3, person4
+
+    Project: 4C - Code Review package - Component X
+       requirements: https://github.com/your_repo/...
+       design: https://github.com/your_repo/...
+       code: https://github.com/your_repo/...
+       primary author: person1
+
+       if you have other files to submit, please include a brief
+       description of each.
+
+    Late points:
+        if this submission is late, who is using up how many late points
+</PRE>
+
+Each team member should check their review notes into github as soon
+as they are ready.  After the review has been completed and the final
+report written, it too should be checked into github.  
+Fill out the following form and e-mail it to the submission alias.
+
+<PRE>
+    Team: name-of-your-team
+
+    Members: person1, person2, person3, person4
+
+    Project: 4C - Code Review - Component X
+       notes: https://github.com/your_repo/...
+       author: person1
+       notes: https://github.com/your_repo/...
+       author: person2
+       notes: https://github.com/your_repo/...
+       author: person3
+       review report: https://github.com/your_repo/...
+       author: person1
+
+       if you have other files to submit, please include a brief
+       description of each.
+
+    Late points:
+        if this submission is late, who is using up how many late points
+</PRE>
+
+After the code is working the author should prepare a report on the
+review process and the value it added, and then
+fill out the following form and e-mail it to the submission alias.
+
+<PRE>
+    Team: name-of-your-team
+
+    Members: person1, person2, person3, person4
+
+    Project: 4C - Review Report - Component X
+       report: https://github.com/your_repo/...
+       author: person1
+
+       if you have other files to submit, please include a brief
+       description of each.
+
+    Late points:
+        if this submission is late, who is using up how many late points
+</PRE>
+
+<a name="desc_4">
+<H3>2.4 Test Driven Development</h3>
+</a>
+
+At least one member of the team will use Test Driven Development to
+implement his/her component, building and running the test cases for 
+each increment of code as the new code is added.   The rewards for 
+this approach should be:
+<OL type="a">
+   <LI> the there should be little debugging to do, and what little 
+	there is should be quite simple.
+   <LI>	by the time the coding is done, most of the testing will also be done.
+</OL>
+But it will require the test framework to be working first, and more up-front 
+planning about the order in which things should be implemented.  Check in this
+plan before you start coding.
+As evidence that you did infact follow a TDD process, and for keeping a
+record of the problems found, commit each new increment of code prior to
+running the associated tests, and make sure to commit the tests and any
+changes to that code before starting on the next increment of code.
+<P>
+NOTE: What ever component this is done for should not also be used for
+code review or pair programming.
+<P>
+
+<H4>2.4.1 Deliverables</h4>
+
+After completing development, the/each person who uses this methodology
+will write a brief report, covering what they did, and specifically addressing
+the following questions:
+<UL>
+   <LI>	how the implementation order was decided, and how that order worked.
+   <LI> the efficiency of the process was (e.g. how much time went into building
+ 	test cases that were only useful during the construction process).
+   <LI> to what extent do you believe that knowing how you were going to
+	test the code caused you to write code that was more correct?
+   <LI> were there bugs that showed up later that were not found by the
+	TDD process?
+   <LI> how would you do this differently next time?
+</UL>
+
+<a name="grade_4">
+<H4>2.4.2 Grading</h4>
+</a>
+
+This activity and report be graded on the basis of:
+<ul>
+   <li>	10% a reasonable plan for implementation order
+   <li> 30% tests were written and passed incrementally (from the commit history)
+   <li> 20% each test meaningfully validated the associated code (from the commit history)
+   <li> 20% automation framework enabled testing from the start
+   <li>	20% reasonable insights gained from the process
+</ul>
+
+<a name="sub_4">
+<H4>2.4.3 Submission</h4>
+</a>
+
+After you have completed your report, check it in to github, fill
+out the following form and e-mail it to the submission alias.
+
+<PRE>
+    Team: name-of-your-team
+
+    Members: person1, person2, person3, person4
+
+    Project: 4D - Test Driven Development - Component X
+       report: https://github.com/your_repo/...
+       primary author: person1
+
+       if you have other files to submit, please include a brief
+       description of each.
+
+    Late points:
+        if this submission is late, who is using up how many late points
+</PRE>
+
+<a name="desc_5">
+<H3>2.5 Final Test Suite</h3>
+</a>
+
+Each team member will, for his/her component, implment the 
+test plan proposed in project 3, and run those tests against
+their component implementation.
+
+<H4>2.5.1 Deliverables</h4>
+
+Each team member should submit:
+<UL>
+   <LI>	a reference to your (perhaps updated) test plan from project 3.
+   <LI>	the code that implements your test suite (and tools you needed to build).
+   <LI>	the output of having run that test suite against your component.
+</UL>
+It is quite likely that you will, as a result of lessons learned during 
+the implementation, decide you want to change your test plan.  If this
+happens (a) update your project 3 test plan and (b) submit a summary of
+and explanations for the changes.
+
+<a name="grade_5">
+<H4>2.5.2 Grading</h4>
+</a>
+
+This activity and report be graded on the basis of:
+<ul>
+	<li> 20% completeness relative to project 3 test plan
+	<li> 20% does the program pass the test suite
+	<li> 10% code quality of the individual test implementations
+	<li> 10% understandability of the individual test implementations
+	<li> 10% adequacy of the automation
+	<li> 10% choice and exploitation of automation framework
+	<li> 10% clarity of pass/fail indications
+	<li> 10% grader is able to run and pass test suite
+</ul>
+
+<a name="sub_5">
+<H4>2.5.3 Submission</h4>
+</a>
+When you are ready to submit this package for grading, fill
+out the following form and e-mail it to the submission alias.
+
+<PRE>
+    Team: name-of-your-team
+
+    Members: person1, person2, person3, person4
+
+    Project: 4E - Final Test Suite - component X
+       test plan: https://github.com/your_repo/...
+       test suite: https://github.com/your_repo/...
+       test results: https://github.com/your_repo/...
+       primary author: person1
+
+       if you have other files to submit, please include a brief
+       description of each.
+
+    Late points:
+        if this submission is late, who is using up how many late points
+</PRE>
+
+<a name="desc_6">
+<H3>2.6 Sprint Review/Demo</h3>
+</a>
+
+At the end of each SCRUM sprint, the team presents the work that was
+completed during that sprint to the product owner.  This is, in part,
+ceremonial (the team can claim success and receive feedback on the
+work they have completed) but it also a very practical sign-off:
+<UL>
+    <LI> the team briefly reviews the requirements to have been
+	 met and demonstrates that the product now meets them.
+    <LI> the team overviews the testing that has been done.
+    <LI> the product owner decides whether or not this work
+         has actually been completed (i.e. deliverable
+         functionality).
+    <LI> velocity points are only earned for accepted work.
+</UL>
+<P>
+You have built your components, and your test suite, and you have
+run your tests.  Hopefully you have been able to combine your
+components and demonstrate functionality for the integrated whole.
+Now it is time for you to review what you have produced with your
+product owner.
+
+<H4>2.6.1 Deliverables</h4>
+Your review presentation should include:
+<UL>
+   <LI>	a brief summary of the functionality of each of the components
+	built during this sprint and the (component level) requirements
+	it was to meet.
+   <LI>	a brief overview of the scope of the automated testing plan for
+	each component.
+   <LI>	a brief overview of the expected functionality of the integrated
+	pieces.
+   <LI>	a demonstration of an (error-free) build and automated test of each 
+	component (according to that test plan).
+   <LI>	a demonstration of the functionality of the combined pieces.
+   <LI> a summary of what progress this represents towards the construction
+	of your larger project (what this means and what comes next).
+</UL>
+This is not a long presentation.  It might be useful to have slides to cover
+the components, their requirements, and their test plans, but this is not
+necessary.   The only required demonstration is working code, and a 4-5
+minute presentation will be fine.
+<P>
+<a name="grade_6">
+<H4>2.6.2 Grading</h4>
+</a>
+
+This presentation be graded on the basis of:
+<ul>
+	<li> 10% overview of component and its requirements
+	<li> 10% overview of component test plan
+	<li> 10% overview of integration and resulting functionality
+	<li> 20% error free build
+	<li> 20% error free execution of all test cases
+	<li> 20% demo shows component meets its requirements
+	<li> 10% demo shows evidence of successful integration
+</ul>
+
+<a name="sub_6">
+<H4>2.6.3 Submission</h4>
+</a>
+
+When you have an idea when you will be ready for your review, 
+contact either the professor or the TA to schedule it.
+
+<a name="desc_pm">
+<H3>2.7 Post-Mortem Report</H3>
+</a>
+This project is a learning exercise, and one of the major ways
+we learn is by analyzing past mistakes.  You will, as a team,
+review all aspects of this project.  One of you will then 
+summarize that process into a post-mortem analysis report.
+<P>
+<H4>2.7.1 Deliverables</h4>
+<P>
+A report, summarizing the key issues raised in your post-mortem,
+and the conclusions you came to.  Your post-mortem discussion 
+should include:
+<ul>
+	<li> the implementation of your component design and the resulting code quality
+	<li> the implementation of your test plan, the problems found, and the confidence gained
+	<li> the relative efficacy of the competing development processes
+	<li> the integration of your components together
+	<li> the preparation of the release review/demo
+	<LI> the overall project as an educational exercise
+</ul>
+<P>
+<a name="grade_pm">
+<H4>2.7.2 Grading</h4>
+</a>
+This report be graded on the basis of:
+<ul>
+	<li> 50% whether or not you meaningfully discuss each of the required activities.
+	<li> 20% whether or not you identify all of the important incidents.
+	<li> 30% the extent to which you are able to derive and articulate useful lessons
+	     (and good future advice) from those experiences.
+</ul>
+
+<a name="sub_pm">
+<H4>2.7.3 Submission</h4>
+</a>
+
+Upload the notes from your post-mortem discussion to github,
+fill out the following form and e-mail it to the submission alias.
+
+<PRE>
+    Team: name-of-your-team
+
+    Members: person1, person2, person3, person4
+
+    Project: 4F - Post-Mortem
+       Report:  https://github.com/your_repo/...
+       primary editor: person2
+
+       if you have other files to submit, please include a brief
+       description of each.
+
+    Late points:
+        if this submission is late, who is using up how many late points
+</PRE>
+
+<A name="rules">
+<H2>3. Rules </H2>
+</a>
+<A name=latepolicy>
+<H3>3.1 Due Dates and Slip Days</H3>
+</a>
+<P>
+Any assignment that is not turned in by its <strong>due date</strong>,
+will have its grade reduced by 10% (of its nominal value) for each
+late day.  I understand that problems happen, and so each student is
+granted three <em>slip days</em>.  A team of four students would have
+twelve slip days between them.
+<P>
+One slip-day will excuse <strong>one</strong> deliverable 
+being late by <strong>one</strong> day.   
+If a design is one day late, and that delays the
+design review by a day, then you may find that you need two slip-days.  
+Don't make the mistake of using up your slip-days too soon, because
+the pressures generally get tighter later in the course. 
+<P>
+When a team needs to use slip-days, they need to decide who's
+days they are using.  However you decide is OK with me, but
+we will be tracking the slip days per student.
+If will be using any slip days on a deliverable, tell me in 
+advance that you will be doing so (so that I don't nag you
+about whether or not I lost your submission message).
+
+<A name="primary">
+<H3>3.1 Primary Authorship</h3>
+</A>
+While many activities (e.g. Post Mortem review) are fundamentally team
+activities, each major work product will typically have a primary author:
+one person who works up the basic organization, pulls together the contribution
+from the other team members and writes most of the prose.
+<P>
+The ability to organize large collections of information into a coherent
+narrative is an important skill, and each team members should take primary
+authorship for multiple work products.  The quality portion of the individual
+contribution grade is based on the work products for which that person was
+the primary author (presided over a process, or wrote at least 2/3 of
+the text in a document).
+<P>
+Each work product submission must include an indication of the
+primary author (or authors if no individual produced 2/3 of the text).
+Note, however, that since the whole team will be graded
+on the quality of each work product, it is only prudent
+for the entire team to review any high-value work product 
+before it is submitted.
+
+<P>
+I will keep these as confidential, and average them together to get a sense
+of the individual contributions to each team's efforts.
+<P>
+<h3>3.2 Collaboration and Citation</a></h3>
+<p>
+This is a team project, but different individuals will have primary
+responsibility for different processes or work products (or different 
+parts of a single work product or process).  Each team will be working 
+on a different type of product.  You are free to talk your team members 
+(and for that matter other teams) about the processes you are following.
+You may review your work products with your own team members, and revise
+them based on their feedback ... but ...
+</a></p><ol type="1">
+<a name="5_rules">   </a><li><a name="5_rules">	If you are the primary author of a work-product, you must
+	cite the source of text you did not write (if it is more
+	than a sentence), or any information that did not originate
+	within your team or from your interviews.
+	</a><p>
+<a name="5_rules">	You will be doing research to develop your product definition and
+	requirements.  I expect that many of the ideas for your product
+	will come from this research.  Cite all of your sources for each
+	work product, and explain how each source contributed to your work
+	products.
+</a></p></li><li><a name="5_rules"> You may not share any of your work products (other than as required
+     for reviews) with members of other teams.
+</a></li></ol>
+
+
+<p>
+
+</p></body></html>
