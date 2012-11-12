@@ -17,36 +17,36 @@
   </tr>
 
   <tr>
-	<td> <A href=#sub_1>Sun 12/16</A> </td>
+	<td> <A href=#sub_1>~Sun 12/16</A> </td>
 	<td> <A href=#desc_1>Final Code</a> </td>
 	<td> <A href=#grade_1> 20 </a> </td>
   </tr>
   <tr>
-	<td> <A href=#sub_2>Sun 12/16</A> </td>
+	<td> <A href=#sub_2>~Sun 12/16</A> </td>
 	<td> <A href=#desc_2>Pair Programming Report</a> </td>
 	<td> <A href=#grade_2> 10 </a> </td>
   </tr>
 
   <tr>
-	<td> <A href=#sub_3>Sun 12/16</A> </td>
+	<td> <A href=#sub_3>~Sun 12/16</A> </td>
 	<td> <A href=#desc_3>Code Review Notes and Report</a> </td>
 	<td> <A href=#grade_3> 20 </a> </td>
   </tr>
 
   <tr>
-	<td> <A href=#sub_4>Sun 12/16</A> </td>
+	<td> <A href=#sub_4>~Sun 12/16</A> </td>
 	<td> <A href=#desc_4>Test Driven Development Report</a> </td>
 	<td> <A href=#grade_4> 10 </a> </td>
   </tr>
 
   <tr>
-	<td> <A href=#sub_5>Sun 12/16</A> </td>
+	<td> <A href=#sub_5>~Sun 12/16</A> </td>
 	<td> <A href=#desc_5>Final Test Suite</a> </td>
 	<td> <A href=#grade_5> 20 </a> </td>
   </tr>
 
   <tr>
-	<td> <A href=#sub_6>Sun 12/16</A> </td>
+	<td> <A href=#sub_6>~Sun 12/16</A> </td>
 	<td> <A href=#desc_6>Sprint Review/Demo</a> </td>
 	<td> <A href=#grade_6> 10 </a> </td>
   </tr>
@@ -126,8 +126,10 @@ The major activities in this project are:
 </ol>
 Each member of the team must incorporate one of the three development exercises
 (Pair Programming, Test Driven Development, or Code Review) into his/her
-implemenation, and all team members will participate in at least on code 
-review.
+implemenation, and all team members will participate (as a submitter or reviewer)
+in at least one code review.  While most of these activities will involve selected
+individuals, you are encouraged to discuss each of these activities as a team,
+and the reports from those activities will be graded as team deliverables.
 <P>
 You may note that there is no management plan or grade associated with this
 project.  You should, by now be able to plan and coordinate activities for
@@ -148,8 +150,16 @@ and specifications set out in project 3.
 <H4>2.1.1 Deliverables</h4>
 
 Source files and instructions/scripts (e.g. ant/makefile) required to build them.
-Also include the specifications and design for this component (from project 3,
-with any changes you have made since then).
+Make sure that you document the build environment that is required to build your
+components, because part of your grade will depend on the TA being able to
+independently build your product from the checked-in sources and instructions.
+If this is not practical (e.g. because your component cannot be built on a Linux
+system) make special arrangements with the TA to have him observe a check-out
+build-from-scratch.
+<P>
+You should also re-submit the
+specifications and design for this component (from project 3)
+with any changes you have made since then.
 
 <a name="grade_1">
 <H4>2.1.2 Grading</h4>
@@ -157,10 +167,10 @@ with any changes you have made since then).
 
 This submission be graded on the basis of:
 <ul>
-	<li> 10% appropriateness of chosen languages and frameworks
+	<li> 10% appropriateness of chosen languages, middleware, and tools.
 	<li> 20% completeness relative to project 3 design and specifications
 	<li> 20% how well it corresponds to the (revised) design
-	<li> 20% code quality (idioms, simplicity, efficiency)
+	<li> 20% code quality (use of language features, simplicity, efficiency)
 	<li> 20% code understandability (structure, layout, comments)
 	<li> 10% grader is able to build it from source
 </ul>
@@ -181,7 +191,7 @@ out the following form and e-mail it to the submission alias.
     Project: 4A - Final Code - Component X
        design: https://github.com/your_repo/...
        source: https://github.com/your_repo/...
-       tuild:  https://github.com/your_repo/...
+       build:  https://github.com/your_repo/...
        primary author: person1
 
        if you have other files to submit, please include a brief
@@ -201,8 +211,8 @@ up your effort (think/code, code/review, code/test) is entirely
 up to you, and you are welcome to try various approaches.
 <P>
 For all work done in a pair-programming mode, the commit comments
-should reflect the division of responsibilities under which that
-work was done.
+made during those sessions should reflect the division of 
+responsibilities under which that work was done.
 <P>
 NOTE: what ever component this is done for should not also be used
 for code review or Test Driven Development.
@@ -212,8 +222,8 @@ for code review or Test Driven Development.
 After the end of each pair-programming session, each of the
 people involved should jot down notes on what happened.  After
 the component has been completed, the two people should get
-together and write up a report on the experience.  This report
-should cover:
+together (ideally discussing it with the entre team) and 
+write up a report on the experience.  This report should cover:
 <UL>
    <li>	what role divisions you tried and how you decided how to organize those activities.
    <li> how effectively each persons time was used (with each division of roles).
@@ -252,6 +262,9 @@ out the following form and e-mail it to the submission alias.
        report: https://github.com/your_repo/...
        authors: person1, person2
 
+       commits: ...
+                ...
+
        if you have other files to submit, please include a brief
        description of each.
 
@@ -259,18 +272,22 @@ out the following form and e-mail it to the submission alias.
         if this submission is late, who is using up how many late points
 </PRE>
 
+It will make the grader's job much easier if you can refer us
+to specific commits done during the pair programming sessions.
+
 <a name="desc_3">
 <H3>2.3 Code Review</h3>
 </a>
 
 At least one member of the team will write all of his/her code,
-and before running test suites against it, submit that code for
-review by the other members of their team.  The other team members
+and <strong>before</strong> running test suites against it, submit that code for
+review by the other members of their team.  
+The other team members
 will study the code, prepare, nodes and conduct a formal code review,
 producing a report with must-fix/should-fix/advice items.
-<P>
 The author will make the appropriate revisions, and then move on
-to testing.  After the code is working, the author will write
+to testing.  After the code is working, the author will discuss
+the process with the rest of the team and then write
 up a report on the process.
 <P>
 NOTE: What ever component this is done for should not also be used for
@@ -279,22 +296,26 @@ TDD or pair programming.
 <H4>2.3.1 Deliverables</h4>
 
 The author will prepare a review package containing the component 
-requirements, specifications, and design (from project 3), and the
-implementing code.
+requirements, specifications, and design (perhaps modified) from project 3, 
+and the implementing code.
 <P>
 Each of the other team members will review that package and prepare
-written notes, which will be checked in to github prior to the review.
+written notes, which will be checked in to github 
+<strong>well prior</strong> to the review.
 <P>
 After the review, a formal report will be prepared (listing all important
 conclusions) and checked in to github.
 <P>
-After completing testing, the author will write a report addressing the
-following questions:
+The author will address all of the raised issues, and then complete the
+testing.
+<P>
+The report on this activity (different from the report from the review)
+should cover:
 <UL>
    <LI>	how valuable the input received from the code review process was, 
   	and what kinds of problems it turned up.
    <li> what kinds of problems remainined in the code after the code
-	review process.
+	review process, and why they weren't found.
    <li> the relative merits of doing code review before or after testing.
    <li> would knowing that you were going to have a code review have
      	caused you to make any changes to your test plan?
@@ -416,11 +437,30 @@ this approach should be:
 </OL>
 But it will require the test framework to be working first, and more up-front 
 planning about the order in which things should be implemented.  Check in this
-plan before you start coding.
+plan before you start coding.  There are a few tricks to this planning:
+<UL>
+   <LI> there is a natural order to implementation and testing, because
+        some features fundamentally depend on others.  These dependencies
+        must be recognized.
+   <LI> some test cases may be only applicable to incomplete code
+	and become obsolete after the code has been completed.  These
+	represent a waste of work and should be avoided as much as
+	possible.
+</UL>
+<P>
 As evidence that you did infact follow a TDD process, and for keeping a
-record of the problems found, commit each new increment of code prior to
-running the associated tests, and make sure to commit the tests and any
-changes to that code before starting on the next increment of code.
+record of the problems found, please:
+<UL>
+   <LI> commit the new code and associated test cases together,
+        before running them.
+   <LI> after you have passed the tests, commit the updated code
+        and test cases (again together), with comments describing
+        the problems found and fixed during the testing.  If they
+	worked first time (this will happen) follow this up with
+	a trivial commit and a comment to that effect.
+   <LI> do not move on to implementing new functionality until
+	you have passed all the tests for the existing functionality.
+</UL>
 <P>
 NOTE: What ever component this is done for should not also be used for
 code review or pair programming.
@@ -429,8 +469,8 @@ code review or pair programming.
 <H4>2.4.1 Deliverables</h4>
 
 After completing development, the/each person who uses this methodology
-will write a brief report, covering what they did, and specifically addressing
-the following questions:
+will discuss the experience with the team and write a brief report, covering 
+what they did, and specifically addressing the following questions:
 <UL>
    <LI>	how the implementation order was decided, and how that order worked.
    <LI> the efficiency of the process was (e.g. how much time went into building
@@ -438,7 +478,8 @@ the following questions:
    <LI> to what extent do you believe that knowing how you were going to
 	test the code caused you to write code that was more correct?
    <LI> were there bugs that showed up later that were not found by the
-	TDD process?
+	TDD process?  If so, why do you think they were not turned up
+	earlier?
    <LI> how would you do this differently next time?
 </UL>
 
@@ -448,7 +489,7 @@ the following questions:
 
 This activity and report be graded on the basis of:
 <ul>
-   <li>	10% a reasonable plan for implementation order
+   <li>	10% a reasonable plan for implementation order (checked in before starting)
    <li> 30% tests were written and passed incrementally (from the commit history)
    <li> 20% each test meaningfully validated the associated code (from the commit history)
    <li> 20% automation framework enabled testing from the start
@@ -471,12 +512,18 @@ out the following form and e-mail it to the submission alias.
        report: https://github.com/your_repo/...
        primary author: person1
 
+       commit: ...
+       commit: ...
+
        if you have other files to submit, please include a brief
        description of each.
 
     Late points:
         if this submission is late, who is using up how many late points
 </PRE>
+
+It will make things much easier on the graders if you list the commits
+that represent each increment of functionality and the associated tests.
 
 <a name="desc_5">
 <H3>2.5 Final Test Suite</h3>
@@ -485,6 +532,16 @@ out the following form and e-mail it to the submission alias.
 Each team member will, for his/her component, implment the 
 test plan proposed in project 3, and run those tests against
 their component implementation.
+<P>
+The execution of your test cases should be automated (e.g. so that
+all tests can be run with a single command), and all of the test
+cases and scripts should be checked in to git-hub.  
+Make sure that you document the environment and procedure for running
+these tests, because part of your grade will depend on the TA being able to
+independently test your product from the checked-in sources and instructions.
+If this is not practical (e.g. because your component cannot be tested on a Linux
+system) make special arrangements with the TA to have him observe a check-out
+build-and-test-from-scratch.
 
 <H4>2.5.1 Deliverables</h4>
 
@@ -507,11 +564,11 @@ This activity and report be graded on the basis of:
 <ul>
 	<li> 20% completeness relative to project 3 test plan
 	<li> 20% does the program pass the test suite
-	<li> 10% code quality of the individual test implementations
-	<li> 10% understandability of the individual test implementations
-	<li> 10% adequacy of the automation
+	<li> 10% tests: implementation code quality
+	<li> 10% tests: readability
 	<li> 10% choice and exploitation of automation framework
-	<li> 10% clarity of pass/fail indications
+	<li> 10% automated test execution and pass determination
+	<li> 10% clarity of tests run and pass/fail indications
 	<li> 10% grader is able to run and pass test suite
 </ul>
 
@@ -543,6 +600,11 @@ out the following form and e-mail it to the submission alias.
 <H3>2.6 Sprint Review/Demo</h3>
 </a>
 
+You have built your components, and your test suite, and you have
+run your tests.  Hopefully you have been able to combine your
+components and demonstrate functionality for the integrated whole.
+Now it is time for you to review what you have produced with your
+product owner.
 At the end of each SCRUM sprint, the team presents the work that was
 completed during that sprint to the product owner.  This is, in part,
 ceremonial (the team can claim success and receive feedback on the
@@ -554,14 +616,8 @@ work they have completed) but it also a very practical sign-off:
     <LI> the product owner decides whether or not this work
          has actually been completed (i.e. deliverable
          functionality).
-    <LI> velocity points are only earned for accepted work.
+    <LI> velocity points are earned for accepted work.
 </UL>
-<P>
-You have built your components, and your test suite, and you have
-run your tests.  Hopefully you have been able to combine your
-components and demonstrate functionality for the integrated whole.
-Now it is time for you to review what you have produced with your
-product owner.
 
 <H4>2.6.1 Deliverables</h4>
 Your review presentation should include:
@@ -573,16 +629,18 @@ Your review presentation should include:
 	each component.
    <LI>	a brief overview of the expected functionality of the integrated
 	pieces.
-   <LI>	a demonstration of an (error-free) build and automated test of each 
-	component (according to that test plan).
-   <LI>	a demonstration of the functionality of the combined pieces.
+   <LI>	a demonstration of a check-out from git-hub and (error-free) 
+	build and automated test of each component (according to that test plan).
+   <LI>	a demonstration of the functionality of the combined pieces,
+	showing them working together, and that all (applicable) key 
+	requirements have been met.
    <LI> a summary of what progress this represents towards the construction
 	of your larger project (what this means and what comes next).
 </UL>
-This is not a long presentation.  It might be useful to have slides to cover
-the components, their requirements, and their test plans, but this is not
-necessary.   The only required demonstration is working code, and a 4-5
-minute presentation will be fine.
+This is not a long presentation (4-5 minutes will be fine).  
+It might be useful to have slides to cover the components, 
+their requirements, and their test plans, but this is not
+necessary. 
 <P>
 <a name="grade_6">
 <H4>2.6.2 Grading</h4>
@@ -590,13 +648,15 @@ minute presentation will be fine.
 
 This presentation be graded on the basis of:
 <ul>
-	<li> 10% overview of component and its requirements
-	<li> 10% overview of component test plan
+	<li> 10% overview of components and their requirements
+	<li> 10% overview of component test plans
 	<li> 10% overview of integration and resulting functionality
-	<li> 20% error free build
-	<li> 20% error free execution of all test cases
-	<li> 20% demo shows component meets its requirements
-	<li> 10% demo shows evidence of successful integration
+	         of the combined sub-components.
+	<li> 20% error free check-out and build from scratch
+	<li> 20% error free check-out and execution of all test cases
+	<li> 20% demo shows component meets all of its key functional requirements
+	<li> 10% demo shows clear evidence of successful integration
+	         (that all sub-components are clearly interoperating).
 </ul>
 
 <a name="sub_6">
