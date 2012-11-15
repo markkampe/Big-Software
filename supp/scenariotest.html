@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>Scenario Based Testing</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Scenario Based Testing</H1>
+	Mark Kampe<br>
+</CENTER>
+
+<H2>1. Introduction</H2>
+Testing is about confidence.
+Efficient testing is about bang for the buck.
+If we build new tests, they'd better find new bugs.
+And if we have our choice, we'd like to find the bugs that will most impact the users.
+<P>
+Unit tests were based on the component specifications, in turn on the requirements.
+More tests of the same assertions aren't going to add much value.
+If we want to find new problems, it will be with different testing, rather than farther down the same branches.  More esoteric bugs are not likely to be the most important.
+<H2>2. Testing Scenarios</H2>
+Recall introduction of story cards as an alternate form of requirement.
+They were good because they represented things real users wanted to do.
+They were easily validated, and in some senses more accurate than more precise declarative reqts.
+<P>
+The same approch can be used to develop test cases.  
+stories about things a user needs to do.
+long scenarios of combinations of operations that would be performed in dealing w/ real sitations.
+these too are very real, representative of what users do.
+connectedness of stories are additional tests (output of A feeds into B)
+many possible scenarios exercise different combinations of operations
+<P>
+<H2>3. Developing Test Scenarios</H2>
+start with the original stories
+talk to customers and get representative scenarios
+create test cases for all the common ones
+<P>
+scenarios need not merely be user tasks
+they can be operational scenarios (add/remove devices)
+they can be stress scenarios (combinations of events)
+<P>
+scenarios can be run in random combinations
+they can be generated from formulae
+creating new and potentially challenging combinations
+<H2>4. Conclusion</H2>
+relatively easy to generate
+highly representative of what users will do, good for confidence
+quite different from unit testing, complementary
+... let's compare with our criteria
+* valid measure of correctness
+* dispositive determination of correctness
+* deterministic
+* independent and isolable
+* automated
+* self contained
+</BODY>
+</HTML>
