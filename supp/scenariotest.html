@@ -9,48 +9,101 @@
 </CENTER>
 
 <H2>1. Introduction</H2>
-Testing is about confidence.
-Efficient testing is about bang for the buck.
-If we build new tests, they'd better find new bugs.
-And if we have our choice, we'd like to find the bugs that will most impact the users.
+Testing is about assessing and developing confidence about the
+quality of the product being tested.  Good tests 
+shake out important bugs.  Efficency in test development can be
+measured by the number of new bugs found per hour invested in 
+new test development.  
 <P>
-Unit tests were based on the component specifications, in turn on the requirements.
-More tests of the same assertions aren't going to add much value.
-If we want to find new problems, it will be with different testing, rather than farther down the same branches.  More esoteric bugs are not likely to be the most important.
-<H2>2. Testing Scenarios</H2>
-Recall introduction of story cards as an alternate form of requirement.
-They were good because they represented things real users wanted to do.
-They were easily validated, and in some senses more accurate than more precise declarative reqts.
+Imagine, for a moment, assume that:
+<UL>
+   <LI> the unit test cases were based (at least in part) 
+ 	on the component specifications (which were, in 
+	turn, based on the requirements).
+   <li> the people who wrote the unit test plans made
+	a diligent and professional effort to ensure that 
+	those plans would validate that the component met 
+	its specifications and requirements.
+   <li> the people who reviewed those plans made a diligent
+	and professional effort to assess
+	the adequacy of those plans to ensure that
+	the component met its specifications and requirements.
+   <li> the test plan was competently implemented, and 
+	all the problems it turned up were addressed
+	during unit testing.
+</UL>
+Given those assumptions,
+developing additional test cases based on the requirements
+and specifications would not seem likely to offer a high
+return on investment.  Such test cases would 
+not so much be looking for bugs in the component as gaps
+in the test plan ... and that is what the review was for.
+There probably aren't very many (such) bugs left to be found, 
+and what few there may be are likely to be in obscure
+corner cases.
+If we want to improve and gain additional confidence about the quality
+of our component we are going to have to find a new basis
+for additional tests.
 <P>
-The same approch can be used to develop test cases.  
-stories about things a user needs to do.
-long scenarios of combinations of operations that would be performed in dealing w/ real sitations.
-these too are very real, representative of what users do.
-connectedness of stories are additional tests (output of A feeds into B)
-many possible scenarios exercise different combinations of operations
+When we were discussing representations for requirements, 
+<strong>use cases</strong> were suggested as an alternative 
+to declarative specifications.  Use cases (or user stories) 
+offerred a few compelling advantages:
+<UL>
+    <LI> they are tied to real-world problems (concrete)
+    <LI> they capture ways customers need to use the product (authoritative)
+    <LI> they are easily validated (trust-worthy)
+</UL>
+They may have even been the real-world sources from which
+the declarative requirements and specifications were derived.
+Such use cases can also become the basis for test cases.
+<H2>2. Developing Testing Scenarios</H2>
 <P>
-<H2>3. Developing Test Scenarios</H2>
-start with the original stories
-talk to customers and get representative scenarios
-create test cases for all the common ones
-<P>
-scenarios need not merely be user tasks
-they can be operational scenarios (add/remove devices)
-they can be stress scenarios (combinations of events)
-<P>
-scenarios can be run in random combinations
-they can be generated from formulae
-creating new and potentially challenging combinations
-<H2>4. Conclusion</H2>
-relatively easy to generate
-highly representative of what users will do, good for confidence
-quite different from unit testing, complementary
-... let's compare with our criteria
-* valid measure of correctness
-* dispositive determination of correctness
-* deterministic
-* independent and isolable
-* automated
-* self contained
+Start with the original use cases:
+<UL>
+   <LI> describe a situation in which the customer would need to
+	use the product.
+   <LI> enumerate the steps in the process, the associated product
+	interactions, the actions the user would take, and their
+	expectations at each point.
+   <LI> script that set of operations and verification of the
+	expected results at each juncture.
+</UL>
+Carrying out such a scenario might assume that there was already
+information in the system (e.g. about a particular customer,
+order, or stock item).  But defining new stock items, adding them
+to the inventory, setting up new customers, and placing orders
+are each use cases in their own right.  We can construct larger
+scenarios (sometimes called <em>sagas</em> which combine numerous 
+use case <em>stories</em> in long chains of inter-dependent test cases.  
+Such scenarios can become long and complex, and encompass almost 
+all of the functionality of the product.  
+Scenarios can be used in even more complex ways: <UL>
+   <LI> multiple scenarios (representing interactions with
+	different users) can be run concurrently (in parallel)
+	to generate higher levels of load and flush out
+	problems that result from concurrent operations.
+   <LI> the number, timing, and combinations of scenarios 
+	can be generated at random to produce ever-changing
+	loads.
+   <LI> additional scenarios can be created that include
+	user errors, component failures, resource exhaustions
+	and other disruptive events, to ensure that the system
+	handles them properly and continues to function.
+   <LI> fixed scenario scripts can be replaced with formulae
+	for the generation of new scenarios (with
+	varying numbers and combinations of operations on
+	a varying set of objects).
+</UL>
+</UL>
+<H2>3. Conclusion</H2>
+Scenario based test cases are:
+<UL>
+   <LI> relatively easy to develop
+   <LI> complex, and therefore likely to find interesting problems
+   <LI> realistic representations of actual use
+   <LI> quite different from and complementary to traditional 
+ 	<em>one assertion at a time</em> unit test cases
+</UL>
 </BODY>
 </HTML>
