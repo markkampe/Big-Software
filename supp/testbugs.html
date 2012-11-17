@@ -44,7 +44,7 @@ is, and then briefly discuss the nuanced relationship between
 testing and bug discovery.  It is hoped that a better understanding
 of the relationship between testing and bug discovery will enable you
 to more effectively plan testing activities, to estimate their efficacy,
-and to more accurately assess their results.
+and to more accurately interpret the results.
 <P>
 <H2>2. Ship Criteria</h2>
 <P>
@@ -84,9 +84,19 @@ bugs.  Many such surrogates have been proposed:
 	far fewer bugs than untested code, and that the number
 	of yet-undiscovered bugs is well correlated with the
 	number of test cases we have not yet run.  This is almost
-	surely true ... but it would not be valid to assume that
-	our test suite is 100% comprehensive, and that once we have 
-	run all of our test cases, we will have found all bugs.
+	surely true, but:
+	<ul>
+	    <li>
+		while the number of yet-undiscovered bugs is probably
+		well correlated with the number of yet-un-run tests,
+		that relationship is not likely to be linear.  Different
+		pieces of code have different numbers of bugs and different
+		test cases have different efficiencies at finding them.
+	    <li>
+		we cannot assume that our test suite is 100% comprehensive, 
+		and that once we have run all of our test cases, we will 
+		have found all bugs.
+	</ul> 
     <LI> code coverage
 	<P>
 	This is an attempt to improve on the above indicator, by
@@ -103,6 +113,8 @@ bugs.  Many such surrogates have been proposed:
 	    <LI> code coverage is not an effective predictor for
 		 how thoroughly we have exercised synchronization,
 		 timing, and other dynamic interaction issues.
+	    <LI> different modules have different complexities,
+		 and coverage in simple modules adds little confidence.
 	</UL>
     <LI> bug arrival rate
 	<P>
@@ -115,7 +127,7 @@ bugs.  Many such surrogates have been proposed:
 	axis is, or what the scale is on the time axis, we can
 	surely detect the peak ... and once we have done this,
 	we should be able to extrapolate the rates at which bugs
-	will be discovered in the future.
+	will be discovered in the future (under this testing regimen).
 	<P>
 	This is well a respected predictor of undiscovered bugs.
 	It is also commonly included in ship criteria.
@@ -332,8 +344,8 @@ coverage function (C(t)):
 	Running the same tests a billion times longer would provide no 
 	incremental confidence.
     <LI>
-	The confidence gained by load and stress testing is an exponential 
-	function of the testing time.  
+	The confidence gained by load and stress testing improves
+	asymtotically over long periods of time.
 	Ship criteria often spell out a required 
 	number of hours (or months, years, centuries, ...) 
 	that must be performed.
@@ -353,7 +365,7 @@ Don't make the mistake of blindly assuming that the number of test cases
 that have been run, or the number of hours that a system has been tested
 can be used to predict its quality.  How efficacious do we believe these
 test cases are likely to be in finding the bugs we think we are likely 
-to have, and how much coverage do we think that our hours of testing 
+to have, and how much coverage do we think those hours of testing 
 have bought us?
 <P>
 <H2> 5. Testing and Confidence</h2>
