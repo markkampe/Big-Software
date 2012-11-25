@@ -5,7 +5,7 @@
 <BODY>
 <CENTER>
 <H1>S/W Estimation Principles</H1>
-version 1.0 of 09 Jan 2007<br>
+version 1.1 of 24 Nov 2012<br>
 Mark Kampe<br>
 </CENTER>
 
@@ -91,44 +91,7 @@ a team, on various problems, using various tools, this will enable you to
 make better predictions about their productivity on the next project.
 Data you collect on this project will help you with future projects.
 <P>
-<H3>2.2 Estimates are neither Precise or Deterministic</h3>
-<P>
-Because we do not have complete knowledge, it is not possible to
-accurately predict how long it will take to complete a project.
-Because of this uncertainty, an estimate is not a number, but rather
-a probability density function.  The confidence estimates are every
-bit as important as the time estimates ... and so they must be included
-along with the estimate.
-<UL>
-In the early stages of project inception, crude estimates that might be off
-by a power of ten may be entirely acceptable.  
-<P>
-By the time resources are being committed, it may be important for estimates 
-to be correct to within 5-10%.
-</UL>
-<P>
-If, in preparing an estimate, you find areas where uncertainty
-is unacceptably high, these are the areas on which you need to focus
-more effort and reduce your ignorance:
-<UL>
-    <LI> seek opinions from people with more experience in this area
-    <LI> do research on the problems and approaches
-    <LI> elaborate the design to gain a better understanding of the
-	 proposed solution
-    <LI> construct models and prototypes to explore potential problems
-	 and approaches.
-</UL>
-<P>
-Estimates should be regularly revisited and refined
-to monitor the progress of the project, and update our predictions
-of when we expect it to complete.
-As investigations, plans, and implementations proceed, unknowns will
-be resolved, probability functions will collapse, and the estimates
-should converge.  
-If the estimates do not converge, but rather continue to move outwards,
-this is a warning sign that something is very wrong.
-<P>
-<H3>2.3 Estimate at the lowest possible level of detail</h3>
+<H3>2.2 Estimate at the lowest possible level of detail</h3>
 <P>
 A single estimate for a 20 staff-year project could easily be high
 or low by a power of ten.
@@ -162,23 +125,107 @@ of unknowns may make it difficult to accurately assess the
 envisioned situations ... casting ever-greater doubt on the 
 validity of the resulting assessments.
 <P>
-The SCRUM process recognizes and attmpts to address these dangers by:
+The SCRUM process recognizes and attmpts to address these dangers by
+declining to recognize the validity of any task that
+cannot be completed in a small number of staff days.
+SCRUM holds that anything larger than that is too big
+to be clearly understood, and not ready to be pulled into a sprint.
+The tasks that are ready to be pulled into a sprint are
+sufficiently well defined and of a small enough size 
+to enable fairly accurate estimation.
+<P>
+<H3>2.3 Estimates are neither Precise or Deterministic</h3>
+<P>
+Because we do not have complete knowledge, it is not possible to
+accurately predict how long it will take to complete a project.
+Because of this uncertainty, an estimate is not a number, but rather
+a probability density function.  The confidence estimates are every
+bit as important as the time estimates ... and so they must be included
+along with the estimate.  There are two very different types of uncertainity:
+<OL type="1">
+   <LI> Imperfect Knowledge (the known unknowns)<br>
+	Uncertainty about exactly what will be done, 
+	how productive we will be, and the problems 
+	that will be encountered along the way.
+   <LI> External Events (the unknown unknowns)<br>
+	Changes in requirements or resources.
+	Problems with external dependencies.
+	Other commitments that will divert our attention from the planned work.
+</OL>
+<H4>2.3.1 Imperfect Knowledge</h4>
+<P>
+These are situations where we know what we are estimating, but we
+may not have yet developed sufficient understanding to enable us
+to produce high-confidence estimates.  
+The best way to deal with such uncertainties is to attempt to quantify
+them (e.g. with probability bands).
+In the early stages of project inception, crude estimates that might be off
+by a power of ten may be entirely acceptable.  
+By the time resources are being committed, it may be important for estimates 
+to be correct to within 5-10%.
+<P>
+If, in preparing an estimate, you find areas where uncertainty
+is unacceptably high, these are the areas on which you need to focus
+more effort and reduce your ignorance:
+<UL>
+    <LI> seek opinions from people with more experience in this area
+    <LI> do research on the problems and approaches
+    <LI> elaborate the design to gain a better understanding of the
+	 proposed solution
+    <LI> construct models and prototypes to explore potential problems
+	 and approaches.
+</UL>
+Estimates should be regularly revisited and refined
+to monitor the progress of the project, and update our predictions
+of when we expect it to complete.
+As investigations, plans, and implementations proceed, unknowns will
+be resolved, probability functions will collapse, and the estimates
+should converge.  
+If the estimates do not converge, but rather continue to move outwards,
+this is a warning sign that something is very wrong.
+<P>
+Again we see that SCRUM process recognizes and explicitly 
+addresses these issues by:
 <ul>
-   <li>	declining to recognize the validity of any task that
-	cannot be completed in a small number of staff days.
-	SCRUM holds that anything larger than that is too big
-	to be clearly understood.
-   <li>	declining to make commitments that extend farther than 
-	the current sprint (whose contents are small, well defined, 
-	and well understood).  As we gaze farther into the future
-	our understanding of the required work becomes cloudy, 
-	making estimates untrustworthy.
-   <li>	continuously <em>grooming</em> the backlog:
-	refining the task list, descriptions, and estimates.
-	As these stabilize, our estimates of a completion
-	date (based on estimated points and velocity) begin
-	to converge.
+   <li>	only preparing detailed estimates for (small,
+	well defined, and well understood) tasks near
+	top of the backlog.  As we gaze farther into the future
+	our understanding of both the tasks and the required work 
+	becomes cloudy, and the estimates correspondingly 
+	degenerate to cruder (T-shirt size) small, medium, large 
+	characterizations.
+   <li>	doing design and estimation in a progressive process,
+	continuously refining descriptions, breaking larger
+	tasks into smaller sub-tasks, exploring designs, and
+	prototyping solutions for the tasks near the top of
+	the backlog.  This process is both easier
+	and more accurate than all-up-front estimates.
+   <li> applying past measured velocity to the remaining 
+	backlog to obtain successively better extrapolations
+	of the expected time to complete the required features.
 </ul>
+<P>
+<H4>2.3.2 External Events</h4>
+<P>
+Here the problem is not so much a matter of estimating how much
+work something will take as trying to guess what the future
+constraints on the problem might be:
+<UL>
+    <LI> requirements negotiations might take much longer than
+	 expected, delaying our ability to start serious work.
+    <LI> key requirements could be changed after the start of
+	 work, requiring significant rework.
+    <LI> planned hiring may go more slowly than expected, or
+	 people with required skills may be unavailable.
+    <LI> other emergencies may preempt people who are
+	 expected to be working on this project.
+</UL>
+The schedule implications of such events could range from imponderable
+to devastating, and trying to incorporate them into the schedule as
+expectancies would (in most cases) be neither practical nor useful.  
+Rather, these should simply be called out as risks 
+(where possible) with associated management plans.
+<P>
 <P>
 <H3>2.4 Get Multiple Independent Estimates</h3>
 <P>
@@ -246,12 +293,73 @@ telling you that they are too high.
 Be prepared to explain the
 process you used to develop your estimates, the data sources on 
 which you drew, the confirmation that you obtained, and how
-much confidence you have.  Project size estimates can often
-be reduced by changing the project requirements, scope, design,
-methodology, or understanding of the problem.  
-Making a number smaller simply because an executive
-thinks it is too large is self deception (and unlikely to end well).
+much confidence you have.  
 <P>
+<H3>2.6 Keep and Open Mind, but Keep it Real</h3>
+<P>
+Just because I did a bunch of work to estimate that it would take
+six months to build a particular component, doesn't mean that I
+should have any great attachment to that estimate.
+Project size estimates can often be reduced by changing:
+<UL>
+   <LI> requirements ... exactly what we have to do<br>
+	Requirements are not always well written, and all parts
+	of the requirements are not equally important.  
+	What seems a very small requirement (only a few words)
+	can often create some very large problems.  Don't be
+	afraid to explore requirements changes that have the
+	potential to greatly change the difficulty.
+   <LI> scope ... how much we build in the first release<br>
+	Requirements often describe an eventual vision of how
+	the system should work ... but those visions can often
+	be achieved in phases.  Don't be afraid to explore
+	possibilities for phased delivery that reduce the amount
+	of work that has to be done in a schedule-challenged release.
+   <LI> design ... adopting a simpler approach<br>
+	As engineers, we are drawn towards general and elegant
+	implementations.  Some generality pays for itself very
+	quickly, but some things are over-designed.  Is there
+	a substantially simpler implementation that would 
+	actually meet the requirements for this release, and
+	do so without painting us into an architectural corner?
+   <LI> methodology ... using different tools or techniques<br>
+	Brooks, in "<strong>No Silver Bullet</strong>", made a distinction
+	between <em>essential</em> difficulties (intrinsic in the problem)
+	and <em>non-essential</em> difficulties resulting from the use
+	of weak tools and methodology.  If a problem is outside of
+	our areas of expertise, we may have chosen a poor approach
+	to solving it.  Can we find other people, more experienced
+	in this area, who can suggest better tools and approaches?
+   <LI> our understanding of the problem<br>
+	When working on a hard problem, it is easy to fall into a 
+	conceptual rut.  We have come to a particular understanding
+	of the problem, which has driven us towards a particular solution.
+	We may have made false assumptions about the
+	problem, or the range of possible solutions.  Look for people 
+	with very different perspectives and approaches, and be open
+	to the possibility of renouncing your current visions.
+</UL>
+But don't keep your mind so open that your brains fall out!
+Most software project managers believe that software development
+is constrained by a crude but none-the-less inescapable equation:
+<UL>
+    <em>time</em> x <em>people</em> = <em>functionality</em> x <em>quality</em>
+    <P>
+    more functionality means more work (specification, design, implementation)<br>
+    greater usability, performance, robustness and reliability mean more work (design, review, testing)<br>
+    more work means more time and/or people<br>
+</UL>
+<P>
+We can change the functionality by changing the requirements or scope.
+Perhaps a humbler project would still meet our near-term needs.
+We can change the quality by reducing the time spent on design, review, 
+error handling, and testing.  Perhaps the intended uses for this software
+do not require much in the way of reliability, robustness, performance,
+usability, maintainability, etc.  With appropriate planning, we may be
+able to accelerate the project by adding people to it.  But in the end,
+this equation is going to hold, and trying to change the <em>time</em> term
+without making corresponding changes to the other terms is self-deception,
+(and unlikely to end well).
 
 <H2>3 Summary</h2>
 <P>
