@@ -106,6 +106,32 @@ and you don't follow through (e.g. make an incompatible change) ...
 problems are likely to ensue (e.g. failures, bug reports, product
 gets a bad reputation, going out of business, etc.).
 <P>
+<H2>Interfaces vs. Implementations</h2>
+<P>
+Suppose that someone writes a handy library to efficiently provide
+reliable communication over an unreliable network, and I decide
+I want to use it.  I download their development kit and start using
+it, and find it to be great.  A few weeks
+into the project I realize that I need a feature that is not included
+in their documentation, but after reading their code I discover that
+the needed feature is actually available.  I use it and my product
+is a great success.
+<P>
+Six months later, they release a new version of their reliable
+communications library, and my product immediately breaks.  After
+a little debugging I discover that they have changed the 
+undocumented code that I was depending on.  It turns out that I
+had not designed my product to work with their <em>interfaces</em>.  
+My product only worked with a particular <em>implementation</em>
+... and implementations change.
+<P>
+People often put much more work into designing and maintaining
+their code than to clarifying and maintaining their documentation.
+This makes it tempting to reverse engineer the interface specifications
+from a provided implementation.  But an interface should exist 
+(and be defined) independently from any particular implementation.
+Confusing an implementation with an interface usually ends badly!
+<P>
 <H2>Program vs. User Interfaces</h2>
 <P>
 Human beings are amazingly robust.  We could change the text in
