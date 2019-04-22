@@ -1,3 +1,6 @@
+<html>
+<body>
+<pre>
 # TEST SUITE:	filesync-reconciliation
 # TEST CASE:	cflct-data-atr 
 # SUMMARY:	conflicting changes: data vs attributes
@@ -68,3 +71,6 @@ verification:
 
 cleanup:
 	none required (uses unique files)
+</pre>
+</body>
+</html>

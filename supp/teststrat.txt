@@ -1,4 +1,6 @@
-
+<html>
+<body>
+<pre>
 	Overview of Testing Strategy for Filesync
 
 	Version 1.1 of 06/18/96
@@ -145,3 +147,6 @@ Defining Test Cases
 	use, we can (a) add new regression test cases and (b) ask whether
 	or not these bugs are evidence of a whole class of missing test
 	cases.
+</pre>
+</body>
+</html>

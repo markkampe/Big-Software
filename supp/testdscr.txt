@@ -1,3 +1,6 @@
+<html>
+<body>
+<pre>
 	Proposed Unit-Test Cases for Filesync
 
 	Version 1.8 of 07/12/96
@@ -261,3 +264,6 @@ things to be covered in other tests
 
 	include deep enough trees and confusing symlinks to
 	break push/pop/get_name
+</pre>
+</body>
+</html>
