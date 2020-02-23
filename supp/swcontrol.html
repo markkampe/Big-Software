@@ -28,42 +28,46 @@ it provides are generally summed up under the two terms
 	why we might need to do this:
 	<UL>
 	   <LI> to reproduce an older (shipped long ago) version of
-		a program to verify or fix a bug.
+		a program to verify or fix a bug.</li>
 	   <LI> to understand exactly which changes were made when,
-		and for what reasons in the past.
+		and for what reasons in the past.</li>
 	   <LI> to enable us to back-out a change that turns out to
-		have been bad.
+		have been bad.</li>
 	</ul>
+   	</li>
    <LI> <strong>Control</strong> refers to the ability to control
 	who, is allowed to make what kinds of changes, to which 
 	versions, of which work products, at which times.  This
 	might be important to:
 	<UL>
 	   <LI> detect or manage different developers making
-		conflicting changes to the same, or related, modules.
+		conflicting changes to the same, or related, modules.</li>
 	   <LI> ensure that sensitive modules are only updated by
-		(or with the approval of) designated experts.
-	   <LI> ensure that all changes are properly reviewed and tested.
-	   <LI> ensure that people who might be affected by changes 
-		are aware of them.
+		(or with the approval of) designated experts.</li>
+	   <LI> ensure that all changes are properly reviewed and tested.</li>
+	   <LI> ensure that people who might be affected by changes </li>
+		are aware of them.</li>
 	   <LI> stabilize (reduce the changes being made to) a
-		program that is about to be released.
+		program that is about to be released.</li>
 	</UL>
+   	</li>
 </UL>
+</P>
 <P>
 The primary activities and tools of Software Configuration Management 
 fall into the categories of:
 <UL>
-   <LI> version control
-   <LI> build automation
-   <LI> build environment
-   <LI> change control
+   <LI> <a href="#version-control">version control</a></li>
+   <LI> <a href="#build-automation">build automation</a></li>
+   <LI> <a href="#build-environment">build environment</a></li>
+   <LI> <a href="#change-control">change control</a></li>
 </UL>
 The following sections introduce the motivations, capabilities, 
 tools and techniques in each of these categories.  Other readings
 will expand on these subjects, providing more in-depth discussions 
 of issues and practices.
-<P>
+</P>
+<a name=version-control>
 <H2>2. Version Control</h2>
 <P>
 Imagine that you are the developer responsible for a popular utility.
@@ -81,16 +85,17 @@ three year old version (2.5).
 	   <LI>	The customer is also running a four year old
 		operating system, and version 3.1 would require
 		them to upgrade to the next version of the OS, 
-		which it turns out won't run on their hardware.
+		which it turns out won't run on their hardware.</li>
 	   <LI>	There have been many enhancements made to your
 		utility in the last few years, and it would not
 		be trivial for existing users to just move over
-		to the new version.
+		to the new version.</li>
 	   <LI>	The customer has been cognizant of these issues,
 		and that is why they are paying for a legacy 
 		support contract, which obligates us to maintain
 		and fix bugs in the version that we originally
-		sold them (version 2.5).
+		sold them (version 2.5).</li>
+	  </li>
 	</OL>
 	<P>
 	This is actually a fairly common problem.  Customers
@@ -109,30 +114,34 @@ three year old version (2.5).
 	requires an update to the software, you will have to:
 	<OL type=1>
 	   <LI> get the sources to your utility, 
-		as they were three years ago.
+		as they were three years ago.</li>
 	   <LI> update those sources to fix the bug, and then build
 		an updated version of the 2.5 product with the new
-		bug fix.
+		bug fix.</li>
 	   <LI> re-run all of the old (release 2.5) test suite to
-		ensure that you did not break anything.
+		ensure that you did not break anything.</li>
 	   <LI> add new test cases to the old (release 2.5) test suite
-		to confirm that the reported bug no longer happens.
+		to confirm that the reported bug no longer happens.</li>
 	   <LI> prepare an update (patch) to release 2.5 that contains
-		the new bug fix.
+		the new bug fix.</li>
 	</OL>
+        </li>
     <LI> Then, if it turns out that the same bug is actually still present
 	in the current code-base, you will have to repeat all of those
-	operations in the current (3.2) code base.
+	operations in the current (3.2) code base.</li>
 </UL>
+</P>
+<P>
 This (typical) story is just one illustration of why software projects need
 version control tools.  There are a myriad of situations that require us
 to be able to go back to previous versions of the code, whether to
 <OL type=a>
-   <LI> investigate problems old versions
+   <LI> investigate problems old versions</li>
    <LI> study the detailed history of the code in order to
-	understand how it got to be the way it is.
-   <LI> back-out changes that no longer make sense.
+	understand how it got to be the way it is.</li>
+   <LI> back-out changes that no longer make sense.</li>
 </OL>
+</P>
 
 <H3>2.1 Capabilities of a Version Control System</h3>
 <P>
@@ -141,34 +150,36 @@ an archival system for named object versions, a tool for tracking
 changes to text files, or it may actually be implemented on top of
 a relational database.  It may be capable of handling only textual
 data (e.g. SCCS, CVS) or it may be capable of arbitrary files 
-(e.g. svn).  There are, however, a few basic capabilities that
-almost all version control systems have in common:
+(e.g. svn).  There are, however, a few <em>laws of version control</em>
+that almost all version control systems have in common:
+</P>
 <P>
-<H4>Any Version can be Recovered at Any Time</h4>
+<H4>Law 1: All Changes are Tracked</h4>
+<P>
+Whenever any change is made to any object, a record is made of:
+<UL>
+   <LI> a unique change transaction ID</li>
+   <LI> the time and date when the change was made</li>
+   <LI> the human being who ordered the change</li>
+   <LI> a textual explanation for the change</li>
+</UL>
+This 
+<OL type=a>
+   <LI> gives us a <em>handle</em> on every change (so we can find it and talk about it)</li>
+   <LI> helps us understand (after the fact) why each change was made.</li>
+   <LI> tells us who to talk to if we need more information about 
+	the change.</li>
+   <LI> enables us to prepare reports of all of the changes that
+	have been made or incorporated into a product.</li>
+</OL>
+<H4>Law 2: Any Version can be Recovered at Any Time</h4>
 <P>
 Given a change transaction ID, it is possible to recover, at any time,
 the affected file, as it was at the time that change was made.  This
 is the primary capability of any version control system.
+</P>
 
-<H4>All Changes are Tracked</h4>
-<P>
-Whenever any change is made to any object, a record is made of:
-<UL>
-   <LI> a unique change transaction ID
-   <LI> the time and date when the change was made
-   <LI> the human being who ordered the change
-   <LI> a textual explanation for the change
-</UL>
-This 
-<OL type=a>
-   <LI> gives us a handle on every change.
-   <LI> helps us understand (after the fact) why each change was made.
-   <LI> tells us who to talk to if we need more information about 
-	the change.
-   <LI> enables us to prepare reports of all of the changes that
-	have been made or incorporated into a product.
-</OL>
-<H4>Extracted Objects can be Versioned</h4>
+<H4>Law 3: All of our work-prodcts are versioned</h4>
 <P>
 If we have the ability to reconstruct any file as it was at any point
 in time, how can we tell what version of a file we are looking at now?
@@ -176,17 +187,18 @@ Just as some copiers and fax machines have the ability to automatically
 label every output page with information about when it was printed, 
 most version control systems have a means of automatically putting
 identification information into every extracted file.
+</P>
 <P>
-Many of these mechanisms involve some sort of macro expansion capability,
+Some of these mechanisms involve some sort of macro expansion capability,
 where:
 <UL>
    <LI> uses of specialized macros or keywords are placed in the file 
-	before it is checked in to the version control system.
+	before it is checked in to the version control system.</li>
    <LI> whenever a file is checked-out of the version control system,
 	the macros are expanded with version specific information
 	(e.g. file name, version number, when the last change was
 	made, when the file was extracted, who made the last change,
-	etc).
+	etc).</li>
 </UL>
 In this way, the creator of a file can ensure that every extracted 
 instance of the file will be appropriately labeled.
@@ -194,31 +206,38 @@ This capability is so important that I have known several executives
 who will not read any proposal or specification that does not contain
 such version labels:
 <OL type=a>
-   <LI> because these labels mean the document is under version control.
+   <LI> because these labels mean the document is under version control.</li>
    <LI> because these labels make it possible to confirm (when talking
-	to someone else) that we are indeed talking about the same version.
+	to someone else) that we are indeed talking about the same version.</li>
 </ol>
+</P>
 <P>
-It has, however, been argued that "version number stamps" are an
+It has been argued that "version number stamps" are an
 over-simplified notion, increasingly difficult to apply to real products:
 <UL>
    <LI>	a software product is probably built up from hundreds
 	(if not tens of thousands) of distinct modules, each of
 	which has its own version.  An accurate version label would
 	be a tupple comprised of thousands of individual module
-	versions.
+	versions.</li>
    <LI> in a distributed version control system, a module does not
-	have a version, but rather a history, and may be characterized,
-	not by a monotonically increasing version number, but rather 
-	by a SHA-1 hash code.  While descriptively accurate, these
-	are pretty much impossible to use in conversation.
+	have a <em>version</em>, so much as a <em>history</em>, 
+	and may be characterized, not by a monotonically increasing 
+	version number, but rather by a SHA-1 hash code.
+	While descriptively accurate, these are very difficult
+	to use in conversation.</li>
+   <li>	we may be able to associate a named <em>tag</em> with a 
+        (perhaps very large) collection of module versions (or SHA's).
+	Such <em>tags</em> are both easily pronounced and fully 
+	descriptive of the contents of even the most complex product.</li>
 </UL>
 Thus, it has become increasingly common to associate version numbers with
 builds rather than with components, and to create (for each build) a 
 detailed manifest of all of the individual component versions that went
 in to it.
+</P>
 
-<H4>Versioned Objects Exist in Multiple Branches</h4>
+<H4>Law 4: Versioned Objects Exist in Multiple Branches</h4>
 <P>
 It is tempting to think that a file experiences a pure linear sequence
 of updates, each new change an improvement on the last.  As the example
@@ -228,15 +247,16 @@ model.  There are a few reasons for files to exist in parallel branches:
    <LI> The product exists in a succession of releases, but it may
 	occasionally be necessary to make changes to old release
 	(rather than simply moving up to the newest version).  Legacy
-	support problems are the most obvious examples.
+	support problems are the most obvious examples.</li>
    <LI> Multiple people need to make large sets of independent 
 	changes to a product in parallel.  They might decide to
 	do their work in distinct branches, and then re-merge
-	them when they are done.
+	them when they are done.</li>
    <LI> The product may run on multiple platforms (e.g. Windows
 	and Linux), and even though there is much common code, the
-	two platforms require distinct versions.
+	two platforms require distinct versions.</li>
 </UL>
+</P>
 <P>
 Branches are merely parallel threads of development, and can be
 created for any purpose.  There are, however, two common branching
@@ -253,6 +273,7 @@ strategies:
 		The Mainline Model<br>
 		<img src="scm8diag1.gif" alt="Mainline model">
         </div>
+	</li>
 
    <LI> In the <strong>promotion</strong> model, the main (default)
 	branch is the first version.  When a new release is to be
@@ -265,12 +286,21 @@ strategies:
 		The Promotion Model<br>
 		<img src="scm8diag2.gif" alt="promotion model">
 	</div>
+	</li>
 </UL>
 These models may not, however, be as quite as different as they seem.
 In the promotion model, each subsequent release obviously benefits from
 work done in the previous releases.   Omitted from the (over-simplified)
 mainline diagram is the ongoing feed-back of enhancments from each release 
 and project back into the main branch.
+Much more complex models can be found in large open source
+projects, where there may be dozens (or even hundreds) of
+branches, many of which periodically accept selected updates 
+from other branches. <strong>Git</strong> is a distributed
+version control system that is designed to support such
+models.  Because of this, it has a much richer set of
+<a href="#conflicts">conflict management</a> features.
+</P>
 
 <H4>They may support distinct, hierarchically related, work-spaces</h4>
 <P>
@@ -283,32 +313,33 @@ reason it is desirable to be able to create temporary copies of a
 version control database, where I am free to make all of the changes
 that I want (and have them tracked), but other people will not see
 those changes until I am done.
+</P>
 <P>
 This is typically done by creating a child or clone of the original
 workspace.  
 <UL>
    <LI> Within my workspace, I can do what ever I want, but my
 	changes only affect my own work space.  Nobody else sees
-	what I am doing.
+	what I am doing.</li>
    <LI> I can, at any time, check for updates in my parent workspace,
 	and replicate those changes in my own.  This keeps me up to date
-	with respect to (final) changes being made by other people.
+	with respect to (final) changes being made by other people.</li>
    <LI> When I am done, I can put back all of my changes (as a single
 	huge transaction) to my parent workspace.  Only then will other
 	users of the parent workspace see my changes.  This will also
 	allow other children of the same workspace to be notified of
-	my updates.
+	my updates.</li>
    <LI> When a change in my parent workspace updates a file that I too
 	have changed, I have to merge the changes to resolve the
 	conflict.  Most version control systems include tools to detect
-	such conflicts facilitate their reconciliation.
+	such conflicts facilitate their reconciliation.</li>
 </ul>
 Systems of parent and child workspaces can exist in very complex
 hierarchies.  There might be an official release version, 
 which has a child for the current release candidate, which
 has children for each development organization, each of which
 has children for each distinct group of developers.
-<P>
+</P>
 <H3>2.2 Use of a Version Control System</h3>
 <P>
 A version control system is much like a database.  It may actually be built
@@ -317,7 +348,7 @@ directories, etc).  The basic usage cycle is pretty simple:
 <OL type=1>
    <LI> It may be necessary to register yourself with a particular
 	repository (which may verify your ability to read or write
-	these files).
+	these files).</li>
    <LI>	When documents are created (or first imported into the version 
 	control system) a command is run to add each file to the
 	repository.
@@ -326,44 +357,48 @@ directories, etc).  The basic usage cycle is pretty simple:
 	it is a good idea to ensure that each file contains the
 	appropriate version ID/macro/strings to ensure that every
 	copy extracted from the repository will contain appropriate
-	version identification information.
+	version identification information.</li>
    <LI> When you want to look at (or work on) files, there is usually
 	a simple command to extract current (or any specified versions)
 	of all (or any subset) of the files in the repository.  These
-	become your working copies.
-   <LI> You can view, edit, and delete these using any tools you choose.
+	become your working copies.</li>
+   <LI> You can view, edit, and delete these using any tools you choose.</li>
    <LI> There are usually commands to audit your collection of files
 	against the repository, and tell you (a) what files you have
 	changed and (b) what other changes have been made to the 
-	repository in the interim.
+	repository in the interim.</li>
    <LI> There are commands to help you identify and reconcile
-	potentially conflicting updates.
+	potentially conflicting updates.</li>
    <LI> There is a command that checks your changes in to the repository.  
 	<P>
 	It may ask you for a list of files to be checked in, or it
 	may detect them automatically.
 	<P>
 	It will probably ask you to provide a summary of these changes
-	(why they have been made and what they accomplish).
+	(why they have been made and what they accomplish).</li>
    <LI> There are commands to view the change history for 
-	selected files.
+	selected files.</li>
    <LI> There is also usually some way of backing out a change
-	that proves to be undesirable.
+	that proves to be undesirable.</li>
 </ol>
+</P>
 <P>
 Version control systems are normally used to keep track of created
 documents (like requirements, specifications, plans, software, 
 test cases, user manuals, etc). 
+</P>
 <P>
 Newer version control systems are capable of handling non-textural
 data, and may also be used to archive copies of generated objects
 (program binaries, databases, trace logs, test plan results, etc).
-<P>
+</P>
 <H3>2.3 Distributed Version Control</H3>
+<P>
 The preceding discussion has been biased towards <strong>centralized</strong>
 version control, where there is an official master repository and a definitive
 lineage for any branch.  This is the most common model for most commercial 
 and personal software projects.  It is not the only model.  
+</P>
 <P>
 In a centralized version control system, workspaces exist in a relatively
 stable tree-like hierarchy.  Changes are submitted up from child to parent 
@@ -371,6 +406,7 @@ stable tree-like hierarchy.  Changes are submitted up from child to parent
 (when the children are ready).  In a distributed version control regime some
 workspaces may exist in tree-like hierarchies, but (in principle) changes
 can propagate from any workspace to any workspace (with cycles allowed).
+</P>
 <P>
 Consider an
 open source product under active development by many people to support a
@@ -383,6 +419,7 @@ an update are not willing to wait until that change (perhaps) appears
 in the main branch.  Rather, these changes (patches) are continuously 
 and freel passed around the Linux community (e.g. like restaurant 
 recommendations).  
+</P>
 <P>
 In a centralized version control system version one might:
 <UL>
@@ -393,15 +430,16 @@ In a centralized version control system version one might:
   <LI> check the updated version back in as version 1.3.3</li>
 </UL>
 If I wanted these changes,  I would check out that (1.3.3) version.
+</P>
 <P>
 In a distributed version system one might start with the same version,
 make the same changes, and commit them back with the same comments.  
 The difference is how I would get these changes into my own source tree.
 <UL>
   <LI> look at the changed branch in the fixer's repository, and 
-       find the commit that included the desired changes.
-  <LI> apply those same changes to my own branch.
-  <li> check the updated version back in my own repository
+       find the commit that included the desired changes.</li>
+  <LI> apply those same changes to my own branch.</li>
+  <li> check the updated version back in my own repository</li>
 </UL>
 The trick is that middle step.  If my code was identical to the creator's version
 1.3.2, applying the same changes would be trivial.  If my code has greatly diverged 
@@ -411,9 +449,43 @@ price I pay for:
   <LI> wanting to have my own variant version of the product.</li>
   <LI> wanting to take advantage of other peoples' ongoing work.</li>
 </OL>
+</P>
+<a name="conflicts">
+
+<H3>2.4 Conflict Management </H3>
 <P>
-In centralized version control, the sacred operation is <strong>commit</strong>,
-and most of the complexity surrounds the creation and maintenance of branches.  In
+When many people are working on the same software, conflicting updates should be
+expected:
+<ul>
+    <li> different people, working on different problems,
+    	may make conflicting changes to the same code.</li>
+    <li> one person may change method <em>M</em> in a way that is 
+    	incompatible with assumptions that another person has made in 
+	their use of that same module.</li>
+</ul>
+If these people were working in the same group, communication and coordination
+could prevent such problems.  But in a large distributed project the
+authors of the conflicting contributions may not even be aware of one-another's
+existence.  Approaches for dealing with such conflicts can be divided into two
+general categories:
+<ol type="a">
+    <li><em>prevent them</em> e.g. by requiring a developer to get permission
+        and check-out a module before making any changes.</li>
+    <li><em>embrace them</em> e.g. by providing tools that make it easy to
+        discover and reconcile such conflicts.</li>
+</ol>
+</P>
+<P>
+Centralized version control systems tend towards the <em>prevention</em> option.
+The sacred operations are <strong>check-out</strong> and <strong>commit</strong>,
+and most of the complexity surrounds the creation and maintenance of branches.
+This approach has the potential to prevent most conflicts, but this comes
+at the cost of higher overhead (to request and receive permission for each 
+update) and reduced parallelism (as groups B and C are forced to wait until
+group A has completed the changes it is currently making).
+</P>
+<P>
+In
 distributed version control, <strong>commits</strong> are a dime a dozen.  The interesting
 operations are <strong>merge</strong> or <strong>rebase</strong> (consider this change
 to be relative to a different starting point).  To support these operations,
@@ -421,15 +493,16 @@ distributed version control systems tend to have sophisticated tools for assisti
 developers with the process of merging patches into divergent branches:
 <UL>
    <LI> tools that understand the language well enough to determine
-	whether not changes are likely to conflict.
+	whether not changes are likely to conflict.</li>
    <LI> tools that will automatically merge non-conflicting changes, 
 	and create appropriately tagged/bracketed blocks of code to
-	represent the alternatives for potentially conflicting changes.
+	represent the alternatives for potentially conflicting changes.</li>
    <LI>	side-by-side comparison tools that make it easy to see (in
-	context) what the real differences are.
+	context) what the real differences are.</li>
    <LI> tools that automatically do the entailed edits after a
-	user decides what the correct solution is.
+	user decides what the correct solution is.</li>
 </UL>
+</P>
 <P>
 Note, however, that the problem of code merging is not at all unique to 
 distributed version control:
@@ -445,7 +518,9 @@ paradigms, many people feel that distributed version control tools are simply
 more general/powerful.  One can use (more powerful) distributed
 version control tools, but still choose to do manage change propagation
 in centrally managed model with hierarchically structured workspaces.
+</P>
 
+<a name="build-automation">
 <H2>3. Build Automation</h2>
 <P>
 As programmers, it is natural to think of programs as
@@ -458,58 +533,61 @@ our software is ready to run.  It is important that this
 reasons for this:
 <UL>
    <LI> to enure that all of the steps are performed,
-	and in the right order.
+	and in the right order.</li>
    <LI> to ensure that each step is done properly
-	(with all the right options, no typos).
+	(with all the right options, no typos).</li>
    <LI> to relieve people of the responsibility for 
 	remembering and correctly entering complex
-	sequences of commands.
+	sequences of commands.</li>
    <LI> to eliminate possible variations in the created
-	software associated with who did the build.
+	software associated with who did the build.</li>
    <LI> to permit long builds to be performed automatically,
-	without human supervision.
+	without human supervision.</li>
 </ul>
+</P>
 There is also a reproducibility goal associated with build automation:
 <UL>
-	The results of a build (the bits created) should be strictly
+	<strong>The results of a build (the bits created) should be strictly
 	determined by the source files, and should not be affected by
-	who initiated the build, when, where or how.
+	who initiated the build, when, where or how.</strong>
 </UL>
+</P>
 <P>
 Build automation might involve anything from shell or perl scripts,
 to macro-processors, to make files, to auto-makefiles, to integrated 
 development environments.  Their capabilities might be any combination of:
 <UL>
    <LI> a simple set of scripts that run the required commands,
-	and stores the output in a log for later inspection.
+	and stores the output in a log for later inspection.</li>
    <LI> scripts that run the required commands <strong>and</strong>
 	check to ensure that each step completes successfully 
 	before moving on to the next.  This can save a great
-	deal of time and ensure that problems are quickly addressed.
+	deal of time and ensure that problems are quickly addressed.</li>
    <LI> scripts that involve run-time substitutable parameters to
-	select build options, specify where sources live, etc.
+	select build options, specify where sources live, etc.</li>
    <LI> smart build mechanisms that understand the dependencies
 	of output files on input files and only do incremental
 	rebuilds of those
 	files whose inputs have changed.  This can greatly 
 	accelerate builds in a development environment where
 	people typically make very few changes between successive
-	builds.
+	builds.</li>
    <LI> higher level languages in which it is possible to describe
 	abstract relationships among files and general rules,
 	which the tool will then use to determine the class of
 	every single file, and how to properly build it 
-	(without the need to code specific commands for every file).
+	(without the need to code specific commands for every file).</li>
 </ul>
 The more complex the software to be built, the more valuable
 the extra capabilities become.  A good build automation mechanism
 is one that is:
 <OL type=a>
-   <LI> completely automated
-   <LI> easy to use
-   <LI> robust in the face of errors
-   <LI> yields highly predictable and dependable results
+   <LI> completely automated</li>
+   <LI> easy to use</li>
+   <LI> robust in the face of errors</li>
+   <LI> yields highly predictable and dependable results</li>
 </ol>
+</P>
 <P>
 Two of the most common build automation tools are
 <A href="http://en.wikipedia.org/wiki/Make_%28software%29">make</a> and 
@@ -518,28 +596,31 @@ large projects, even building a <em>makefile</em> can be a daunting task.
 A good example of a tool to assist developers with this problem is
 <A href="http://en.wikipedia.org/wiki/Automake">Automake</A>.
 
+<a name="build-environment">
 <H2>4. Build Environment</h2>
 <P>
 Consider the reproducibility goal we stated for build procedures:
 <UL>
-	The results of a build (the bits created) should be strictly
+	<strong>The results of a build (the bits created) should be strictly
 	determined by the source files, and should not be affected by
-	who initiated the build, when, where or how.
+	who initiated the build, when, where or how.</strong>
 </UL>
+</P>
 <P>
 This may not be strictly achievable ... because the bits created by
 the compilation process are not uniquely determined by the source code
 and the compilation options:
 <UL>
    <LI> different include file may have different type and macro
-	definitions.
+	definitions.</li>
    <LI> different versions of the compiler may produce different code
-	for the same input.
+	for the same input.</li>
    <LI> different libraries may contain different routines, or different
-	code for the same routines.
+	code for the same routines.</li>
    <LI> different versions of a linkage editor may combine object
-	modules differently.
+	modules differently.</li>
 </UL>
+</P>
 <P>
 A version control system may be able to ensure that we can reconstruct
 the original versions of our source modules.  If we want to be able to
@@ -551,6 +632,7 @@ would happen if different developers and the release engineering group
 were all using different versions of the compilers and libraries.  If
 there was a bug in a library module, two different developers could
 compile the same source and get different behavior.  
+</P>
 <P>
 To avoid such problems, many software projects settle on a
 <strong>standard build environment</strong>.  A set of basic
@@ -559,6 +641,7 @@ the product.  What if there is a bug in one of the tools in the
 standard build environment?  It can be fixed, but then a <strong>new</strong>
 version of the standard build environment has to be defined, and
 <strong>everybody</strong> must upgrade to the new version.
+</P>
 <P>
 Many organizations are (quite rightly) paranoid about the possibility
 of different people in the development using different versions of the
@@ -567,73 +650,78 @@ about build correctness and reproducibility to adopt some very
 conservative practices:
 <UL>
    <LI> have a formal build group that maintains systems with a
-	standard build environment.
-   <LI> always build from the top-of tree (in the version control
-	system).
-   <LI> always build using totally automated build procedures.
-   <LI> run your tests against the binaries from the official build.
-   <LI> ship only binaries from the official build.
+	standard build environment.</li>
+   <LI> always build from the top-of-tree (latest updates
+        in the version control system).</li>
+   <LI> always build using totally automated build procedures.</li>
+   <LI> test what you build ... run your tests against the binaries from the official build.</li>
+   <LI> ship what you test ... ship only binaries from that (official and tested) build.</li>
 </ul>
+</P>
 <P>
 So how does one get a copy of the standard build environment?
 <UL>
    <LI> some groups actually check the build tool (binaries) into
 	the version control system.  This is slow and inefficient,
-	but it is very well controlled.
+	but it is very well controlled.</li>
    <LI> some organizations maintain build machines that have the
 	standard build environment on them, and can be used by
-	anyone who needs to do a build.
+	anyone who needs to do a build.</li>
    <LI> often, the build group will maintain a web-site with packages
 	for standard build tools.  Anyone who wants to set up a build
 	environment can simply download and install those packages.
-	packages
+	packages</li>
    <LI> it is increasingly common to do builds in virtual machines, 
 	which are cloned from golden images, maintained by the 
-	release engineering group.
+	release engineering group.</li>
 </ul>
+</P>
 <P>
 In situations where developers might reasonably be expected to build
 many different versions of the same software, it is common to install
 each version of the build environment into a different directory, 
 and to use environment variables to tell the standard build tools
 where they can find the correct tools.
-<P>
+</P>
+<a name="change-control">
 <H2>5. Change Control</h2>
 <P>
 There are many possible reasons to limit peoples abilities to make changes:
 <UL>
    <LI> When one developer is making changes to a module, it may make
 	sense to lock it, as a warning to others that these changes
-	are in progress.
+	are in progress.</li>
    <LI> There may be a notification mechanism to ensure that 
 	interested developers are automatically informed whenever
-	changes are made to specified modules.
+	changes are made to specified modules.</li>
    <LI> There may be a formal process associated with changes to
 	some components:
    	<UL>
 	   <LI> requirements may have a contractually mandated change 
-		procedure, involving multi-party sign-offs.
+		procedure, involving multi-party sign-offs.</li>
 	   <LI> it might be required that all changes be associated
-		with an approved bug report or feature request.
+		with an approved bug report or feature request.</li>
 	   <LI> we may want to ensure that changes to critical or 
 		(particularly delicate modules) are only made by
-		designated experts.
+		designated experts.</li>
 	   <LI> we may require that changes be reviewed before they
-		can be checked in.
+		can be checked in.</li>
 	   <LI> there may be a process check associated with changes
 		that go into a release, to ensure that all of the
 		required testing and documentation have been 
 		completed and that this software has indeed been
-		approved for release.  
+		approved for release.  </li>
 	</UL>
 	The process of evaluating a proposed set of changes 
 	against such check-lists is often referred to as
 	<strong>Gate Keeping</strong>.
+   	</li>
    <LI> Any change has the potential to introduce new problems, and
 	so it is common, as a product approaches release, to prohibit
 	any changes except for fixes to a few designated critical bugs.
-	This is called a <strong>product stabilization period</strong>.
+	This is called a <strong>product stabilization period</strong>.</li>
 </UL>
+</P>
 <H3>5.1 Capabilities of Change Control Systems</h3>
 <P>
 It is possible to implement change control disciplines with purely
@@ -644,31 +732,51 @@ mechanisms to ensure the enforcement of change control policies:
    <LI> It may be possible to designate which users have read and
 	write access to which files.  The access control may be
 	very coarse (at the repository level) or quite fine (at
-	the individual file level).
+	the individual file level).</li>
    <LI> It is usually possible to designate lists of users who are
 	to receive e-mail when files are updated.  These may be
 	managed as mailing lists associated with files or sub-trees,
 	or as per-user rules to describe the changes in which they
-	are interested.
+	are interested.</li>
    <LI> There may be a means of locking a file, to prevent other users
 	from changing it, or to at least notify them that changes are
 	currently in progress.  If files can be locked, there is also
-	usually a means of breaking expired locks.
+	usually a means of breaking expired locks.</li>
    <LI> If the version control system supports branches, it will be 
 	possible to imposed different access control rules on different 
-	branches.
+	branches.</li>
    <LI> If the version control system supports related work-spaces,
 	it will be possible to impose different access control rules
 	on each work-space, and on the migration of files between 
-	them.
+	them.</li>
 </UL>
+</P>
+<h3>5.2 Change Control Enforcement</h3>
+<P>
+Some centralized version control systems directly impose restrictions
+on who is allowed to <em>check-out</em> or <em>commit</em> changes
+to a workspace, or even to a particular module.
+But there are other possible points of control:
+<ul>
+   <li>	There may be restrictions on who is allowed to create (or
+   	<em>clone</em>) a new copy of an existing workspace.</li>
+   <li> There may be restrictions on who is allowed to move
+   	(or <em>push</em>) changes from a local copy back into another
+	(more controlled) workspace.</li>
+   <li> It may be that very few people are allowed to <em>push</em> changes
+   	into a controlled workspace.  Rather, authors submit a request that
+	their changes be <em>pulled</em> into that workspace ... which
+	allows the <em>gate keepers</em> to review those changes before
+	accepting them.</em>
+</ul>
+</P>
 
 <H2>6. Conclusions</h2>
 <P>
 Software Configuration Management procedures make it possible for
 us to know precisely what our product is (all of the components
 that went in to it, and the exact means by which they were
-processed to yield the final product.  They also make it possible
+processed to yield the final product).  They also make it possible
 for us to exactly reproduce any version of the product that has
 ever existed.  These capabilities are often critical for major
 software products.
@@ -681,43 +789,48 @@ This is true, but ...
 	keep track of our changes, so that we can ...
 	<UL>
 	   <LI> go back and understand how a piece of code got
-		to be the way it is.
+		to be the way it is.</li>
 	   <LI> back out a series of changes that turn out to have
-		been bad.
+		been bad.</li>
 	   <LI> enable us to maintain multiple parallel versions
-		or releases of single files.
+		or releases of single files.</li>
 	</UL>
+        </li>
    <LI> We will still want to automate our software construction
 	process ...
 	<UL>
 	   <LI> to ensure that our software is correctly built 
-		every time.
+		every time.</li>
 	   <LI> to save us the trouble of remembering and typing
-		complex series of commands.
+		complex series of commands.</li>
 	   <LI> to enable people to build the software who do
 		not actually understand all the details of its
-		design and construction.
+		design and construction.</li>
 	   <LI> to quickly integrate a few changes, rebuilding 
-		only the components that actually changed.
+		only the components that actually changed.</li>
 	</UL>
+        </li>
    <LI> We will still need to define the platforms on which our
 	software is to be built and run ...
 	<UL>
 	   <LI> to prevent problems resulting from attempting to
-		run the software on the wrong platform.
+		run the software on the wrong platform.</li>
 	   <LI> to avoid bugs resulting from the building of the
-		software with the wrong versions of tools.
+		software with the wrong versions of tools.</li>
 	</UL>
+        </li>
 </UL>
+</P>
 <P>
 Larger projects may impose more formal constraints on the development
 process, and more completely specify the ways in which various tasks
-should be performed, but the basic techniques of Software Configuration
+should be performed; But the basic techniques of Software Configuration
 Management are applicable to even the simplest of software projects.
 Most modern SCM tools are flexible enough to support the full
 spectrum of software development projects.  An understanding of these
 issues, tools and techniques will prepare you to create a
 Software Configuration Management regime to meet the needs of each
 project you work on.
+</P>
 </BODY>
 </HTML>
