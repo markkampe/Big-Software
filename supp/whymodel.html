@@ -33,16 +33,18 @@ It is probably worth while to divide models into two broad classes:
    <LI> representational models ... textual or graphical descriptions
         of how a system would operate or be constructed:
    <UL>
-   	<li> to help us visualize and organize our own design thoughts.
-	<li> to help us communicate our design thoughts to others.
+   	<li> to help us visualize and organize our own design thoughts.</li>
+	<li> to help us communicate our design thoughts to others.</li>
    </UL>
+   </li>
    <LI> analytical models ... formal representations of a system that
    	can be used go gain understanding about:
    <UL>
-   	<li> issues that may arrise in the construction of the real system.
-	<li> how the real system is likely to perform in various situations.
-	<li> the relative benefits of alternative approaches.
+   	<li> issues that may arrise in the construction of the real system.</li>
+	<li> how the real system is likely to perform in various situations.</li>
+	<li> the relative benefits of alternative approaches.</li>
    </UL>
+   </li>
 </UL>
 <P>
 This distinction is important because the form in which we choose to
@@ -99,14 +101,14 @@ We still use essentially the same paradigm to understand complex systems:
 	to create simplified views of the individual components</li>
    <li> progressively recombine the simplified components, 
 	and correct over-simplifications until we have reassembled
-	a satisfactory model of the whole system
+	a satisfactory model of the whole system</li>
 </ol>
 <P>
 As to the question of what form these simplified representations should take,
 we generally come to understand complex systems in terms of
 <ol type="a">
-    <li> the structural relationships of the various sub-systems and components,
-    <li> the interconnections and interactions between the various subsystems and components.
+    <li> the structural relationships of the various sub-systems and components,</li>
+    <li> the interconnections and interactions between the various subsystems and components.</li>
 </ol>
 Most of us find both types of information easier to absorb 
 through visual metaphors.  
@@ -130,10 +132,44 @@ and there are fairly obvious graphical representations for each:
 </tr>
 </table>
 <P>
+For many purposes, any graphical representation 
+that communicates the required information (e.g. the three above)
+can be a reasonable choice.  But, as we attempt to describe more
+complex systems we need to be able to express a much wider range
+of relationships and a richer set of attributes.
+This requires a richer language, who's nuances may be much less
+obvious to the un-trained reader.
+</P>
+<H3>The Unified Modeling Language</h3>
+<P>
+We need richer graphical forms to describe the structure
+and interactions in complex computer systems.  If those
+new vocabularies are to be subtle and complex, it would 
+probably be much more efficient to adopt a single standard
+than to have every team make up their own.
+Communication works much better when we all speak a 
+common language.
+</P>
+<P>
+In the 1950s engineers layed the foundations by adopting
+flow-charting conventions
+(similar to circuit diagrams)
+to provide graphical descriptions
+of a program's flow-of-control.  These were very popular
+for a while, but were inadquate to describe block-structured
+code, object hierarchies, and other features of more 
+sophisticated languages and systems.
+In the 1990s a group of engineers proposed a more 
+comprehensive and well-integrated set of modeling 
+conventions that became known as the
+<a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">Unified Modeling Language</a> (UML).
+</P>
+<P>
 UML, with its richer graphical vocabulary is capable of
 communicating more information in a (still relatively
 understandable) Deployment Diagram:
 <P>
+
 <IMG src="UMLdeploy.png" width="800" align="middle">
 <P>
 The relationships to be expressed may become sufficiently 
@@ -176,9 +212,9 @@ flow diagram (one of the few common system depictions
 not included in UML).  An information flow diagram usually
 includes:
    <UL>
-	<LI> information generating or processing agents
-	<LI> information sources and repositories
-	<LI> arrows indicating the flow between them
+	<LI> information generating or processing agents</li>
+	<LI> information sources and repositories</li>
+	<LI> arrows indicating the flow between them</li>
    </UL>
 <P>
 <IMG src="InfoFlow.jpg" width="800" align="middle">
@@ -230,14 +266,14 @@ such computations can be very useful in understanding a problem.
 Consider, for instance, a home music server.  How much disk space
 should it have?  
 <UL>
-<LI>We expect our customers to be music lovers, so
-we might guess that a typical customer would have 5,000 and 50,000
-tracks in his collection.  
-<LI> Looking over our own music, we come to
-the conclusion that a typical one-track mp3 occupies about 5MB.
-<LI>This leads us to the conclusion that we will need to provide
-somewhere in the range of 25-250GB of music storage in our system.
-<LI> Given that ubiquity of multi-terabyte SATA drives, this seems quite reasonable.
+	<LI>We expect our customers to be music lovers, so
+	we might guess that a typical customer would have 5,000 and 50,000
+	tracks in his collection.  </li>
+	<LI> Looking over our own music, we come to
+	the conclusion that a typical one-track mp3 occupies about 5MB.</li>
+	<LI>This leads us to the conclusion that we will need to provide
+	somewhere in the range of 25-250GB of music storage in our system.</li>
+	<LI> Given that ubiquity of multi-terabyte SATA drives, this seems quite reasonable.</li>
 </UL>
 <P>
 <H4>3.1.2 Rate/Cost Estimates</h4>
@@ -247,22 +283,22 @@ staffing that will be required to handle support calls:
 <P>
 <UL>
 	<LI> In usability testing, half of the subjects asked one question
-	     (taking two minutes or less) 
-	<LI> a quarter of them asked multiple questions (averaging ten minutes).
+	     (taking two minutes or less) </li>
+	<LI> a quarter of them asked multiple questions (averaging ten minutes).</li>
 	<LI> In alpha testing (100 units) we got 4 calls for problems 
-	     after initial installation was complete. 
+	     after initial installation was complete. </li>
 	<LI> It takes an average of 15 minutes to get a description, look
-	     it up, and resolve it or open a problem report.
+	     it up, and resolve it or open a problem report.</li>
 </UL>
 <P>
 If we expect to 20,000 units in the first three months, what call
 volume should we expect?
 <P>
 <UL>
-	<LI> 20,000 * .5 = 10,000 2 minute set-up calls
-	<LI> 20,000 * .25 = 5,000 10 minute set-up calls
-	<LI> 20,000 * .04 = 800 15 minute problem reports
-	<LI> total 15,800 calls, 82,000 minutes, 1,367 hours
+	<LI> 20,000 * .5 = 10,000 2 minute set-up calls</li>
+	<LI> 20,000 * .25 = 5,000 10 minute set-up calls</li>
+	<LI> 20,000 * .04 = 800 15 minute problem reports</li>
+	<LI> total 15,800 calls, 82,000 minutes, 1,367 hours</li>
 </UL>
 <P>
 	If these calls were spread evenly throughout the business day
@@ -281,16 +317,16 @@ within 20 hours of the time it fails.  What is the probability
 that a customer will (during a single year) experience an
 outage due to the failure of both power supplies.
 <UL>
-    <LI> The number of hours in a year is 24x365.25 = 8766.
+    <LI> The number of hours in a year is 24x365.25 = 8766.</li>
     <LI> The probability of a single power supply failing in 
-	 one year is 8,766/50,000 = 17.5%
+	 one year is 8,766/50,000 = 17.5%</li>
     <LI> The probability of one of two power supplies failing
-	 in one year is (approximately) 2x17.5% = 35%.
+	 in one year is (approximately) 2x17.5% = 35%.</li>
     <LI> The probability of the second power supply failing
-	 during the 20 hour service window is 20/50,000 = .04%.
+	 during the 20 hour service window is 20/50,000 = .04%.</li>
     <LI> Thus the probability of one power supply failing, and
          the second failing before the first is replaced is
-	 35% x .04% = 0.014%
+	 35% x .04% = 0.014%</li>
 </UL>
 <P>
 <H4>3.1.4 Finding Coefficients</h4>
@@ -314,11 +350,12 @@ per hour?
 	     <P>
 	     5x60x60 = 18,000 words per hour.
 	     <P>
+	     </LI>
 	<LI> The slowest speakers I have ever heard still manage to get
 	     out a few syllables every 5 seconds.
 	     <P>
 	     2/5 x 60 x 60 = 1440 words per hour
-	<P>
+	     </LI>
 </UL>
 This suggests that dictation rates are probably fall within
 the range of 1,400-18,000 syllables per hour. 
@@ -349,9 +386,9 @@ When we looked at the expected support calls that would be generated
 by our music server, we estimated that in the first three months
 we would receive:
 <UL>
-	<LI> 10,000 2 minute set-up calls
-	<LI> 5,000 10 minute set-up calls
-        <LI> 800 15 minute problem reports
+	<LI> 10,000 2 minute set-up calls</li>
+	<LI> 5,000 10 minute set-up calls</li>
+        <LI> 800 15 minute problem reports</li>
 </UL>
 We computed that we would need an average of 2.3 people to handle
 this call volume.  Wanting to ensure a good customer support 
@@ -536,9 +573,9 @@ we aren't even sure what we want to build, or that we know how to
 build it.  These are situations where we should consider prototyping.
 We build prototypes to reduce risk:
 <UL>
-   <LI>	the risk that we will build the wrong thing
-   <LI> the risk that we will build it the wrong way
-   <LI> the risk that it will not work after we build it
+   <LI>	the risk that we will build the wrong thing</li>
+   <LI> the risk that we will build it the wrong way</li>
+   <LI> the risk that it will not work after we build it</li>
 </UL>
 <P>
 Some people think of prototypes as sloppy first implementations,
@@ -548,9 +585,9 @@ There are two problems with this view:
 <OL type=1>
 	<LI> In the absence of clear questions to guide these
 	     efforts, they can be quite expensive, take a long time,
-	     and still not deliver the required answers.
+	     and still not deliver the required answers.</li>
 	<LI> Despite our best intentions, such abominations 
-	     often do escape (i.e. get shipped).
+	     often do escape (i.e. get shipped).</li>
 </OL>
 <P>
 Think of prototypes as buildings or props for a movie set.
@@ -568,10 +605,10 @@ thing, but contains no real mechanisms).
 <UL>
 	<LI> User Interface prototypes are often used to 
 	     gather feedback on a proposed interface, as 
-	     part of the requirements refinement process.
+	     part of the requirements refinement process.</li>
 	<LI> Engineering prototypes are most commonly used 
 	     to validate concepts or scout out potential 
-	     problems before committing to a particular approach.  
+	     problems before committing to a particular approach.  </li>
 </UL>
 <P>
 Good and effective protoyping begins with a clear (ideally
@@ -600,12 +637,12 @@ design, but user interfaces are still clearly in the "must be tested"
 category:
 <UL>
 	<LI> does the sequence of dialogs naturally represent
-	     the user's view of the tasks?
+	     the user's view of the tasks?</li>
 	<LI> are users able to fully and easily navigate the
-	     sequence of dialogs?
+	     sequence of dialogs?</li>
 	<LI> are users able to quickly find desired information
- 	     in status displays?
-	<LI> are the user interactions satisfying and productive?
+ 	     in status displays?</li>
+	<LI> are the user interactions satisfying and productive?</li>
 </UL>
 <P>
 The best way to make such determinations is to build a mock-up of
@@ -639,23 +676,23 @@ features in existing software, and the changes are often only
 a few dozen lines of code.  Sometimes, however, we create 
 whole new mechanisms, such as:
 <UL>
-	<LI> data searching and organization algorithms
-	<LI> data characterization and transformation techniques
-	<LI> transaction interception and filtering mechanisms
-	<LI> network protocols
-	<LI> synchronization or consensus mechanisms
-	<LI> request schedulers
+	<LI> data searching and organization algorithms</li>
+	<LI> data characterization and transformation techniques</li>
+	<LI> transaction interception and filtering mechanisms</li>
+	<LI> network protocols</li>
+	<LI> synchronization or consensus mechanisms</li>
+	<LI> request schedulers</li>
 </UL>
 
 These underlying engines may represent only 1% of the code in
 the final product, but may account for a much larger share of
 the technical risk in the project:
 <UL>
-	<LI> do we know what the right interfaces are?
-	<LI> do we, in fact, know how to build it?
-	<LI> what problems will arise in its development?
-	<LI> how will we test its correctness?
-	<LI> how will it perform?
+	<LI> do we know what the right interfaces are?</li>
+	<LI> do we, in fact, know how to build it?</li>
+	<LI> what problems will arise in its development?</li>
+	<LI> how will we test its correctness?</li>
+	<LI> how will it perform?</li>
 </UL>
 If 1% of the code constitutes 25% of the project risk, it
 is obvious that we need to prototype that 1% of the code.
@@ -723,16 +760,16 @@ to do, how to do it, and how it will work when we are done.
 We can now go back to our (less technical) managers and tell
 them (in detail, with backup):
 <OL type=a>
-	<LI> what our estimates are
-	<LI> how confident we are of our estimates
-	<LI> what our confidence is based on
+	<LI> what our estimates are</li>
+	<LI> how confident we are of our estimates</li>
+	<LI> what our confidence is based on</li>
 </OL>
 If you can do this, well and on a regular basis, you will go far
 as an engineer.  But this is not always enough.  Sometimes it
 is necessary to convince management, or partners, or customers:
 <OL type=a>
-	<LI> that we know how to build this thing
-	<LI> that it will be great
+	<LI> that we know how to build this thing</li>
+	<LI> that it will be great</li>
 </OL>
 <P>
 In some cases, the same prototypes that we used to resolve our
@@ -744,9 +781,9 @@ Designing a killer demo may be more a matter of market knowledge
 and showmanship than of engineering insight.  Designing a killer
 demo involves answering two questions:
 <OL type=1>
-	<LI> What capabilities must we show-case to close this deal?
+	<LI> What capabilities must we show-case to close this deal?</li>
 	<LI> What demonstration would quickly, clearly (and
-	     ideally dramatically) show-case those capabilities?
+	     ideally dramatically) show-case those capabilities?</li>
 </OL>
 <P>
 In many cases, a good demo can be assembled from a combination of
@@ -773,9 +810,9 @@ and the right capabilities to build into that prototype.  A well
 chosen prototype:
 <UL>
 	<LI> gives us high confidence that we know what to build,
-	     how to build it, and how it will work.
+	     how to build it, and how it will work.</li>
 	<LI> can be built for a small fraction of the time and
-	     cost of building a complete product.
+	     cost of building a complete product.</li>
 </UL>
 <P>
 Some prototypes (e.g. U/I mock-ups or toy projects to prove
@@ -802,9 +839,9 @@ not realize how limited it is, and commit to shipping it.
 You can protect yourself (and your customers) from this by:
 <OL type=1>
    <LI> not making your prototype more complete than it needs
-        to be to answer the pressing questions.
+        to be to answer the pressing questions.</li>
    <LI> making sure that your managers understand what the
-	prototype does and does not do.
+	prototype does and does not do.</li>
 </OL>
 <P>
 <H2>5. Executable Designs</h2>
@@ -815,14 +852,14 @@ In the first chapter, I made a distinction between analytical modes
 is not as clear as I suggested:
 <UL>
 	<LI> CAD tools have long complemented graphical component
-	     designs with limited simulations of their properties.
+	     designs with limited simulations of their properties.</li>
 	<LI> There have long been system description languages,
 	     which permit system specifications to be subjected
-	     to automated validation.
+	     to automated validation.</li>
 	<LI> UML models have both graphical and textural representations,
 	     making it easy to develop system models that are simultaneously
 	     easily readable to human eyes and able to be processed by
-	     automated tools.
+	     automated tools.</li>
 </UL>
 <P>
 There are several already several classes of tools that operate on
@@ -830,18 +867,18 @@ design specifications:
 <UL>
 	<LI> visualization tools that permit developers to 
 	     browse multi-dimensional visual representations
-	     of the described system.
+	     of the described system.</li>
 	<LI> consistency checkers that compare inputs and outputs,
-	     and look for un-used or un-specified items.
+	     and look for un-used or un-specified items.</li>
 	<LI> automatic code generators that translate functional
 	     models into code skeletons (e.g. for RPC) or 
 	     behavioral specifications (e.g. state machines)
-	     into code.
+	     into code.</li>
 	<LI> static analysis tools that construct call and
-	     data flow graphs, or test assertions.
+	     data flow graphs, or test assertions.</li>
 	<LI> test case generators that look at interface specifications
 	     (or even logic) and attempt to generate parameters to
-	     fully exercise the code.
+	     fully exercise the code.</li>
 </UL>
 There is a great deal of current research in the area of
 automated high level system simulation, driven by UML models.
@@ -850,11 +887,11 @@ gain increasing levels of information and confidence about a
 proposed design by processing the design itself. 
 <UL>
 	<LI> this may reduce the need to construct independent
-	     mathematical and code models as described in this paper.
+	     mathematical and code models as described in this paper.</li>
 	<LI> where additional modeling is necessary, it may become
 	     increasingly common to provide supplementary models
 	     as annotations to the overall design model, rather than
-	     as completely independent models.
+	     as completely independent models.</li>
 </UL>
 <P>
 Such evolution may not fundamentally change the types of models we 
@@ -866,11 +903,11 @@ A good model can give us answers when our experience and intuition cannot.<br>
 A good model can give us confidence, where before we had doubt.<br>
 Modeling reduces risk:<br>
 <UL>
-   <LI> the risk that we have misunderstood the problem
-   <LI> the risk that our solution is not viable
-   <LI> the risk that we will be unable to build our solution
-   <LI> the risk that we will overrun our schedule or budget
-   <LI> the risk that our solution will not perform as expected
+   <LI> the risk that we have misunderstood the problem</li>
+   <LI> the risk that our solution is not viable</li>
+   <LI> the risk that we will be unable to build our solution</li>
+   <LI> the risk that we will overrun our schedule or budget</li>
+   <LI> the risk that our solution will not perform as expected</li>
 </UL>
 Reducing risk improves our chances of success ...
 and that's a good thing.
