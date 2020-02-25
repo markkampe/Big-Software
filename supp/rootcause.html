@@ -8,8 +8,8 @@
 	Mark Kampe<br>
 </CENTER>
 <P>
-A man was walking by the side of a river and saw an out
-of breath woman swiming out to rescue a baby floating
+A man was walking by the side of a river and saw an
+out-of-breath woman swiming out to rescue a baby floating
 in the river.  There were a half dozen babies already on the
 shore and she screamed for him to help her save them.  
 He turned and started running upstream.  She shouted 
@@ -27,13 +27,13 @@ but it is regularly observed that a great many bugs seem to
 be traceable to a few common causes.  There are many such
 lists but a few common ones are:
 <UL>
-   <LI> off-by-one errors
-   <LI> confusion over names
-   <LI> array/buffer overflows
-   <LI> incorrect handling of error conditions
-   <LI> failure to free memory
-   <LI> reuse of deallocated pointers
-   <LI> race conditions in parallel code paths
+   <LI> off-by-one errors</LI>
+   <LI> confusion over names</LI>
+   <LI> array/buffer overflows</LI>
+   <LI> incorrect handling of error conditions</LI>
+   <LI> failure to free memory</LI>
+   <LI> reuse of deallocated pointers</LI>
+   <LI> race conditions in parallel code paths</LI>
 </UL>
 <P>
 It is important to realize that these are not random
@@ -47,21 +47,21 @@ merely go on to find new mistakes to make.
 <P>
 <strong>Root Cause Analysis</strong>
 is a critical element of most 
-<em>continuous improvement</em> methodologies.  A few notions
-underlie this process:
+<a href="https://en.wikipedia.org/wiki/Continual_improvement_process">continuous improvement</a>
+methodologies.  A few notions underlie this process:
 <UL>
    <LI> process changes are expensive, and we should only
 	make changes when we have good reason to believe
-	that the benefits will greatly exceed the costs.
-   <LI> errors are not random, but stem from specific causes.
+	that the benefits will greatly exceed the costs.</LI>
+   <LI> errors are not random, but stem from specific causes.</LI>
    <LI> there are chains of causality, and by following them
 	backwards, we can find common causes to problems that
-	(initially) seemed to be unrelated.
+	(initially) seemed to be unrelated.</LI>
    <LI> the Pareto principle applies to errors, in that 20%
-	of the causes, give rise to 80% of the problems.
+	of the causes, give rise to 80% of the problems.</LI>
    <LI> eliminating the source of many errors has
 	the potential to be much more effective than finding
-	and eliminating individual error instances.
+	and eliminating individual error instances.</LI>
 </UL>
 <P>
 There are many approaches to root cause analysis.  Some 
@@ -69,20 +69,20 @@ There are many approaches to root cause analysis.  Some
 are rich formal methodologies,
 while others 
 (e.g. <A Href=http://en.wikipedia.org/wiki/5_Whys>5 Whys</a>) 
-are simple enough to be driven by a two-year old.  
+are simple enough to be driven by a four-year old.  
 Most of them, however, involve:
 <UL>
-   <LI> statistical analysis to identify clusters of related
+   <LI> (statistical or annectodal) analysis to identify clusters of related
 	problems or attributes that are shared by large numbers
-	of problems.
+	of problems.</LI>
 
    <LI> investigation of representative instances (by domain experts)
-	to follow the chain of causality back to a <strong>root</strong> cause.
+	to follow the chain of causality back to a <strong>root</strong> cause.</LI>
 
    <LI> additional studies to confirm that this root cause did indeed
-	significantly contribute to a great many problems.
+	significantly contribute to a great many problems.</LI>
 
-   <LI> identify changes to eliminate or control this root cause.
+   <LI> identify changes to eliminate or control this root cause.</LI>
 </UL>
 <P>
 A root cause might be in our process, our materials, the training
@@ -95,23 +95,23 @@ We might, for example, start with the observation that we are
 having a great many security penetration incidents.
 <UL>
    <LI> A study of these incidents might reveal that 99% were 
-	achieved through privileged network daemons.
+	achieved through privileged network daemons.</LI>
    <LI> A more detailed study of these incidents might reveal 
 	that only 5% were classified as design problems, and 
-	that over 85% were classified as coding problems.
+	that over 85% were classified as coding problems.</LI>
    <LI> A review of the code found that 95% of the incidents
 	characterized as coding problems, involved overflows of
-	local (on the stack) buffers.
+	local (on the stack) buffers.</LI>
    <LI> The stack is the most popular target because overflowing an
 	array on the stack permits an attacker to change the return 
-	address and thus to execute arbitrary code.
+	address and thus to execute arbitrary code.</LI>
    <LI> People put input buffers on the stack because it is easier
-	than doing dynamic memory allocation.
+	than doing dynamic memory allocation.</LI>
    <LI> Most of the overflows result from reading until a delimiter
-	is found, without regard to the accumulated length.
+	is found, without regard to the accumulated length.</LI>
    <LI> The programmers made these mistakes because they were never
 	told to watch out for them.  The code passed review for the
-	same reason.
+	same reason.</LI>
 </UL>
 We might consider the last few of these to be root causes of hundreds of
 penetration bugs.  Once we have identified a few causes that explain
@@ -119,13 +119,13 @@ a large number of problems, we can set about attacking those causes:
 <UL>
    <LI> we could start working on a prototype study for an auditing 
 	utility to identify code that puts arrays on the stack and
-	does not appear to have adequate bounds checking.
+	does not appear to have adequate bounds checking.</LI>
    <LI> we could study the offending code and attempt to define a
 	new library package to provide more convenient buffer 
 	access functions (a) in dynamically allocated memory
-	(b) with automatic bounds checking.
+	(b) with automatic bounds checking.</LI>
    <LI> we could add bounds checking to our mandatory issues list
-	for all code reviews for privileged programs and network daemons.
+	for all code reviews for privileged programs and network daemons.</LI>
 
 </UL>
 <P>
@@ -133,9 +133,20 @@ Sometimes, as Sigmund Freud once conceded,
 <em>a cigar is just a cigar</em>.  We should, however, stop periodically,
 look at what we are doing, and attempt to ascertain whether some of the
 problems we are fighting might more effectively be addressed closer to the
-source.
-<P>
-
+source:
+<UL>
+    <LI> When we find a bug that seems to be the result of a misunderstanding
+         or confusion about how to properly use some resource or method, we
+	 should always ask whether or not the same mistake (<em>similar bugs</em>)
+	 might be present elsewhere in the same body of code.  In my experience
+	 this has often proved to be the case ... but recognizing the details
+	 of the misunderstanding often makes those other instances very easy to find.</li>
+    <li> If the misunderstanding (or carelessness) seems to be (like the above
+         example) more fundamental, it may be appropriate to raise the issue
+	 (to the entire team) as a potential <em>root cause</em> that might
+	 be best addressed by changes to our education and procedures.</li>
+</UL>
+</P>
 </BODY>
 </HTML>
 
