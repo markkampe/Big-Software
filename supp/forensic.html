@@ -11,52 +11,49 @@
 
 <H2>1. Introduction</H2>
 <P>
-Usually debugging is an interactive process.  If you observe
-anomalous behavior in a program, you might simply try to reproduce
-the problem and observe the situations under which it does and does
-not behave correctly.  Often, if you are familiar with the code,
-this alone is enough to identify the cause of the problem.
-If the precipitating circumstances don't provide enough information
-to reveal the problem, you might try running your program under
-a system call tracing framework to see what it was actually doing:
+A program does not appear to be working:
+<ul>
+	<li>perhaps it produced unexpected output.</li>
+	<li>perhaps it blew up as a result of dereferencing a null pointer.</li>
+	<li>perhaps it stoped processing requests entirely.</li>
+</ul>
 <P>
-Sample strace output:
-<UL>
-   ...<br>
-   open("/etc/ld.so.cache", O_RDONLY)      = 3<br>
-   open("/lib/libselinux.so.1", O_RDONLY)  = 3<br>
-   read(3, "\177ELF\1\1\1\3\3\1\260G004"..., 512) = 512<br>
-   open("/lib/librt.so.1", O_RDONLY)       = 3<br>
-   read(3, "\177ELF\1\1\1\3\3\1\300\30004"..., 512) = 512<br>
-   open("/lib/libattr.so.1", O_RDONLY)     = 3<br>
-   read(3, "\177ELF\1\1\1\3\3\1\360\r004"..., 512) = 512<br>
-   open("/proc/filesystems", O_RDONLY|O_LARGEFILE) = 3<br>
-   read(3, "nodev\tsysfs\nnodev\trootfs\nnodev\tb"..., 1024) = 315<br>
-   read(3, "", 1024)                       = 0<br>
-   open("/usr/lib/locale/locale-archive", O_RDONLY|O_LARGEFILE) = 3<br>
-   open("/home", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3<br>
-   ...<br>
-</UL>
+In order to formulate a hypothesis, we need to understand the circumstances
+(e.g. performing what operations on what input) under which the program fails.
+Usually debugging is an interactive process:
+<ul>
+	<li> If we observe anomalous behavior in a program, 
+	     we might simply try to reproduce the problem and 
+	     observe the situations under which it does and does
+	     not behave correctly.  Often, if we are familiar with the code,
+	     this alone is enough to identify the cause of the problem.</LI>
+	<li> If the precipitating circumstances don't provide enough information
+	     the program may have been built with diagnostic options that
+	     can be enabled to produce more detailed information about the 
+	     processing.
+	<li> If built-in diagnostics cannot reveal the problem, we might 
+	     try running the program under a
+	     <A href="http://man7.org/linux/man-pages/man1/strace.1.html">
+	     system call tracing facility</a>
+	     for a detailed record of everything the program was doing
+	     leading up to the failure.</li>
+	<li> We may be able to run the program under a debugger where
+	     we can set <em>breakpoints</em> in the code or 
+	     <em>watchpoints</em> on key data items.</li>
+</ul>
 <P>
-If this still not sufficient to reveal the problem you could try 
-enabling (or adding) diagnostic instrumentation, or running your
-program under a debugger so that you can observe its progress
-and changing state.
-Modern tracing and source level debugging tools make it very easy to quickly
-zero in on the causes of most failures, and have greatly improved
-the productivity of developers.   
 Unfortunately, interactive debugging is not always possible:
 <UL>
    <LI> Some bugs only manifest under very complex combinations
 	of circumstances, which happen very rarely and would be
 	difficult to simulate even if we knew what they were ...
-	which we don't. 
+	which we don't. </li>
    <LI>
 	Some systems perform mission critical functions, and must
 	be restored to service immediately, allowing no time to
 	explore the scene of the crime.  Such systems will usually
 	take a core dump, save the state of key databases, and
-	then reboot to resume service.  
+	then reboot to resume service.  </li>
 </UL>
 <P>
 The fact that a problem happens infrequently does not mean that it
