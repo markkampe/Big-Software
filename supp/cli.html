@@ -127,9 +127,9 @@ to use a more complex language?
 <UL>
 When you order a meal in a restaurant, do you point at pictures of
 menu items, and then point at pictures of ingredients that you want
-to add or remove, and point at pictures of you want each one prepared?
+to add or remove, and point at pictures of how you want each one prepared?
 <P>
-I just say "a porterhouse, medium rare, baked potato, with sour cream,
+Most people just say "a porterhouse, medium rare, baked potato, with sour cream,
 salad with ranch dressing".
 <P>
 Sit an experienced Word user next to an experienced vi/emacs user,
@@ -146,6 +146,8 @@ from menus becomes extremely cumbersome ... and the cost of learning
 a real language becomes a better investment.  It takes less body movement,
 and less time to enter a command than it takes to use a mouse ... and
 the more complex the command, the greater the difference.
+This is why so many graphical tools define <em>hot keys</em> to 
+bypass the menus for common operations.
 <P>
 <H3> 2.4 Composability of Functions</h3>
 <P>
@@ -158,7 +160,7 @@ commands of the early UNIX systems.
 Major graphical applications tend to have numerous menus to import,
 export, and transform data in all kinds of interesting ways.  The 
 "toolbox" approach is to build a dozen small commands that each
-perform an interesting data manipulation:
+perform a single interesting data manipulation:
 <UL>
     <LI> <strong>sort</strong> reads input lines, and writes them
 	 back out in a sorted order.
@@ -196,24 +198,25 @@ may be something to this blue-collar toolkit stuff.
 <P>
 In a GUI world, you think about what you can do with the
 program you are running.  In a CLI world you think about
-what can be done with the transitive closure of all existing
-programs, and the new ones that you write.  You don't write
+what can be done with the <em>transitive closure of all existing
+programs</em> (and the new ones that you write).  You don't write
 a program that does exactly what you need.  You write a new
 program that does the piece of what you need that isn't
-covered by existing programs.
+covered by existing tools.
 <P>
 <H3> 2.5 Output Parseability</h3>
 <P>
 GUIs tend to display information in well delimited dialog boxes, 
 scrollable lists and navigable data trees.  These representations
 are designed for visual clarity and intuitive traversal by
-human beings.  If a program wanted to find selective information
-in such a display it might be relatively difficult to find.
+human beings.  If a program wanted to find a particular piece
+of information in such a display it might be relatively difficult.
 <P>
-CLI programs tend to produce output in lines, columns, or other
-more readily parseable formats.  This makes it relatively easy
+CLI programs tend to produce output in lines, columns, 
+comma-separated-values, or other readily parseable formats.
+This makes it relatively easy
 for another program to find and extract specific pieces of information
-from CLI output.  As an example, it has long been common for people
+from simple textual output.  As an example, it has long been common for people
 to write shut-down scripts that run the ps (process status) command
 to get information about running processes, use the grep (regular
 expression processor) command to extract the line that describes
@@ -229,8 +232,8 @@ infrastructure to support a GUI.
 <P>
 <UL>
     <LI>
-	There are systems that lack either graphical displays or the storage, 
-	cycles required by the programs that support graphical output.
+	There are systems that lack either graphical displays or the storage 
+	and cycles required by the software that enables graphical output.
     <LI>
 	During the early stages of system start-up the complex user-mode 
 	services that are required to manage graphical sessions may have
@@ -245,7 +248,7 @@ infrastructure to support a GUI.
 	over (relatively) slow serial communications sessions, that 
 	cannot support the bandwidth required for graphical output.
 </UL>
-In all of these situations, a command line interface may be the only
+In all of these situations, a command line interface may be a much more
 practical mode of interaction.
 <P>
 <H2>3. CLIs and Usability</h2>
@@ -255,7 +258,6 @@ already abandoned usuability ... but (as noted previously) there
 positive reasons to use a CLI.  Moreover, if you think about it for
 a minute, it becomes clear that usability considerations are (if
 anything) even more important with CLIs than with GUIs.
-<P>
 If we consider the factors that contribute to usability (familiarity,
 intuitiveness, simplicity, consistency of metaphors, robustness,
 adaptability) we see that none of them (with the possible of
@@ -266,13 +268,19 @@ and we will just have to work a little bit harder on intuitiveness.
 <P>
 The primary user-costs in most GUIs are finding the desired item,
 cursor motion, and clicks.  We mitigate these costs by consistency
-of placement (making things easier to find) and designing our menus
-and dialogs around the most likely operations.  
+of placement (making things easier to find), designing our menus
+and dialogs around the most likely operations, or providing
+hot-keys to bypass the menus entirely.
 In CLIs the primary costs are remembering command names and argument 
-orders, and then having to type them.  We attempt to mitigate the
-memory cost by using mnemonic names and standard conventions.
-We attempt to mitigate the typing costs by keeping names short
-and/or allowing abbreviations.
+orders, and then having to type them:
+<ul>
+   <li> We attempt to mitigate the memory cost by using mnemonic names 
+        for commands and standard conventions for common arguments
+	and argument order.</li>
+   <li> We attempt to mitigate the typing costs by keeping names short
+   	and/or allowing abbreviations
+	(e.g. <strong>-v</strong> for verbosity).</li>
+</ul>
 <P>
 <H3> 3.1 Mnemonic Command Names</h3>
 <P>
@@ -281,10 +289,10 @@ names mnemonic (reminiscent of words that describe their functions).
 But we also want to make sure that commands have
 short (and intuitive) abbreviations:
 <UL>
-   <LI> <strong>sort</strong> ... to sort input lines
-   <LI> <strong>find</strong> ... to find desired files
-   <LI>	copy (<strong>cp</strong>) ... for copying files
-   <LI> remove (<strong>rm</strong>) ... to delete a file
+   <LI> <strong>sort</strong> ... to sort input lines</li>
+   <LI> <strong>find</strong> ... to find desired files</li>
+   <LI>	copy (<strong>cp</strong>) ... for copying files</li>
+   <LI> remove (<strong>rm</strong>) ... to delete a file</li>
 </UL>
 <P>
 Unfortunately such naming discipline has not always been
@@ -292,24 +300,29 @@ followed.  In UNIX, Ken Thompson and Dennis Richie seem
 to have gone for short but less intuitively obvious names:
 <UL>
    <LI> <strong>ls</strong> for directory 
-	<strong>l</strong>i<strong>s</strong>tings
+	<strong>l</strong>i<strong>s</strong>tings</li>
    <LI> <strong>cat</strong> (short for con<strong>cat</strong>enate) 
 	appending multiple files together and sending them to the standard
-	output.
+	output.</li>
    <LI> <strong>grep</strong> (short for 
 	<strong>g</strong>lobal <strong>r</strong>egular 
 	<strong>e</strong>xpression <strong>p</strong>rocessor)
-	for pulling desired lines out of an input stream.
+	for pulling desired lines out of an input stream.</li>
    <LI> <strong>awk</strong> for a macro language designed by 
 	<strong>A</strong>ho, <strong>W</strong>eingarten and 
-	<strong>K</strong>ernighan.
+	<strong>K</strong>ernighan.</li>
+</UL>
+   and, what Dennis Richie himself called <em>perhaps the worst user interface
+   in human history</em> ...
+<UL>
+   <li> <strong>dsw</strong> short for <strong>d</strong>elete from <strong>sw</strong>itches</li>
 </UL>
 <P>
 The basic set of UNIX commands proved to be very useful, and the tool-box
 concept which they pioneered changed the way that people thought about
 interactive commands and command languages.  I think, however, that it is
-safe to say that these commands (which are still available on all 
-UNIX-derived systems) have survived, not due to their names, but despite them.
+safe to say that these commands (most which are still available on all 
+*IX systems) have survived, not due to their names, but despite them.
 If there is a lesson we can learn from this, it is probably that 
 mnemonic names are extremely valuable as learning aids ... but after
 they become so familiar that they are simply tokens in a language,
@@ -343,20 +356,20 @@ last file name as a target.
 In cases where multiple arguments play more subtle roles (e.g. different
 types of input files which cannot be automatically distinguished from
 one another, or other types of arguments), 
-expecting people to remember the correct order for multiple
-arguments is a formula for disaster, so another syntax is required.
-UNIX has a <strong>dd</strong> (disk to disk copy)
+expecting people to remember the correct order for multiple (positional)
+parameters is a formula for disaster, so another (keyword) syntax is required.
+An early example was be the <strong>dd</strong> (disk to disk copy)
 command that can be used to perform copies with specified blocksizes 
 (often important for the performance of large copy operations, or 
 when copying to record structured devices like magnetic tapes).  It has
 a dozen or more possible arguments, and allows them (only the necessary
-ones) to be specified in a <strong>name=value</strong> format:
+ones) to be specified in a <em>name=value</em> format:
+<P>
 <UL>
 	dd if=/dev/disk01 of=/dev/tape bs=64K count=200
 </UL>
-<P>
-It does take a few more keystrokes to type the <strong>name=</strong>,
-but it replaces (hard to remember) argument order with (easier to
+It does take a few more keystrokes to type <strong>count=</strong>,
+but this replaces a (hard to remember) argument order with (easier to
 remember) parameter names.  If most parameters have reasonable
 default values (so that they usually do not need to be specified),
 and the keywords have short abreviations (e.g. <strong>if</strong>
@@ -404,31 +417,28 @@ for specifying input and output files:
 Given that all UNIX shells support input and output redirection, most
 commands, if no specific files are specified:
 <UL>
-	<LI> read from their standard input (file descriptor 0)
-	<LI> write to their standard output (file descriptor 1)
-	<LI> send errors to their standard error (file descriptor 2)
+	<LI> read from their standard input (file descriptor 0)</li>
+	<LI> write to their standard output (file descriptor 1)</li>
+	<LI> send errors to their standard error (file descriptor 2)</li>
 </UL>
 <P>
 As a result of this:
 <OL type=a>
 	<LI> users need not remember the syntax for specifying
-	     input and output files to various programs.
+	     input and output files to various programs.</li>
 	<LI> users can easily turn the output of one program
 	     into the input of another and use standard tools
-	     to process that output to obtain the desired information.
+	     to process that output to obtain the desired information.</li>
 </OL>
 <P>
 <H3> 3.4 Command Line Switches</h3>
 <P>
 Originally, in UNIX, there were two kinds of arguments:
 <UL>
-    <LI> the names of files to be operated on
+    <LI> the names of files to be operated on</li>
     <LI> switches (usually preceded by a <strong>-</strong>) that
-	 enabled various options.  
+	 enabled various options.</li>
 </UL>
-DOS had similar conventions,
-but used a slash (<strong>/</strong>) to introduce 
-option controlling switches.
 If I wanted a listing of the directory <strong>foo</strong>, but I
 wanted a long listing (with all the details), I would add the
 <strong>-l</strong> (long) switch:
@@ -445,13 +455,35 @@ To the extent that there are general qualifiers that are commonly used,
 it is a good idea to wrote new programs to use the same qualifiers that
 are used in popular existing programs:
 <UL>
-	<li> <strong>-l</strong> long (give me all the details)
-	<li> <strong>-v</strong> verbose (tell me every step)
-	<li> <strong>-q</strong> quiet (skip the commentary)
-	<li> <strong>-R</strong> operate recursively (files in sub-directories)
-	<li> <strong>-f</strong> force (I don't care if the file is read only)
-
+	<li> <strong>-l</strong> long (give me all the details)</LI>
+	<li> <strong>-v</strong> verbose (tell me every step)</LI>
+	<li> <strong>-q</strong> quiet (skip the commentary)</LI>
+	<li> <strong>-R</strong> operate recursively (files in sub-directories)</LI>
+	<li> <strong>-f</strong> force (I don't care if the file is read only)</LI>
 </UL>
+<P>
+DOS had similar conventions,
+but used a slash (<strong>/</strong>) to introduce 
+option controlling switches.
+A dash (or slash) followed by a single letter may be reasonable for boolean
+options (that are either enabled or not).  But what about options that require
+arguments with values?  There have been two schools of thought on this.
+Suppose we want to extract the third comma-separated field from a string.
+How might we identify the comma delimiter and the fact that we wanted the
+third field?
+<ul>
+	a single letter followed by the value (e.g. <strong>cut -d, -f3</strong>)
+	<p>
+	<em>key=value</em> (e.g. <strong>cut --delimter=, --fields=3</strong>
+</ul>
+<P>
+Such conventions were institutialized by the 
+<A href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html">
+POSIX Utility Standards</A>,
+extended by the <A href="https://www.gnu.org/prep/standards/html_node/Command_002dLine-Interfaces.html">
+GNU Standard for Command Line Interfaces</A>
+and supported (in many programming languages) by library functions like
+<A href="https://en.wikipedia.org/wiki/Getopt">getopt and getopt_long</a>.
 <P>
 These are quickly learned, and tend to work well.
 It is command specific switches that people have trouble remembering.
@@ -460,6 +492,7 @@ the switches perform.  This can help users to remember the names of
 switches they have used before, but they don't do much for users who
 are trying to figure out how to use the program.  This is an area
 where (browsable) menus are clearly superior.  
+
 <P>
 CLI programs do not have run-time browsable menus, but they do tend
 to have usage messages.  Most CLI programs, if they detect an invalid
@@ -467,9 +500,9 @@ switch (or missing or otherwise improper arguments) will print out
 a usage message that describes the expected arguments and enumerates
 all of the legal switch values.  Some programs make a point of ensuring
 that the argument <strong>help</strong> or the switch 
-values <strong>-h</strong> or <strong>-help</strong> are not otherwise
+values <strong>-h</strong> or <strong>--help</strong> are not otherwise
 legal, so that they can be specfically used to get the usage message.
-Another common convention is that if <strong>help</strong> is specified
+Another common convention is that if <strong>--help</strong> is specified
 along with another legal option, to print out a more detailed usage
 message for the specified option.
 Usage messages  may be too short to completely describe the
@@ -481,7 +514,7 @@ for a particular option.
 <P>
 How does one specify multiple switches?
 <P>
-UNIX systems have tended towards single letter switches (which are easier 
+The original UNIX systems tended towards single letter switches (which are easier 
 to type), and allows multiple switches to be combined into a single argument:
 <UL>
 	ls -alRu
@@ -511,7 +544,7 @@ users to specify unambiguous abbreviations for arguments:
 The older UNIX convention is indeed a little bit more concise, but
 much more cryptic.  Thus it is that newer UNIX/LINUX CLI programs
 have tended towards allowing (more mnemonic) multi-letter arguements
-and putting separating switches into distinct arguments (e.g. svn).
+and putting separating switches into distinct arguments (e.g. <em>git</em>).
 <P>
 <H2>4 Common Problems and Solutions</h2>
 <P>
