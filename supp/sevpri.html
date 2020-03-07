@@ -14,27 +14,30 @@ many that they will not all be fixed promptly.  It becomes necessary
 to decide which bugs to fix sooner, and which to fix later.  Long ago
 battle-field doctors learned to divide caualties into three groups:
 <OL type=1>
-   <LI> those who would almost surely die (treatment wouldn't make a difference).
-   <LI> those who would almost surely live (treatment can be delayed).
-   <LI> those who could be saved if treated promptly.
+   <LI> those who would almost surely die (treatment wouldn't make a difference).</li>
+   <LI> those who would almost surely live (treatment can be delayed).</li>
+   <LI> those who could be saved if treated promptly.</li>
 </OL>
 Taking a few minutes to perform this sorting (called <em>triage</em>,
 in reference to the <em>three</em> groups) 
 greatly improved the effectiveness of battle-field medicine.  A similar
 process is followed with bugs ... although hopefully without a class
 of problems that will doom the product regardless of any action on
-our part.
+our part :-)
+<H2>Which bugs to fix first</h2>
 <P>
 Bugs are, to a first approximation, dealt with on the basis of their
 <em>severity</em> and <em>priority</em>.  Because these two words 
 determine which bugs will be fixed, control over the defintion of
 these terms translates into control over what work does and does
-not get done.  Arguments that would seem to be about the meanings 
-of these terms are often political arguments in disguise.
-There are no universally accepted definitions for
-these terms, but I will try to give you a foundation from which you can
-enter into discussions on the subject.
+not get done;
+Arguments that might seem to be about definitions
+may be political arguments in disguise).
+</P>
 <P>
+There may be no universally accepted definitions for
+these terms, but the following should give you a foundation from 
+which you can enter into discussions on the subject:
 <UL>
    <LI> <strong>severity</strong> 
 	is probably the better defined of these two terms, and is 
@@ -43,14 +46,15 @@ enter into discussions on the subject.
 	to be very severe, confusing error messages might be considered
 	to be of relatively low severity.
 	<P>
-	There may be standards for grading severity, like:
+	There are many (per organization) standards for grading severity, but
+	a typical one might be:
 	<OL type=1>
-	    <LI> permanent data or service loss.
-	    <LI> unable to use primary functionality
+	    <LI> permanent data or service loss.</li>
+	    <LI> unable to use primary functionality</li>
 	    <LI> impared use of primary functionality, or
-		 unable to use secondary functionality.
-	    <LI> minor inconvenience.
-	    <LI> suggestion.
+		 unable to use secondary functionality.</li>
+	    <LI> minor inconvenience.</li>
+	    <LI> suggestion.</li>
 	</OL>
 	<P>
 	Many organizations adopt the convention that the 
@@ -60,29 +64,59 @@ enter into discussions on the subject.
    </li>
    <LI> <strong>priority</strong> is a concept with a much wider
 	range of meanings.  The most cogent meaning I have found
-	is that it is a measure of the importance (to the project)
+	is that it is a measure of the importance (to the success of the project)
 	of fixing this bug.  The <strong>severity</strong> is
 	surely one of the factors in determining this, but there
 	may be other equally important factors:
 	<UL>
-	    <LI> how likely it is that others will encouter the problem
-	    <LI> the availability of a work-around
-	    <LI> the expectations that have been set for the product in question
+	    <LI> how likely it is that others will encouter the problem</li>
+	    <LI> the availability of a work-around</li>
+	    <LI> the expectations that have been set for the product in question</li>
 	</UL>
 	<P>
 	In keeping with such a defininition the <strong>priority</strong>
 	of a bug is <em>owned by</em> the product owner, and a 
 	priority scale might be:
 	<OL type=1>
-	    <LI> must fix immediately.
-	    <LI> must fix in next release.
-	    <LI> should fix in next release.
-	    <LI> fix when it is convenient.
-	    <LI> may get to it some day.
+	    <LI> <u>must fix</u> immediately.</li>
+	    <LI> <u>must fix</u> in next release (product cannot ship without this fix).</li>
+	    <LI> <u>should fix</u> in next release (too many of these will stop shipment).</li>
+	    <LI> fix when it is convenient (e.g. we are working on this code for other reasons).</li>
+	    <LI> may get to it some day.</li>
 	</OL>
    </li>
 </UL>
+<H2>Priority in Agile projects</H2>
 <P>
+In a large company with formal process, the above priority definitions
+can provide a basis for:
+<ul>
+   <li>development decisions about what to work on next</li>
+   <li>management decisions about whether or not the product is ready to ship</li>
+</ul>
+In a more <em>agile</em> project, with regular (e.g. weekly)
+deliveries the decisions about which bugs to fix next (in
+the next sprint) are:
+<ul>
+    <li>made, case-by-case, by the product owner</li>
+    <li>driven by the team's work estimates and demonstrated velocity</li>
+</ul>
+</p>
+<P>
+There is a significant philosophical difference between:
+<ul>
+    <li>a bug prioritization team determining what work must
+        be completed before a release can be shipped</li>
+    <li>a product owner deciding, week by week,
+        what the best use of resources
+        (for both bug fixing and new features) for the next
+	sprint would be</li>
+</ul>
+But if we look at the factors the product owner will consider
+when ordering tasks in the backlog, they are probably very 
+similar to those that a prioritization team would use in 
+assigning priorities.
+</P>
 </BODY>
 </HTML>
 
