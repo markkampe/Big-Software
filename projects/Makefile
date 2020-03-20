@@ -1,4 +1,4 @@
-INTERMEDIATES=proj_1.h proj_2.h proj_3.h proj_4.h
+INTERMEDIATES=proj_1.h proj_2.h proj_3.h proj_4.h grading.h
 DOC_HTML="<head\|<HEAD\|<body\|<BODY\|<html\|<HTML\|</HEAD\|</body\|</BODY\|</html\|</HTML\|<title\|<TITLE"
 INCLUDES=/home/git/CourseWare/Website
 
