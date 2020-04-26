@@ -16,7 +16,8 @@ NUMBER Projects
 </h1>
 </center>
 
-#include "swe_dates.h"
+#include "project_dates.h"
+#include "swe_projects.h"
 
 #include "proj_1.h"
 
