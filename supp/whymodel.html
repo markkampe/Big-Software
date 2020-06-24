@@ -22,9 +22,13 @@ six years and $2B developing for the FAA).  If a project is too large
 to be "thrown away" we must be able to convince
 ourselves that it will work <strong>before</strong> we invest vast amounts of time
 and money in its construction.
-We model things that we propose to build, so that we can
-explain them to others, better understand them, 
-and discover and avoid potential problems.
+We model things that we propose to build:
+<OL>
+   <LI> to better explain them to others</li>
+   <LI> to better better understand them</li>
+   <LI> to discover and avoid potential problems.</li>
+</ol>
+</P>
 <P>
 A model is a smaller or simplified representation of a larger or more 
 complex object or system.
@@ -48,8 +52,8 @@ It is probably worth while to divide models into two broad classes:
 </UL>
 <P>
 This distinction is important because the form in which we choose to
-represent a model is primarily driven by the goals we want that model
-to achieve.  Representational and analytical models have very different 
+represent a model is primarily driven by the <ul>goals we want that model
+to achieve</ul>.  Representational and analytical models have very different 
 goals (the former are intended to be evocative, while the latter are
 intended to be solved or executed in a way that is predictive of the
 behavior of the intended system). 
@@ -305,11 +309,11 @@ volume should we expect?
 	<LI> total 15,800 calls, 82,000 minutes, 1,367 hours</li>
 </UL>
 <P>
-	If these calls were spread evenly throughout the business day
-	for a three month period (600 hours) we would need 2.3 people
-	answering the phone.   Actually the even spreading assumption
-	is unreasonable ... but queueing theory can help us with this
-	problem.
+	If these calls were spread evenly throughout three months of
+	Mon-Sat 9-5 (600 hours),
+	we would need 2.3 people answering the phone.   
+	Actually the even spreading assumption is unreasonable ... 
+	but queueing theory can help us with this problem.
 <P>
 <H4>3.1.3 Reliability Estimates</h4>
 <P>
@@ -355,14 +359,16 @@ per hour?
 	     5x60x60 = 18,000 words per hour.
 	     <P>
 	     </LI>
-	<LI> The slowest speakers I have ever heard still manage to get
-	     out a few syllables every 5 seconds.
+	<LI> The slowest speakers I have ever heard can still 
+	     probably manage to get out once syllable every
+	     other second.
+	     out one syllables every 5 seconds.
 	     <P>
-	     2/5 x 60 x 60 = 1440 words per hour
+	     0.5 x 60 x 60 = 1440 words per hour
 	     </LI>
 </UL>
-This suggests that dictation rates are probably fall within
-the range of 1,400-18,000 syllables per hour. 
+This suggests that dictation rates are likely to fall within
+a single power-of-ten (1,800-18,000) syllables per hour).   
 <P>
 Often, even very crude estimates are enough to tell us whether or 
 not an approach might be practical ... 
@@ -379,7 +385,7 @@ Complex Analysis, Tensors, Fourier transforms, etc.
 In Computer Science we have Queuing theory, Markov models, and discrete event
 simulations.  These techniques have proven to be extremely useful in 
 modeling the behavior of computer systems ... and you would do well 
-to learn a little about them.  
+to learn (at least) a little about them.  
 Even if you never develop the ability to build
 such models yourself, you should know that they are available, and the
 types of problems to which they can be applied.
@@ -406,7 +412,17 @@ and inter-arrival times are not constant, but actually statistical
 distributions.  The actual length of the waiting queue is a function of
 these distributions (and the way they are transformed by the
 service network).
+</P>
 <P>
+For a queue model:
+<ul>
+    <li> 15,000 set-up calls spread over three months (600 business hours) averages 25 calls/hour</li>
+    <li> 800 problem reports spread over three months (600 business hours) averages 1.3 calls/hour</li>
+    <li> two-minute set-up calls can be served at a rate of 30/hour.</li>
+    <li> ten-minute set-up calls can be served at a rate of 6/hour.</li>
+    <li> fifteen-minute problem reports can be served at a rate of 4/hour.</li>
+</ul>
+</P>
 <CENTER>
 <IMG src=queue.gif>
 </CENTER>
@@ -416,7 +432,11 @@ In many cases, given a network of services, and distributions for
 arrival and service times, it yields closed-form solutions for
 (distribution functions for) expected throughput and waiting times.  
 Such models are often crucial in estimating how a
-system will behave under load.  
+system will behave under load.  This model tells us that we need
+one person for the problem reports and perhaps three people
+for the set-up calls.  It also shows us the cost of high resource
+utilization: If we want our support people to spend 90% of their
+time handling calls, the waiting times become unacceptable.
 <P>
 <H4>3.2.2 Markov Models and Petri Nets</h4>
 <P>
@@ -448,10 +468,18 @@ for developing highly available systems.
 Below is a simple Markov model for the availability of the
 tires on a passenger car (considering the frequency of flats,
 leaks, and typical times to repair them).
-<P>
+</P>
 <CENTER>
 <IMG src=markov.gif>
 </CENTER>
+<P>
+The (somewhat) surprising output of this model is that we
+will spend almost 10% of our time with an unusable spare tire.
+Fortunately our likelihood of noticing this is twice as
+great as our probability of getting another flat, so our
+probability of finding ourselves with an irreparable flat
+is only .0036%.
+</P>
 <P>
 In systems with redundant components, each component may be
 represented by its own Markov model, and the combined system
@@ -497,7 +525,7 @@ of which breaks down into different combinations of other
 operations, which are then forwarded to different combinations
 of other services ... each of which may happen to be 
 experiencing conflicting requests.  The addition of such
-details to the simulation can expose phenomena that could
+details to the simulation can expose phenomena that might
 never be captured, observed, or solved in a closed form
 queueing model.
 <P>
@@ -724,7 +752,7 @@ translation process semi-manually (using the existing tools),
 and deliver the results to a customer for their approval.  If
 the process is as simple as we thought it was, we've wasted a
 few hours confirming the simplicity of the task.  If there are
-complicating issues we had not appreciated (which there always are), 
+complicating issues we had not appreciated (which there often are), 
 we give ourselves the opportunity to discover and investigate
 them before we commit to a schedule.
 <P>
@@ -736,7 +764,7 @@ operating systems, or machines.  Supposedly these tools
 and platforms were chosen because they were well suited
 to the problem ... but if we do not have previous development
 with these tools and platforms, we risk unknown start-up
-costs, or (worse) running into unforeseen, serious
+costs, or (worse) running into unforeseen serious
 problems in the application of those tools to our project.
 <P>
 If uncertainties about new tools or platforms are significant
@@ -808,15 +836,15 @@ Don't underrate the value of showmanship and a flare for the dramatic.
 <P>
 Much like mathematical models, we construct prototypes to answer
 specific questions or to prove the viability of specific assertions.
-Having clarity about our what questions and assertions we are 
+Having clarity about what questions and assertions we are 
 addressing will guide us in choosing the right type of prototype,
 and the right capabilities to build into that prototype.  A well
 chosen prototype:
 <UL>
-	<LI> gives us high confidence that we know what to build,
-	     how to build it, and how it will work.</li>
 	<LI> can be built for a small fraction of the time and
 	     cost of building a complete product.</li>
+	<LI> gives us high confidence that we know what to build,
+	     how to build it, and how it will work.</li>
 </UL>
 <P>
 Some prototypes (e.g. U/I mock-ups or toy projects to prove
@@ -827,15 +855,15 @@ may yield code that will be the starting point for a real
 implementation.  Even if we do not reuse code from the 
 prototype, we may find that building it has given us better
 ideas about how to design the real thing.  Such benefits, 
-should be viewed as added benefits, and not a primary goal of
+should be viewed as added benefits, but not a primary goal of
 the prototyping effort.
 <P>
-I once met a man who had just purchased an America's cup boat.
+I once met a man who had just purchased an <em>America's Cup</em> boat.
 I was amazed at his coup.  
-He then explained to me that a perfectly designed
+He then explained to me that a well-designed
 America's cup boat falls apart as it crosses the finish line.  
-Anything that lasts longer represents miss-spent weight and/or 
-money.  Keep your prototypes similarly light weight.  
+Anything that lasts longer represents mis-spent weight and/or 
+money.  Keep your prototypes similarly light-weight.  
 <P>
 It is also important to note the greatest danger of a good
 prototype: that an executive will see it, be blown away, 
@@ -914,7 +942,7 @@ Modeling reduces risk:<br>
    <LI> the risk that our solution will not perform as expected</li>
 </UL>
 Reducing risk improves our chances of success ...
-and that's a good thing.
+and that's a good thing!
 <P>
 </BODY>
 </HTML>
