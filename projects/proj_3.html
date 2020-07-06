@@ -20,18 +20,23 @@ Depending on your architecture, these could each be a complete architectural com
 or small pieces (e.g. an applet or a few classes) from a single architectural component.  
 Choose your pieces carefully:
 <UL>
-   <li> each of the chosen pieces should be somewhere in the range of 100-400 lines of code.</li>
+   <li> each of the chosen pieces should be somewhere in the range of 
+        100-400 lines of code.</li>
    <li> each person must be capable of independently building and testing his/her own piece.</li>
    <li> each of these pieces must be testable in isolation.</li>
    <li> when you are done, it should be possible to combine all
 	of these individual pieces together to create a working 
 	(all the pieces working together) and demo-able component.</li>
 </UL>
+Note, however, that you are each implementing only a single module ...
+just enough to require some design and coding work, and a modest number
+of test cases.  It is not expected that the sum of these modules will
+add up to your proposed product.
 </P>
 <P>
 Your pieces can be implemented in any language or combination of languages, 
 and use any tool-kits or middle-ware you find convenient ... but it must be 
-code (not HTML or images).
+compilable/executable code (not HTML or images).
 </P>
 <P>
 In this project you will create specifications, designs and testing plans
@@ -53,33 +58,33 @@ own goals, processes, and deliverables:
 
   <tr>
 	<td> 3A </td>
-	<td> <A href=#desc_3a>Plan</a> </td>
+	<td> <A href=#desc_3a>Plan</a> (team)</td>
 	<td> 5 </td>
   </tr>
 
   <tr>
 	<td> 3B </td>
-	<td> <A href=#desc_3b>Component Specifications</a> </td>
+	<td> <A href=#desc_3b>Component Specifications</a> (for your component)</td>
 	<td> 10 </td>
   </tr>
   <tr>
 	<td rowspan="2"> 3C </td>
-	<td> <A href=#desc_3c1>Component Design</a> </td>
+	<td> <A href=#desc_3c1>Component Design</a> (for your component)</td>
 	<td> 20 </td>
   </tr>
   <tr>
-	<td> <A href=#desc_3c2>Component Test Plan</a> </td>
+	<td> <A href=#desc_3c2>Component Test Plan</a> (for your component)</td>
 	<td> 20 </td>
   </tr>
 
   <tr>
 	<td rowspan="2"> 3D </td> 
-	<td> <A href=#desc_3d1>Review Notes</a> </td>
+	<td> <A href=#desc_3d1>Review Notes</a> (you prepared for other reviews) </td>
 	<td> 10 </td>
   </tr>
 
   <tr>
-	<td> <A href=#desc_3d2>Review Report</a> </td>
+	<td> <A href=#desc_3d2>Review Report</a> (from review of your component)</td>
 	<td> 5 </td>
   </tr>
 
@@ -90,7 +95,7 @@ own goals, processes, and deliverables:
   </tr>
 
   <tr>
-	<td> <A href=#desc_3pm>Post-Mortem Report</a> </td>
+	<td> <A href=#desc_3pm>Post-Mortem Report</a> (team)</td>
 	<td> 10 </td>
   </tr>
 
@@ -496,7 +501,8 @@ the changes that were made to address each, and get agreement from the
 reviewers that the issues have been satisfactorally addressed.
 Your final specification should contain:
 <OL type=1>
-   <LI> summary of changes made and reasons for each.</LI>
+   <LI> an acknowledgement of issues raised in the design review,
+        and a summary of changes made and reasons for each.</LI>
    <LI> updated architectural context.</LI>
    <LI> updated component specification.</LI>
    <LI> updated updated component design.</LI>
