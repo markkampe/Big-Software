@@ -1,0 +1,90 @@
+P1A	Concept	and Initial Plan
+
+   Total Score:			___/10
+
+	   
+   Concept:
+
+	overall clarity		___/2
+
+		___	I understand the problem domain to which proposal speaks
+
+
+
+		___	I have a general sense of what the software will do
+
+
+
+		___	I have a general sense of who might want to use it
+
+
+
+   	value proposition	___/1
+
+		___	likely that the intended users would find value
+
+
+		___	likely that people would actually want to use it
+
+
+
+	product practicality	___/1
+
+		___	such a product could be built w/existing technology
+
+
+		___	such a product could be delivered to its users
+
+
+
+	project practicality	___/1
+
+		___	team is likely to be able to gather requirements
+
+
+		___	team is likely to be able to design this product
+
+
+   Management:
+
+   	complete/specific	___/2
+
+	   	___	concept: included, has owner and date
+
+		___	competitive research: included, has owner and date
+
+		___	preliminary requirements: included, has owner and date
+
+		___	concept prsentation: included, has owner and date
+
+		___	elicitation included:, has date
+
+		___	requirements analysis: included, has owner and date
+
+		___	final proposal: included, has owner and date
+
+		___	post mortem: included, has owner and date
+
+		
+	risk management:	___/1
+
+		___	likely problems were recognized
+
+
+		___	time and plan left room to deal with them
+
+
+
+	use of time/resources	___/2
+
+		___	plan for regular meetings and status checks
+
+
+		___	each deliverable scheduled before it is due
+
+		
+		___	adequate time between dependent deliverables
+
+
+		___	everybody doing roughly equal work
+

@@ -1,0 +1,136 @@
+P1C	Requirements Development
+
+   Total Score:			___/40
+
+	   
+    Preliminary Requirements	___/5
+
+	user characterization	___/1
+
+		___	meaningfully described type(s) of users
+
+
+
+		___	(if multipe types) how they would respond to each
+
+
+
+	user needs		___/2
+
+		___	meaningfully described abilities of those users
+
+
+
+		___	meaningfully described what they would want product to do
+
+
+
+
+	implied requirements	___/2
+
+
+		___	declarative statements of what product can do
+
+
+
+		___	each statement derivable from user needs
+
+
+
+		___	sum of statements spans reasonable set of needs
+
+
+
+    Concept Presentation	___/10
+
+	context establishment	___/5
+
+		___	a sense of what proposed product will do
+
+
+		___	a sense of why they might be interested in it
+
+
+		___	stimulates sufficient interest to make them want to contribute
+
+
+	scope			___/2
+
+		___	3-6 minutes long
+
+
+		___	does not contaminate users (e.g. tell them what they need)
+
+
+		___	good use of time (enough material, but not too much)
+
+
+	impression		___/3
+
+		___	logical structure to presentation
+
+
+
+		___	polished and professional
+
+
+
+    Requirements Elicitation	___/15
+
+	(detailed scoring on separate form)
+
+
+
+
+    Elicitation Report		___/5
+
+	basic info		___/1
+
+		___	date, time, attendees
+
+	
+	form/completeness	___/2
+
+		___	all key points captured (compare w/your own notes)
+
+
+
+		___	clarity, organization
+
+
+
+	understanding		___/2
+
+		___	they understood what the users were telling them
+
+
+		___	summary captures the key take-aways
+
+
+	
+
+    Requirements Analysis	___/5
+
+    	the list		___/2
+
+		___	all requirements traceable to user input
+
+
+		___	requirements address all key issues raised by users
+
+
+
+	the requirements	___/2
+
+		___	all requirements are reasonable and clearly stated
+
+
+		___	all requirements have priority (e.g. high/med/low)
+
+	
+	the report		___/1
+
+		___	well organized
+
+
+		___	clear presentations

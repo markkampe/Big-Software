@@ -1,0 +1,22 @@
+It is intended that, for most rubric items,  you be able to simply assign:
+	X		unsatisfactory
+	check-minus	weak
+	check		satisfactory
+	check-plus	well done
+
+    If you give a check-minus or X to anything, explain why in the comment
+    lines beneath that rubric item.
+
+
+Assign points (based on the marks) in each section:
+
+	if all marks check or better, the section earns full points
+
+	check-minus marks are probably worth half-points, but check-plus marks 
+	compensate for check-minus marks
+	
+	an X for any item in the section probably means zero points for that section
+
+
+Absent something exceptional, the overall assignment score should simply be the 
+sum of the points in the individual sections.

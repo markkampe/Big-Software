@@ -1,0 +1,101 @@
+P1D	Final Proposal, Post Mortem, and Management
+
+   Total Score:			___/25
+
+	   
+   Final Proposal:		___/10
+
+	product description	___/2
+
+		___	problem domain is clear
+
+		___	functionality of proposed program is clear
+
+
+	user characterization	___/2
+
+		___	proposed users are reasonably described
+
+		___	their abilities, expectations, and needs are well described
+
+		___	I believe that such people exist
+
+
+	value proposition	___/3
+
+		___	competition has been well researched and described
+
+		___	ADDED value of proposed program is clear and compelling
+
+		___	some people will want (or even need) this program
+
+	requirements		___/1
+
+		___	the requirements are clear and understandable
+
+		___	the requirements seem reasonable
+
+		___	the prioritization seems reasonable
+
+
+	bottom line		___/2
+
+		___	the proposed program is likely to be implementable
+
+
+		___	the proposed program is likely to provide real value
+
+
+		___	impressed by the thought that has gone into this
+
+
+		___	impressed by the form in which it has been presented
+
+
+
+   Post Mortem:			___/10
+
+
+	activities			___/5
+
+		___	includes initial planning
+
+		___	includes competitive reseearch
+
+		___	includes development of concept presentation
+
+		___	includes requirements elicitation
+
+		___	includes requirements analysis
+
+		___	includes final report
+
+	
+	issues				___/2
+
+		___	I have reason to believe it includes all issues that arose
+			(e.g. because I have reviewed meeting minutes, and discussions)
+
+		___	each (non-trivial) issue was reasonably discussed
+
+
+	learning			___/3
+
+		___	they understood why each important problem arose
+
+		___	they assessed the effectivness of their responses
+
+		___	they derived some valuable lessons
+
+		___	written from a a positive (learning from our experiences) perspective
+
+    Management:			___/5
+
+		___/2	regular meeting minutes capture what happened
+
+		___/1	plans were updated to deal with challenges
+
+    		___/1	work products checked-in according to (updated) plan
+
+		___/1	most check-ins for each deliverable by designated owner
+
