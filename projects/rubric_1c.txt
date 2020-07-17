@@ -133,4 +133,4 @@ P1C	Requirements Development
 		___	well organized
 
 
-		___	clear presentations
+		___	clearly presented

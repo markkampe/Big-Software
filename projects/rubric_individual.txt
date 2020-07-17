@@ -1,0 +1,57 @@
+Individual Contributions
+
+   Total Score:			___/20
+
+	   
+	primary authorships		___/10 (average of deliverable scores)
+
+		___	1.
+
+
+		___	2.
+
+
+		___	3.
+
+
+		___	4.
+
+
+
+	share of project work	___/6
+
+		___	assigned share (3pt)
+
+
+
+		___	peer reported share (3pt)
+
+
+		score vs work share:
+
+			team	 3		   4		  5
+				----		 ----		-----
+			+  ...	40+%		 30+%		 24+%
+			OK ... 27-39%		21-29%		17-23%
+			-  ... 16-27%		12-21%		10-16%
+			X  ...  <16%		 <12%		 <10%
+
+	on-time performance	___/4
+
+		
+		___	1.			due:		committed: 
+
+
+		___	2.			due:		committed: 
+
+
+		___	3.			due:		committed: 
+
+
+		___	4.			due:		committed: 
+
+
+	Note:
+		no primary authorships -> 0 primary authorship points
+
+		no deliverables -> 0 on-time points

@@ -91,11 +91,19 @@ P1D	Final Proposal, Post Mortem, and Management
 
     Management:			___/5
 
-		___/2	regular meeting minutes capture what happened
+		___/1	regular status checks reflected in promptly checked-in minutes
 
-		___/1	plans were updated to deal with challenges
 
-    		___/1	work products checked-in according to (updated) plan
+		___/1	minutes capture surprises/issues and plans to deal with them
+			(including all issues of which you are aware)
 
-		___/1	most check-ins for each deliverable by designated owner
+
+		___/1	all problems reasonably dealt with
+
+
+		___/1	plans were updated (on github) to deal with challenges
+
+
+
+    		___/1	work products checked-in according to (updated) plan by assigned user
 
