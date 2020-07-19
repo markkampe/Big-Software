@@ -1,0 +1,134 @@
+P2C	Final Architecture, Post Mortem, and Management
+
+   2C.1 Final Architecture:	___/25
+
+	changes:		___/5
+
+		___	acknowledge and explain changes since preliminary architecture
+
+
+		___	all must-fix issues from review have been reasonably addressed (3pt)
+
+
+		___	responses to should-fix issues from review
+
+
+	introduction:		___/5
+
+		___	a high level summary of what it will do and how it will do it
+
+		___	an enumeration of the key components
+
+		___	a description of their roles and interactions
+
+		___	diagrams of non-obvious relationships and/or operational context
+
+
+	rationale:		___/2
+
+		___	discussion of key concerns that drove the architecture
+
+		___	reasonable justification for each decision
+
+
+	specifications:		___/3
+
+		___	functionality of each component is described and reasonable
+
+		___	key interfaces to each component are described (at least in general terms)
+
+		___	key requirements for each component are described and reasonable
+
+
+
+	feasibility:		___/3
+
+		___	covers all non-trivial components
+
+		___	reasonable approach/technology to implement each component
+
+		___	reasonable uses of off-the-shelf tools and components
+
+
+
+	prototyping:		___/3
+
+		___	what was prototyped and why
+
+		___	results of those investigations
+
+		___	architecture consistent with those results
+
+
+
+	overall impressions:	___/4
+
+		___	clarity: I understood what they are proposing
+
+
+		___	reasonableness: solution not greatly more complex than necessary
+
+
+		___	completeness (these pieces add up to a reasonable whole)
+
+
+		___	bottom line: I believe this can be built and would work
+
+
+
+
+   2C.2 Post Mortem:		___/10
+
+
+	activities		___/5
+
+		___	includes initial components and roles
+
+		___	includes includes initial issues and feasibility
+
+		___	includes includes problem analysis and prototyping
+
+		___	includes preliminary architecture
+
+		___	includes includes architectural review
+
+		___	includes final architecture
+
+	
+	issues			___/2
+
+		___	I have reason to believe it includes all issues that arose
+			(e.g. because I have reviewed meeting minutes, and discussions)
+
+		___	each (non-trivial) issue was reasonably discussed
+
+
+	learning		___/3
+
+		___	they understood why each challenge or important problem arose
+
+		___	they assessed the effectivness of their responses
+
+		___	they derived some valuable lessons
+
+		___	written from a a positive (learning from our experiences) perspective
+
+
+    Management:			___/5
+
+		___/1	regular status checks reflected in promptly checked-in minutes
+
+
+		___/1	minutes capture surprises/issues and plans to deal with them
+			(including all issues of which you are aware)
+
+
+		___/1	all problems reasonably dealt with
+
+
+		___/1	plans were updated (on github) to deal with challenges
+
+
+
+    		___/1	work products checked-in according to (updated) plan by assigned user
+

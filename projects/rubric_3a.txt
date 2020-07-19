@@ -1,0 +1,40 @@
+P3A	Initial Plan
+
+
+   Plan:		___/5
+
+   	complete/specific	___/2
+
+	   	___	component and module to be designed
+
+		___	component specifications: included, has date
+
+		___	initial component designs: included, has date
+
+		___	initial component test plans: included, has date
+
+		___	design/test-plan reviews: included, has reviewers and datae
+
+		___	review reports: included, has date
+
+		___	final specifiations and test plans: included, has date
+
+		___	post mortem: included, has date
+
+		
+	risk management:	___/1
+
+		___	likely problems were recognized
+
+
+		___	risky items were front-loaded or gien extra time
+
+
+
+	use of time/resources	___/2
+
+		___	each deliverable scheduled before it is due
+
+		
+		___	adequate time between dependent deliverables
+

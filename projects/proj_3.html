@@ -23,20 +23,20 @@ Choose your pieces carefully:
    <li> each of the chosen pieces should be somewhere in the range of 
         100-400 lines of code.</li>
    <li> each person must be capable of independently building and testing his/her own piece.</li>
-   <li> each of these pieces must be testable in isolation.</li>
+   <li> each of these pieces must be unit-testable in isolation.</li>
    <li> when you are done, it should be possible to combine all
 	of these individual pieces together to create a working 
 	(all the pieces working together) and demo-able component.</li>
 </UL>
-Note, however, that you are each implementing only a single module ...
+Note, however, that you are each implementing only one (or a few) module(s) ...
 just enough to require some design and coding work, and a modest number
 of test cases.  It is not expected that the sum of these modules will
 add up to your proposed product.
 </P>
 <P>
-Your pieces can be implemented in any language or combination of languages, 
+Your pieces can be implemented in any appropriate language or combination of languages, 
 and use any tool-kits or middle-ware you find convenient ... but it must be 
-compilable/executable code (not HTML or images).
+compilable/executable code with some algorithmic complexity (not data, HTML or images).
 </P>
 <P>
 In this project you will create specifications, designs and testing plans
@@ -46,7 +46,7 @@ testing, integrating, and demonstrating working software.
 </P>
 <P>
 There are multiple phases to this project, each of which has its
-own goals, processes, and deliverables:
+own goals, processes, and deliverables (most of which are individual rather than team):
 <table align="center" border="1" cellpadding="5" cellspacing="0">
 
 <tbody>
@@ -58,7 +58,7 @@ own goals, processes, and deliverables:
 
   <tr>
 	<td> 3A </td>
-	<td> <A href=#desc_3a>Plan</a> (team)</td>
+	<td> <A href=#desc_3a>Plan</a> (for your component)</td>
 	<td> 5 </td>
   </tr>
 
@@ -90,7 +90,7 @@ own goals, processes, and deliverables:
 
   <tr>
 	<td rowspan="2"> 3E </td>
-	<td> <A href=#desc_3e>Final Specifications, Design and Test Plan</a> </td>
+	<td> <A href=#desc_3e>Final Specifications, Design and Test Plan</a> (for your component)</td>
 	<td> 15 </td>
   </tr>
 
@@ -126,9 +126,9 @@ and making the required changes.
 Each team will prepare a task-breakdown, identify the dependency relationships between
 tasks, and owners for each sub-task, assign due-dates, and schedule regular reviews
 of both work-products and progress (to enable adequate time to deal with the
-problems that <strong>will</strong> happen).  
-A good management plan will include regular status
-checks, the results of which should be recorded in the plan document.
+<u>problems that will arise</u>).  
+A good management plan will include regular (e.g. daily) status checks, whose
+results should be recorded in a <tt>minutes.txt</tt> file in your repo.
 </P>
 <P>
 As your understanding of the problem
@@ -142,88 +142,79 @@ as the causes and the plan to remedy them must be documented.
 <P>
 Your initial Management Plan will be graded on the basis of:
 <ul>
-	<li> 40% good use of time and resources (work apportioned reasonably over the available time)</li>
-	<li> 20% specificity of plan (clear responsibilities: who, what, when)</li>
+	<li> 40% good use of time and resources (work spread reasonably over the available time)</li>
+	<li> 20% specificity of plan (clear responsibilities: what, when)</li>
 	<li> 20% provisions for early detection of problems, and time to deal with them</li>
 	<li> 20% completeness</li>
 </ul>
-
 <P>
-Maintain your plan on github (with changes and comments) to show how you dealt with problems.
-You will surely be updating it, and we will be reviewing your history
-When you are ready to submit it for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+Maintain your plan (and status update minutes) on github.
+You will probably be updating them daily,
+and we will be reviewing this history.
 </P>
-When you are ready to submit it for grading, fill
+<P>
+When you are ready to submit your plan for grading:
+<ul>
+    <li> prepare your management plan (ideally ASCII text in a file named <tt>management_3a.txt</tt></li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of it</li>
+    <li> up-load it to your Sakai Dropbox (each person must submit his/her own plan)</li>
+</ul>
+</P>
 
 <a name="desc_3b">
-<H3>P3B Component Specifications</h3>
+<H3>P3B Specifications</h3>
 </a>
 <P>
-Each team member will take ownership of one or more components.
-To prepare a component specifications, you will:
-<UL>
-  <li> expand the architecture (above those components) to describe
-	those components and the components with which they interact.
-	<P>
+Each team member will take ownership of one or more modules (or components).
+To prepare a specifications, you will:
+<OL type="1">
+  <li> (perhaps) expand the architecture (above the chosen components)
+        to describe them and the components with which they interact.
 	Assuming that you have decided to implement pieces of your system that
 	are smaller than complete architectural components (from project 2), 
 	you will have to expand and refine that architecture down to the 
 	level of the pieces you want to use for projects 3 and 4.  Note that
 	you do not have to expand everything in your architecture to this
 	level of detail.  You only have to do a top-down refinement along
-	the path to the components you will be using for this project.</li>
-  <li> generally describe the functionality of each of the components
-	to be designed, and its role in the overall architecture.</li>
-  <li> determine the requirements to be imposed on the components to
-      	be designed, based on the product requirements they implement,
-	and their role in the overall architecture.</li>
-  <li> characterize the external interfaces between the components to be
-	designed and the rest of the system.</li>
-  <li> describe those interfaces and the required functionality with 
-	sufficient clarity and specificity as to be a complete set
-	of acceptance criteria.</li>
-</UL>
-<P>
-A specification will be prepared for each component to be designed and
-implemented in projects 3 and 4.  Each component specification should
-include:
-<OL type="1">
-    <li>
-	An addendum to the (Project 2) architectural description
-	filling in any additional context required for the new
-	component descriptions.
+	the path to the components you will be using for this project.
 	<p>
-	It is quite possible that a single addendum (created by the
-	entire team) can be used for all of the component specifications.</li>
-    <LI>
-	A general description of the component and its role in the system.</li>
-    <LI>
-	A complete specification of all external interfaces to this component
-	(both form and functionality).</li>
-    <LI>
-	A complete set of requirements that must be satisfied by this component.</li>
+	If a component to be implemented was already fully described
+	in the (Project 2) architecture, no expansion is required.
+	If further top-down refinement is required, 
+	it may be possible that a single addendum (created by the entire team)
+	could be used for all of the component specifications.
+    	</p>
+	</li>
+  <li> generally describe the functionality of each of the component(s)
+	to be designed, and their role(s) in the overall architecture.</li>
+  <li> determine the requirements to be imposed on each of the component(s) to
+      	be designed, based on the product requirements 
+	and the components' roles in the overall architecture.</li>
+  <li> define the all external interfaces (in both directions) between the 
+  	component(s) to be designed and the rest of the system.</li>
+  <li> write a <u>complete specification</u> (both form and function,
+       detailed enough to define acceptance criteria)
+       for all of the external interfaces to the chosen components.
+       </li>
 </OL>
-</P>
-
 <P>
 This submission be graded on the basis of:
 <ul>
-	<li> 10% reasonableness and understandability of the architectural
-		addendum (if any).</li>
-	<li> 10% reasonableness and understandability of the components 
-		role in the overall system.</li>
-	<li> 10% reasonablness and understanability of the component functionality</li>
-	<li> 20% completeness of the external interface specifications</li>
-	<li> 20% reasonableness of the external interface specifications</li>
-	<li> 10% abstraction and modularity of the component definition</li>
-	<li> 20% completeness, reasonableness, and measurability of the requirements</li>
+	<li> 30% clarity and reasonableness of component's functionality and role in the overall system</li>
+	<li> 20% clarity and measurability of requirements and how well they have been derived from
+	     the architecture and overall product requirements</li>
+	<li> 10% clear and complete (ready-to-code) interface specifications</li>
+	<li> 10% spec covers all required functionality in this module</li>
+	<li> 20% well abstracted module functionality and reasonably chosen methods and parameters</li>
+	<li> 10% interface definitions lend themselves to automated compliance testing</li>
 </ul>
 <P>
-When you are ready to submit your specifications for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+When you are ready to submit your component specifications for grading:
+<ul>
+    <li> prepare your spec (ideally ASCII text in a file named <tt>spec_3b.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of the file</li>
+    <li> up-load it to your Sakai Dropbox (each person must submit his/her own specifications)</li>
+</ul>
 </P>
 <a name="desc_3c1">
 <H3>P3C.1 Component Design</h3>
@@ -233,74 +224,82 @@ Each team member will prepare a detailed design for one or
 more modules, ideally comprising 100-400 lines of code when complete.  
 This design need not be at the level of complete pseudo-code, but 
 (in combination with the specifications) should be sufficient to 
-enable a skilled programmer to easily implement the specified module(s).
+enable a skilled programmer to easily and correctly implement the specified module(s).
 </P>
 <P>
 Each module design should include:
 <UL>
-   <LI> a description of the purpose of this module.</a>
-   <LI> complete declarations for all public methods and instance variables.</a>
-   <LI> complete declarations for all private methods and instance variables.</a>
-   <LI> declarations for all private routines.</a>
-   <LI> descriptions of purposes for all methods/routines.</a>
-   <LI> descriptions and meanings for all parameters.</a>
-   <LI> descriptions and uses of all data structures.</a>
-   <LI> descriptions and uses of all public and non-trivial private variables</a>
-	(where trivial variables would be things like loop indexes,
-	saved values, and intermediate results)</a>
+   <LI> a description of the purpose of this module.</li>
+   <LI> complete declarations for all public methods and instance variables.</li>
+   <LI> complete declarations for all private methods and instance variables.</li>
+   <LI> descriptions of purposes for all methods/routines and meanings of all parameters.</li>
+   <LI> descriptions and uses of all non-trivial instance variables and data structures.</li>
    <LI> general descriptions of all non-obvious algorithms.
+	<br>
 	These need not be pseudo code, but could simply be 
 	descriptions of an approach (e.g. "allocate from the heap",
-	"bubble-sort" or "compute SHA1 hash").  If a named
+	"bubble-sort" or "compute SHA1 hash").  
+	If a perhaps-not-widely-known named
 	algorithm is used, provide a reference to a description
 	of its implementation (in case the programmer who will implement
-	it isn't familiar with it).</a>
+	it isn't familiar with it).</li>
    <LI> where the code is to be based on standard libraries,
 	call those out (e.g. "synchronization will be with
-	boost thread shared locks") and include a reference to
-	the documentation for the functions to be used.</a>
+	boost thread shared locks") and (again, if they are not widely known)
+	include a reference to the documentation for the functions to be used.</li>
 </UL>
 </P>
 <P>
 If any of these design elements are non-obvious, the rationale 
 for those decisions should be described so that the implementer
-can better understand what they are to do.  People are more likely
+can better understand what must be done.  People are more likely
 to make mistakes when working on things they do not understand.
 </P>
 <P>
 You can prepare your designs in any form you find convenient,
-but you will probably find it easiest to create them as
-code modules with compilable declarations, extensive comments,
-and very little actual code.  Overview and rationale can be
-presented as comments in front of the described elements.
+but you may find it easiest to create them as
+code modules with compilable declarations, extensive
+(e.g. JavaDoc/PyDoc) comments and very little actual code.  
+Overview and rationale can be presented as comments in front of the described elements.
+Many people choose to start non-trivial implementations by writing the
+declarations and comments.
 </P>
 <P>
 This design be graded on the basis of:
 <ul>
-	<li> 20% all external methods and instance variables are 
-		described well enough to enable a skilled programmer
+	<li> 10% all external methods and instance variables are 
+		described well enough to enable a skilled client
 		figure out how to use them correctly.</li>
 	<li> 20% all implementations and internal methods are 
 		described well enough to enable a skilled programmer
 		to implement them (with no more research than having
 		to read the referenced documentation).</li>
-	<li> 15% all variables and data structures are described
+	<li> 10% all variables and data structures are described
 		well enough to enable a skilled programmer to use
 		and update them correctly.</li>
+	<li> 10% the defined methods and instance variables are
+		sufficient to fully implement the component interface 
+		specification.</li>
+
 	<li> 10% the reasonableness (after having read the rationale)
 		of the specified implementations.</li>
-	<li> 10% the completeness of the descriptions (no major questions,
-		and all required documentation references are provided).</li>
 	<li> 10% the correctness of the described implementations.</li>
+	<li> 10% reasonable exploitation of language and tool capabilities.</li>
 	<li>  5% the simplicity (relative to the problem) of the proposed implementations.</li>
 	<li>  5% the likely efficiency of the described implementations.</li>
-	<li>  5% the readability of the design document (and referenced documentation).</li>
+
+	<li> 10% the readability of the design document, including the
+	         clarity and adequacy of the overview and rationale.</li>
 </ul>
 
 <P>
-When your design is ready to submit them for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+When you are ready to submit your component design for grading:
+<ul>
+    <li> prepare your spec (ideally ASCII text in a file named <tt>design_3b.txt</tt>,
+         or perhaps with some other language-specifc suffix)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of the file</li>
+    <li> up-load it to your Sakai Dropbox (each person must submit his/her own design)</li>
+</ul>
 </P>
 
 <a name="desc_3c2">
@@ -308,21 +307,20 @@ and e-mail it to the submission alias.
 </a>
 <P>
 Once you have specifications and a design to satisfy them, you have
-to figure out how you will test your implementation, to ascertain
+to figure out how you will test your implementation, to demonstrate
 that it actually works.
 <UL>
    <LI>
 	Review your specifications, and develop a set of automated comprehensive
 	(black box) test cases to determine whether or not your component meets 
-	its requirements.</li>
-   <LI>
+	its interface requirements and specifications.</li> <LI>
 	Review your design, and consider any possible/plausible component
 	misbehavior that would not be detected by the the above-described
-	acceptance tests.  If you find such behavior, define additional
-	(white box) test cases to exercise and validate those situations.
-	If there is no possible mis-behavior not covered by the acceptance
-	criteria, you can earn the white-box points by offering a convincing
-	proof of this assertion.</li>
+	acceptance tests.  If you find such, define additional
+	(white box) test cases to exercise and validate those behaviors.
+	If there is no plausible mis-behavior not covered by the interface
+	acceptance criteria, 
+	<u>you can earn the white-box points by offering a convincing proof of this assertion</u>.</li>
    <LI>
 	Consider your component's interfaces and all of the above test
 	cases, and design a means for performing all of those test cases
@@ -334,11 +332,11 @@ that it actually works.
 	Review the overall list for completeness (is everything covered),
 	efficiency (are there redundant tests) and value (are there
 	tests for things that don't matter or will never happen), and
-	try to optimize out the low-value tests.  If the optimizations
-	are not obvious, you should document these decisions in your test plan.</li>
+	try to optimize out the low-value tests.  If there are no such
+	tests, briefly describe the analysis that led you to that conclusion.</li>
 </UL>
 <P>
-It is likely that, in the process of developing your test plan, you
+It is possible that, in the process of developing your test plan, you will find
 assertions that are hard to measure, or functionality that is difficult
 to verify (or verify automatically).  If this happens, you may need to
 revisit your requirements, specifications and design.
@@ -358,7 +356,7 @@ Your test plan should include:
 	A complete list of test cases ... for each:
 	<UL>
 	    <LI> a brief summary of the assertion to be tested</LI>
-	    <LI> the justification for including this test case</LI>
+	    <LI> the justification (e.g. traceability to specifications or requirements) for including this test case</LI>
 	    <LI> any special set-up required to run this test</LI>
 	    <LI> how the situation to be tested will be generated</LI>
 	    <LI> how correctness of behavior will be ascertained</LI>
@@ -388,19 +386,22 @@ Your test plan will be graded on the basis of:
 	</LI>
 	<li> 20% testing framework
 	<UL>
-	    <li> automation </li>
-	    <li> reasonablenss practicality</li>
+	    <li> automated execution and pass/fail determination </li>
 	    <li> use of off-the-shelf technology</li>
+	    <li> reasonablenss practicality of using this tool for this testing</li>
 	</UL>
 	</LI>
-	<li> 10% overall completeness (likely confidence)</li>
-	<li> 10% overall efficiency (development and execution)</li>
+	<li> 10% overall completeness (how much confidence this suite will give us)</li>
+	<li> 10% overall efficiency (low value or redundant tests, overly expensive executions)</li>
 </ul>
 
 <P>
-When your test plan is ready to submit them for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+When you are ready to submit your test plan for grading:
+<ul>
+    <li> prepare your spec (ideally ASCII text in a file named <tt>test_3b.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of the file</li>
+    <li> up-load it to your Sakai Dropbox (each person must submit his/her own design)</li>
+</ul>
 </P>
 
 <a name="desc_3d1">
@@ -408,9 +409,9 @@ and e-mail it to the submission alias.
 </a>
 <P>
 Each member of the team will submit his preliminary specifications,
-design and test plans for review by the other team members.  Each
+design and test plans for review by the another team member.  Each
 team member will participate in the reviews of the designs and plans
-submitted by the other members of his/her team.
+submitted by other members of his/her team.
 </P>
 <P>
 Prior to each review meeting, each of you (individually) will read
@@ -418,7 +419,7 @@ the submitted specifications, designs, and test plan and prepare detailed notes
 on all questions and concerns.  These notes must be submitted at
 least 24 hours prior to the actual review session.  They should be
 neat notes, describing legitimate issues clearly enough to be sent
-as email, and organized for discussion (e.g. in the recommended 
+as email, and organized for discussion (e.g. in a reasonable 
 review order).
 </P>
 
@@ -433,28 +434,30 @@ Each set of review notes will be graded on the basis of:
 </ul>
 
 <P>
-When you have prepared your study notes, check them in to
-github, and fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+When your notes are eady for submission and grading:
+<ul>
+    <li> prepare your spec (ideally ASCII text in a file named <tt>notes_3d.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of the file</li>
+    <li> up-load it to your Sakai Dropbox (each person must submit his/her own notes)</li>
+</ul>
 </P>
 <a name="desc_3d2">
 <H3>P3D.2 Review and Report</h3>
 </a>
 <P>
-Your team will conduct a formal design review for each submitted
+You will conduct formal design reviews for each submitted
 Specification/Design/Test Plan package.  The process will be the
-same as for the architectural review ... but because you have already
-followed this process (for your architectural reviews) these
-reviews will not be observed and graded.  But you are still 
-responsible for producing a report for each review, and these reports
-will be graded.   Each team member will lead one design review, and
-act as scribe for one design review.
+same as for the architectural review ... but because this is 
+simpler and you have already followed this process 
+(for your architectural reviews) these
+reviews will not be observed and graded.  
+But each team member will lead, act as scribe, and write up
+a report for one design review.
 </P>
 <P>
 As with the architectural review,
 this is not "meeting minutes".  Rather it is a distillation of key issues and
-decisions.  It should be carefully written and reviewed.  It must contain:
+decisions.  It must contain:
 <UL>
    <LI> the time, date, and attendees</li>
    <LI> the component to be reviewed</li>
@@ -470,40 +473,45 @@ decisions.  It should be carefully written and reviewed.  It must contain:
    </UL>
    </LI>
 </UL>
-<P>
-Each team member should act as scribe and prepare the report for
-one of the design reviews.
 </P>
 <P>
 Each review report will be graded on the basis of:
 <ul>
 	<li> 10% form: time, place, project, attendees</li>
-	<li> 20% clear disposition for each issue</li>
-	<li> 30% clarity with which issues are presented</li>
-	<li> 20% scope of the report (just issues, no opinions)</li>
-	<li> 10% completeness and accuracy</li>
+	<li> 10% scope of the report (just issues, no opinions)</li>
+
+	<li> 40% clarity with which issues are presented</li>
+	<li> 20% completeness and accuracy</li>
+	<li> 10% clear disposition for each issue</li>
 	<li> 10% disposition of the entire project</li>
 </ul>
 
-When you have completed your Review Report, the scribe should fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+<P>
+When your review report is eady for submission and grading:
+<ul>
+    <li> prepare your spec (ideally ASCII text in a file named <tt>review_3d.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of the file</li>
+    <li> up-load it to your Sakai Dropbox (each person must submit his/her own notes)</li>
+</ul>
 </P>
 
 <a name="desc_3e">
 <H3>P3E.1 Final Component Specifications, Design and Test Plan</h3>
 </a>
 <P>
-It is likely that your design review will turn up issues that require
-changes to your specifications, design and test plan.  Address those
-issues (by revising your specifications, design and test plan), document 
-the changes that were made to address each, and get agreement from the 
+It is likely that your design and test case development, and their
+reviews will turn up issues that require changes to your specifications, 
+design and test plan.  
+Address those issues (by revising your specifications, design and test plan), 
+document the changes that were made to address each, and get agreement from the 
 reviewers that the issues have been satisfactorally addressed.
+</P>
+<P>
 Your final specification should contain:
 <OL type=1>
-   <LI> an acknowledgement of issues raised in the design review,
-        and a summary of changes made and reasons for each.</LI>
-   <LI> updated architectural context.</LI>
+   <LI> an discussion of issues that were discovered and
+        summary of changes made and reasons for each.</LI>
+   <LI> descriptions of changes to the (project 2) architecture.</LI>
    <LI> updated component specification.</LI>
    <LI> updated updated component design.</LI>
    <LI> updated test plan.</LI>
@@ -512,20 +520,25 @@ Your final specification should contain:
 <P>
 This submission be graded on the basis of:
 <ul>
-	<li> 25% responses to raised issues and resolution w/reviewers
-	     (as verified by e-mail or plan updates)</LI>
-	<li> 25% quality of final specifications (using 3B grading metrics)</LI>
-	<li> 25% quality of final design (using 3C.1 grading metrics)</LI>
-	<li> 25% quality of final test plan (using 3C.2 grading metrics)</LI>
+	<li> 60% discussions of and responses to issues that arose</li>
+	<li> 40% quality of the revised specifications, design and test plan
+	         (using the same criteria as phases B and C)
+	</li>
 </ul>
 </P>
 <P>
 When you have addressed all of the issues raised in your review and are
 ready to submit your final component specifications, design and plan,
-fill out 
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+<ul>
+    <li> prepare your spec (ideally ASCII text in a file named <tt>spec_3e.txt</tt>)</li>
+    <li> prepare your design (ideally ASCII text in a file named <tt>design_3e.txt</tt>,
+         or perhaps with some other language-specifc suffix)</li>
+    <li> prepare your test plan (ideally ASCII text in a file named <tt>test_3e.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of each file</li>
+    <li> up-load them to your Sakai Dropbox (each person must submit his/her own files)</li>
+</ul>
 </P>
+
 <a name="desc_3pm">
 <H3>P3E.2 Post-Mortem Report</H3>
 </a>
@@ -549,9 +562,17 @@ should include:
 </ul>
 </P>
 <P>
-Note that if you make no mistakes, you will not be able to earn any points
-on the post-mortem.  Fortunately, no teams have ever found it necessary
-to deliberately make mistakes in order to have something to analyze.
+The submission and grading of Post Mortem reports is described
+in the <a href="#postmortem">General Grading</a> information.
+<P>
+Make sure that you have kept your meeting minutes and management plan up-to-date on Github.
+When you are ready to submit the Post-Mortem report (and management notes) for grading:
+<ul>
+    <li> prepare your report (ideally ASCII text in a file named <tt>postmortem_3.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of it</li>
+    <li> make sure that it also contains Github URLs for your status updates and management plans</li>
+    <li> up-load it to your Sakai Dropbox (only one person on the team needs to do this)</li>
+</ul>
 </P>
 <P>
 This report be graded on the basis of:
@@ -561,12 +582,4 @@ This report be graded on the basis of:
 	<li> 30% the extent to which you are able to derive and articulate useful lessons
 	     (and good future advice) from those experiences.</li>
 </ul>
-
-<P>
-Make sure that you have kept your management plan up-to-date,
-upload the notes from your post-mortem discussion to github,
-fill out a 
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
-</P>
 </body></html>

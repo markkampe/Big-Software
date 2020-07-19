@@ -1,0 +1,137 @@
+P2A	Plan and Preliminary Architecture
+
+   Total Score:			___/25
+
+   Plan:		___/5
+
+   	complete/specific	___/2
+
+	   	___	preliminary architecture: included, has owner(s) and date
+
+		___	architectural review: included, has moderator, scribe, and date
+
+		___	review report: included, has owner and date
+
+		___	final architecture: included, has owner(s) and date(s)
+
+		___	post mortem: included, has owner and date
+
+		
+	risk management:	___/1
+
+		___	early review of components and their roles
+
+
+		___	early review of issues to be researched/analyzed/prototyped
+
+
+	use of time/resources	___/2
+
+		___	each deliverable scheduled before it is due
+
+		
+		___	adequate time between dependent deliverables
+
+
+		___	everybody doing roughly equal work
+
+
+
+   Preliminary Architecture:		___/20
+
+	overview:		___/5
+
+		___	a high level summary of what it will do and how it will do it
+
+
+		___	an enumeration of the key components
+
+
+		___	a description of their roles and interactions
+
+
+		___	diagrams of component relationships and/or operational context
+
+
+		___	diagrams illustrating inter-component and external interfaces
+
+
+	specifications:		___/3
+
+		___	functionality of each component is described
+
+
+
+		___	key interfaces to each component are described (at least in general terms)
+
+
+
+		___	key requirements for each component are described
+
+
+
+	rationale:		___/2
+
+		___	discussion of key concerns that drove the architecture
+
+
+		___	reasonable justification for each decision
+
+
+
+	issues:			___/2
+
+
+		___	covers all obvious what/how concerns
+
+
+		___	reasonable/adequate analysis and research
+
+
+		___	a reasonable plan for addressing each issue
+
+
+
+	analysis/feasibility:	___/2
+
+		___	covers all non-trivial components
+
+
+		___	reasonable approach/technology to implement each component
+
+		
+		___	reasonable uses of off-the-shelf tools and components
+
+
+		___	clear results presented
+
+
+	prototyping:		___/2
+
+		___	reasonable decisions about what required prototyping
+
+
+		___	reasonable investigations (clear goals, adequate, but not too much)
+
+
+		___	well conducted investigations (question has been well answered)
+
+
+		___	clear results presented
+
+
+	overall impressions:	___/4
+
+		___	clarity: I understood what they are proposing
+
+
+		___	reasonableness: solution not greatly more complex than necessary
+
+
+		___	completeness (these pieces add up to a reasonable whole, w/no significant holes)
+
+
+		___	consistency: all the stories agree
+
+
+		___	viability: I believe this could be implemented and would work

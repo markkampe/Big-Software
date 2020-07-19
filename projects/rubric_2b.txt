@@ -1,0 +1,57 @@
+P2B	Architectural Review
+
+   Total Score:			___/15
+
+    Pre-Review Notes		___/4	(this is an individual score)
+
+	technical quality	___/2
+
+		___	depth of study to which they testify
+
+
+		___	importance/value of observations
+
+
+	preparation		___/2
+
+		___	clarity of issues (not expecting complete sentences)
+
+		___	all issues appropriate to architectural review
+
+    		___	reasonably organized (e.g. by component) for discussion
+
+
+    Architectural Review	___/7
+
+	(detailed scoring on separate form)
+
+
+    Architectural Review Report	___/4
+
+	basic info		___/1
+
+		___	date, time, attendees
+
+	
+	completeness		___/2
+
+		___	all significant raised issues are discussed
+
+
+		___	each issue has a disposition/resolution
+
+
+		___	disposition for project
+
+
+		(this need not be prose, but it should be a good list)
+
+	form/expression		___/1
+
+		___	reasonably organized (e.g. temporal, structural, ...)
+ 
+
+		___	all issues clearly expressed
+
+
+		___	all constructive and within scope

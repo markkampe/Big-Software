@@ -20,7 +20,7 @@ This project will exercise a great many key design skills:
 <UL>
    <LI> coming up with a viable high level architecture</li>
    <LI> working out the implications of your architecture to component definitions</li>
-   <LI> identifying questions and risks best addressed through prototypes</li>
+   <LI> identifying questions and risks best addressed through research and/or prototypes</li>
    <LI> validate your architecture against your requirements (and general goodness properties)</li>
    <LI> describing that architecture well enough that others can understand it</li>
    <LI> reviewing someone else's design, understanding the issues, and
@@ -88,38 +88,43 @@ own goals, processes, and deliverables:
 The development of the architecture may prove much more difficult
 than you imagine, the process of describing it clearly in writing
 may prove extremely challenging, and you will probably discover that
-(after your design review) you have a great deal of non-trivial work
+(after your design review) you have some non-trivial work
 to do to fix your design.  Also, remember that design is a <em>wicked</em> 
 problem:
 <UL>
-   <LI> You may not know how many components you 
+   <LI> The architecture evolves with your evolving
+   	understanding of the problem.
+   	You may not be sure how many components you 
 	have to specify and analyze until your
 	architecture is largely complete.</li>
    <LI>	You may not have any sense of how difficult
-	the component analyses will be or how many
+	the component analyses will be, or how many
 	iterations you will have to make over the 
 	architecture until you have gone through a
-	few rounds of revisions and can judge the
+	few rounds of revisions, and can judge the
 	difficulty of the issues and rate of convergence.</li>
    <LI>	You may not have any sense of the number
 	or difficulty of the issues that will be raised
 	in the design review until after it has been
-	completed.</li>
+	completed.  (If you had recognized those issues
+	you would have dealt with them before the review)</li>
 </UL>
 </P>
 <P>
 Each of these factors can cause the work to very quickly
-grow much larger than your initial estimates.  <u>This means
-you need to get budget a great deal of time for revision
-and rework, and get started as soon and fast as possible.</u>
+grow much larger than your initial estimates. 
+Many students consider the development and description of the
+preliminary architecture to be the most difficult part of the entire course.
+<u>This means you need to get started as soon and fast as possible,
+and budget a great deal of time for revision and rework.</u>
 </P>
 <P>
 Each team will prepare a task-breakdown, identify the dependency relationships between
 tasks, and owners for each sub-task, assign due-dates, and schedule regular reviews
 of both work-products and progress (to enable adequate time to deal with the
 <u>problems that will arise</u>).  
-A good management plan will include regular status
-checks, the results of which should be recorded in the plan document.
+A good management plan will include regular (e.g. daily) status checks, whose
+results should be recorded in a <tt>minutes.txt</tt> file in your repo.
 </P>
 <P>
 As your understanding of the problem
@@ -138,16 +143,17 @@ Your initial Management Plan will be graded on the basis of:
 	<li> 20% completeness</li>
 </ul>
 <P>
-Maintain your plan on github. 
-You will surely be updating it, and we will be reviewing your history
-(changes and comments).
-When you are ready to submit them for grading, fill
-out the standard form and e-mail it to the submission alias.
+Maintain your plan (and status update minutes) on github.
+You will probably be updating them daily,
+and we will be reviewing this history.
 </P>
 <P>
-When you are ready to submit it for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+When you are ready to submit your plan for grading:
+<ul>
+    <li> prepare your management plan (ideally ASCII text in a file named <tt>management_2a.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of each file</li>
+    <li> up-load it to your Sakai Dropbox (only one person on the team needs to do this)</li>
+</ul>
 </P>
 
 <a name="desc_2a2">
@@ -175,8 +181,8 @@ the described system is buildable and likely to work:
    <LI>	the described interfaces are reasonably abstracted
 	(clear, implementable, with good information hiding)
 	from the component's perspective.</li>
-   <LI>	the development work is supported by mature and usable tools
-	and technology.</li>
+   <LI>	the development can be accomplished with mature and usable tools
+	and technology (ideally using off-the-shelf components).</li>
 </UL>
 <P>
 Recall that McConnell described design as a
@@ -228,7 +234,7 @@ one <em>interesting</em> component for thorough analysis or one
 interesting question to resolve through a prototyping effort.
 </P>
 <P>
-If you have too many questions and components, it will be impossible
+If you have too many questions and components, it may be impossible
 for you to do all of the necessary design and prototyping within a 
 few weeks.  After each person has taken on a difficult component or
 question, you can do a more superficial job on the simpler questions 
@@ -239,18 +245,19 @@ sub-divide your major components to create more pieces or find a
 problem that requires further analysis or prototyping.
 </P>
 <P>
-Your architectural description should include:
+<strong>Your architectural description should include:</strong>
 <UL>
    <LI> A high-level prose description of how the required functionality 
 	will be delivered.</li>
    <LI> High-level prose descriptions of each of the run-time components:
-	what it does, and the requirements it must meet.</li>
+	what it does (functional specifications), 
+	descriptions of its interfaces, and the requirements it must meet.</li>
    <LI> High-level prose descriptions of the major persistent data objects:
 	what kind of information they contain, how/where they are stored,
 	and (where appropriate) supporting middle-ware (e.g. MySQL).</li>
    <LI>	diagrams illustrating the components, their instantiation/deployment
 	in a real system, and their interactions.</li>
-   <LI>	characterizations of the external interfaces, and the interfaces
+   <LI>	(general) characterizations of the external interfaces, and the interfaces
 	between the major components.</li>
    <LI> Discussions of the key issues that arose in the development of
 	this architecture and the rationale that drove the selection of
@@ -258,81 +265,136 @@ Your architectural description should include:
    <LI> Discussions of major issues still outstanding (anything that causes 
 	you to doubt that it will be possible to successfully build this system on a
 	predictable schedule): what the problem is, what options have been
-	considered, and how those options fall short.</li>
+	considered, and how those options fall short.
+	<p>
+	Note: outstanding issues are not evidence of failure, but merely 
+	recognition of areas where additional work is required.
+	The first step in finding help is recognizing that it is needed.
+	</p>
+	</li>
 </UL>
-This should be backed up by a set of component analyses (research,
-designs, analyses, prototypes, etc) that were done to establish 
+<strong>This should be backed up by a set of component analyses</strong>
+(research, designs, analyses, prototypes, etc) that were done to establish 
 the feasibility of implementing each major component:
 <UL>
    <LI> where existing technology is being used, provide references
 	and summarize the investigation you did to determine its
-	suitability.</li>
+	adequacy and usability.</li>
    <LI>	where analysis was done, provide a write-up of the issues
 	investigated, the means of the investigation, and results.</li>
-   <LI> where prototyping was done, describe the risk issues to
-	be addressed, a summary of the approach and results, 
-	and github URLs for the actual prototypes constructed.</li>
+   <LI> where prototyping was done, describe the questions and risks to
+	be addressed, a summary of the approach, and the results
+	(and github URLs for the actual prototypes constructed).</li>
    <LI>	where new design work was done, provide design documentation
 	similar to (but hopefully much simpler than) that described
 	for the architectural description.</li>
 </UL>
 </P>
+<H4>Getting Started and Early Feedback</H4>
 <P>
-You will note that, while I do describe what should be present in your
-architectural description (and there are two full lectures on the
-elements of good architecture), I am not giving you sample architectural
-descriptions.  
-There are two reasons for this:
+To help you through the most difficult parts of this process, we suggest
+that you (<u>within first two days</u>):
+<ol>
+   <li> conceive a list of proposed components.</li>
+   <li> prepare a one-line description of what each
+        component does and its role in the product.</li>
+   <li> draw a diagram showing their relationship to one-another and
+        the context in which they run and interact with the outside world.</li>
+   <li> prepare a list of the issues (e.g. new technologies, available tools,
+        non-obvious APIs, difficult algorithms, etc) 
+	that might arise in the implementation of each component.</li>
+   <li> schedule a presentation with me (and/or a Grutor) to review
+        those component descriptions and concerns.</li>
+   <li> get feedback on what else you might need to do before you start
+        researching tools, doing prototypes and elaborating designs.</li>
+</ol>
+Once you have a reasonable model of how your functionality can be
+implemented and the questions/risks that must be examined you will
+know what research, prototyping and design examinations you need to complete.
+But if you do not have a reasonable starting point and list of issues 
+to address, you may wind up wasting a few weeks of work, much of which
+winds up being thrown away, and does not enable you to move forward.
+</P>
+<H4>Describing an Architecture</H4>
+<P>
+There is an old stereotype that scientists and engineers tend not to be good writers.
+To the extent there is any truth in this sterotype, it is strange and tragic ...
+because story-telling is fundamental to what all researchers and engineers do.
+They may spend much of their time doing experiments, models, and designs, but
+understandings of complex phenomena and systems are of little value until they 
+have been explained to others (who will apply and/or instantiate them).
+Scientists and engineers do not (or at least should not, as part of <u>those jobs</u>)
+write fiction; 
+But they do none-the-less create <u>stories</u> where <u>characters</u>, 
+with satisfying <u>backgrounds</u>, fulfill their <u>roles</u>,
+and traverse their <u>arcs</u>, 
+in accordance with, and exemplifying compelling <u>themes</u>.
+You understand the system you have designed;
+Now you have to devise a story that will recreate that vision for others:
+<ul>
+   <li> who are the characters in your story, and what are their roles?</li>
+   <li> what descriptions and naratives will most fully portray them?</li>
+   <li> what key challenges do they face, and what principles/strategies guide them to success?</li>
+   <li> what background is necessary to enable readers to absorb this story?</li>
+</ul>
+You will note that:
+<ul>
+   <li> there is much reading on what makes a good architecture </li>
+   <li> there are two full lectures on developing and evaluating architectures </li>
+   <li> you have (listed above) a two-digit number of things that
+        you need to describe about your architecture</li>
+</ul>
+But I do not give you examples, forms, or even a table of contents for
+your architectural description.
+There are a few reasons for this:
 <UL>
    <LI>	Every system is unique in both structure and constraints, and
 	its story probably requires a unique telling.  Giving you 
 	samples that did not fit the needs of your particular project
 	would probably do more harm than good ... as you tried to force
-	my square peg into your round hole.</li>
-   <LI>	Among the (difficult and soft) skills that I want you to develop 
+	your square peg into that round hole.</li>
+   <LI>	Among the (difficult and soft) skills we want you to develop 
 	are learning to visualize complex systems, and express those 
-	visions technical prose.  The ability to describe complex
-	technical concepts and issues is a fundamental skill for
-	any engineer, and I expect that working out how to best 
-	tell your story will prove to be a highly educational exercise.</li>
+	visions in technical prose.  The ability to describe complex
+	technical concepts and issues is a <u>fundamental skill for
+	any scientist or engineer</u>, and I expect that working out how to best 
+	tell this story will prove to be a highly educational exercise.</li>
+   <LI> Figuring out the best way to tell the story is far more important
+        (and often more difficult) than telling it.  
+	Once you have the right outline for your story, 
+	drawing the pictures and writing the prose should be relatively straight forward.</li>
 </UL>
 </P>
 <P>
 Your preliminary architecture will be graded on the basis of
 <ul>
-	<li> 16% overview<br>
+	<li> 25% overview<br>
 	     <ul>
 		<li> clarity of the conceptual roles of each components</li>
 		<li> clarity of their interactions and how the cooperate to provide 
 		     the required services,</li>
-		<li> how well this document prepares the reviewer for the remainder 
-		     of the design.</li>
+		<li> diagrams depicting component roles and relationships</li>
+		<li> diagrams depicting external and inter-component interfaces</li>
+		<li> how well this document prepares the reviewer for the specifications
+		     and issue discussions to follow.</li>
 	     </ul>
 	     </li>
-	<li>  8% diagrams<br>
-	     <ul>
-		<li> accordance with the prose descriptions</li>
-		<li> how clearly they depect component roles and relationships</li>
-		<li> how clearly they depict external interfaces</li>
-		<li> how clearly they depict inter-component interfaces</li>
-	     </ul>
-	     </li>
-	<li> 12% component specifications<br>
+	<li> 15% component specifications<br>
 	     <ul>
 		<li> completeness/clarity of functional descriptions</li>
 		<li> completeness/clarity of interface descriptions</li>
-		<li> completeness/clarity of requirements</li>
+		<li> completeness/clarity of component requirements</li>
 		<li> adequacy of this spec to guide implementation</li>
 	     </ul>
 	     </li>
-	<li>  8% architectural rationale<br>
+	<li>  10% architectural rationale<br>
 	     <ul>
 		<li> how well it captures the issues that drove the architecture </li>
 		<li> how well it justifies the responses to those issues</li>
 		<li> clarity and soundness of the analysis and rationale</li>
 	     </ul>
 	     </li>
-	<li> 12% issue recognition and understanding<br>
+	<li> 10% issue recognition and understanding<br>
 	     <ul>
 		<li> completeness of the list (are there obvious issues missing)</li>
 		<li> worthiness of these issues (are these real architectural issues)
@@ -340,18 +402,25 @@ Your preliminary architecture will be graded on the basis of
 		<li> insightfulness of propsed solutions</li>
 	     </ul>
 	     </li>
-	<li> 24% prototypes and component design analyses<br>
+	<li> 10% component design analyses<br>
 	     <ul>
-		<li> analysis: how clear it is that your component can be implemented</li>
-		<li> analysis: how reasonable the proposed implementation is
-		<li> analysis: how clear it is that your implementation will work</li>
-		<li> analysis: how clear it is that your component can meet its requirements</li>
-		<li> prototype: is this indeed an important question to investigate</li>
-		<li> prototype: does this investigation have clear and appropriate goals</li>
-		<li> prototype: reasonablness of the planned investigation</li>
-		<li> prototype: quality of the implementation of that plan</li>
-		<li> both: quality of the analysis, how well the rationale was captured,
+		<li> covers all non-trivial components</li>
+		<li> how clear it is that your component can be implemented</li>
+		<li> how reasonable the proposed implementation is</li>
+		<li> good use of off-the-shelf tools and existing technologies</li>
+		<li> how clear it is that your implementation will work</li>
+		<li> how clear it is that your component can meet its requirements</li>
+		<li> quality of the analysis, how well the rationale was captured,
 		     and value added by this analysis.</li>
+	     </ul>
+	     </li>
+	<li> 10% prototypes and practical investigations<br>
+	     <ul>
+		<li> is this indeed an important question to investigate</li>
+		<li> does this investigation have clear and appropriate goals</li>
+		<li> reasonablness of the planned investigation</li>
+		<li> quality of the implementation of that plan</li>
+		<li> quality of the investigation and value added by this work.</li>
 	     </ul>
 	     </li>
 	<li> 20% overall quality of the architecture<br>
@@ -368,16 +437,21 @@ Your preliminary architecture will be graded on the basis of
 </ul>
 
 <P>
-When you are ready to submit it for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+When you are ready to submit your preliminary architecture for grading:
+<ul>
+    <li> create it in either a file on GitHub or a PDF (from a GoogleDoc with history)
+         and name it <tt>architecture_2a</tt> (with the format-appropriate suffix)</li>
+    <li> prefix it with a <a href="#submission">standard submission prologue</a> </li>
+    <li> up-load it to your Sakai Dropbox (only one person on the team needs to do this)</li>
+</ul>
 </P>
 
 <a name="desc_2b">
 <H3>P2B Design Review</h3>
 </a>
 <P>
-As we refine a design, it is easy to become convinced that we have
+As we refine a design, we become prone to <em>confirmation bias</em>.
+It is easy to become convinced that we have
 made the right decision and that our design is therefore correct.
 After we have done our best at refining our architecture, it is time
 to seek independent validation from people who haven't already bought-in
@@ -395,22 +469,25 @@ the submitting team.
 </P>
 
 <a name="desc_2b1">
-<h3>P2B.1 Review Notes</h3>
+<h3>P2B.1 Review Notes (per person submissions)</h3>
 </a>
 <P>
+Digesting other peoples' designs is another fundamental skill
+for scientists and engineers.
 Prior to your review meeting, each of you (individually) will read
 the submitted architecture description and prepare detailed notes
 on all questions and concerns.  These notes must be submitted at
 least 24 hours prior to the actual review session.  They should be
 neat notes, describing legitimate issues clearly enough to be sent
 as email, and organized for discussion (e.g. in the recommended 
-review order).
+review order).  But these are notes, and there is no need for 
+polished prose, or even complete sentences.
 </P>
 <P>
 When you have completed your study notes in preparation for the review,
-each individual should fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+each individual should prefix them with a
+<a href="#submission">standard submission prologue</a>
+and submit them (with the name <tt>review_notes_2b.txt</tt>).
 </P>
 <strong>NOTE: Late points cannot be used for this submission.</strong>
 <ul>
@@ -420,7 +497,7 @@ and e-mail it to the submission alias.
 </ul>
 
 <a name="desc_2b2">
-<H3>P2B.2 Review Meeting</h3>
+<H3>P2B.2 Review Meeting (graded for the revewing team)</h3>
 </a>
 <P>
 Your team will conduct a formal design review of the submitted
@@ -436,7 +513,7 @@ review meeting.
 <P>
 
 <a name="desc_2b3">
-<H3>P2B.3 Review Report</h3>
+<H3>P2B.3 Review Report (graded for the reviewing team)</h3>
 </a>
 <P>
 The designated scribe for your review session will write up a report
@@ -458,14 +535,17 @@ decisions.  It should be carefully written and reviewed.  It must contain:
 </UL>
 </P>
 <P>
-When you are ready to submit your review report for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+When you are ready to submit your review report for grading:
+<ul>
+    <li> prepare your report (ideally ASCII text in a file named <tt>report_2b.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of each file</li>
+    <li> up-load it to your Sakai Dropbox (only one person on the team needs to do this)</li>
+</ul>
 </P>
 <P>
 These submissions be graded on the basis of:
 <ul>
-	<li> 30% individual notes prepared in advance of review
+	<li> 25% individual notes prepared in advance of review
 	<ul>
 		<li> the thoroughness of study to which they attest</li>
 		<li> how well articulated the issues are</li>
@@ -473,7 +553,7 @@ These submissions be graded on the basis of:
 		<li> issues reasonably organized for discussion</li>
 	</ul>
 	</li>
-	<li> 40% the review process
+	<li> 50% the review process
 	<ul>
 		<li> agenda and flow</li>
 		<li> meaningful discussions of in-scope issues</li>
@@ -487,7 +567,7 @@ These submissions be graded on the basis of:
 		<li> review was a valuable and productive experience</li>
 	</ul>
 	</li>
-	<li> 30% the review report
+	<li> 25% the review report
 	<ul>
 		<li> time, place, project, attendees</li>
 		<li> disposition of each issue</li>
@@ -515,8 +595,9 @@ Your final proposal is simply a new version of the original proposal,
 revised based on the feedback from the graders and reviewers.
 The grading criteria for the revised architectural proposal will be 
 similar to the initial architectural presentation, but with the
-the architectural rationale and issue understanding points based
-on your responses to raised issues:
+additional expectation that your rationale and issue discussions
+will include issues raised in the reviews, and your design will
+have responded to those suggestions:
 <UL>
    <li> have all <strong>must-fix</strong> issues have been responded to</li>
    <li> quality of the responses to <strong>must-fix </strong>issues</li>
@@ -524,14 +605,16 @@ on your responses to raised issues:
 </UL>
 Please make sure that your final architecture acknowledges this
 feedback and explains how you have responded to each item.
-<P>
-When your team has addressed all issues, prepare a revised
-architectural proposal.
-summarizing the status of all issues and then fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
 </P>
-
+<P>
+When your team has addressed all issues and you are ready to submit your final architecture for grading:
+<ul>
+    <li> create it in either a file on GitHub or a PDF (from a GoogleDoc with history)
+         and name it <tt>architecture_2c</tt> (with the format-appropriate suffix)</li>
+    <li> prefix it with a <a href="#submission">standard submission prologue</a> </li>
+    <li> up-load it to your Sakai Dropbox (only one person on the team needs to do this)</li>
+</ul>
+<P>
 
 <a name="desc_2pm">
 <H3>P2C.2 Post-Mortem Report</H3>
@@ -561,24 +644,25 @@ should include:
 </ul>
 </P>
 <P>
-Note that if you make no mistakes, you will not be able to earn any points
-on the post-mortem.  Fortunately, no teams have ever found it necessary
-to deliberately make mistakes in order to have something to analyze.
-</P>
+The submission and grading of Post Mortem reports is described
+in the <a href="#postmortem">General Grading</a> information.
 <P>
-This report be graded on the basis of:
+Make sure that you have kept your meeting minutes and management plan up-to-date on Github.
+When you are ready to submit the Post-Mortem report (and management notes) for grading:
 <ul>
-	<li> 50% whether or not you meaningfully discuss each of the required activities.</li>
-	<li> 20% whether or not you identify all of the important incidents.</li>
-	<li> 30% the extent to which you are able to derive and articulate useful lessons
-	     (and good future advice) from those experiences.</li>
+    <li> prepare your report (ideally ASCII text in a file named <tt>postmortem_2.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of it</li>
+    <li> make sure that it also contains Github URLs for your meeting minutes and management plans</li>
+    <li> up-load it to your Sakai Dropbox (only one person on the team needs to do this)</li>
 </ul>
 </P>
-<P>
-Make sure that you have kept your management plan up-to-date,
-upload the notes from your post-mortem discussion to github.
-When you are ready to submit your post-mortem for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
-</P>
+<H4>P2C.3 - Work Share Estimates</H4>
+<p>
+Most of your grade for this project will be based on the team deliverables, but some of it will
+be based on the quality, amount, and timeliness of work done by each team member.  Towards this
+end, we ask each team member to estimate the
+<a href="#work_share">amount of work</a> done by each team member on this project.
+Please prepare your own assessment of how much work was done by whom and submit it as
+<tt>workshare_2.txt</tt> (or perhaps <tt>workshare_2.csv</tt>).
+</p>
 </body></html>

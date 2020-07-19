@@ -1,0 +1,51 @@
+P3D	Design and Test Plan Review
+
+   Total Score:			___/15
+
+    Pre-Review Notes		___/10
+
+	on-time submission	___/4
+
+	technical quality	___/4
+
+		___	depth of design study/understanding to which they testify
+
+		___	depth of test-plan study/understanding to which they testify
+
+		___	clarity of issues (not expecting complete sentences)
+
+		___	importance/value of observations
+
+
+	preparation		___/2
+
+		___	reasonably articulated and organized for discussion
+
+		___	all issues appropriate to design or test-plan review
+
+
+
+    Design/Test Review Report	___/5
+
+	completeness		___/4
+
+		___	all significant raised issues are discussed
+
+
+		___	each issue has a disposition/resolution
+
+
+		(this need not be prose, but it should be a good list)
+
+
+	form/expression		___/1
+
+		___	date, time, attendees
+
+		___	reasonably organized (e.g. temporal, structural, ...)
+ 
+
+		___	all issues clearly expressed
+
+
+		___	all constructive and within scope

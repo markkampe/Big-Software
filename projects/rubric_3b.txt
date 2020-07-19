@@ -1,0 +1,44 @@
+P3B	Component Specifications
+
+   Component Specifications:		___/10
+
+
+	general:		___/3
+
+		___	role of this component/module in the overall system is clear
+
+
+		___	component functionality is clear
+
+
+		___	extensions to architecture (if any) are reasonable
+
+
+	requirements:		___/2
+
+		___	reasonable projection of architectural requirements onto this component
+
+
+		___	all requirements are clear
+
+
+		___	all requirements are measurable
+
+
+	interface specs:	___/5
+
+		___	clear and complete (ready to code) specifications
+
+
+		___	interface compliance seems reasonably testable
+
+
+		___	reasonably chosen methods and parameters
+
+
+		___	well abstracted (modularity, cohesion, etc)
+
+
+		___	spec covers all required functionality
+
+

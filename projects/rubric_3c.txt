@@ -1,0 +1,103 @@
+P3C	Component Design and Test Plan
+
+   Total Score:			___/40
+
+	   
+    Component Design		___/20
+
+	externals 		___/8
+	
+		___	all external methods well enough described that you know how to code them (4pt)
+
+		___	all methods and instance variables well enough described that you would
+			know, as a client, how to use them. (2pt)
+
+		___	all instance variables well enough described that you know how to declare,
+			initialize, AND UPDATE THEM CORECTLY.
+
+		___	fully implements the component interface specification
+
+
+	internal methods	___/2	(if none, use the external scores)
+
+		___	all internal methods well enough described that you known how to code them
+
+
+		___	it is clear why each exists, and they seem reasonably defined
+
+
+		___	no missing pieces
+
+
+	algorithms/approach	___/8
+
+		___	the overall structure and approach make sense (having read the rationale)
+
+
+		___	proposed implementation seems reasonable (not unnecessarily complex)
+
+
+		___	proposed algorithms and guideance seem correct
+
+
+		___	proposed algorithms and approaches seem reasonably efficient
+
+
+		___	proposed approaches reasonably exploit language/tool capabilities
+
+
+	general			___/2
+
+		___	adequate overview
+
+
+		___	adequate rationale
+
+
+
+    Component Test Plan		___/20
+
+	black-box tests		___/6
+
+
+		___	completeness of suite (2pt)
+
+		___	traceability to specifications (2pt)
+
+		___	clarity and reasonableness of test cases
+
+		___	form and quality of descriptions
+
+
+	white-box tests		___/6
+
+		___	completeness of suite (2pt)
+
+		___	traceability to design (2pt)
+
+		___	clarity and reasonableness of test cases
+
+		___	form and quality of descriptions
+
+
+	testing framework	___/4
+
+		___	automated execution and pass/fail notification
+
+		___	standard (off the shelf) framework
+
+		___	well suited to the type of tests being run
+
+
+	completeness		___/2
+
+		___	the union of these tests seem a complete validation suite
+
+	efficiency		___/2
+
+		___	there are not redundant tests
+
+		___	there are no tests for things that don't matter or can't happen
+
+		___	set-up and execution seem reasonable
+

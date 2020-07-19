@@ -1,0 +1,75 @@
+P3E	Final Design, Test Plan, Post Mortem, and Management
+
+   3E Revisions			___/15
+
+   3E.1 Revised Specifications:	___/5
+
+		___	good responses to identified issues (3pt)
+
+		___	quality of the final document (2pt)
+
+   3E.1 Revised Design:		___/5
+
+		___	good responses to identified issues (3pt)
+
+		___	quality of the final document (2pt)
+
+   3E.1 Revised Test Plan:	___/5
+
+		___	good responses to identified issues (3pt)
+
+		___	quality of the final document (2pt)
+
+
+
+   3E.2 Post Mortem:		___/10
+
+
+	activities		___/5
+
+		___	architectural refinement and specification development
+
+		___	development of component designs
+
+		___	development of component test plans
+
+		___	review process and resulting design changes
+
+		___	planning and on-going management
+
+	
+	issues			___/2
+
+		___	I have reason to believe it includes all issues that arose
+			(e.g. because I have reviewed meeting minutes, and discussions)
+
+		___	each (non-trivial) issue was reasonably discussed
+
+
+	learning		___/3
+
+		___	they understood why each challenge or important problem arose
+
+		___	they assessed the effectivness of their responses
+
+		___	they derived some valuable lessons
+
+		___	written from a a positive (learning from our experiences) perspective
+
+
+    Management:			___/5
+
+		___/1	regular status checks reflected in promptly checked-in minutes
+
+
+		___/1	minutes capture surprises/issues and plans to deal with them
+			(including all issues of which you are aware)
+
+
+		___/1	all problems reasonably dealt with
+
+
+		___/1	plans were updated (on github) to deal with challenges
+
+
+    		___/1	work products checked-in according to (updated) plan by assigned user
