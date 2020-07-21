@@ -13,50 +13,57 @@ Implementation and Testing Sprint
 The first three projects took us through all of the activities that precede
 implementation.  In this final project you will actually implement the components
 you designed in phase 3 ... and by now it should come as little surprise to you
-that only part of your time will be spent coding, and (if you do it right) very 
+that only part of your time will be spent coding, and (if you have done it right) very 
 little of your time will be spent debugging.
 </P>
 
 <table align="center" border="1" cellpadding="5" cellspacing="0">
 <tbody>
   <tr>
-	<th>Phase</th>
+	<th>Part</th>
 	<th>Assignment</th>
 	<th>Value<sup>3</sup></th>
   </tr>
 
   <tr>
-	<td rowspan="7">4</td>
+	<td>4A</td>
 	<td> <A href=#desc_4.1>Final Code</a> (individual)</td>
-	<td> 20 </td>
+	<td> 25 </td>
   </tr>
   <tr>
-	<td> <A href=#desc_4.2>Pair Programming Exercise and Report</a> </td>
+	<td>4A</td>
+	<td> <A href=#desc_4.5>Test Suite</a> (individual)</td>
+	<td> 25 </td>
+  </tr>
+
+  <tr>
+	<td>4B</td>
+	<td> <A href=#desc_4.2>Pair Programming Exercise and Report</a> (team) </td>
 	<td> 10 </td>
   </tr>
 
   <tr>
-	<td> <A href=#desc_4.3>Code Review Notes and Reports</a> (individual)</td>
-	<td> 20 </td>
-  </tr>
-
-  <tr>
-	<td> <A href=#desc_4.4>Test Driven Development Report</a> </td>
+	<td>4B</td>
+	<td> <A href=#desc_4.3>Code Review Notes and Reports</a> (team)</td>
 	<td> 10 </td>
   </tr>
 
   <tr>
-	<td> <A href=#desc_4.5>Final Test Suite</a> </td>
-	<td> 20 </td>
+	<td>4B</td>
+	<td> <A href=#desc_4.4>Test Driven Development Report</a> (team)</td>
+	<td> 10 </td>
   </tr>
 
+
   <tr>
-	<td> <A href=#desc_4.6>Sprint Review/Demo</a> </td>
+	<td>4C</td>
+	<td> <A href=#desc_4.6>Sprint Review/Demo</a> (team)</td>
 	<td> 10 </td>
   </tr>
 
   <tr>
-	<td> <A href=#desc_4pm>Post-Mortem Report</a> </td>
+	<td>4D</td>
+	<td> <A href=#desc_4pm>Post-Mortem Report</a> (team)</td>
 	<td> 10 </td>
   </tr>
 </tbody>
@@ -79,7 +86,7 @@ little of your time will be spent debugging.
 </UL>
 
 <a name="desc_4.1">
-<H3>P4.1 Final Code</h3>
+<H3>P4A.1 Final Code</h3>
 </a>
 <P>
 The primary activity in this project is for each person to implement
@@ -89,38 +96,117 @@ the primary deliverable is working code that implements the requirements
 and specifications set out in project 3.
 </P>
 <P>
-Source files and instructions/scripts (e.g. ant/makefile) required to build them.
-Make sure that you document the build environment that is required to build your
-components, because part of your grade will depend on the grader being able to
-independently build your product from the checked-in sources and instructions.
-If this is not practical (e.g. because your component cannot be built on a Linux
-system) make special arrangements with the professor (or Grutor) to have him/her 
-observe a check-out build-from-scratch.
+The primary deliverable is source files and scripts (e.g. ant/Makefile) required to build them.
+Make sure that you document the build procedure and the environment that is required to build your
+components (e.g. in a <tt>README.md</tt>), because part of your grade will depend on 
+the grader being able to independently build your product from the checked-in sources 
+and instructions.
+If this is not practical (e.g. because your component cannot be built on a basic
+Linux developer desktop) make arrangements with the professor (or Grutor) to have him/her 
+do a check-out and build-from-scratch on an appropriate system.
 </P>
 <P>
-You should also re-submit the
-specifications and design for this component (from project 3)
-with any changes you have made since then.
+You should also re-submit URLs for the specifications and design for this component
+(from project 3) with any changes you have made since then.  These are the standard for
+the completeness and correctness of your implementation.
 </P>
-<P>
-Each code submission be graded on the basis of:
-<ul>
-	<li> 10% appropriateness of chosen languages, middleware, and tools.</li>
-	<li> 20% completeness relative to project 3 design and specifications</li>
-	<li> 20% how well it corresponds to the (revised) design</li>
-	<li> 20% code quality (use of language features, simplicity, efficiency)</li>
-	<li> 20% code understandability (structure, layout, comments)</li>
-	<li> 10% grader is able to build it from source</li>
-</ul>
 <P>
 After you have completed all of your implementation and testing, and
-you believe your code is entirely complete, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
+you believe your code is entirely complete
+<ul>
+    <li> prepare your source code (ideally ASCII text in file(s) with a language appropriate name)</li>
+    <li> include a description of the build instructions and required environment in
+         a <tt>README.md</tt> file.</li>
+    <li> put a <a href="#submission">standard submission prologue</a> into a new file
+         (<tt>code_4a.txt</tt>) which includes:
+	 <ul>
+	    <li> URL for the final component specifications</li>
+	    <li> URL for the final component design</li>
+	    <li> URL for the source file(s) in your repo ...  so we can examine their history</li>
+	 </ul>
+    </li>
+    <li> up-load them to your Sakai Dropbox (each person needs to do this for themselves)</li>
+</ul>
 </P>
+<P>
+Each code submission will be graded on the basis of:
+<ul>
+	<li> 20% completeness with respect final specifications</li>
+	<li> 20% being implemented as described in the final design</li>
+	<li> 20% code quality (reasonable use of language/toolkit features, simplicity, efficiencty)
+	<li> 20% readability (module and method comments, algorithmic comments, use of white-space)
+	<li> 10% organization, build environment and instructions described in <tt>README.md</tt></li>
+	<li> 10% grader is able to do a successful clone and build from scratch</li>
+</ul>
+
+<a name="desc_4.5">
+<H3>P4A.2 Final Test Suite Results</h3>
+</a>
+<P>
+Each team member will, for his/her component, implement the 
+test plan proposed in project 3, and run (and pass) those tests against
+their component implementation.
+</P>
+<P>
+The execution of your test cases should be automated (e.g. so that
+all tests can be run with a single command), and all of the test
+cases and scripts should be checked in to git-hub.  
+Make sure that you document the environment and procedure for running
+these tests, because part of your grade will depend on the grader being able to
+independently test your product from the checked-in sources and instructions
+(in a <tt>README.md</tt> file).
+If this is not practical (e.g. because your component cannot be tested on a 
+basic Linux developer desktop)
+make special arrangements with the professor (or Grutor) to have 
+him/her do a check-out and build-and-test-from-scratch on an appropriate system.
+</P>
+<P>
+It is possible that you will, as a result of lessons learned during 
+the implementation, decide you want to change your test plan.  If this
+happens
+<OL type="a">
+    <li>update your project 3 test plan accordingly </li>
+    <li>include, with your submission, a summary and explanation of the changes</li>
+</ol>
+</P>
+<P>
+After you have completed all of your implementation and testing, and
+you believe your test suite to be entirely complete
+<ul>
+    <li> prepare your source code (ideally ASCII text in file(s) with a language appropriate name)</li>
+    <li> include a description of the required build and execution environment and the 
+         build and run instructions in a <tt>README.md</tt> file.</li>
+    <li> include a file (<tt>output_4a.txt</tt>) containing the captured output from 
+    	 a successful run of your test suite</li>
+    <li> put a <a href="#submission">standard submission prologue</a> into a new file
+         (<tt>test_4a.txt</tt>) which includes:
+	 <ul>
+	    <li> URL for the final component specifications and requirements</li>
+	    <li> URL for the final test plan</li>
+	    <li> URL for the source file(s) in your repo ...  so we can examine their history</li>
+	 </ul>
+    </li>
+    <li> up-load them to your Sakai Dropbox (each person needs to do this for themselves)</li>
+</ul>
+</P>
+This activity and report be graded on the basis of:
+<ul>
+	<li> 20% completeness with respect to the final test plan</li>
+	<li> 15% clear indications of what assertions are being tested, 
+	         and the pass/fail of each test-case and the entire suite.</li>
+	<li> 5% the checked-out code passes every test.</li>
+	<li> 20% code quality (reasonable use of language/toolkit features, 
+		reasonable setup/cleanup, simplicity, efficiency)
+	<li> 15% readability (module and method comments, algorithmic comments, use of white-space)
+	<li>  5% clear comments, in every test-case, about the assertion being tested
+	  	 and the means of exercising it and ascertaining passage</li>
+	<li> 10% grader is able to run and pass test suite</li>
+	<li> 10% organization, build environment and instructions described in <tt>README.md</tt></li>
+</ul>
+
 
 <a name="desc_4.2">
-<H3>P4.2 Pair Programming Exercise</h3>
+<H3>P4B.1 Pair Programming Exercise</h3>
 </a>
 <P>
 At least one member of the team will ask another member to join
@@ -172,7 +258,7 @@ and e-mail it to the submission alias.
 </UL>
 
 <a name="desc_4.3">
-<H3>P4.3 Code Review</h3>
+<H3>P4B.2 Code Review</h3>
 </a>
 <P>
 At least one member of the team will write all of his/her code,
@@ -268,7 +354,7 @@ and e-mail it to the submission alias.
 </PRE>
 
 <a name="desc_4.4">
-<H3>P4.4 Test Driven Development</h3>
+<H3>P4B.3 Test Driven Development</h3>
 </a>
 <P>
 At least one member of the team will use Test Driven Development to
@@ -343,54 +429,6 @@ and e-mail it to the submission alias.
 It will make things much easier on the graders if you list the commits
 that represent each increment of functionality and the associated tests.
 </P>
-<a name="desc_4.5">
-<H3>P4.5 Final Test Suite Results</h3>
-</a>
-<P>
-Each team member will, for his/her component, implment the 
-test plan proposed in project 3, and run those tests against
-their component implementation.
-</P>
-<P>
-The execution of your test cases should be automated (e.g. so that
-all tests can be run with a single command), and all of the test
-cases and scripts should be checked in to git-hub.  
-Make sure that you document the environment and procedure for running
-these tests, because part of your grade will depend on the grader being able to
-independently test your product from the checked-in sources and instructions.
-If this is not practical (e.g. because your component cannot be tested on a Linux
-system) make special arrangements with the professor (or Grutor) to have 
-him/her observe a check-out build-and-test-from-scratch.
-</P>
-<P>
-Each team member should submit:
-<UL>
-   <LI>	a reference to your (perhaps updated) test plan from project 3.</li>
-   <LI>	the code that implements your test suite (and tools you needed to build).</li>
-   <LI>	the output of having run that test suite against your component.</li>
-</UL>
-<P>
-It is quite likely that you will, as a result of lessons learned during 
-the implementation, decide you want to change your test plan.  If this
-happens (a) update your project 3 test plan and (b) submit a summary of
-and explanations for the changes.
-</P>
-<P>
-This activity and report be graded on the basis of:
-<ul>
-	<li> 20% completeness relative to project 3 test plan</li>
-	<li> 20% does the program pass the test suite</li>
-	<li> 10% tests: implementation code quality</li>
-	<li> 10% tests: readability</li>
-	<li> 10% choice and exploitation of automation framework</li>
-	<li> 10% automated test execution and pass determination</li>
-	<li> 10% clarity of tests run and pass/fail indications</li>
-	<li> 10% grader is able to run and pass test suite</li>
-</ul>
-<P>
-When you are ready to submit this package for grading, fill out a
-<a href="#submission">standard submission form</a>
-
 <a name="desc_4.6">
 <H3>P4.6 Sprint Review/Demo</h3>
 </a>
