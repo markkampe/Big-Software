@@ -14,7 +14,7 @@ P4D	Post Mortem
 
 		___	test driven development
 
-		___	preparation of the delivery and demo
+		___	preparation and delivery of the demo
 
 	
 	learning		___/5

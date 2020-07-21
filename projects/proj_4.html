@@ -435,78 +435,87 @@ This activity and report be graded on the basis of:
 
 
 <a name="desc_4.6">
-<H3>P4.6 Sprint Review/Demo</h3>
+<H3>P4C Sprint Review/Demo</h3>
 </a>
 <P>
-You have built your components, and your test suite, and you have
-run your tests.  Hopefully you have been able to combine your
+You have built your components and test suites, and you have
+passed your tests.  Hopefully you have been able to combine your
 components and demonstrate functionality for the integrated whole.
 Now it is time for you to review what you have produced with your
-product owner.
-At the end of each SCRUM sprint, the team presents the work that was
+"product owner".
+At the end of each sprint, the team presents the work that was
 completed during that sprint to the product owner.  This is, in part,
 ceremonial (the team can claim success and receive feedback on the
-work they have completed) but it also a very practical sign-off:
+work they have completed) but it also the acceptance/sign-off process:
 <UL>
     <LI> the team briefly reviews the requirements to have been
 	 met and demonstrates that the product now meets them.</li>
-    <LI> the team overviews the testing that has been done.</li>
+    <LI> the team overviews the testing that has been done
+         to ensure the quality of the delivered code.</li>
     <LI> the product owner decides whether or not this work
-         has actually been completed (i.e. deliverable
-         functionality).</li>
+         has actually been completed (i.e. is ready to be 
+	 delivered to users).</li>
     <LI> velocity points are earned for accepted work.</li>
 </UL>
 <P>
-The test demonstration will go beyond the (isolated)
-unit test case execution for each of the completed modules.
-They should show evidence of correct integration and
-interaction between those modules.  
-Part of the score is based on that demonstration.
+When higher level modules depend on lower level modules,
+the correct execution of those higher level modules may be adequate
+evidence of successful integration.  But if the implemented
+modules are parallel, it may be necessary to create an
+additional piece to exercise them all together.
+Part of the score is based on a demonstration that these
+modules are all working <strong>together</strong>.
 </P>
 
 <P>
 Your review presentation should include:
 <UL>
    <LI>	a brief summary of the functionality of each of the components
-	built during this sprint and the (component level) requirements
-	it was to meet.</li>
-   <LI>	a brief overview of the scope of the automated testing plan for
+	built during this sprint, and the (component level) requirements
+	each was to meet.</li>
+   <LI>	a brief overview (a slide will do) of the scope of the automated testing plan for
 	each component.</li>
-   <LI>	a brief overview of the expected functionality of the integrated
+   <LI>	a brief overview (a slide will do) of the expected functionality of the integrated
 	pieces.</li>
-   <LI>	a demonstration of a check-out from git-hub and (error-free) 
-	build and automated test of each component (according to that test plan).</li>
-   <LI>	a demonstration of the functionality of the combined pieces,
-	showing them working together, and that all (applicable) key 
-	requirements have been met.</li>
+   <LI>	a demonstration of a check-out from git-hub, error-free 
+	build, and automated test of each component (according to the test plan).</li>
+   <LI>	a demonstration of the functionality of the combined pieces
+        <ul>
+	    <li> showing them working together</li>
+	    <li> showing that all (applicable) key requirements have been met</li>
+   	</ul>
    <LI> a summary of what progress this represents towards the construction
 	of your larger project (what this means and what comes next).</li>
 </UL>
 <P>
 This is not a long presentation (4-5 minutes will be fine).  
-It might be useful to have slides to cover the components, 
+It might be simplest to have slides to cover the components, 
 their requirements, and their test plans, but this is not
 necessary. 
 </P>
+<P>
+When you have an idea when you will be ready for your review, 
+contact either the professor (or Grutor) to schedule it.
 <P>
 This presentation be graded on the basis of:
 <ul>
 	<li> 10% overview of components and their requirements</li>
 	<li> 10% overview of component test plans</li>
 	<li> 10% overview of integration and resulting functionality
-	         of the combined sub-components.</li>
+	         to be demonstrated from the combined sub-components.</li>
+
 	<li> 20% error free check-out and build from scratch</li>
-	<li> 20% error free check-out and execution of all test cases</li>
+	<li> 20% error free check-out and execution of all test cases,
+		 each clearly indicating the verified requirement (or assertion).</li>
+
 	<li> 20% demo shows component meets all of its key functional requirements</li>
 	<li> 10% demo shows clear evidence of successful integration
 	         (that all sub-components are clearly interoperating).</li>
 </ul>
 <P>
-When you have an idea when you will be ready for your review, 
-contact either the professor (or Grutor) to schedule it.
 
 <a name="desc_4pm">
-<H3>P4.7 Post-Mortem Report</H3>
+<H3>P4D Post-Mortem Report</H3>
 </a>
 <P>
 This project is a learning exercise, and one of the major ways
@@ -519,24 +528,27 @@ A report, summarizing the key issues raised in your post-mortem,
 and the conclusions you came to.  Your post-mortem discussion 
 should include:
 <ul>
-	<li> the implementation of your component design and the resulting code quality</li>
+	<li> the implementation of your component designs and the resulting code quality</li>
 	<li> the implementation of your test plan, the problems found, and the confidence gained</li>
-	<li> the relative efficacy of the competing development processes</li>
+	<li> the relative efficacy of the three exercised coding/testing practices processes</li>
 	<li> the integration of your components together</li>
-	<li> the preparation of the release review/demo</li>
+	<li> the preparation and delivery of the release review/demo</li>
 	<LI> the overall project as an educational exercise</li>
 </ul>
 </p>
 <P>
+When you are ready to submit the Post-Mortem report for grading:
+<ul>
+    <li> prepare your report (ideally ASCII text in a file named <tt>postmortem_4.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of it</li>
+    <li> up-load it to your Sakai Dropbox (only one person on the team needs to do this)</li>
+</ul>
+</P>
+<P>
 This report be graded on the basis of:
 <ul>
 	<li> 50% whether or not you meaningfully discuss each of the required activities.</li>
-	<li> 20% whether or not you identify all of the important incidents.</li>
-	<li> 30% the extent to which you are able to derive and articulate useful lessons
+	<li> 50% the extent to which you are able to derive and articulate useful lessons
 	     (and good future advice) from those experiences.</li>
 </ul>
-<P>
-Upload the notes from your post-mortem discussion to github, and fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
 </body></html>
