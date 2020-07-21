@@ -1,0 +1,29 @@
+P4C Sprint Review and Demo
+
+   Total 		___/10
+
+   	overview presentation	___/3
+
+		___	overview of components being delivered
+
+		___	overview of each component's requirements (putting up a slide will do)
+
+		___	overview of the integration to be demonstrated
+
+	check-out and build	___/4
+
+		___	clone from scratch (on an appropriate machine)
+
+		___	error-free build
+
+		___	successful execution of all unit tests
+
+		___	... each clearly indicating the assertion being tested
+
+	demo			___/3
+
+		___	shows that each component meets all functional requirements
+
+		___	convincing demonstration of promised integration
+
+

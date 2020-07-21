@@ -1,0 +1,32 @@
+P4D	Post Mortem
+
+   Post Mortem:		___/10
+
+	activities		___/5
+
+		___	implementation of component and quality of the result
+
+		___	implementation of test plan, problems found, confidence gained
+
+		___	pair programming
+
+		___	code review
+
+		___	test driven development
+
+		___	preparation of the delivery and demo
+
+	
+	learning		___/5
+
+		___	issues/lessons about pair programming
+
+		___	issues/lessons about code reviews
+
+		___	issues/lessons about test driven development
+
+		___	issues/lessons in planning the demo
+
+		___	meaningful observations about the overall project as a learning activity
+
+

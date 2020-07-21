@@ -1,0 +1,65 @@
+P4B Development Exercises
+
+   Total Score		___/30
+
+
+   Pair Programming	___/10
+
+	report		___/8
+
+		___	quantity of work (200 lines of code and test cases)
+
+
+		___	quality of produced code and test cases (from 4A)
+
+
+		___	reasonable complementary roles
+
+
+		___	reasonable insights into the process
+
+
+
+	commit history	___/2
+
+		___	commit records reflect two contributors
+
+
+   Code Review		___/10
+
+    	Pre-Review Notes	___/5
+
+		___	thoroughness of study to which they attest (3pt)
+
+
+		___	clarity and appropriateness of comments
+
+
+		___	submitted before scheduled review
+
+	Review Report		___/5
+
+		___	covers all (significant) issues raised in notes
+
+
+		___	captures issue and any interesting discussion points
+
+
+		___	clear disposition on each issue
+
+
+   Test Driven Development ___/10
+
+	Commit History		___/7
+
+		___	automation enabled from the start (1pt)
+
+		___	methods (and their tests) implemented one-at-a-time (2pt)
+
+		___	probative tests checked in before the code they exercise (4pt)
+
+	Report			___/3
+
+		___	reasonable plan for implementation order (1pt)
+
+		___	reasonable insights gained from the process (2pt)

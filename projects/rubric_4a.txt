@@ -1,0 +1,127 @@
+P4A Code and Test Suite
+
+   Final Code:		___/25
+
+	per specification	___/5
+
+		___	implements all functionality P3E specification
+
+
+		___	implementation conforms to P3E specification
+
+
+	follows design		___/5
+
+		____	implementation follows P3E design
+
+
+	code quality		___/5
+
+		____	use of language/toolkit features
+
+
+		____	simplicity and clarity (ignoring comments)
+
+
+		____	efficiency
+
+
+	readability		___/5
+
+		____	comments describing module purpose and comments
+
+
+		____	comments describing purpose of each method
+
+
+		____	comments describing parameters and return values
+
+
+		____	comments describing non-obvious variables/data structures
+
+
+		____	comments describing complex or non-obvious code
+
+
+		____	use of horizontal white space
+
+
+		____	use of vertical white space
+
+
+	packaging		___/5
+
+		____	able to clone and build (without assistance) on appropriate system
+
+
+		____	any non-standard build environment described in README
+
+
+   Final Test Suite:	___/25
+
+	per plan		___/10
+	
+		____	implements all test cases described in P3E test plan
+
+
+		____	implementation conforms to P3E test plan
+
+
+		____	clear indication of what test cases are being run
+
+
+		____	clear pass/fail indications for each test-case
+
+
+		____	clear pass/fail indications for entire suite
+
+
+		____	checked-out code passes every test
+
+
+	code quality		___/5
+
+		____	use of language features
+
+
+		____	use of test framework features
+
+
+		____	simplicity and clarity (ignoring comments)
+
+
+		____	setup/cleanup
+
+
+		____	efficiency
+
+
+	readability		___/5
+
+		____	comments describing purpose and contents of module
+
+
+		____	comments describing assertion tested by each test case
+
+
+		____	comments describing non-trivial setup
+
+
+		____	comments describing complex or non-obvious code
+
+
+		____	use of horizontal white space
+
+
+		____	use of vertical white space
+
+
+	packaging		___/5
+
+		____	able to build (without assistance) on appropriate system
+
+
+		____	any non-standard build environment described in README
+
+
+		____	easily runnable (without assistance)
