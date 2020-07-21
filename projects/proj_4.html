@@ -220,8 +220,8 @@ made during those sessions should reflect the division of
 responsibilities under which that work was done.
 </P>
 <P>
-NOTE: what ever component this is done for should not also be used
-for code review or Test Driven Development.
+NOTE:
+<u>What ever component this is done for should not also be used for code review or TDD.</u>
 </P>
 <P>
 After the end of each pair-programming session, each of the
@@ -239,6 +239,22 @@ write up a report on the experience.  This report should cover:
 </UL>
 </P>
 <P>
+When you are ready to submit this report for grading
+<ul>
+    <li> prepare your report (ideally in an ASCII text file named <tt>pair_report.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> onto the front of it
+    	 which includes:
+	 <ul>
+	    <li> URLs for the file(s) created during the pair programming exercise.</li>
+	    <li> references to the commits done during the pair programming sessions
+	         (or just say "all")</li>
+     	 </ul>
+    </li>
+    <li> up-load them to your Sakai Dropbox (only one person in the team needs to do this)</li>
+</ul>
+</P>
+
+<P>
 This activity and report be graded on the basis of:
 <ul>
 	<li> 20% documentation of collaboration in commit comments</li>
@@ -248,15 +264,6 @@ This activity and report be graded on the basis of:
 	<li> 20% reasonable insights into the process</li>
 </ul>
 
-When you are ready to submit this report for grading, fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
-</P>
-<UL>
-	It will make the grader's job much easier if you can refer us
-	to specific commits done during the pair programming sessions.
-</UL>
-
 <a name="desc_4.3">
 <H3>P4B.2 Code Review</h3>
 </a>
@@ -265,7 +272,7 @@ At least one member of the team will write all of his/her code,
 and <strong>before</strong> running test suites against it, submit that code for
 review by the other members of their team.  
 The other team members
-will study the code, prepare, nodes and conduct a formal code review,
+will study the code, prepare notes and conduct a code review,
 producing a report with must-fix/should-fix/advice items.
 The author will make the appropriate revisions, and then move on
 to testing.  After the code is working, the author will discuss
@@ -273,27 +280,34 @@ the process with the rest of the team and then write
 up a report on the process.
 <UL>
 	<P>
-	The author will prepare a review package containing the component 
-	requirements, specifications, and design (perhaps modified) from project 3, 
-	and the implementing code.
+	The author will prepare a review package including references
+	to the component requirements, specifications, and design (perhaps modified) 
+	from project 3, as well as the implementing code.
 	</P>
 	<P>
 	Each of the other team members will review that package and prepare
-	written notes, which will be checked in to github 
+	written notes, which will be up-loaded to Sakai 
+	(e.g. in ASCII text files named <tt>notes_4b.txt</tt>)
 	<strong>well prior</strong> to the review.
 	</P>
 	<P>
-	After the review, a formal report will be prepared (listing all important
-	conclusions) and checked in to github.
+	After the review, the author will prepare a formal report 
+	(listing all important conclusions) and checked in to github.
 	</P>
 	<P>
 	The author will address all of the raised issues, and then complete the
-	testing.
+	testing.  The commit comments for all such changes should mention the
+	review issue to which they respond.
+	</P>
+	<P>
+	After completing the testing (and any other required changes) the author
+	will add information about how the testing went and what (if any) additional
+	problems were discovered.
 	</P>
 </UL>
 <P>
-NOTE: What ever component this is done for should not also be used for
-TDD or pair programming.
+NOTE:
+<u>What ever component this is done for should not also be used for TDD or pair programming.</u>
 </P>
 <P>
 The author's review report should include (in addition to the usual information):
@@ -309,49 +323,28 @@ The author's review report should include (in addition to the usual information)
 </UL>
 
 <P>
-The grading of the reviewer's submissions will be based on:
+When you are ready to submit this report for grading
 <ul>
-	<li> 10% notes: submitted well before scheduled review</li>
+    <li> prepare your report (ideally in an ASCII text file named <tt>review_4b.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> onto the front of it
+    	 which includes:
+	 <ul>
+	    <li> URLs for the reviewed file(s).</li>
+     	 </ul>
+    </li>
+    <li> up-load it to your Sakai Dropbox (only one person in the team needs to do this)</li>
+</ul>
+</P>
+<P>
+The grading of the code review exercise will be based on:
+<ul>
+	<li> 10% notes: appropriate comments, reasonably organized, submitted before review</li>
 	<li> 40% notes: thoroughness of study to which they attest</li>
-	<li> 5% notes: articulation and organization of issues</li>
-	<li> 5% notes: comments appropriate and within scope</li>
-	<li> 15% report: completness with respect to issues raised</li>
+	<li> 10% report: completness with respect to issues raised</li>
 	<li> 10% report: clear disposition of every issue</li>
-	<li> 10% report: issue clarity</li>
-	<li> 5% report: all comments appropriate and within scope</li>
+	<li> 20% report: code improvement value gained from the review process</li>
+	<li> 10% report: insights gained regarding code reviews</li>
 </ul>
-
-The grading of the author's submissions will be based on:
-<ul>
-   <li> 10% review package: adequate background</li>
-   <li> 20% review package: clarity of requirements, specifications, design</li>
-   <li> 20% review package: code quality</li>
-   <li> 10% review package: code understandability</li>
-	
-   <li> 20% report: code improvement value extracted from the review process</li>
-   <li> 20% report: insights gained from the process</li>
-</ul>
-
-<P>
-When you have your code package ready for review, fill out a 
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
-</P>
-<P>
-Each team member should check their review notes into github as soon
-as they are ready.  After the review has been completed and the final
-report written, it too should be checked into github.  Fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
-</P>
-<P>
-After the code is working the author should prepare a report on the
-review process and the value it added, and then fill out a
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
-</P>
-
-</PRE>
 
 <a name="desc_4.4">
 <H3>P4B.3 Test Driven Development</h3>
@@ -367,8 +360,9 @@ this approach should be:
    <LI>	by the time the coding is done, most of the testing will also be done.</li>
 </OL>
 But it will require the test framework to be working first, and more up-front 
-planning about the order in which things should be implemented.  Check in this
-plan before you start coding.  There are a few tricks to this planning:
+planning about the order in which things should be implemented.
+Write-up and commit plan before you start coding.
+There are a few tricks to this planning:
 <UL>
    <LI> there is a natural order to implementation and testing, because
         some features fundamentally depend on others.  These dependencies
@@ -382,10 +376,13 @@ plan before you start coding.  There are a few tricks to this planning:
 As evidence that you did infact follow a TDD process, and for keeping a
 record of the problems found, please:
 <UL>
-   <LI> commit the new code and associated test cases together,
-        before running them.</li>
+   <LI> make sure that you commit the test cases together before
+   	committing the code they test.
+	(Note that we are not asking you to prove that you failed
+	the test before you wrote the code).
+	</li>
    <LI> after you have passed the tests, commit the updated code
-        and test cases (again together), with comments describing
+        (and perhaps test cases), with comments describing
         the problems found and fixed during the testing.  If they
 	worked first time (this will happen) follow this up with
 	a trivial commit and a comment to that effect.</li>
@@ -393,14 +390,14 @@ record of the problems found, please:
 	you have passed all the tests for the existing functionality.</li>
 </UL>
 <P>
-NOTE: What ever component this is done for should not also be used for
-code review or pair programming.
+NOTE: 
+<u>What ever component this is done for should not also be used for code review or pair programming.</u>
 <P>
 After completing development, the/each person who uses this methodology
 will discuss the experience with the team and write a brief report, covering 
 what they did, and specifically addressing the following questions:
 <UL>
-   <LI>	how the implementation order was decided, and how that order worked.</li>
+   <LI>	how the implementation/testing order was decided, and how the chosen order worked.</li>
    <LI> the efficiency of the process was (e.g. how much time went into building
  	test cases that were only useful during the construction process).</li>
    <LI> to what extent do you believe that knowing how you were going to
@@ -412,23 +409,31 @@ what they did, and specifically addressing the following questions:
 </UL>
 
 <P>
+When you are ready to submit this report for grading
+<ul>
+    <li> prepare your report (ideally in an ASCII text file named <tt>tdd_4b.txt</tt>)</li>
+    <li> put a <a href="#submission">standard submission prologue</a> onto the front of it
+    	 which includes:
+	 <ul>
+	    <li> URLs for the files containing the code and test-cases.</li>
+     	 </ul>
+    </li>
+    <li> up-load it to your Sakai Dropbox (only one person in the team needs to do this)</li>
+</ul>
+</P>
+<P>
 This activity and report be graded on the basis of:
 <ul>
    <li>	10% a reasonable plan for implementation order (checked in before starting)</li>
-   <li> 30% tests were written and passed incrementally (from the commit history)</li>
+   <li> 10% automation framework enabled testing from the start</li>
+
+   <li> 20% tests were written and passed incrementally (from the commit history)</li>
    <li> 20% each test meaningfully validated the associated code (from the commit history)</li>
-   <li> 20% automation framework enabled testing from the start</li>
+   <li> 20% tests were committed before the code they tested</li>
    <li>	20% reasonable insights gained from the process</li>
 </ul>
-<P>
-After you have completed your report, check it in to github, fill out the
-<a href="#submission">standard submission form</a>
-and e-mail it to the submission alias.
-</P>
-<P>
-It will make things much easier on the graders if you list the commits
-that represent each increment of functionality and the associated tests.
-</P>
+
+
 <a name="desc_4.6">
 <H3>P4.6 Sprint Review/Demo</h3>
 </a>

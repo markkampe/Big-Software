@@ -29,23 +29,27 @@ P4B Development Exercises
 
     	Pre-Review Notes	___/5
 
-		___	thoroughness of study to which they attest (3pt)
+		___	thoroughness of study to which they attest (4pt)
 
 
-		___	clarity and appropriateness of comments
+		___	organization, clarity and appropriateness of comments
 
 
 		___	submitted before scheduled review
 
-	Review Report		___/5
+	Review/Report		___/5
 
-		___	covers all (significant) issues raised in notes
-
-
-		___	captures issue and any interesting discussion points
+		___	covers all (significant) issues raised in notes, and their discussions
 
 
 		___	clear disposition on each issue
+
+
+   		___	code improvement resulting from the review (2pt)
+
+
+   		___	lessons learned from the process
+
 
 
    Test Driven Development ___/10
