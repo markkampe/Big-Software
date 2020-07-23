@@ -717,9 +717,25 @@ There are many possible reasons to limit peoples abilities to make changes:
 	<strong>Gate Keeping</strong>.
    	</li>
    <LI> Any change has the potential to introduce new problems, and
-	so it is common, as a product approaches release, to prohibit
-	any changes except for fixes to a few designated critical bugs.
-	This is called a <strong>product stabilization period</strong>.</li>
+	so it is common, as a product approaches release, to limit
+	the changes that can be made.
+	This is called a <strong>product stabilization period</strong>:
+	<ul>
+	   <li> <em>Feature Freeze</em> is a declaration that, 
+	   	in order to stabilize the product for an 
+		impending release, no further features will
+		be allowed to be added.</li>
+	   <li> <em>Must-Fix</em> is the next step of stabilization.
+	        The only bug-fixes allowed to be checked-in are 
+		those which have been designated as so critical
+		that they <u>must be fixed</u> before the product can
+		ship.</li>
+	   <li> <em>Code Freeze</em> is the final stage when
+	   	the product has been declared to be ready for
+		release and no further changes (of any sort)
+		can be made to <u>this release of the software</u>.</li>
+	</ul>
+	</li>
 </UL>
 </P>
 <H3>5.1 Capabilities of Change Control Systems</h3>
