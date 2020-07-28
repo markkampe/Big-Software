@@ -1,0 +1,21 @@
+We, as software developers, have a vision of what we propose to build.  But,
+unless we are building this purely for our own education or amusement, we
+would be well advised to get feedback from intended users about
+   * what they currently do in this area
+   * what new capabilities or conveniences they want
+   * how they might see themselves using the software you propose
+
+The criticality of user input and clear requirements may be one of the few
+areas where Big-Project and Agile methodologies agree!
+
+In the next week you will:
+   * brain-storm (based on competitive resaeach and your own ideas)
+     functional requirements for the software you are proposing.
+   * conduct a requirements elicitation session with potential users.
+   * analyze the results to develop and write-up a set of formal requirements.
+
+I would encourage you to ASAP (before Tuesday):
+   1. discuss what kinds of people would be most likely to use your software.
+   2. identify a few such people (possibly but not necessarily other students).
+   3. contact them and schedule a group requirements elicitation session
+      (before Friday's lab session).

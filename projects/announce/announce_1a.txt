@@ -1,0 +1,50 @@
+Programming is only part (and perhaps one of the simpler parts)
+of Software Development.  In this class you (and a few friends) will
+create and pursue a full range of activities for single, very large, project.
+
+Over the next few days you should form (ideally four person) teams, and 
+choose a piece of software that you would like to define, design and 
+(at least partially) specify, implement, test, and demonstrate:
+
+  1. Start thinking about who else (in this section) you would like to
+     work with, reach out to them, and see if you all want to work
+     together.  As soon as you know who your team is, please send
+     me a team-name and a list of members.
+
+  2. Read the project instructions through the end of Project 1A, and
+     briefly skim (at least the introductory sections of) the other 
+     projects so that you have a sense of what you will be asked to 
+     do with your chosen software product.  The primary constraints I 
+     will want to impose on your selections are:
+
+          they must be large and complex enough to require substantial
+	  work for the requirements, architecture, design, specification,
+	  and testing to come.
+
+	  they must be small enough and sufficiently within the capabilities
+	  of readily available technologies that I believe you can be
+	  successful in all of those activities.
+
+     The project descriptions can be found at
+  	https://www.cs.pomona.edu/courses/2020/fall/cs121s1/projects.html
+
+  3. Start thinking about an appropriate piece of software that you would
+     like to define, design and (at least partially) implement as your team
+     project.
+
+You probably want to have your team by Wednesday 8/26, and a pretty clear
+idea of what your project will be before the Friday 8/28 lab session
+(where you will work on your description and plan).
+
+
+Final Advice (for this assignment, and for the rest of your life):
+
+   Choose people (who, because of their skills and personalities) you would
+   want by your side for a long (and occasionally difficult) effort.
+
+   Choose a problem or technology that is sufficiently interesting that the
+   knowledge and experience you gain will be worth the many hours you will
+   put in to earning them.
+
+   Choose an application or technology that is going to be fun and exciting
+   enough to keep you going ... even when the going gets tough.

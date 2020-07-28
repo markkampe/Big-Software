@@ -1,0 +1,20 @@
+Project 1B - Competitive Research and Positioning
+
+Now that you have chosen a product to work on this semester, the next step
+is to do some research into that space, understand what others have already
+done, and clarify what makes the software you propose to build better
+(or more useful) than what is currently available.  Such research (and
+positioning) should be fundmental to any new software development effort,
+whether personal, academic or commercial.  Before you start exploring 
+a new space, learn everything you can from the people who have gone
+there before you.
+
+I would encourage you all to quickly do any sorts of searches that seem
+likely, and have a team meeting (Monday or early Tuesday) where you 
+   * combine your lists
+   * decide which are worthy of further investigation
+   * divide those among the team members
+
+It would be very good if you had completed your research, written
+up your notes, and (as a team) discussed them and what they suggest
+for your own proposal before Friday's lab session.
