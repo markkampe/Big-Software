@@ -1,0 +1,19 @@
+Most of the remaining project work will focus on the components that you
+will (as individuals) specify, design, implement and test.  The first 
+steps in this process are selecting the component(s) to be implemented,
+and planning the implementation work.
+
+I suggest that, over the next few days:
+   * you begin by reading the descriptions for all of the remaining project
+     phases (3A-3E and 4) so that you understand what you will need to be
+     able to do with the selected component(s).
+   * identify the component(s) you will want to specify, design, implement,
+     and test.
+   * describe a meaningful demonstration (for the project 4 sprint review)
+     of successful integration of those components.  If this is difficult,
+     perhaps you would like to choose different components.
+   * come up with a detailed plan for the work to be done.
+
+This should not be very difficult, so I would then encourage you to get an
+early start on the specifications, designs, and test plans for those
+components.

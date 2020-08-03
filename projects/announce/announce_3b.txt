@@ -1,0 +1,21 @@
+Given your overall product requirements and architecture, it might be fairly
+straight-forward to write-up the functionality, interfaces, and requirements
+for your selected components.  But ...
+   * the interfaces described in your architecture may not yet be sufficiently
+     complete or detailed to guide a complete component specification.
+   * some of the functionality may be defined with respect to services
+     performed for (or obtained from) other (not yet fully specified)
+     components.
+   * there may be some further design and/or discussion required in order
+     to derive specific component requirements from the overall product
+     requirements.
+
+Thus, you may find it necessary to (as a team) further elaborate the
+architecture and explore possible implementations of other components
+before you can fully specify your chosen components.
+
+I would encourage you to examine what you currently know about your chosen
+components and see what other details need to be worked out before you can
+write detailed specifications and requirements.  If you can have this done
+before next Friday's lab, the per-component write-ups should be relatively
+straight-forward.

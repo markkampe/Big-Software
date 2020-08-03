@@ -1,0 +1,13 @@
+While writing your component specifications, you have likely given more than
+a little thought to how you would implement your component.  But ...
+   * as you work on the detailed design, you may find that some of the
+     algorithms, data structures, communication or house-keeping are not
+     as obvious as you thought.
+   * once you have chosen your algorithms, it may not be obvious what
+     the test cases to fully exercise their correctness might be.
+
+For these reasons, I would encourage you to start sketching the algorithms
+and test cases as soon as possible.  If you encounter no hard problems,
+congratulations!  But if you do encounter problems, it would be good to
+have them in mind for discussion (with your team, with me, or with a
+Grutor) at Friday's lab session.
