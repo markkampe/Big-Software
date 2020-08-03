@@ -1,0 +1,16 @@
+Given your well-considered and reviewed designs and test plans, the actual
+implementation should go fairly quickly.  But a few of the activities
+(e.g. pair programming and code review) involve multiple people and will
+have to be scheduled.  I would encourage you to try to get all of the
+implementations and testing completed during the next week.
+
+If so, the only work remaining for the final week would be
+   * running through the checkout, build, and test scenario
+   * creating the demo of integrated functionality
+   * preparing the sprint review presentation
+   * scheduling and presenting the sprint review
+   * discussing and writing up your final post-mortem
+
+There are a few things on this list, but most of them should be simple
+and trouble-free.  Hopefully allowing you more time to deal with final
+deliverables for your other classes.
