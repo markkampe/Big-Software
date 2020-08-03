@@ -1,0 +1,18 @@
+        phase	description				email		lecture
+	-----	-------------------			-------		-------
+	1A	concept and plan			F   8/21	Tu  8/25
+	1B	competitive research			Su  8/30	Tu  9/01
+	1C	requirements				Su  9/06	Tu  9/08
+	1D	final proposal				Su  9/13	Tu  9/15
+
+	2A	preliminary architecture		F   9/18	Tu  9/22
+	2B	architectural review			F   9/25	Tu  9/29
+	2C	final architecture			Su 10/04	Tu 10/06
+
+	3A	planning				F  10/09	Tu 10/13
+	3B	component specifications		Su 10/18	Tu 10/20
+	3C	component designs and test plans	Su 10/25	Tu 10/27
+	3D	design reviews				Su 11/01	Tu 11/03
+	3E	final design				Su 11/08	Tu 11/10
+
+	4	implementation, testing, final reports	Su 11/15	Tu 11/17
