@@ -1,0 +1,22 @@
+Now that you have defined the project you propose to implement, the next
+step is working out its high level architecture.  Many students consider
+this to be the most difficult project assignment, because it starts with
+a blank sheet of paper, and must respond to problems that we do not yet
+fully understand.  This means you want to get started as soon as possible.
+
+Start by reading through all of the Project 2 instructions (parts A-C).
+In the next week you will:
+   * identify technologies, languages and toolkits to be used
+   * explore the applicabiltity of those tools to your problem and
+     their usability in this particular context
+   * brain-storm possible architectures (components, roles, interfaces)
+     implementability of your components)
+   * examine the reasonableness of that architecture and the implmentability
+     of those components
+   * do any research and prototyping required to answer the above questions
+
+I would encourage you to ASAP (before Tuesday):
+   1. prepare a brief descriptions of proposed components, their functions
+      and relationsthips.
+   2. present these to me (and/or a Grutor) to review them for issues
+   3. get feedback on the next research, design, and prototyping steps

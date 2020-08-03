@@ -1,0 +1,14 @@
+Having completed your architectural reviews, you should now have a clear
+list of issues to be addressed:
+
+In the next week you will:
+   * review the results of your architectural review (both your own notes and
+     the report from the reviewing team)
+   * research and identify design changes to address those issues
+   * confirm the reasonableness of those results with the reviewing team
+   * write up a revised architectural proposal in which you specifically
+     identify those issues and the way in which each has been addressed
+
+I suggest that you schedule your follow-up meeting with the other team
+as soon as possible, to ensure that you will be able to get their feedback
+before doing the work to make those changes.
