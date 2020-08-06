@@ -495,13 +495,15 @@ is the level of certainty for which we should strive.
 
 <H2>4. Anticipating Future Needs</h2>
 <P>
-A good architecture addresses <em>all</em> of a system's requirements.
-When we are designing a complex system, we consider the likely modes
-of failure, and attempt to prevent such problems or to construct fire
-walls to limit their potential impact.
-We must also consider future problems and more complex modes of failure, 
-and ask ourselves what information we might need to diagnose them.
-This consideration may lead us to:
+A good architecture addresses <em>all</em> of a system's requirements:
+<ul>
+   <li> When we are designing a complex system, we consider the likely modes
+	of failure, and attempt to prevent such problems or to construct 
+	<em>fire walls</em> to limit their potential impact.</li>
+   <li>	We must also consider future problems and more complex modes of failure, 
+	and ask ourselves <em>what information we might need to diagnose them</em>.</li>
+</ul>
+Such consideration may lead us to:
 <UL>
     <LI> choose data representations that will be easier to interpret
 	 in a core dump.
@@ -512,7 +514,7 @@ This consideration may lead us to:
     <LI> record independent information that can be used to audit the
 	 correctness of key data structures and automatically discover
 	 inconsistencies.
-    <LI> identify events that should be recorded to enable
+    <LI> identify events that chould be logged to enable
 	 after-the-fact analysis of the system's behavior.
     <LI> identify how long various classes of information should
 	 be retained, and mechanisms to ensure appropriate handling.
