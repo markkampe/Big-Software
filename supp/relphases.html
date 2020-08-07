@@ -46,24 +46,24 @@ of a release.  The most common names for formal releases are:
 	Typical goals for an alpha release are:
 	<OL type=1>
 	   <LI> to gather feedback, from intended users (usually
-		key customers), on newly developed features.
+		key customers), on newly developed features.</LI>
 	   <LI> to give partners early access so that they
 		can start developing software that will 
-		complement or work with ours.
+		complement or work with ours.</LI>
 	   <LI> to (re)establish credibility by showing how much 
-		progress we have made.
+		progress we have made.</LI>
 	</OL>
 	<P>
 	Alpha sites usually require considerable support, and
 	they are usually chosen very carefully:
 	<ul>
 	   <LI>	we can depend on them to exercise the software
-		and provide us with high quality feedback.
+		and provide us with high quality feedback.</LI>
 	   <LI> they are technically prepared to deal with the
-		expected problems.
+		expected problems.</LI>
 	   <LI> we can trust them to not share our software with
-		our competitors or evaluators.
-	</UL>
+		our competitors or evaluators.</LI>
+	</UL></LI>
    <LI> <strong>Beta</strong><br>
 	A beta release is much closer to what we expect to ship.
 	They are usually expected to be fairly complete, and to
@@ -74,23 +74,23 @@ of a release.  The most common names for formal releases are:
 	<OL type=a>
 	   <LI> We have a product that we believe is ready to ship,
 		and we send it out to beta customers to confirm that
-		it is ready before we move on to general availability.
+		it is ready before we move on to general availability.</LI>
 	   <LI> We have a product that we believe to be in final form
 		and want to make it available to our partners as quickly
 		as possible (to support their development of
-		complementary software).
+		complementary software).</LI>
 	   <LI> We have a product that we belive is not sufficiently
 		stable for general use, but we want to release it 
 		anyway (so that we can claim to have made our date, 
 		to book some revenue, etc).  In these cases the term
-		beta is primarily a warning label to potential customers.
+		beta is primarily a warning label to potential customers.</LI>
 	</OL>
 	<P>
 	If the purpose of the beta release is to gather feedback, it is
 	likely that the beta sites will be selected and managed almost as
 	carefully as alpha sites.  If the term beta is merely a warning
 	label, the release may be made available to anyone who wants 
-	(or purchases) it.
+	(or purchases) it.</LI>
    <LI> <strong>General Availability</strong><br>
 	A general availability (GA) release is one that we believe is ready
 	to be sold to all of our customers.  Such a release may also be
@@ -99,7 +99,7 @@ of a release.  The most common names for formal releases are:
 	<strong>Revenue Release</strong>.  
 	These terms distinguish paying customers (who purchase the product
 	to use it) from evaluators (who may get the product for free
-	in return for their feedback).
+	in return for their feedback).</LI>
 	<P>
    <LI> <strong>development build</strong><br>
 	All of the preceding terms refer to a formal release that might be
@@ -115,7 +115,7 @@ of a release.  The most common names for formal releases are:
 	the added packaging and testing that is done with formal releases).
 	This should not, however, be construed to mean that all development
 	builds are flaky.  A build is as good as the people, organization,
-	and processes that created it.
+	and processes that created it.</LI>
 </UL>
 
 <P>
@@ -131,7 +131,7 @@ of these terms, but a reasonable set of expectations might be:
    <LI> <strong>major release</strong><br>
 	A major release (often indicated by a change from 2.7 to 3.0)
 	indicates major changes in the software, that may not be
-	upwards compatible with previous releases.
+	upwards compatible with previous releases.</LI>
    <LI> <strong>minor release</strong><br>
 	A minor release (often indicated by a change from 2.7 to 2.8)
 	indicates minor additions, enhancements, and bug-fixes to
@@ -141,13 +141,13 @@ of these terms, but a reasonable set of expectations might be:
 	able to process the output of older versions, and should
 	still support all of the same features.  It may, however,
 	not be possible to take files created with the new versions,
-	and process them with the older versions.
+	and process them with the older versions.</LI>
    <LI> <strong>update release</strong><br>
 	An update release (sometimes called a point release and
 	indicated by a change from 2.7 to 2.7.1) is usually expected
 	to include only bug fixes.  When installing a point release,
 	we expect improvements in quality, with no changes in 
-	functionality ... and certainly no incompatibility issues.
+	functionality ... and certainly no incompatibility issues.</LI>
    <LI> <strong>patches</strong><br>
 	If a bug is sufficiently serious, the development organization
 	may make updated versions of particular programs available 
@@ -157,34 +157,51 @@ of these terms, but a reasonable set of expectations might be:
 	mini-package, containing only a few changed files.  In days
 	gone by, however, it was actually a script or program that
 	would apply specific binary corrections to specified files
-	(not unlike putting a patch on a worn pair of jeans).
+	(not unlike putting a patch on a worn pair of jeans).</LI>
 </UL>
 <P>
 <H3>2.3 Other Release Related Terms</h3>
 <P>
 <UL>
+    <LI> <strong>feature freeze</strong><br>
+    	Adding features is a good thing, but there is always a risk
+	that adding new features will also add new bugs.
+	As the desired release date approaches, if we want to get
+	the bugs under control, we have to stop accepting new 
+	features into the code-base.
+    </LI>
+    <LI> <strong>code freeze</strong><br>
+    	Once we believe that the features and remaining bugs are
+	acceptable, the marginal risk of accepting <u>any new code</u>
+	is likely to exceed its incremental value.  When we think that our
+	software is ready to ship, it is common to stop accepting
+	further code changes.
+    </LI>
     <LI> <strong>golden master</strong><br>
 	A "golden" image (typically of a CD) is the one that will
 	be sent to manufacturing for reproduction (or put on the
 	web for down-loading).
-	<P>
 	It should be (as close as possible) to identical to the last
 	system that passed system test, but we will test it once again
 	to make sure that there has been no regression.  After it passes
 	that test cycle, we will give manufacturing the go-ahead.
-	<P>
+	An oft-quoted rule of release engineering is:
+	<ul>
+	    Test what you build and ship what you test.
+    	</ul>
+    </LI>
     <LI> <strong>Release Engineering</strong><br>
 	This term describes an activity or a group of people who perform
 	the activity.  Their role usually includes:
 	<UL>
-	   <LI> starting with a clean official build environment,
+	   <LI> starting with a clean official build environment,</LI>
 	   <LI> extract the official versions of everything from the 
-		version control system.
-	   <LI> do a complete product build, using standard build procedures.
-	   <LI> organize the build software into <strong>packages</strong>.
-	   <LI> create ready to install media (or downloadable images).
-	   <LI> verify that the created media installs and passes a smoke test.
-	   <LI> publish the new build to all interested parties.
+		version control system.</LI>
+	   <LI> do a complete product build, using standard build procedures.</LI>
+	   <LI> organize the build software into <strong>packages</strong>.</LI>
+	   <LI> create ready to install media (or downloadable images).</LI>
+	   <LI> verify that the created media installs and passes a smoke test.</LI>
+	   <LI> publish the new build to all interested parties.</LI>
 	</ul>
 	
 </UL>
@@ -226,20 +243,20 @@ Releases can have many different goals.  Typical examples
 might be:
 <UL>
    <LI> To provide new functionality to existing customers
-	with no disruption to their work processes.
+	with no disruption to their work processes.</LI>
    <LI> To add a new features that will enable us to 
-	gain new customers.
+	gain new customers.</LI>
    <LI> To enable partners to start developing new 
-	functions that will be based on our software.
+	functions that will be based on our software.</LI>
    <LI> To get new functionality into the market in time
 	to capitalize on current interest, and to gain 
-	mind-share by being the first to release it.
+	mind-share by being the first to release it.</LI>
    <LI> To get a prototype of a new concept into early adopters'
-	hands to gather feedback and generate buzz.
+	hands to gather feedback and generate buzz.</LI>
    <LI> To silence competitors who are telling potential
-	customers that we can't do this.
+	customers that we can't do this.</LI>
    <LI> To avoid being fired, which is what we have been promised
-	will happen if this release is not on time.
+	will happen if this release is not on time.</LI>
 </UL>
 <P>
 Obviously many others, and combinations, are possible.  The above
@@ -286,21 +303,21 @@ is when we do not know how to state what we want in measurable terms
    <LI> quality is, for the most part, not directly
 	measurable.  Thus, we are forced to propose surrogates,
 	whose correlation to quality may be (at best) poorly
-	understood.
+	understood.</LI>
 
    <LI> we would like to express quality requirements in terms
 	of expected customer experience, but we cannot measure
 	customer experience until after the product is in customer
 	hands.  Thus, we are forced to use predictive measures,
-	whose predictive power may be (at best) poorly understood.
+	whose predictive power may be (at best) poorly understood.</LI>
 </UL>
 The challenge then is to find:
 <UL>
-   <LI> measurable product characteristics
-   <LI> that we believe to be well correlated with our goals
-   <LI> that we believe to be valid predictors of customer experience
+   <LI> measurable product characteristics</LI>
+   <LI> that we believe to be well correlated with our goals</LI>
+   <LI> that we believe to be valid predictors of customer experience</LI>
    <LI> and rephrase our quality requirements as quantitative
-	statements in terms of these surrogate measures.
+	statements in terms of these surrogate measures.</LI>
 </UL>
 <P>
 There are several metrics that are commonly used in
@@ -312,12 +329,12 @@ quality criteria:
 	to the quality of the product.  A typical set of such
 	criteria might be something like:
 	<UL>
-	     <LI> no priority 1 bugs
+	     <LI> no priority 1 bugs</LI>
 	     <LI> no more than 10 priority 2 bugs, each
-		  explicitly approved by the product owner.
+		  explicitly approved by the product owner.</LI>
 	     <LI> all severity 1 and 2 bugs require explicit
-		  approval from customer support
-	</UL>
+		  approval from customer support</LI>
+	</UL></LI>
    <LI> defect discovery rates<br>
 	It would be naive to assume that the only defects in the
 	product are those that we already know about, and there
@@ -325,12 +342,12 @@ quality criteria:
 	the number of remaining (undiscovered) bugs.  One of the
 	most obvious predictors is the recent discovery rate.  If
 	we are still discovering a hundred bugs a week, it is a
-	safe assumption that there are many bugs yet to be found.
+	safe assumption that there are many bugs yet to be found.</LI>
    <LI> quality assurance process<br>
 	If we believe that requirements, architectural, design
 	and code reviews to be good sources of confidence, we
 	may require those processes be completed at the appropriate
-	points in the development process.
+	points in the development process.</LI>
    <LI> tests passed<br>
 	If there are known test suites of proven value,
 	we may specifically enumerate
@@ -340,19 +357,19 @@ quality criteria:
 	cases specified in the test plan" ... but this merely punts
 	the definition to someone else, who still has to figure out
 	what test combination cases would give us the confidence
-	we seek.
+	we seek.</LI>
    <LI> code coverage<br>
 	Where no existing test suite is already known to be adequate,
 	some projects impose code coverage requirements on the new
 	test suites to be developed.  These may be stated in terms
 	of absolute numbers (e.g. 100% statement coverage, 95% path
 	coverage), or it may merely be stated that achieved coverage
-	must be approved by a specified review process.
+	must be approved by a specified review process.</LI>
    <LI> hours of testing<br>
 	For exploratory, usability, or load and stress testing, 
 	our confidence increases with more hours of testing.  It
 	makes sense, therefore, to require satisfactory performance
-	to be demonstrated for a minimum number of hours or sessions.
+	to be demonstrated for a minimum number of hours or sessions.</LI>
    <LI> feedback from limited availability trials<br>
 	One reason to do beta testing is to confirm product quality
 	before putting it out for General Availability.  It is common
@@ -360,7 +377,7 @@ quality criteria:
 	feedback score of z% before a product can go to General Availability.
 	We may have internal testing requirements (e.g. running on
 	200 internal desktops for three months) before we can go to 
-	beta.
+	beta.</LI>
 </UL>
 <P>
 Some of these criteria are incomplete, and empower others to make
@@ -368,14 +385,14 @@ some of the decisions:
 <UL>
    <LI> the process of bug prioritization is seldom deterministic,
 	and trusts people to diligently act in good faith in 
-	prioritzing and evaluating bugs reports.
+	prioritzing and evaluating bugs reports.</LI>
    <LI> deferring test case definition to a test plan gives another
 	body of people the authority to determine what tests are
 	required to determine whether or not the product is ready
-	for release.
+	for release.</LI>
    <LI> there are good reasons for setting different code coverage
 	criteria for different modules, but we trust the people who
-	make those determinations to do so carefully and deliberately.
+	make those determinations to do so carefully and deliberately.</LI>
 </UL>
 Such flexibility is necessary because it is impossible to fully specify
 (in advance) all of the criteria that must be satisfied.  It makes sense
@@ -443,10 +460,10 @@ Everybody will want to influence the decision maker, but what they
 really need is not "decision advice".  What the decision maker needs
 is:
 <UL>
-   <LI> the best possible understanding of the state of the product.
+   <LI> the best possible understanding of the state of the product.</LI>
    <LI> the best possible assessment of the practical implications
-	of the known issues.
-   <LI> a good set of options, with clear costs and risks for each.
+	of the known issues.</LI>
+   <LI> a good set of options, with clear costs and risks for each.</LI>
 </UL>
 
 </BODY>
