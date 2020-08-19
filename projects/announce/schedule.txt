@@ -1,6 +1,6 @@
         phase	description				email		lecture
 	-----	-------------------			-------		-------
-	1A	concept and plan			F   8/21	Tu  8/25
+	1A	concept and plan			Su   8/23	Tu  8/25
 		
 		need to have read 1A
 		need to have teams and be discussing projects
