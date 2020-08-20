@@ -1,18 +1,8 @@
 Welcome to Software Engineering
 
-My name is Mark Kampe.  I have spent almost 50 years building operating systems
-...  critical code that enables hundreds of millions of people to exploit the
-power of computers and networks.  In addition to building operating systems,
-I have driven product evolution, built software development organizations, and
-guided the growth of many engineers.
+My name is Mark Kampe. I am not regular faculty.  I spent almost 50 years building operating systems (platform support, multi-processor, distributed, ...) and have driven product evolution, built software development organizations, and guided the growth of many engineers.  I have also been teaching (Operating Systems, Software Engineering, and Intro labs) for almost twenty years.  I have finally retired from my engineering day-job, but continue teaching (a) for fun and (b) to give back to a field that has given me so much.
 
-Several years ago I realized that I could probably do pretty-much whatever
-I wanted ... and that part of what I wanted was to help the next generation
-of engineers do amazing things ... and save them the trouble of making so
-many of the terrible mistakes I have seen (and made).   I expect that
-software development will, in one way or another, play a significant role
-in all of your future careers, and I want you to meet those challenges with
-a good foundation of understanding, perspective and methodology.
+In teaching, I want to help the next generation of engineers do amazing things ... and save them the trouble of making so many of the terrible mistakes I have seen (and made).   I expect that software development will, in one way or another, play a significant role in all of your future careers, and I want you to meet those challenges with a good foundation of understanding, perspective and methodology.
 
 It is my intention that this course will develop:
    - your ability to organize and effectively manage large, complex team projects
@@ -45,21 +35,14 @@ Preparation
 
    1. Course web site: You might want to review the syllabus and FAQ.
 
-   2. Piazza: There is a simple logistical survey (about your resources
-      and tool familiarities).  Please fill it out so that we can identify
-      any issues that must be addressed.
+   2. Piazza: There is a simple logistical survey (about your resources and tool familiarities).  Please fill it out so that we can identify any issues that must be addressed.
 
-   3. Piazza: There is a second posting where I ask each of us to introduce
-      ourselves, why we are here, what we bring with us, and what we hope to
-      get from this course.  Please post your own introduction.
+   3. Piazza: There is a second posting where I ask each of us to introduce ourselves, why we are here, what we bring with us, and what we hope to get from this course.  Please post your own introduction.
 
-   4. Projects and Teams: In order to develop and exercise significant
-      Software Engineering skills, you will be asked to form teams and define
-      (your own) relatively large and complex projects.  You might want to:
+   4. Projects and Teams: In order to develop and exercise significant Software Engineering skills, you will be asked to form teams and define (your own) relatively large and complex projects.  You might want to:
       - look at the summary of project activities on the course home page.
       - give some thought to what projects you might want to pursue.
       - give some thought to who else (in this section) you want to work with.
 
-I look forward to reading your introductions, and to our first meeting on Tuesday.
-Please feel free to email me with any questions,
+I look forward to reading your introductions, and to our first meeting on Tuesday.  Please feel free to email me with any questions,
    ---mark---

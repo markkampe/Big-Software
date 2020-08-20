@@ -1,12 +1,10 @@
 Welcome to Software Engineering Team
 
-My name is Mark Kampe.  I have spent almost 50 years building operating systems
-(platform support, multi-processor, distributed, ...) and have driven product
-evolution, built software development organizations, and guided the growth of
-many engineers.  I am now retired from that day-job, but continue teaching
-(a) for fun and (b) to give back to a field that has given me so much.
+I am teaching one of the two CS121 sections this semester, and if you would be interested in Grutoring for my section, I would love the opportunity to work with you.
 
-THE COURSE
+I am not regular faculty.  I spent almost 50 years building operating systems (platform support, multi-processor, distributed, ...) and have driven product evolution, built software development organizations, and guided the growth of many engineers.  I have also been teaching (Operating Systems, Software Engineering, and Intro labs) for almost twenty years.  I have finally retired from my engineering day-job, but continue teaching (a) for fun and (b) to give back to a field that has given me so much.
+
+General information on my section
 
 The course web site can be found at
     https://www.cs.hmc.edu/courses/2020/fall/cs121s1
@@ -15,54 +13,29 @@ The parts you are likely to find most interesting are:
     the schedule: https://www.cs.hmc.edu/courses/2020/fall/cs121s1/schedule.html
     the projects: https://www.cs.hmc.edu/courses/2020/fall/cs121s1/projects.html
 
-I haven't taught this course for Harvey Mudd in several years, so none of you
-will have taken my version of this course.  The SWE curriculum is fairly
-standard, but one (relatively) unique thing about this course is that I ask
-student teams to work on a single project that is too big to reasonably
-finish with a small team in one semester.  Why?
+I haven't taught this course for Harvey Mudd in several years, so none of you will have taken my version of this course.  My SWE curriculum is fairly standard, but one (relatively) unique thing about this course is that I ask student teams to work on a single project that is too big to reasonably finish with a small team in one semester.  Why?
+a project small enough to be done by a few people in a few weeks is too small to involve much in the way of "software engineering".
+I want them to go through all of the major activities (and encounter the kinds of problems) that would be involved in a Clinic-sized (or larger) team project.
 
-   - a project small enough to be done by a few people in a few weeks is too
-     small to involve much in the way of "software engineering".
+The Grutor role for my section
 
-   - I want them to go through all of the major activities (and encounter the
-     kinds of problems) that would be involved in a Clinic-sized (or larger)
-     team project.
+I expect to handle all of the quiz and exam grading, and to answer most of the subject questions on Piazza.  I expect that most of the students' need for help will come, not from the academic material, but from the projects.
 
-THE GRUTOR ROLE
+Because the projects will all be long, different, and moderately complex, I suggest that we try to have a single person work with each team for the entire semester:
+regular status meetings on how they are progressing
+advising them on problems that arise during each week
+grading the weekly submissions, and providing feedback on how to move forward
+Suggested Logistics
 
-I expect to handle all of the quiz and exam grading, and to answer most
-of the subject questions that are posted to Piazza.  I expect that most
-of the student need for help will come, not from the academic material,
-but from these projects.
+I suggest that we Zoom together late in the first week and review all of the project proposals.  Each of you can choose a team/project you would like to work with, and I will take the remaining teams.
 
-Because the projects will all be long, different and moderately complex, I
-suggest that we try to have a single person work with each team for the
-entire semester:
-   - regular status meetings on how they are progressing
-   - advising them on problems that arise during each week
-   - grading the weekly submissions, and providing feedback
-     on how to move forward
+All assignments are due Sunday at midnight.  Each week's work is based on the results of the preceding week, so I would like to provide feedback as quickly as possible.  I suggest that we schedule a (weekly) Monday Zoom session to, as a group, do (first pass grading).
 
-SUGGESTED LOGISTICS
+Then (perhaps on Tuesday) we can have a second Zoom to discuss the current week's assignment, what must be done, likely problems, and the grading rubric (so we can guide people to the best results).
 
-I suggest that we Zoom together late in the first week and review all of 
-the project proposals.  Each of you can choose one or two teams you
-would like to work with, and I will take the remainder.
+I should be available (at least by email) almost all the time, and have Zoom access most of the time.  When particular problems come up, we can deal with them in email, chats, or Zooms.
 
-All assignments are due Sunday at midnight.  Each week's work is based
-on the results of the preceding week, so I would like to provide feedback
-as quickly as possible.  I suggest that we schedule a (weekly) Monday Zoom
-session to, as a group, do (first pass grading).
+Please look over the project descriptions, and let me know if this sounds like a course you would like to help with.  Thank you for your help, and I look forward to the opportunity of working with you,
+---mark--- 
 
-Then (perhaps on Tuesday) we can have a second Zoom to discuss the current
-week's assignment, what must be done, likely problems, and the grading rubric
-(so we can guide people to the best results).
-
-I should be available (at least by email) almost all the time, and have
-Zoom access most of the time.  When particular problems come up, we can
-deal with them in email, chats, or Zooms.
-
-Does this sound like a reasonable plan?
-
-Thank you for your help, and I look forward to working with you,
-	---mark---
+My mobile is 213 400-8857, but the fastest way to reach me is usually my personal email (mark.kampe@gmail.com)
