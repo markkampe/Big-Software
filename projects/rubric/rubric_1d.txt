@@ -60,7 +60,7 @@ P1D	Final Proposal, Post Mortem, and Management
 
 		___	includes initial planning
 
-		___	includes competitive reseearch
+		___	includes competitive research
 
 		___	includes development of concept presentation
 
@@ -83,7 +83,7 @@ P1D	Final Proposal, Post Mortem, and Management
 
 		___	they understood why each important problem arose
 
-		___	they assessed the effectivness of their responses
+		___	they assessed the effectiveness of their responses
 
 		___	they derived some valuable lessons
 
@@ -101,7 +101,7 @@ P1D	Final Proposal, Post Mortem, and Management
 		___/1	all problems reasonably dealt with
 
 
-		___/1	plans were updated (on github) to deal with challenges
+		___/1	plans were updated (on GitHub) to deal with challenges
 
 
 

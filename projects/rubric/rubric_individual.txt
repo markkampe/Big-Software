@@ -3,7 +3,7 @@ Individual Contributions
    Total Score:			___/20
 
 	   
-	primary authorships		___/10 (average of deliverable scores)
+	primary author-ships		___/10 (average of deliverable scores)
 
 		___	1.
 
@@ -52,6 +52,6 @@ Individual Contributions
 
 
 	Note:
-		no primary authorships -> 0 primary authorship points
+		no primary author-ships -> 0 primary authorship points
 
 		no deliverables -> 0 on-time points

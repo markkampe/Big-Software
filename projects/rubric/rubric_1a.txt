@@ -55,7 +55,7 @@ P1A	Concept	and Initial Plan
 
 		___	preliminary requirements: included, has owner and date
 
-		___	concept prsentation: included, has owner and date
+		___	concept presentation: included, has owner and date
 
 		___	elicitation included:, has date
 
@@ -71,7 +71,7 @@ P1A	Concept	and Initial Plan
 		___	likely problems were recognized
 
 
-		___	risky items were front-loaded or gien extra time
+		___	risky items were front-loaded or given extra time
 
 
 

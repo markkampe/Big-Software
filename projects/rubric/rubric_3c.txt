@@ -13,7 +13,7 @@ P3C	Component Design and Test Plan
 			know, as a client, how to use them. (2pt)
 
 		___	all instance variables well enough described that you know how to declare,
-			initialize, AND UPDATE THEM CORECTLY.
+			initialize, AND UPDATE THEM CORRECTLY.
 
 		___	fully implements the component interface specification
 
@@ -37,7 +37,7 @@ P3C	Component Design and Test Plan
 		___	proposed implementation seems reasonable (not unnecessarily complex)
 
 
-		___	proposed algorithms and guideance seem correct
+		___	proposed algorithms and guidance seem correct
 
 
 		___	proposed algorithms and approaches seem reasonably efficient

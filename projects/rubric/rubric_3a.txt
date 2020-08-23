@@ -13,11 +13,11 @@ P3A	Initial Plan
 
 		___	initial component test plans: included, has date
 
-		___	design/test-plan reviews: included, has reviewers and datae
+		___	design/test-plan reviews: included, has reviewers and date
 
 		___	review reports: included, has date
 
-		___	final specifiations and test plans: included, has date
+		___	final specifications and test plans: included, has date
 
 		___	post mortem: included, has date
 
@@ -27,7 +27,7 @@ P3A	Initial Plan
 		___	likely problems were recognized
 
 
-		___	risky items were front-loaded or gien extra time
+		___	risky items were front-loaded or given extra time
 
 
 

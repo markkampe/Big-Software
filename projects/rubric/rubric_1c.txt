@@ -11,7 +11,7 @@ P1C	Requirements Development
 
 
 
-		___	(if multipe types) how they would respond to each
+		___	(if multiple types) how they would respond to each
 
 
 

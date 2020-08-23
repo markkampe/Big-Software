@@ -107,7 +107,7 @@ P2C	Final Architecture, Post Mortem, and Management
 
 		___	they understood why each challenge or important problem arose
 
-		___	they assessed the effectivness of their responses
+		___	they assessed the effectiveness of their responses
 
 		___	they derived some valuable lessons
 
@@ -126,7 +126,7 @@ P2C	Final Architecture, Post Mortem, and Management
 		___/1	all problems reasonably dealt with
 
 
-		___/1	plans were updated (on github) to deal with challenges
+		___/1	plans were updated (on GitHub) to deal with challenges
 
 
 

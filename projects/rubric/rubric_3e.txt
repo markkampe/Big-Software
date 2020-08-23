@@ -50,7 +50,7 @@ P3E	Final Design, Test Plan, Post Mortem, and Management
 
 		___	they understood why each challenge or important problem arose
 
-		___	they assessed the effectivness of their responses
+		___	they assessed the effectiveness of their responses
 
 		___	they derived some valuable lessons
 
@@ -69,7 +69,7 @@ P3E	Final Design, Test Plan, Post Mortem, and Management
 		___/1	all problems reasonably dealt with
 
 
-		___/1	plans were updated (on github) to deal with challenges
+		___/1	plans were updated (on GitHub) to deal with challenges
 
 
     		___/1	work products checked-in according to (updated) plan by assigned user
