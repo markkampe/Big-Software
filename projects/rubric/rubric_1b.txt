@@ -25,7 +25,7 @@ P1B	Competitive Research and Positioning
 
 
 
-   	value proposition	___/2
+   	value gained	___/2
 
 		___	meaningful comparison of existing and proposed features
 
@@ -36,3 +36,7 @@ P1B	Competitive Research and Positioning
 
 
 		___	proposed improvements seem practical
+
+
+
+		___	learned valuable information (about features, approaches, etc)
