@@ -1,5 +1,9 @@
 P2A	Plan and Preliminary Architecture
 
+   Team:
+
+   Members:
+
    Total Score:			___/25
 
    Plan:		___/5
@@ -36,6 +40,7 @@ P2A	Plan and Preliminary Architecture
 		___	everybody doing roughly equal work
 
 
+   Primary authorships:
 
    Preliminary Architecture:		___/20
 

@@ -1,9 +1,15 @@
 P4B Development Exercises
 
+   Team:
+
+   Members:
+
    Total Score		___/30
 
 
    Pair Programming	___/10
+
+	Participants:
 
 	report		___/8
 
@@ -26,6 +32,8 @@ P4B Development Exercises
 
 
    Code Review		___/10
+
+	Participants and roles:
 
     	Pre-Review Notes	___/5
 
@@ -53,6 +61,8 @@ P4B Development Exercises
 
 
    Test Driven Development ___/10
+
+	Author:
 
 	Commit History		___/7
 

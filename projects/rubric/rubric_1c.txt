@@ -1,8 +1,14 @@
 P1C	Requirements Development
 
-   Total Score:			___/40
+   Team:
 
+   Members:
+
+   Total Score:			___/40
 	   
+   primary authorships:
+
+
     Preliminary Requirements	___/5
 
 	user characterization	___/1

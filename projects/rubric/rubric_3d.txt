@@ -1,8 +1,18 @@
 P3D	Design and Test Plan Review
 
+   Team:
+
+   Members:
+
+   Component:
+
+   Participants:
+
    Total Score:			___/15
 
     Pre-Review Notes		___/10
+
+	Author:
 
 	on-time submission	___/4
 
@@ -26,6 +36,8 @@ P3D	Design and Test Plan Review
 
 
     Design/Test Review Report	___/5
+
+	Author:
 
 	completeness		___/4
 

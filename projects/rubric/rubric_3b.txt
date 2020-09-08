@@ -1,6 +1,18 @@
 P3B	Component Specifications
 
+   Team:
+
+   Members:
+
+   Component:
+
+   Author:
+
+
    Component Specifications:		___/10
+
+	   
+   Primary authorships:
 
 
 	general:		___/3

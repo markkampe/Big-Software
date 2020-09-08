@@ -1,5 +1,9 @@
 P2B	Architectural Review
 
+   Team:
+
+   Members:
+
    Total Score:			___/15
 
     Pre-Review Notes		___/4	(this is an individual score)
@@ -27,6 +31,9 @@ P2B	Architectural Review
 
 
     Architectural Review Report	___/4
+	   
+    Primary author:
+
 
 	basic info		___/1
 
