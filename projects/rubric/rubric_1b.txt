@@ -20,7 +20,7 @@ P1B	Competitive Research and Positioning
 
 
 
-	competitive analysis	___/2
+	competitive analysis	___/1
 
 		___	shows good understanding of competing products
 
@@ -30,6 +30,14 @@ P1B	Competitive Research and Positioning
 
 
 
+	descriptions of competition	___/1
+
+		___	general description of service, target audience, means of accessing
+
+
+		___	I gained a reasonable sense of what it does for me and how
+		
+
 
    	value gained	___/2
 
@@ -37,11 +45,7 @@ P1B	Competitive Research and Positioning
 
 
 
-		___	identified meaningful improvements (or un-met needs)
-
-
-
-		___	proposed improvements seem practical
+		___	identified meaningful ways in which their proposal is better
 
 
 
