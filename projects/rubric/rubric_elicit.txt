@@ -12,39 +12,47 @@ P1C.3	Requirements Elicitation
 	   
         basic (moderator)	___/4
 
-		___	introductions
-
-		___	concept presentation (3-6 minutes, well delivered)
+		___	introductions (team, panel, roles)
 
 
-		___	keep things moving, avoid rat-holes
+		___	concept presentation (3-6 minutes, effective introduction)
 
 
-		___	not telling or selling
+		___	keep agenda moving, avoid rat-holes
 
 
-
-	information gathering	___/8
-
-		___	learn what they currently do in this area (2 pts)
+		___	there to listen, avoid telling or selling
 
 
 
-		___	explore problems with current tools and processes (3 pts)
+	information gathering (everyone)	___/8
+
+		___	learn what they currently do (tasks & process) in this area (2 pts)
 
 
 
-		___	adequate time to understand what they are saying (2 pts)
+		___	explore details and good/bad about current tools and processes (2 pts)
 
 
 
-		___	(at end) ask about ideas from other sources that they did not mention
+		___	get their suggestions for what would make it (how much) better (1pt)
+
+
+
+		___	adequate time and effort to clarify what they are saying (2 pts)
+
+
+
+		___	(at end) get feedback on other ideas from other sources (1pt)
 
 
 	wrap-up (scribe)	___/3
 
 
-		___	scribe: present summary of key things they have told us (2 pts)
+		___	scribe: present summary of key things they have told us
 
 
 		___	confirm correct understanding of those points
+
+
+		___	summary was complete and accurate (corrected misunderstandings OK)
