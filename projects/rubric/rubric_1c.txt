@@ -49,6 +49,8 @@ P1C	Requirements Development
 
     Concept Presentation	___/10
 
+	(note we are grading the given presentation, slides are only a part of it)
+
 	context establishment	___/5
 
 		___	a sense of what proposed product will do
