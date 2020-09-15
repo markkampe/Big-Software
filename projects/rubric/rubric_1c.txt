@@ -121,7 +121,7 @@ P1C	Requirements Development
 
     	the list		___/2
 
-		___	all requirements traceable to user input
+		___	all requirements traceable to user input (or CLEARLY justified)
 
 
 		___	requirements address all key issues raised by users
