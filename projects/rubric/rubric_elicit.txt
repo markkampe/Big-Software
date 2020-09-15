@@ -7,7 +7,44 @@ P1C.3	Requirements Elicitation
    Participants (and roles):
 
 
-   Total Score:			___/15
+    Concept Presentation	___/10
+
+	(note we are grading the given presentation, slides are only a part of it)
+
+	context establishment	___/5
+
+		___	a sense of what proposed product will do
+
+
+		___	a sense of why they might be interested in it
+
+
+		___	stimulates sufficient interest to make them want to contribute
+
+
+	scope			___/2
+
+		___	3-6 minutes long
+
+
+		___	does not contaminate users (e.g. tell them what they need)
+
+
+		___	good use of time (enough material, but not too much)
+
+
+	impression		___/3
+
+		___	logical structure to presentation
+
+
+
+		___	polished and professional
+
+
+
+
+   Requirements Elicitation:	___/15
 
 	   
         basic (moderator)	___/4
