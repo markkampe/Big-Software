@@ -4,13 +4,15 @@ P1D	Final Proposal, Post Mortem, and Management
 
    Members:
 
-   Total Score:			___/25
+   Total Score:			___/45
 
 	   
-   Primary authorships:
 
 
    Final Proposal:		___/10
+
+   	Primary authors(s):
+
 
 	product description	___/2
 
@@ -114,3 +116,5 @@ P1D	Final Proposal, Post Mortem, and Management
 
     		___/1	work products checked-in according to (updated) plan by assigned user
 
+
+   Individual Performance:	___/20

@@ -6,7 +6,9 @@ P3E	Final Design, Test Plan, Post Mortem, and Management
 
    Component:
 
-   Primary Authors:
+   Author:
+
+   Total		___/25
 
    3E Revisions			___/15
 
