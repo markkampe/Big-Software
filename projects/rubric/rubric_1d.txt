@@ -82,17 +82,19 @@ P1D	Final Proposal, Post Mortem, and Management
 	
 	issues				___/2
 
-		___	I have reason to believe it includes all issues that arose
-			(e.g. because I have reviewed meeting minutes, and discussions)
+		___	I have reason to believe it includes all significant events
+			and issues that arose (e.g. because of regular updates with
+			the team or having reviewed meeting minutes)
 
-		___	each (non-trivial) issue was reasonably discussed
+		___	each (non-trivial) issue/experience was reasonably discussed
 
 
 	learning			___/3
 
-		___	they understood why each important problem arose
+		___	they understood why each important problem arose or
+			why things that worked well did so
 
-		___	they assessed the effectiveness of their responses
+		___	they assessed the effectiveness of their approaches/responses
 
 		___	they derived some valuable lessons
 
