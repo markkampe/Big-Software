@@ -1,38 +1,55 @@
 P2B	Architectural Review
 
-   Team:
+   Reviewing Team:
 
-   Members:
+   Reviewers (and roles):
+
+   Revieweed Team and Members:
+
 
    Total Score:			___/15
 
-    Pre-Review Notes		___/4	(this is an individual score)
 
-	technical quality	___/2
+   Architectural Review:	___/7
 
-		___	depth of study to which they testify
+	   
+        basic (moderator)	___/2
 
-
-		___	importance/value of observations
-
-
-	preparation		___/2
-
-		___	clarity of issues (not expecting complete sentences)
-
-		___	all issues appropriate to architectural review
-
-    		___	reasonably organized (e.g. by component) for discussion
+		___	reasonable order of moving through material
 
 
-    Architectural Review	___/7
+		___	keep things moving, avoid rat-holes and in-meeting-design
 
-	(detailed scoring on separate form)
+
+	technical review	___/4
+
+		___	each issue was understood
+
+
+		___	decision reached on each issue (could be more work and come back)
+
+
+		___	all prepared, participating, and had a chance to provide their input
+
+
+		___	productive & courteous (non-offensive, non-defensive)
+			(reviewed team can lose 1-2 points here)
+			
+
+
+	wrap-up (scribe)	___/1
+
+
+		___	summarize each issue and its disposition (as it is concluded)
+
+
+		___	summarize project disposition and open items (at end of meeting)
+
 
 
     Architectural Review Report	___/4
 	   
-    Primary author:
+        Primary author:
 
 
 	basic info		___/1
@@ -62,3 +79,8 @@ P2B	Architectural Review
 
 
 		___	all constructive and within scope
+
+
+    (Pre-Review Notes score from individual score sheets)
+
+
