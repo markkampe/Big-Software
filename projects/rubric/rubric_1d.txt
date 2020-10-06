@@ -19,6 +19,7 @@ P1D	Final Proposal, Post Mortem, and Management
 		___	problem domain is clear
 
 		___	functionality of proposed program is clear
+			(half credit for general, full credit for vivid)
 
 
 	user characterization	___/2
@@ -33,10 +34,13 @@ P1D	Final Proposal, Post Mortem, and Management
 	value proposition	___/3
 
 		___	competition has been well researched and described
+			(half credit for present, full credit for deep and clear)
 
 		___	ADDED value of proposed program is clear and compelling
+			(half credit for presented, full credit for clear and compelling)
 
 		___	some people will want (or even need) this program
+
 
 	requirements		___/1
 
@@ -56,9 +60,10 @@ P1D	Final Proposal, Post Mortem, and Management
 
 
 		___	impressed by the thought that has gone into this
-
-
+			(half credit for OK, full credit for actually impressed)
+			
 		___	impressed by the form in which it has been presented
+			(half credit for reasonable package, full credit for actually impressed)
 
 
 

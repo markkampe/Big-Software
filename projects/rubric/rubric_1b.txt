@@ -23,10 +23,11 @@ P1B	Competitive Research and Positioning
 	competitive analysis	___/1
 
 		___	shows good understanding of competing products
-
+			(half credit for adequate, full credit for full and deep)
 
 
 		___	clearly described capabilities of competing products
+			(half credit for adequate, full credit for full and clear)
 
 
 
@@ -42,11 +43,12 @@ P1B	Competitive Research and Positioning
    	value gained	___/2
 
 		___	meaningful comparison of existing and proposed features
-
-
+			(half credit for adequate, full credit for deep and cogent)
+			
 
 		___	identified meaningful ways in which their proposal is better
-
+			(half credit for adequate, full credit for compelling)
 
 
 		___	learned valuable information (about features, approaches, etc)
+			(proposal improved as a result of this research)

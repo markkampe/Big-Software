@@ -63,15 +63,20 @@ P2A	Plan and Preliminary Architecture
 
 	specifications:		___/3
 
-		___	functionality of each component is described
-
+		___	functionality of each software module is described
+			(what the software does, not what the screens look like)
 
 
 		___	key interfaces to each component are described (at least in general terms)
+			(full credit: type of interface, included operations/methods)
 
+
+		___	key/persistent data is adequately described
+			(full credit: general description of contents and form)
 
 
 		___	key requirements for each component are described
+			(full credit: explicit functional requirements)
 
 
 
@@ -80,7 +85,7 @@ P2A	Plan and Preliminary Architecture
 		___	discussion of key concerns that drove the architecture
 
 
-		___	reasonable justification for each decision
+		___	reasonable justification for each major decision
 
 
 
@@ -111,10 +116,10 @@ P2A	Plan and Preliminary Architecture
 		___	clear results presented
 
 
-	prototyping:		___/2
+	prototyping/research:	___/2
 
 		___	reasonable decisions about what required prototyping
-
+			(the key risks were investigated)
 
 		___	reasonable investigations (clear goals, adequate, but not too much)
 
@@ -123,17 +128,21 @@ P2A	Plan and Preliminary Architecture
 
 
 		___	clear results presented
+			(these risks are under control)
 
 
 	overall impressions:	___/4
 
-		___	clarity: I understood what they are proposing
+		___	clarity: I understand what they propose to build
+
+
+		___	depth and detail: what each component will do, how it will work
 
 
 		___	reasonableness: solution not greatly more complex than necessary
 
 
-		___	completeness (these pieces add up to a reasonable whole, w/no significant holes)
+		___	completeness (pieces add up to a reasonable whole, w/no significant holes)
 
 
 		___	consistency: all the stories agree
