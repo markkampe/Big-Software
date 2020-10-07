@@ -195,6 +195,18 @@ the described system is buildable and likely to work:
 	and technology (ideally using off-the-shelf components).</li>
 </UL>
 <P>
+Please keep in mind that a description of proposed screens and
+commands and the paths between them is not an architecture.
+That is a proposal for a user interface and functionality.
+An architecture describes the structure of the software 
+(e.g. programs or classes) that will implement that functionality,
+and the interactions of those components with one-another and
+external services or agents.  For each component in your 
+architecture, you should be able to characterize its interfaces
+(e.g. procedure calls, HTTP gets) and functionality (e.g. the methods
+or operations it supports).
+</P>
+<P>
 In Chapter 3.5 of <em>Code Complete</em>, McConnell provides an overview
 (and check-list) for the things that you might want to cover in your
 architectural description;
@@ -410,7 +422,8 @@ Your preliminary architecture will be graded on the basis of
 	     </li>
 	<li> 15% component specifications<br>
 	     <ul>
-		<li> completeness/clarity of functional descriptions</li>
+		<li> completeness/clarity of functional descriptions 
+		     (of the proposed implementation)</li>
 		<li> completeness/clarity of interface descriptions</li>
 		<li> completeness/clarity of component requirements</li>
 		<li> adequacy of this spec to guide implementation</li>
@@ -496,6 +509,13 @@ is ready for review before it is sent to the rest of your team for
 review.  Please document any discussions between your moderator and
 the submitting team.
 </P>
+<P>
+It is likely that the reviewing team may need a little bit of background
+before they can fully review the proposed architecture.  It is suggested
+that, along with your preliminary architecture, you also send a copy of
+your (P1D) final project proposal, and URLs for general background on
+any tool kits or APIs you are proposing to use.
+</P>
 
 <a name="desc_2b1">
 <h3>P2B.1 Review Notes (per person submissions)</h3>
@@ -511,6 +531,15 @@ neat notes, describing legitimate issues clearly enough to be sent
 as email, and organized for discussion (e.g. in the recommended 
 review order).  But these are notes, and there is no need for 
 polished prose, or even complete sentences.
+</P>
+<P>
+Note that the primary purpose of the architectural review is to identify
+issues with the proposed architecture, and you will be graded on your
+ability to understand and explore the implications of the described
+architecture.
+But, you are also invited to make observations about the proposed
+functionality and competitive positioning.  While these are not
+architectural, they can still add considerable value to the proposal.
 </P>
 <P>
 When you have completed your study notes in preparation for the review,
@@ -539,7 +568,8 @@ Schedule your review meeting with the professor (or Grutor).  Make sure the
 submitting team can get you the architectural package far enough in advance
 to enable you to do the required study and prepare your notes prior to the
 review meeting.
-<P>
+</P>
+
 
 <a name="desc_2b3">
 <H3>P2B.3 Review Report (graded for the reviewing team)</h3>
@@ -547,11 +577,13 @@ review meeting.
 <P>
 The designated scribe for your review session will write up a report
 of all conclusions reached in the design review.  This is specifically
-not "meeting minutes".  Rather it is a distillation of key issues and
-decisions.  It should be carefully written and reviewed.  It must contain:
+not "meeting minutes" (including all questions, answers, and discussion
+points).
+Rather it is a distillation of <em>key issues and decisions</em>.  
+It should be carefully written and reviewed.  It must contain:
 <UL>
    <LI> a clear summary of each important issue rased</li>
-   <LI> a characterization as a defect, question, or issue</li>
+   <LI> a characterization as a defect, issue, or question</li>
    <LI> a characterization as must-fix, should-fix, or comment</li>
    <LI> a disposition for the entire project of
    <UL>
@@ -562,6 +594,16 @@ decisions.  It should be carefully written and reviewed.  It must contain:
    </UL>
    </li>
 </UL>
+</P>
+<P>
+Please note that <strong>must fix</strong> does not mean <em>I feel strongly about this</em>;
+It means:
+<ul>
+	<em>In our judgement, unless this problem is fixed the proposed product
+	cannot (reasonably) be built (or will not be successful)</em>
+</ul>
+Thus, unless it is obvious, it is often a good idea to accompany <strong>must fix</strong>
+designations with a justification/rationale.
 </P>
 <P>
 When you are ready to submit your review report for grading:
@@ -576,8 +618,10 @@ These submissions be graded on the basis of:
 <ul>
 	<li> 25% individual notes prepared in advance of review
 	<ul>
-		<li> the thoroughness of study to which they attest</li>
-		<li> how well articulated the issues are</li>
+		<li> the thoroughness of study (i.e. understanding
+		     of the proposed architecture and its implications)
+		     to which they attest</li>
+		<li> how clearly articulated (specific vs vague) the issues are</li>
 		<li> all comments appropriate and within scope</li>
 		<li> issues reasonably organized for discussion</li>
 	</ul>
@@ -586,11 +630,14 @@ These submissions be graded on the basis of:
 	<ul>
 		<li> agenda and flow</li>
 		<li> meaningful discussions of in-scope issues</li>
-		<li> each discussion ends in a clear issue disposition</li>
-		<li> culminates in a clear project disposition</li>
+		<li> each discussion ends in a clear (explicitly stated) issue disposition</li>
+		<li> culminates in a clear (explicitly stated) project disposition</li>
 		<li> all viewpoints heard, avoid rat-holes</li>
 		<li> ensure issues are understood, but do not try to resolve them</li>
-		<li> all discusion is within scope</li>
+		<li> all discusion is within scope
+		     (primarily architectural, but some functional and positioning
+		     issues may also be included)
+		     </li>
 		<li> everyone is well-prepared and participating constructively</li>
 		<li> review the product critically but courteously</li>
 		<li> review was a valuable and productive experience</li>
@@ -599,11 +646,11 @@ These submissions be graded on the basis of:
 	<li> 25% the review report
 	<ul>
 		<li> time, place, project, attendees</li>
-		<li> disposition of each issue</li>
-		<li> completeness and accuracy</li>
 		<li> clarity with which issues are presented</li>
+		<li> explicit disposition of each issue</li>
+		<li> completeness and accuracy</li>
 		<li> scope of the report (just issues, no opinions)</li>
-		<li> disposition of the entire project</li>
+		<li> explicit disposition of the entire project</li>
 	</ul>
 	</li>
 </ul>
