@@ -14,67 +14,69 @@ P2C	Final Architecture, Post Mortem, and Management
 
 		___	acknowledge and explain changes since preliminary architecture
 
-
-		___	all must-fix issues from review have been reasonably addressed (3pt)
-
+		___	ALL must-fix issues from review have been reasonably addressed (3pt)
 
 		___	responses to should-fix issues from review
 
 
 	introduction:		___/5
 
-		___	a high level summary of what it will do and how it will do it
+		___	a high level summary of what product will do and HOW IT WILL DO IT
 
-		___	an enumeration of the key components
+		___	an enumeration of the key SOFTWARE components (not the U/I)
 
 		___	a description of their roles and interactions
 
 		___	diagrams of non-obvious relationships and/or operational context
 
 
-	rationale:		___/2
-
-		___	discussion of key concerns that drove the architecture
-
-		___	reasonable justification for each decision
-
-
 	specifications:		___/3
 
-		___	functionality of each component is described and reasonable
+		___	functionality of each SOFTWARE component is described and reasonable
 
-		___	key interfaces to each component are described (at least in general terms)
+		___	key interfaces to each component are described by both 
+			   types (e.g. C procedure, Python method, RESTful) 
+			   and functionality (e.g. key methods/commands and what each does)
 
 		___	key requirements for each component are described and reasonable
-
+			(i.e. I belive I could start designing it now)
 
 
 	feasibility:		___/3
 
-		___	covers all non-trivial components
+		___	covers all non-trivial software components
+			(all of the code that must be written)
 
 		___	reasonable approach/technology to implement each component
 
-		___	reasonable uses of off-the-shelf tools and components
+		___	reasonable uses of off-the-shelf tools, components, and services
+
+		___	no remaining issues that would prevent me from designing and building it
 
 
+	prototyping/reserach:	___/3
 
-	prototyping:		___/3
+		___	what was prototyped or researchedand why 
 
-		___	what was prototyped and why
+		___	all key (high impact, significant doubt) risks have been addressed
 
-		___	results of those investigations
+		___	architecture reflects those results
 
-		___	architecture consistent with those results
 
+	rationale:		___/2
+
+		___	discussion of key concerns that drove the architecture
+			(no major non-obvious unjustified architectural decisions)
+
+		___	reasonable justification for each non-obvious decision
 
 
 	overall impressions:	___/4
 
-		___	clarity: I understood what they are proposing
+		___	clarity: I understood what they are proposing to build
 
 
-		___	reasonableness: solution not greatly more complex than necessary
+		___	reasonableness: solution seems appropriate, robust, not overly complex
 
 
 		___	completeness (these pieces add up to a reasonable whole)
