@@ -49,7 +49,7 @@ P2A	Plan and Preliminary Architecture
 		___	a high level summary of what it will do and how it will do it
 
 
-		___	an enumeration of the key components
+		___	an enumeration of the key S/W components (not the U/I)
 
 
 		___	a description of their roles and interactions
@@ -83,9 +83,10 @@ P2A	Plan and Preliminary Architecture
 	rationale:		___/2
 
 		___	discussion of key concerns that drove the architecture
+			(full credit: all major non-obvious decisons are covered)
 
 
-		___	reasonable justification for each major decision
+		___	reasonable justification for each non-obvious  decision
 
 
 
@@ -102,24 +103,10 @@ P2A	Plan and Preliminary Architecture
 
 
 
-	analysis/feasibility:	___/2
-
-		___	covers all non-trivial components
-
-
-		___	reasonable approach/technology to implement each component
-
-		
-		___	reasonable uses of off-the-shelf tools and components
-
-
-		___	clear results presented
-
-
 	prototyping/research:	___/2
 
 		___	reasonable decisions about what required prototyping
-			(the key risks were investigated)
+			(key risks were investigated)
 
 		___	reasonable investigations (clear goals, adequate, but not too much)
 
@@ -131,6 +118,21 @@ P2A	Plan and Preliminary Architecture
 			(these risks are under control)
 
 
+	analysis/feasibility:	___/2
+
+		___	covers all non-trivial components
+			(all of the code that must be written)
+
+
+		___	reasonable approach/technology to implement each component
+
+		
+		___	reasonable uses of off-the-shelf tools and components
+
+
+		___	clear results presented
+
+
 	overall impressions:	___/4
 
 		___	clarity: I understand what they propose to build
@@ -139,7 +141,7 @@ P2A	Plan and Preliminary Architecture
 		___	depth and detail: what each component will do, how it will work
 
 
-		___	reasonableness: solution not greatly more complex than necessary
+		___	reasonableness: solution seems appropriate, robust, not overly complex
 
 
 		___	completeness (pieces add up to a reasonable whole, w/no significant holes)

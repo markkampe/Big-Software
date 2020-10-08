@@ -195,8 +195,8 @@ the described system is buildable and likely to work:
 	and technology (ideally using off-the-shelf components).</li>
 </UL>
 <P>
-Please keep in mind that a description of proposed screens and
-commands and the paths between them is not an architecture.
+Please keep in mind that a description of proposed screens/commands
+and the paths between them is not an architecture.
 That is a proposal for a user interface and functionality.
 An architecture describes the structure of the software 
 (e.g. programs or classes) that will implement that functionality,
@@ -290,7 +290,8 @@ problem that requires further analysis or prototyping.
 	what it does (functional specifications), 
 	descriptions of its interfaces, and the requirements it must meet.</li>
    <LI> High-level prose descriptions of the major persistent data objects:
-	what kind of information they contain, how/where they are stored,
+	what kind of information they contain, where they come from,
+	how/where they are stored,
 	and (where appropriate) supporting middle-ware (e.g. MySQL).</li>
    <LI>	diagrams illustrating the components, their instantiation/deployment
 	in a real system, and their interactions.</li>
@@ -319,8 +320,10 @@ the feasibility of implementing each major component:
 	adequacy and usability.</li>
    <LI>	where analysis was done, provide a write-up of the issues
 	investigated, the means of the investigation, and results.</li>
-   <LI> where prototyping was done, describe the questions and risks to
-	be addressed, a summary of the approach, and the results
+   <LI> where prototyping was done (e.g. to assess the usability
+        of a new tool or viability of a proposed approach), describe
+	the questions and risks to be addressed, a summary of the approach,
+	and the results
 	(and github URLs for the actual prototypes constructed).</li>
    <LI>	where new design work was done, provide design documentation
 	similar to (but hopefully much simpler than) that described
@@ -332,7 +335,7 @@ the feasibility of implementing each major component:
 To help you through the most difficult parts of this process, we suggest
 that you (<u>within first two days</u>):
 <ol>
-   <li> conceive a list of proposed components.</li>
+   <li> conceive a list of proposed software components.</li>
    <li> prepare a one-line description of what each
         component does and its role in the product.</li>
    <li> draw a diagram showing their relationship to one-another and
@@ -411,7 +414,8 @@ Your preliminary architecture will be graded on the basis of
 <ul>
 	<li> 25% overview<br>
 	     <ul>
-		<li> clarity of the conceptual roles of each components</li>
+		<li> clarity of the conceptual roles of each components
+		     (note user screens are not software component descriptions)</li>
 		<li> clarity of their interactions and how the cooperate to provide 
 		     the required services,</li>
 		<li> diagrams depicting component roles and relationships</li>

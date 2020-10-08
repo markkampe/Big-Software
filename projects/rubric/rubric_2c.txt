@@ -33,13 +33,14 @@ P2C	Final Architecture, Post Mortem, and Management
 	specifications:		___/3
 
 		___	functionality of each SOFTWARE component is described and reasonable
+			(what the software does, not what the screens look like)
 
 		___	key interfaces to each component are described by both 
 			   types (e.g. C procedure, Python method, RESTful) 
 			   and functionality (e.g. key methods/commands and what each does)
 
 		___	key requirements for each component are described and reasonable
-			(i.e. I belive I could start designing it now)
+			(explicit functional requirements)
 
 
 	feasibility:		___/3
@@ -56,7 +57,8 @@ P2C	Final Architecture, Post Mortem, and Management
 
 	prototyping/reserach:	___/3
 
-		___	what was prototyped or researchedand why 
+		___	reasonable decisions about what required prototyping/research
+			(key risks)
 
 		___	all key (high impact, significant doubt) risks have been addressed
 
