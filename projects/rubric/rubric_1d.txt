@@ -124,4 +124,4 @@ P1D	Final Proposal, Post Mortem, and Management
     		___/1	work products checked-in according to (updated) plan by assigned user
 
 
-   Individual Performance:	___/20
+   (Individual Performance from rubric_invidual.txt)
