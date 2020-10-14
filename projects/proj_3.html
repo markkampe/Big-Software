@@ -41,7 +41,7 @@ Choose your pieces carefully:
         putting up a web page or widgets on a screen does not count.</li>
    <li> each person must be capable of <u>independently</u> building and 
         testing his/her own piece.</li>
-   <li> each of these pieces must be unit-testable in isolation.</li>
+   <li> each of these pieces must be <u>automatically</u> unit-testable in isolation.</li>
    <li> when you are done, it should be possible to combine all
 	of these individual pieces together to create a working 
 	(all the pieces working together) and demo-able component.</li>
@@ -50,11 +50,54 @@ Note, however, that you are each implementing only one (or a few) module(s) ...
 just enough to require some design and coding work, and a modest number
 of test cases.  It is not expected that the sum of these modules will
 add up to your proposed product.
+Neither must each of you implement a single complete architectural component:
+<ul>
+    <li> if a single component in your architecture is likely to be
+    	 on the order of 400-800 lines of code, you can break it
+	 up into multiple classes, and implement only a single class.</li>
+    <li> if a single component of your architecture is trivial
+         (e.g. 10 lines of code to do a database lookup in response
+	 to a remote request), you might choose to implement
+	 all of those functions as well as the client-side methods
+	 that make those requests ... so that you were implementing
+	 and testing the entirety of client/server/database interactions,
+	 including the meachanisms that interconnect them.</li>
+</ul>
 </P>
 <P>
 Your pieces can be implemented in any appropriate language or combination of languages, 
 and use any tool-kits or middle-ware you find convenient ... but it must be 
 compilable/executable code with some algorithmic complexity (not U/I widgets, data, HTML or images).
+</P>
+<P>
+The warning about choosing U/I components is based on two concerns:
+<ol type="1">
+   <li> Putting up U/I widgets and responding to their call-backs is
+	so simple that it is commonly assigned as a project in introductory
+	programming classes.</li>
+   <li> If the primary inputs to your component are touches/clicks,
+        and your primary outputs are pixels on the screen (a) it may be 
+	very difficult to create an automated unit-test suite and (b)
+	most of the code being tested is in the GUI tool kit.</li>
+</ol>
+But this does not mean that no U/I components can be chosen for design
+and implementation:
+<ul>
+   <li> If your U/I component does significant analysis of the input
+        (e.g. parsing, keyword recognition, and turning natural language
+	input into a well-formed request), such processing completely
+	qualifies as both non-trivial and auto-testable.</li>
+   <li> The same might be the case if you have to do signficant processing
+        to filter and transform complex data into a form that was useful
+	to the intended user.</li>
+   <li> Some U/I toolkits incorporate unit-testing frameworks, that
+        permit user selections to be simulatable (e.g. <tt>click_button("Select File")</tt>)
+	and results (to be displayed) tested by examining object state
+	(e.g. <tt>chosen_file.getText()</tt>).  If your U/I is rich
+	enough in functionality, and thoroughly exercisable with such
+	tools, that U/I might qualify as a component for design and
+	implementation in the next phases of the project.</li>
+</ul>
 </P>
 <P>
 In this project you will create specifications, designs and testing plans
@@ -64,6 +107,15 @@ testing, integrating, and demonstrating working software.
 I suggest that you review the work you will have to do in projects 3 and 4,
 and then give considerable thought to which components (or parts of which
 components) you want to choose.
+</P>
+<P>
+The complete specifications for the chosen components are due in the second week
+of this project ... but you would be well advised to start defining the interfaces
+that you will be exporting for use by other team members this week.
+These interfaces represent critical inter-dependencies between otherwise individual
+development efforts, and must be negotiated between the producers and consumers.
+Sketching out those interfaces up-front will make it much easier to pursue your
+(individual component) specification and design activities next week.
 </P>
 <P>
 There are multiple phases to this project, each of which has its
