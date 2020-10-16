@@ -37,7 +37,7 @@ P3C	Component Design and Test Plan
 		___	no missing pieces
 
 
-	algorithms/approach	___/8
+	algorithms/approach	___/8	(assuming component is of appropriate complexity)
 
 		___	the overall structure and approach make sense (having read the rationale)
 

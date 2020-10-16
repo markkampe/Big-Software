@@ -12,23 +12,23 @@ P3E	Final Design, Test Plan, Post Mortem, and Management
 
    3E Revisions			___/15
 
-   3E.1 Revised Specifications:	___/5
+   3E.1 Revised Specifications:	___/3
 
-		___	good responses to identified issues (3pt)
-
-		___	quality of the final document (2pt)
-
-   3E.1 Revised Design:		___/5
-
-		___	good responses to identified issues (3pt)
+		___	good responses to identified issues (1pt)
 
 		___	quality of the final document (2pt)
 
-   3E.1 Revised Test Plan:	___/5
+   3E.1 Revised Design:		___/6
 
 		___	good responses to identified issues (3pt)
 
-		___	quality of the final document (2pt)
+		___	quality of the final document (3pt)
+
+   3E.1 Revised Test Plan:	___/6
+
+		___	good responses to identified issues (3pt)
+
+		___	quality of the final document (3pt)
 
 
 
