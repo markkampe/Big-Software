@@ -42,7 +42,7 @@ Choose your pieces carefully:
    <li> each person must be capable of <u>independently</u> building and 
         testing his/her own piece.</li>
    <li> each of these pieces must be <u>automatically</u> unit-testable in isolation.</li>
-   <li> when you are done, it should be possible to combine all
+   <li> when you are done, it <u>should</u> be possible to combine all
 	of these individual pieces together to create a working 
 	(all the pieces working together) and demo-able component.</li>
 </UL>
@@ -61,13 +61,14 @@ Neither must each of you implement a single complete architectural component:
 	 all of those functions as well as the client-side methods
 	 that make those requests ... so that you were implementing
 	 and testing the entirety of client/server/database interactions,
-	 including the meachanisms that interconnect them.</li>
+	 including the mechanisms that interconnect them.</li>
 </ul>
 </P>
 <P>
 Your pieces can be implemented in any appropriate language or combination of languages, 
 and use any tool-kits or middle-ware you find convenient ... but it must be 
-compilable/executable code with some algorithmic complexity (not U/I widgets, data, HTML or images).
+compilable/executable code with some algorithmic complexity (not U/I widgets, data, HTML or images),
+and must be accompanied by a fully automated unit test suite.
 </P>
 <P>
 The warning about choosing U/I components is based on two concerns:
@@ -78,10 +79,10 @@ The warning about choosing U/I components is based on two concerns:
    <li> If the primary inputs to your component are touches/clicks,
         and your primary outputs are pixels on the screen (a) it may be 
 	very difficult to create an automated unit-test suite and (b)
-	most of the code being tested is in the GUI tool kit.</li>
+	most of the code being tested is not yours, but the GUI tool kit.</li>
 </ol>
-But this does not mean that no U/I components can be chosen for design
-and implementation:
+But this does not mean that it is impossible for U/I components to satisfy the
+design and implementation requirements:
 <ul>
    <li> If your U/I component does significant analysis of the input
         (e.g. parsing, keyword recognition, and turning natural language
@@ -94,9 +95,14 @@ and implementation:
         permit user selections to be simulatable (e.g. <tt>click_button("Select File")</tt>)
 	and results (to be displayed) tested by examining object state
 	(e.g. <tt>chosen_file.getText()</tt>).  If your U/I is rich
-	enough in functionality, and thoroughly exercisable with such
-	tools, that U/I might qualify as a component for design and
-	implementation in the next phases of the project.</li>
+	enough in functionality (e.g. several hundered lines of code
+	involving complex widgets and event processing), and thoroughly 
+	exercisable with such tools, that U/I might qualify as a component
+	for design and implementation in the next phases of the project.</li>
+	<P>
+	If you believe you have a U/I component that would qualify, review it with
+	me before completing your selections and plans.
+	</P>
 </ul>
 </P>
 <P>
@@ -183,7 +189,7 @@ own goals, processes, and deliverables (most of which are individual rather than
 <sup>3</sup> less 10% for each <a href=#latepolicy>unexcused</a> late day.<br>
 </UL>
 <a name="desc_3a">
-<H3>P3A Plan</h3>
+<H2>P3A Plan</h2>
 </a>
 <P>
 The amount of work required to refine your architecture to the point that
@@ -199,7 +205,7 @@ and making the required changes.
 Perhaps the most important part of your plan is which components or classes
 each of you will implement.
 But each team will prepare a task-breakdown, identify the dependency relationships between
-tasks, and owners for each sub-task, assign due-dates, and schedule regular reviews
+tasks (and components), and owners for each sub-task, assign due-dates, and schedule regular reviews
 of both work-products and progress (to enable adequate time to deal with the
 <u>problems that will arise</u>).  
 A good management plan will include regular (e.g. daily) status checks, whose
@@ -238,7 +244,7 @@ When you are ready to submit your plan for grading:
 </P>
 
 <a name="desc_3b">
-<H3>P3B Specifications</h3>
+<H2>P3B Specifications</h2>
 </a>
 <P>
 Each team member will take ownership of one or more modules (or components).
@@ -246,7 +252,7 @@ To prepare a specifications, you will:
 <OL type="1">
   <li> (perhaps) expand the architecture (above the chosen components)
         to describe them and the components with which they interact.
-	Assuming that you have decided to implement pieces of your system that
+	If you have decided to implement pieces of your system that
 	are smaller than complete architectural components (from project 2), 
 	you will have to expand and refine that architecture down to the 
 	level of the pieces you want to use for projects 3 and 4.  Note that
@@ -254,10 +260,12 @@ To prepare a specifications, you will:
 	level of detail.  You only have to do a top-down refinement along
 	the path to the components you will be using for this project.
 	<p>
-	If a component to be implemented was already fully described
-	in the (Project 2) architecture, no expansion is required.
-	If further top-down refinement is required, 
-	it may be possible that a single addendum (created by the entire team)
+	If a component to be implemented was already <u>fully described</u>
+	(detailed specifications for all external interfaces)
+	in the (Project 2) architecture, no further expansion is required.
+	If further top-down refinement is required, your component specifications
+	should be accompanied by addenda to the (submitted for project 2) architecture.
+	It may be possible that a single addendum (created by the entire team)
 	could be used for all of the component specifications.
     	</p>
 	</li>
@@ -289,11 +297,14 @@ This submission be graded on the basis of:
 When you are ready to submit your component specifications for grading:
 <ul>
     <li> prepare your spec (ideally ASCII text in a file named <tt>spec_3b.txt</tt>)</li>
-    <li> put a <a href="#submission">standard submission prologue</a> on the front of the file</li>
-    <li> up-load it for submission (each person must submit his/her own specifications)</li>
+    <li> if you need to expand your (project 2) architectural description, create an
+         addendum (only the changes, not a whole new copy, in a file named <tt>arch_3b.txt)</tt></li>
+    <li> put a <a href="#submission">standard submission prologue</a> on the front of each file</li>
+    <li> up-load it/them for submission (each person must submit his/her own specifications)</li>
 </ul>
 </P>
 <a name="desc_3c1">
+<H2>Design and Test Plan</H2>
 <H3>P3C.1 Component Design</h3>
 </a>
 <P>
@@ -318,8 +329,8 @@ Each module design should include:
 	"bubble-sort" or "compute SHA1 hash").  
 	If a perhaps-not-widely-known named
 	algorithm is used, provide a reference to a description
-	of its implementation (in case the programmer who will implement
-	it isn't familiar with it).</li>
+	of its implementation (in case the programmer who will 
+	reivew or implement it isn't familiar with it).</li>
    <LI> where the code is to be based on standard libraries,
 	call those out (e.g. "synchronization will be with
 	boost thread shared locks") and (again, if they are not widely known)
@@ -374,7 +385,7 @@ this design be graded on the basis of:
 When you are ready to submit your component design for grading:
 <ul>
     <li> prepare your spec (ideally ASCII text in a file named <tt>design_3b.txt</tt>,
-         or perhaps with some other language-specifc suffix)</li>
+         or perhaps with some other language-specifc suffix, e.g. if you are using graphics)</li>
     <li> put a <a href="#submission">standard submission prologue</a> on the front of the file</li>
     <li> up-load it for submission (each person must submit his/her own design)</li>
 </ul>
@@ -482,15 +493,35 @@ When you are ready to submit your test plan for grading:
 </ul>
 </P>
 
-<a name="desc_3d1">
-<H3>P3D.1 Review Notes</h3>
+<a name="desc_3d">
+<H2>Design and Test Plan Reviews</H2>
 </a>
 <P>
-Each member of the team will submit his preliminary specifications,
+Because your component has some algorithmic complexity and requires a non-trivial number
+of test cases your design and test plans should be submitted for review.
+In Project 2 we required you to follow a fairly formal process (with another team
+supplying the facilitator and scribe).  This is a simpler design, entirely appropriate
+to be reviewed by other members of your team (all of whom should already be well-familiar
+with what your component does).
+You are welcome, for this less formal process, to act as the facilitator and scribe 
+for your the review of your own component.
+But the other basic rules (e.g. about content, scope and behavior) still apply:
+<ul>
+   <li> the committee should still vote on the resolution (must fix, should fix, comment)
+        of each issue/observation.</li>
+   <li> a report, covering all non-trivial issues and their resolutions must be
+        produced <u>and approved by the reviewing team</u>.
+</ul>
+</P>
+<P>
+Each member of the team will submit his/her preliminary specifications,
 design and test plans for review by the one or more other team members.  Each
 team member will participate in the reviews of the designs and plans
 submitted by other members of his/her team.
 </P>
+<a name="desc_3d1">
+<H3>P3D.1 Review Notes</h3>
+</a>
 <P>
 Prior to each review meeting, each of you (individually) will read
 the submitted specifications, designs, and test plan and prepare detailed notes
@@ -514,7 +545,8 @@ Each set of review notes will be graded on the basis of:
 <P>
 When your notes are eady for submission and grading:
 <ul>
-    <li> prepare your spec (ideally ASCII text in a file named <tt>notes_3d.txt</tt>)</li>
+    <li> prepare your spec (ideally ASCII text in a file named <tt>notes_3d-#.txt</tt>,
+         where <tt>#</tt> is different for each review).</li>
     <li> put a <a href="#submission">standard submission prologue</a> on the front of the file</li>
     <li> up-load it for submission (each person must submit his/her own notes)</li>
 </ul>
@@ -530,7 +562,7 @@ simpler and you have already followed this process
 (for your architectural reviews) these
 reviews will not be observed and graded.  
 But each team member will lead, act as scribe, and write up
-a report for one design review.
+a report for one design review (most likely their own).
 </P>
 <P>
 As with the architectural review,
@@ -572,6 +604,13 @@ When your review report is eady for submission and grading:
 </ul>
 </P>
 
+<H2>P3E Final Specifications, Design, Test Plan  and Post Mortem</H2>
+<P>
+Note: this is likely to be a relatively light week for project work.
+      You would be well advised to use this opportunity to get an
+      early start on the project 4 implementation, which probably 
+      comes due a the same time as the final projects in your other classes.
+</P>
 <a name="desc_3e">
 <H3>P3E.1 Final Component Specifications, Design and Test Plan</h3>
 </a>
