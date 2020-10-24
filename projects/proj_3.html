@@ -261,7 +261,7 @@ To prepare a specifications, you will:
 	the path to the components you will be using for this project.
 	<p>
 	If a component to be implemented was already <u>fully described</u>
-	(detailed specifications for all external interfaces)
+	(detailed specifications for all external interfaces/public methods)
 	in the (Project 2) architecture, no further expansion is required.
 	If further top-down refinement is required, your component specifications
 	should be accompanied by addenda to the (submitted for project 2) architecture.
@@ -274,13 +274,30 @@ To prepare a specifications, you will:
   <li> determine the requirements to be imposed on each of the component(s) to
       	be designed, based on the product requirements 
 	and the components' roles in the overall architecture.</li>
-  <li> define the all external interfaces (in both directions) between the 
-  	component(s) to be designed and the rest of the system.</li>
+  <li> define the all external interfaces/public methods (in both directions)
+   	between the component(s) to be designed and the rest of the system.</li>
   <li> write a <u>complete specification</u> (both form and function,
        detailed enough to define acceptance criteria)
-       for all of the external interfaces to the chosen components.
+       for all of the external interfaces/public methods to the chosen components.
        </li>
 </OL>
+<P>
+There is no universal definition for what "specifications" should describe,
+in how much detail.  The answers to those questions depend on:
+<ul>
+   <li>what is being described</li>
+   <li>to whom</li>
+   <li>for what purpose</li>
+</ul>
+</P>
+In this case, we are asking you to describe
+<ul>
+   <li> the external entrypoints (public methods) to be exposed by your component </li>
+   <li> to your team members and your grader (who have a reasonable familiarity with your project) </li>
+   <li> it is intended that these specifications be sufficiently detailed to enable
+        other people to write correct code to call those entrypoints and use the services
+	your component provides.</li>
+</ul>
 <P>
 This submission be graded on the basis of:
 <ul>
@@ -330,7 +347,13 @@ Each module design should include:
 	If a perhaps-not-widely-known named
 	algorithm is used, provide a reference to a description
 	of its implementation (in case the programmer who will 
-	reivew or implement it isn't familiar with it).</li>
+	reivew or implement it isn't familiar with it).
+   	<P>
+	A good test for whether or not your design is sufficiently 
+	clear and detailed is that if you gave it to one of your
+	team mates, they would be able to sit down and write the code.
+	</P>
+	</li>
    <LI> where the code is to be based on standard libraries,
 	call those out (e.g. "synchronization will be with
 	boost thread shared locks") and (again, if they are not widely known)
@@ -356,7 +379,7 @@ declarations and comments.
 If the chosen component is of reasonable size, complexity, and testability
 this design be graded on the basis of:
 <ul>
-	<li> 10% all external methods and instance variables are 
+	<li> 10% all public methods and instance variables are 
 		described well enough to enable a skilled client
 		figure out how to use them correctly.</li>
 	<li> 20% all implementations and internal methods are 
