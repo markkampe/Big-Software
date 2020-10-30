@@ -292,19 +292,41 @@ in how much detail.  The answers to those questions depend on:
 </P>
 In this case, we are asking you to describe
 <ul>
-   <li> the external entrypoints (public methods) to be exposed by your component </li>
+   <li> the external entrypoints (public methods) to be exposed by your component
+   	<ul>
+	    <li>the (exact) name of the method</li>
+	    <li>the name, type, and meaning of each parameter</li>
+	    <li>everything (at the functionality level) that is expected to
+	        happen as a result of having called this method</li>
+	    <li>the type(s) and meaning(s) of the return value(s)</li>
+	</ul>
+   </li>
    <li> to your team members and your grader (who have a reasonable familiarity with your project) </li>
-   <li> it is intended that these specifications be sufficiently detailed to enable
-        other people to write correct code to call those entrypoints and use the services
-	your component provides.</li>
+   <li> it is intended that these specifications be sufficiently detailed:
+        <ul>
+   	    <li>to enable other people to write correct code to call those entrypoints 
+	         and use the services this component provides</li>
+	    <li>to provide an adequate specification for developing a complete set
+	        of black-box test cases</li>
+	    <li>to completely specify all of the requirements that must be met by
+	        the (coming soon) design and implementation.</li>
+        </ul>
+    </li>
 </ul>
+<P>
+It is possible that your component will have no requirements beyond delivering above-described
+functionality.  But it is likely that, as a result of its role in the overall architecture,
+and the things that other components need it to do, there will be additional requirements
+imposed on the manner in which your component provides its functionality or cases that must
+be handled.
+</P>
 <P>
 This submission be graded on the basis of:
 <ul>
 	<li> 30% clarity and reasonableness of component's functionality and role in the overall system,
 	         and its suitability (in terms of size, complexity, testability) for the assignment.</li>
-	<li> 20% clarity and measurability of requirements and how well they have been derived from
-	     the architecture and overall product requirements</li>
+	<li> 20% completeness, clarity and measurability of requirements and how well they have been 
+	         derived from the <u>architecture and overall product requirements</u></li>
 	<li> 10% clear and complete (ready-to-code) interface specifications</li>
 	<li> 10% spec covers all required functionality in this module</li>
 	<li> 20% well abstracted module functionality and reasonably chosen methods and parameters</li>
