@@ -1,9 +1,5 @@
 P4A Code and Test Suite
 
-   Team:
-
-   Members:
-
    Component:
 
    Primary Author:

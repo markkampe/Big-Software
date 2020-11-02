@@ -1,9 +1,5 @@
 P3A	Initial Plan
 
-   Team:
-
-   Members:
-
    Plan:		___/5
 
    	complete/specific	___/2

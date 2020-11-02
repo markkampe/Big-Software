@@ -1,9 +1,5 @@
 P2C	Final Architecture, Post Mortem, and Management
 
-   Team:
-
-   Members:
-
    Total Score:		___/60
 
    2C.1 Final Architecture:	___/25

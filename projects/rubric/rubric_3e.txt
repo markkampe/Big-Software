@@ -1,9 +1,5 @@
 P3E	Final Design, Test Plan, Post Mortem, and Management
 
-   Team:
-
-   Members:
-
    Component:
 
    Author:

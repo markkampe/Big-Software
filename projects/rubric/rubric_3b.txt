@@ -1,9 +1,5 @@
 P3B	Component Specifications
 
-   Team:
-
-   Members:
-
    Component:
 
    Author:

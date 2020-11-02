@@ -1,9 +1,5 @@
 P2A	Plan and Preliminary Architecture
 
-   Team:
-
-   Members:
-
    Total Score:			___/25
 
    Plan:		___/5

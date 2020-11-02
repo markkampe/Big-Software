@@ -1,9 +1,5 @@
 P3D	Design and Test Plan Review
 
-   Team:
-
-   Members:
-
    Component:
 
    Participants:

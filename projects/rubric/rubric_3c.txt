@@ -1,9 +1,5 @@
 P3C	Component Design and Test Plan
 
-   Team:
-
-   Members:
-
    Total Score:			___/40
 
    Component:

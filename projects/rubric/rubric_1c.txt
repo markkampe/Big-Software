@@ -1,9 +1,5 @@
 P1C	Requirements Development
 
-   Team:
-
-   Members:
-
    Total Score:			___/40
 	   
    primary authorships:
