@@ -31,38 +31,48 @@ you will do much of your work as individuals, tho with considerable assistance
 from other team members.  Each member of the team will (over the next two projects)
 be responsible for the design and implementation of one piece from your architecture.
 Depending on your architecture, these could each be a complete architectural component,
-or small pieces (e.g. an applet or a few classes) from a single architectural component.  
-Choose your pieces carefully:
+or small pieces (e.g. an applet or a few classes) from a single architectural component,
+or even from multiple components.</P>
+<P>
+Choose your pieces carefully. You will be required to design and implement
+a significant amount of non-trivial software:
 <UL>
    <li> each of the chosen pieces should be somewhere in the range of 
         100-400 lines of code.</li>
-   <li> each chosen piece must implement an <em>algorithmically interesting</em>
-        and automatically testable program, module, or class;
-        putting up a web page or widgets on a screen does not count.</li>
-   <li> each person must be capable of <u>independently</u> building and 
+   <li> each chosen piece <u>must</u> implement an <em>algorithmically interesting</em>
+	(much more than initializers, mutators, accessors, and routines that
+	pass a request on to another service) program, module, or class;
+	</li>
+   <li> each chosen piece <u>must</u> have sufficiently complex behavior to require
+   	a significant number of test cases ... including several
+	white-box test cases.</li>
+   <li> each person should be capable of <u>independently</u> building and 
         testing his/her own piece.</li>
-   <li> each of these pieces must be <u>automatically</u> unit-testable in isolation.</li>
+   <li> each of these pieces should be <u>automatically</u> unit-testable in isolation.</li>
    <li> when you are done, it <u>should</u> be possible to combine all
 	of these individual pieces together to create a working 
 	(all the pieces working together) and demo-able component.</li>
 </UL>
 Note, however, that you are each implementing only one (or a few) module(s) ...
-just enough to require some design and coding work, and a modest number
-of test cases.  It is not expected that the sum of these modules will
-add up to your proposed product.
+just enough to require a reasonable amount of design and coding work, and 
+a modest number of test cases.  It is not required that the sum of these 
+modules must add up to your proposed product.
 Neither must each of you implement a single complete architectural component:
 <ul>
     <li> if a single component in your architecture is likely to be
     	 on the order of 400-800 lines of code, you can break it
 	 up into multiple classes, and implement only a single class.</li>
-    <li> if a single component of your architecture is trivial
-         (e.g. 10 lines of code to do a database lookup in response
-	 to a remote request), you might choose to implement
-	 all of those functions as well as the client-side methods
-	 that make those requests ... so that you were implementing
-	 and testing the entirety of client/server/database interactions,
-	 including the mechanisms that interconnect them.</li>
+    <li> if you very much want to implement a component that is too simple
+         (because of the value it adds to your program), you
+    	 may need to choose multiple components to implement.  But if
+	 none of those components meet the complexity and test case
+	 requirements, you still may not be able to earn full credit
+	 in projects 3 and 4.
+	 </li>
 </ul>
+It is very important that you consider these requirements when choosing
+the components to be implemented.  If you have any questions or doubts,
+please talk to me or your grutor before finalizing your decisions.
 </P>
 <P>
 Your pieces can be implemented in any appropriate language or combination of languages, 
@@ -85,20 +95,20 @@ But this does not mean that it is impossible for U/I components to satisfy the
 design and implementation requirements:
 <ul>
    <li> If your U/I component does significant analysis of the input
-        (e.g. parsing, keyword recognition, and turning natural language
-	input into a well-formed request), such processing completely
-	qualifies as both non-trivial and auto-testable.</li>
+        (e.g. syntax parsing, keyword recognition, validity checking)
+	such processing might qualify as both non-trivial and auto-testable.</li>
    <li> The same might be the case if you have to do signficant processing
-        to filter and transform complex data into a form that was useful
-	to the intended user.</li>
+        to filter and transform complex data into a form that is usefully
+	presentable to the intended user.</li>
    <li> Some U/I toolkits incorporate unit-testing frameworks, that
         permit user selections to be simulatable (e.g. <tt>click_button("Select File")</tt>)
 	and results (to be displayed) tested by examining object state
 	(e.g. <tt>chosen_file.getText()</tt>).  If your U/I is rich
 	enough in functionality (e.g. several hundered lines of code
-	involving complex widgets and event processing), and thoroughly 
-	exercisable with such tools, that U/I might qualify as a component
-	for design and implementation in the next phases of the project.</li>
+	involving complex widgets and event processing), does much
+	error checking,k and and is thoroughly exercisable with such tools, 
+	that U/I might qualify as a component for design and implementation
+	in the next phases of the project.</li>
 	<P>
 	If you believe you have a U/I component that would qualify, review it with
 	me before completing your selections and plans.
@@ -295,13 +305,15 @@ In this case, we are asking you to describe
    <li> the external entrypoints (public methods) to be exposed by your component
    	<ul>
 	    <li>the (exact) name of the method</li>
-	    <li>the name, type, and meaning of each parameter</li>
+	    <li>the name, type, and meaning of each parameter,
+	        and any validity assertions that might apply to it</li>
 	    <li>everything (at the functionality level) that is expected to
 	        happen as a result of having called this method</li>
 	    <li>the type(s) and meaning(s) of the return value(s)</li>
 	</ul>
    </li>
-   <li> to your team members and your grader (who have a reasonable familiarity with your project) </li>
+   <li> to your team members and your grader (who have a reasonable familiarity with your project
+        and the toolkit(s) to be used in its construction) </li>
    <li> it is intended that these specifications be sufficiently detailed:
         <ul>
    	    <li>to enable other people to write correct code to call those entrypoints 
