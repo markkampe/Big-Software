@@ -464,9 +464,7 @@ that it actually works.
 	misbehavior that would not be detected by the the above-described
 	acceptance tests.  If you find such, define additional
 	(white box) test cases to exercise and validate those behaviors.
-	If there is no plausible mis-behavior not covered by the interface
-	acceptance criteria, 
-	<u>you can earn the white-box points by offering a convincing proof of this assertion</u>.</li>
+	</li>
    <LI>
 	Consider your component's interfaces and all of the above test
 	cases, and design a means for performing all of those test cases
@@ -486,6 +484,41 @@ It is possible that, in the process of developing your test plan, you will find
 assertions that are hard to measure, or functionality that is difficult
 to verify (or verify automatically).  If this happens, you may need to
 revisit your requirements, specifications and design.
+</P>
+<P>
+The difference between black-box and white-box testing (based on specifications vs implementation)
+sounds like a simple binary distinction based on a three-word test ...
+but the real world often declines to conform to our simple classifications:
+<ul>
+   	The notion of black-box is not limited to the specified interfaces for 
+	<tt>public</tt> methods.
+        If we are testing <tt>private</tt> mutator and accessor functions by storing
+	values, retrieving them, and confirming that the expected value was returned,
+	the mere fact that we put the word <tt>private</tt> in front of those methods
+	does not turn trivial specification-based tests into white-box test cases.</li>
+	</p>
+	<p>
+	But, if a <tt>public</tt> method is required to do complex processing to
+	understand the input or create useful output, there may be
+	numerous combinations of input parameters that exercise different parts 
+	of that code ... and non-trivial analysis may be required to identify
+	a set of test cases to exercise all of them.
+	The mere fact that the specifications defined the expected input/output
+	relationships does not prevent a comprehensive exercise of
+	a full range of input combinations from qualifying as white-box testing.
+	</p>
+	<p>
+	Even a method that performs a (nominally) simple function may have to
+	do a considerable amount of input validation or handle a wide range
+	of possible errors.  These too represent a great many different cases
+	to be tested and may require non-trivial analysis to figure out how
+	to cause each and confirm correct handling.
+	</p>
+</ul>
+The bottom line is that you have been asked to demonstrate your ability to design
+non-trivial software.  I also want you to demonstrate the ability to recognize the
+situations that might result in different computations, and to verify the correct
+handling of each.
 </P>
 
 <P>
