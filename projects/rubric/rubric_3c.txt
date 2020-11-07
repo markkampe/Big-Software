@@ -33,15 +33,15 @@ P3C	Component Design and Test Plan
 		___	no missing pieces
 
 
-	algorithms/approach	___/8	(assuming component is of appropriate complexity)
+	algorithms/approach	___/8
+
+		___	design includes sufficent algorithmic complexity (4pt)
+
 
 		___	the overall structure and approach make sense (having read the rationale)
 
 
-		___	proposed implementation seems reasonable (not unnecessarily complex)
-
-
-		___	proposed algorithms and guidance seem correct
+		___	proposed implementation seems correct & reasonable (not unnecessarily complex)
 
 
 		___	proposed algorithms and approaches seem reasonably efficient
@@ -61,8 +61,7 @@ P3C	Component Design and Test Plan
 
     Component Test Plan		___/20
 
-	black-box tests		___/6
-
+	black-box tests		___/6	(entirely based on interface specifications)
 
 		___	completeness of suite (2pt)
 
@@ -73,7 +72,7 @@ P3C	Component Design and Test Plan
 		___	form and quality of descriptions
 
 
-	white-box tests		___/6
+	white-box tests		___/6	(based on design/implementation details, else 0)
 
 		___	completeness of suite (2pt)
 
@@ -86,11 +85,11 @@ P3C	Component Design and Test Plan
 
 	testing framework	___/4
 
-		___	automated execution and pass/fail notification
+		___	automated execution with pass/fail assessment (2pt)
 
-		___	standard (off the shelf) framework
+		___	standard (off the shelf) testing framework
 
-		___	well suited to the type of tests being run
+		___	well suited to the functionality being tested
 
 
 	completeness		___/2
@@ -99,9 +98,9 @@ P3C	Component Design and Test Plan
 
 	efficiency		___/2
 
+		___	set-up and execution seem reasonable (1pt)
+
 		___	there are not redundant tests
 
 		___	there are no tests for things that don't matter or can't happen
-
-		___	set-up and execution seem reasonable
 

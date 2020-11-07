@@ -28,14 +28,18 @@ In this project, we will complete our implementation prerequisites.
 <P>
 The first two projects were largely team activities.  In the next two projects
 you will do much of your work as individuals, tho with considerable assistance
-from other team members.  Each member of the team will (over the next two projects)
-be responsible for the design and implementation of one piece from your architecture.
+from other team members.
+In this project you will create specifications, designs and testing plans
+for chosen components.
+In the next (and final) project you will execute these plans, building, 
+testing, integrating, and demonstrating working software.
+I suggest that you review the work you will have to do in projects 3 and 4,
+and then give considerable thought to which components (or parts of which
+components) you want to choose.
 Depending on your architecture, these could each be a complete architectural component,
 or small pieces (e.g. an applet or a few classes) from a single architectural component,
-or even from multiple components.</P>
-<P>
-Choose your pieces carefully. You will be required to design and implement
-a significant amount of non-trivial software:
+or even from multiple components:
+</P>
 <UL>
    <li> each of the chosen pieces should be somewhere in the range of 
         100-400 lines of code.</li>
@@ -48,7 +52,7 @@ a significant amount of non-trivial software:
 	white-box test cases.</li>
    <li> each person should be capable of <u>independently</u> building and 
         testing his/her own piece.</li>
-   <li> each of these pieces should be <u>automatically</u> unit-testable in isolation.</li>
+   <li> each of these pieces <u>must</u> be <u>automatically</u> unit-testable.</li>
    <li> when you are done, it <u>should</u> be possible to combine all
 	of these individual pieces together to create a working 
 	(all the pieces working together) and demo-able component.</li>
@@ -98,15 +102,15 @@ design and implementation requirements:
         (e.g. syntax parsing, keyword recognition, validity checking)
 	such processing might qualify as both non-trivial and auto-testable.</li>
    <li> The same might be the case if you have to do signficant processing
-        to filter and transform complex data into a form that is usefully
-	presentable to the intended user.</li>
+        (e.g. turn partial-order pairs into a visual tree) to filter and transform
+	complex data into a form that is usefully presentable to the intended user.</li>
    <li> Some U/I toolkits incorporate unit-testing frameworks, that
         permit user selections to be simulatable (e.g. <tt>click_button("Select File")</tt>)
 	and results (to be displayed) tested by examining object state
 	(e.g. <tt>chosen_file.getText()</tt>).  If your U/I is rich
 	enough in functionality (e.g. several hundered lines of code
 	involving complex widgets and event processing), does much
-	error checking,k and and is thoroughly exercisable with such tools, 
+	error checking, and and is thoroughly exercisable with such tools, 
 	that U/I might qualify as a component for design and implementation
 	in the next phases of the project.</li>
 	<P>
@@ -114,15 +118,6 @@ design and implementation requirements:
 	me before completing your selections and plans.
 	</P>
 </ul>
-</P>
-<P>
-In this project you will create specifications, designs and testing plans
-for the chosen pieces.
-In the next (and final) project you will execute these plans, building, 
-testing, integrating, and demonstrating working software.
-I suggest that you review the work you will have to do in projects 3 and 4,
-and then give considerable thought to which components (or parts of which
-components) you want to choose.
 </P>
 <P>
 The complete specifications for the chosen components are due in the second week
@@ -726,10 +721,23 @@ Your final specification should contain:
 <P>
 This submission be graded on the basis of:
 <ul>
-	<li> 50% discussions of and responses to issues that arose</li>
-	<li> 50% quality of the revised specifications, design and test plan
-	         (using the same criteria as phases B and C)
-	</li>
+	<li> 20% quality and completness of the final specifications,
+	         including responses to issues identified in the
+		 reviews and grading of the earlier versions.</li>
+	<li> 25% quality and completeness of the final design,
+	         including responses to issues identified in the
+		 reviews and grading of the earlier versions.</li>
+	<li> 15% extent to which the final design meets the
+	 	 <em>algorithmically interesting</em> requirement
+		 (you will be implementing a significant amount of
+		 non-trivial code).</li>
+	<li> 25% quality and completeness of the final test plan,
+	         including responses to issues identified in the
+		 reviews and grading of the earlier versions.</li>
+	<li> 15% extent to which the final test plan meets the
+		 requirements for fully automated testability, and 
+		 significant tests based on design/implementation 
+		 rather than interface specifications.</li>
 </ul>
 </P>
 <P>

@@ -14,12 +14,20 @@ P4A Code and Test Suite
 		___	implementation conforms to P3E specification
 
 
-	follows design		___/5
+	follows design		___/4
 
 		____	implementation follows P3E design
 
 
-	code quality		___/5
+	non-triviality		___/4
+
+		____	a significant amount of code that required significant thought
+
+
+		____	clearly demonstrates programming competence
+
+
+	code quality		___/4
 
 		____	use of language/toolkit features
 
@@ -30,7 +38,7 @@ P4A Code and Test Suite
 		____	efficiency
 
 
-	readability		___/5
+	readability		___/4
 
 		____	comments describing module purpose and comments
 
@@ -53,7 +61,7 @@ P4A Code and Test Suite
 		____	use of vertical white space
 
 
-	packaging		___/5
+	packaging		___/4
 
 		____	able to clone and build (without assistance) on appropriate system
 
@@ -63,7 +71,7 @@ P4A Code and Test Suite
 
    Final Test Suite:	___/25
 
-	per plan		___/10
+	per plan		___/5
 	
 		____	implements all test cases described in P3E test plan
 
@@ -74,33 +82,47 @@ P4A Code and Test Suite
 		____	clear indication of what test cases are being run
 
 
+		____	checked-out code passes every test
+
+
+	test case quality	___/4
+
+		____	all test cases thoroughly verify each assertion (2pt)
+
+		____	non-trivial white-box test cases
+
+		____	test cases requiring complex set-up or verification
+
+
+	automation		___/4
+
+		___	test suite can be run witn a single command
+
+
+		___	testing requires no (or only trvial) manual input
+
+
 		____	clear pass/fail indications for each test-case
 
 
 		____	clear pass/fail indications for entire suite
 
 
-		____	checked-out code passes every test
+	code quality		___/4
 
-
-	code quality		___/5
-
-		____	use of language features
-
-
-		____	use of test framework features
+		____	use of language features and test framework features
 
 
 		____	simplicity and clarity (ignoring comments)
 
 
-		____	setup/cleanup
+		____	setup/cleanup (care throgoughness)
 
 
 		____	efficiency
 
 
-	readability		___/5
+	readability		___/4
 
 		____	comments describing purpose and contents of module
 
@@ -108,16 +130,10 @@ P4A Code and Test Suite
 		____	comments describing assertion tested by each test case
 
 
-		____	comments describing non-trivial setup
+		____	comments describing non-trivial setup/non-obvious code
 
 
-		____	comments describing complex or non-obvious code
-
-
-		____	use of horizontal white space
-
-
-		____	use of vertical white space
+		____	use of horizontal and vertical white space
 
 
 	packaging		___/5

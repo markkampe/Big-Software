@@ -11,7 +11,7 @@ P3B	Component Specifications
    Primary authorships:
 
 
-	general:		___/3
+	chosen component:	___/3
 
 		___	appropriateness in size, complexity, testability (0 points of not)
 

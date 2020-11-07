@@ -12,19 +12,24 @@ P3E	Final Design, Test Plan, Post Mortem, and Management
 
 		___	good responses to identified issues (1pt)
 
-		___	quality of the final document (2pt)
+		___	clarity and completness of  final document (2pt)
 
    3E.1 Revised Design:		___/6
 
-		___	good responses to identified issues (3pt)
+		___	good responses to identified issues (2pt)
 
-		___	quality of the final document (3pt)
+		___	clarity and completeness of final document (2pt)
+
+		___	meets size & complexity reqts (2pt)
+
 
    3E.1 Revised Test Plan:	___/6
 
-		___	good responses to identified issues (3pt)
+		___	good responses to identified issues (2pt)
 
-		___	quality of the final document (3pt)
+		___	clarity and completeness of final document (2pt)
+
+		___	meets automation and white-box reqts (2pt)
 
 
 
