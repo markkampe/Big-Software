@@ -8,6 +8,9 @@ P4A Code and Test Suite
 
 	per specification	___/5
 
+		___	compiles and runs w/o error (else zero points)
+
+
 		___	implements all functionality P3E specification
 
 
@@ -73,6 +76,9 @@ P4A Code and Test Suite
 
 	per plan		___/5
 	
+		____	all tests execute correctly (else zero points)
+
+		
 		____	implements all test cases described in P3E test plan
 
 
@@ -81,8 +87,6 @@ P4A Code and Test Suite
 
 		____	clear indication of what test cases are being run
 
-
-		____	checked-out code passes every test
 
 
 	test case quality	___/4
@@ -144,4 +148,4 @@ P4A Code and Test Suite
 		____	any non-standard build environment described in README
 
 
-		____	easily runnable (without assistance)
+		____	easily runnable (without assistance) from instructions
