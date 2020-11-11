@@ -10,41 +10,30 @@ P1B	Competitive Research and Positioning
 		___	identified other products in problem domain
 
 
-
 		___	search seems to have been a thorough one
 
 
+		___	general description of service, target audience, means of accessing
 
-
-	competitive analysis	___/1
+	
+	analysis/description	___/3
 
 		___	shows good understanding of competing products
-			(half credit for adequate, full credit for full and deep)
+			(half credit for adequate, full credit for FULL AND DEEP)
 
 
 		___	clearly described capabilities of competing products
-			(half credit for adequate, full credit for full and clear)
-
-
-
-	descriptions of competition	___/1
-
-		___	general description of service, target audience, means of accessing
-
-
-		___	I gained a reasonable sense of what it does for me and how
-		
-
-
-   	value gained	___/2
+			(half credit for adequate, full credit for FULL AND CLEAR)
 
 		___	meaningful comparison of existing and proposed features
-			(half credit for adequate, full credit for deep and cogent)
-			
+			(half credit for adequate, ful credit for deep and cogent)
 
-		___	identified meaningful ways in which their proposal is better
-			(half credit for adequate, full credit for compelling)
-
+   	value gained	___/1
 
 		___	learned valuable information (about features, approaches, etc)
 			(proposal improved as a result of this research)
+
+		___	identified meaningful ways in which their proposal can be better
+			(half credit for adequate, full credit for compelling)
+
+
