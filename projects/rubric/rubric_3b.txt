@@ -13,16 +13,14 @@ P3B	Component Specifications
 
 	chosen component:	___/3
 
-		___	appropriateness in size, complexity, testability (0 points of not)
+		___	appropriateness in size, complexity, testability (0 points if not)
 
 
 		___	role of this component/module in the overall system is clear
+			(and architectural extensions, if any, are reasonable)
 
 
 		___	component functionality is clear
-
-
-		___	extensions to architecture (if any) are reasonable
 
 
 	requirements:		___/2
@@ -30,26 +28,25 @@ P3B	Component Specifications
 		___	reasonable projection of architectural requirements onto this component
 
 
-		___	all requirements are clear
-
-
-		___	all requirements are measurable
+		___	requirements seem clear, complete, and reasonable
 
 
 	interface specs:	___/5
 
-		___	clear and complete (ready to code) specifications
+		___	clear and complete declarations (including all parameters)
+
+
+		___	clear an complete (ready to code) functionality descriptions
+
+
+		___	spec covers all required public methods/external entry points
+
+
+		___	reasonably abstracted functionality, well chosen parameters
 
 
 		___	interface compliance seems reasonably testable
 
 
-		___	reasonably chosen methods and parameters
-
-
-		___	well abstracted (modularity, cohesion, etc)
-
-
-		___	spec covers all required functionality
 
 
