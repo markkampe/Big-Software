@@ -4,9 +4,7 @@ P3E	Final Design, Test Plan, Post Mortem, and Management
 
    Author:
 
-   Total		___/25
-
-   3E Revisions			___/15
+   3E Revisions			___/20
 
    3E.1 Revised Specifications:	___/3
 
@@ -14,75 +12,23 @@ P3E	Final Design, Test Plan, Post Mortem, and Management
 
 		___	clarity and completness of  final document (2pt)
 
-   3E.1 Revised Design:		___/6
+   3E.1 Revised Design:		___/9
 
-		___	good responses to identified issues (2pt)
+		___	good responses to identified issues (3pt)
+
+		___	meets size & complexity reqts (3pt)
+
+		___	clarity and completeness of final document (3pt)
+
+
+   3E.1 Revised Test Plan:	___/8
+
+		___	good responses to identified issues (3pt)
+
+		___	meets automation and white-box reqts (3pt)
 
 		___	clarity and completeness of final document (2pt)
 
-		___	meets size & complexity reqts (2pt)
-
-
-   3E.1 Revised Test Plan:	___/6
-
-		___	good responses to identified issues (2pt)
-
-		___	clarity and completeness of final document (2pt)
-
-		___	meets automation and white-box reqts (2pt)
 
 
 
-   3E.2 Post Mortem:		___/10
-
-
-	activities		___/5
-
-		___	architectural refinement and specification development
-
-		___	development of component designs
-
-		___	development of component test plans
-
-		___	review process and resulting design changes
-
-		___	planning and on-going management
-
-	
-	issues				___/2
-
-		___	I have reason to believe it includes all significant events
-			and issues that arose (e.g. because of regular updates with
-			the team or having reviewed meeting minutes)
-
-		___	each (non-trivial) issue/experience was reasonably discussed
-
-
-	learning			___/3
-
-		___	they understood why each important problem arose or
-			why things that worked well did so
-
-		___	they assessed the effectiveness of their approaches/responses
-
-		___	they derived some valuable lessons
-
-		___	written from a a positive (learning from our experiences) perspective
-
-
-    Management:			___/5
-
-		___/1	regular status checks reflected in promptly checked-in minutes
-
-
-		___/1	minutes capture surprises/issues and plans to deal with them
-			(including all issues of which you are aware)
-
-
-		___/1	all problems reasonably dealt with
-
-
-		___/1	plans were updated (on GitHub) to deal with challenges
-
-
-    		___/1	work products checked-in according to (updated) plan by assigned user

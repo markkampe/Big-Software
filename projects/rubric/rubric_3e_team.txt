@@ -1,0 +1,42 @@
+P3E	Final Design, Test Plan, Post Mortem
+
+   Author:
+
+   Total		___/30
+
+   3E.2 Post Mortem:		___/10
+
+
+	activities		___/5
+
+		___	architectural refinement and specification development
+
+		___	development of component designs
+
+		___	development of component test plans
+
+		___	review process and resulting design changes
+
+		___	planning and on-going management
+
+	
+	issues				___/2
+
+		___	I have reason to believe it includes all significant events
+			and issues that arose (e.g. because of regular updates with
+			the team or having reviewed meeting minutes)
+
+		___	each (non-trivial) issue/experience was reasonably discussed
+
+
+	learning			___/3
+
+		___	they understood why each important problem arose or
+			why things that worked well did so
+
+		___	they assessed the effectiveness of their approaches/responses
+
+		___	they derived some valuable lessons
+
+		___	written from a a positive (learning from our experiences) perspective
+
