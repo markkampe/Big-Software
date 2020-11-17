@@ -4,15 +4,15 @@ P3E	Final Design, Test Plan
 
    Author:
 
-   3E Revisions			___/20
+   3E.1 Revisions		___/20
 
-   3E.1 Revised Specifications:	___/3
+   3E.1A Revised Specifications: ___/3
 
 		___	good responses to identified issues (1pt)
 
 		___	clarity and completness of  final document (2pt)
 
-   3E.1 Revised Design:		___/9
+   3E.1B Revised Design:	___/9
 
 		___	good responses to identified issues (3pt)
 
@@ -21,7 +21,7 @@ P3E	Final Design, Test Plan
 		___	clarity and completeness of final document (3pt)
 
 
-   3E.1 Revised Test Plan:	___/8
+   3E.1C Revised Test Plan:	___/8
 
 		___	good responses to identified issues (3pt)
 
