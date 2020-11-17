@@ -1,11 +1,10 @@
 P3E	Final Design, Test Plan, Post Mortem
 
-   Author:
-
    Total		___/30
 
    3E.2 Post Mortem:		___/10
 
+	author:
 
 	activities		___/5
 
