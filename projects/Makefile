@@ -4,8 +4,8 @@ INCLUDES=/home/git/CourseWare/Website
 
 SCHOOL=HMC
 COURSE=SWE
-MONTH=9
-YEAR=2020
+MONTH=1
+YEAR=2021
 
 projects.html: projects.c $(INTERMEDIATES)
 	gcc -I$(INCLUDES) -E -DSWE -DYEAR=$(YEAR) -DMONTH=$(MONTH) -D$(SCHOOL) -w projects.c | grep -v '^# ' > $@
