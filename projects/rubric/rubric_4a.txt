@@ -43,7 +43,7 @@ P4A Code and Test Suite
 
 	readability		___/4
 
-		____	comments describing module purpose and comments
+		____	comments describing module purpose and contents
 
 
 		____	comments describing purpose of each method
