@@ -20,13 +20,13 @@ It is my intention that this course will develop:
 Logistical Details
 
    All lecture and lab sessions will be conducted remotely, via Zoom:
-      https://hmc-cs.zoom.us/j/93895586571
+      https://hmc-edu.zoom.us/j/93895586571?pwd=bUlYNlRGT2ZRajRtY0tKU0gxK3QwZz09
 
    Course web-site (syllabus, schedule, readings, assignments, slides):
-      https://www.cs.hmc.edu/courses/2020/fall/cs121s1
+      https://www.cs.hmc.edu/courses/2021/spring/cs181aa
 
    Course Piazza site (resources and on-line discussions):
-      https://piazza.com/claremont/fall2020/hmcsci1211fa20/home
+      https://piazza.com/claremont/spring2021/hmcsci181aa1sp21/home
      
    Project submission, quizzes and feedback are through Sakai:
       https://sakai.claremont.edu/portal
