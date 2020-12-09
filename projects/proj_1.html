@@ -40,7 +40,7 @@ the completed effort.
 <P>
 You are to form into small (idealy 4 person) teams and come up
 with a concept for a new or improved software product.  
-You will spend the next month developing that concept into
+You will spend the next few weeks developing that concept into
 a proposal.
 </P>
 
@@ -148,9 +148,37 @@ for why you believe it to be:
 In order to exercise a full range of software engineering skills
 (e.g. competitive analysis, requirements, research and prototyping,
 architecture, etc), the project you propose must be a fairly large one.
-Most acceptable proposals are too large to be implemented by four people 
+Many acceptable proposals are too large to be implemented by four people 
 in one semester.  Fortunately you will only be required to implement
 a few pieces of the whole product.
+</P>
+<P>
+In choosing your project, make sure that it is one that will enable you
+to meet all of the future requirements.  Your project must ...
+<OL>
+    <LI> be a software development project (designing and implementing
+         a moderately large amount of code).  A research project, or working with
+	 existing code will not do.</li>
+    <LI> be in a space where there is some existing software that you
+         can research, and against which you can position your proposal.</li>
+    <LI> have potential users from whom you can gather (a few pages of)
+         functional requirements.</li>
+    <LI> require some architecture ... typically this means four or more 
+    	distinct functional components (other than the platform on which they execute)
+	for which you can specify functionality, interfaces, and the means in which
+	they interact to provide the desired service.
+	Whether these components interact via calls, client-server protocols,
+	or through shared data is entirely up to you.
+	It is acceptable if one or two of these components already exist 
+	(e.g. in standard toolkits or services) ...  but you must design the
+	architecture.
+	Creating a new plug-in for an existing architecture is unlikely this
+	requirement</li>
+    <LI> have multiple (e.g. at least one per person) moderately large 
+      	and complex (e.g. a few hundred lines of non-simple code) components
+	that you are capable of building, testing, and combining to yield
+	demonstratable product functionality.</li>
+</OL>
 </P>
 <P>
 Your initial concept will be graded on the basis of:
@@ -208,7 +236,8 @@ are regular communication, and continuous comparison
 A good management plan will include regular (e.g. daily) status checks:
 <ul>
     <li> status updates, new realizations, and other discussion topics should 
-    	 be recorded in a file (e.g. <tt>minutes.txt</tt>) in your repo.</li>
+    	 be recorded in a file (e.g. <tt>minutes.txt</tt> in your repo
+	 or in a Google Doc with history).</li>
     <li> As problems are recognized and you respond to to unanticipated events, 
     	 you will have to revise your plan to deal with them.  
 	 Your plan too should also be maintained a a file
@@ -218,8 +247,8 @@ A good management plan will include regular (e.g. daily) status checks:
 	 also be documented.</li>
 </ul>
 <P>
-You can prepare and submit this plan in any form you like, but the sort
-of information I had in mind was:
+You can prepare and submit this plan in any form you like
+(e.g. perhaps a Google Sheet), but the sort of information I had in mind was:
 
 <P>
 <TABLE align="center" border="1" cellpadding="5" cellspacing="0">
@@ -299,8 +328,7 @@ and we will be reviewing this history.
 When you are ready to submit them for grading:
 <ul>
     <li> prepare your proposal (ideally ASCII text in a file named <tt>concept_1a.txt</tt>)</li>
-    <li> prepare your management plan (<tt>management_1a.xxx</tt>, 
-         where <tt>xxx</tt> is a format appropriate suffix)</li>
+    <li> prepare your management plan (<tt>management_1a.txt</tt></li>
     <li> put a <a href="#submission">standard submission prologue</a> on the front of each file</li>
     <li> up-load them for submission (only one person on the team needs to do this)</li>
 </ul>
@@ -323,6 +351,8 @@ products that are already available:
 Do research to identify existing products in your space
 (or the closest existing products to a new space),
 their capabilities, strengths, and weaknesses.
+The existing products might be commercial products, 
+private projects, or open source efforts.
 Identify <strong>multiple</strong> ways in which you could 
 significantly improve on these products.  
 (if you cannot significantly improve on existing products, 
@@ -338,7 +368,7 @@ Write up a brief description of the existing products,
 how they arose, how they are used,
 and notes on their key strengths and weaknesses.
 Note the (positive or negative) lessons you can learn 
-(about either features or implementation)
+(about either <em>features</em> or <em>implementation approaches</em>)
 from each of these products.
 Write up a list of feasible and valuable improvements that you
 could reasonably make in a new product, and briefly justify 
@@ -406,9 +436,8 @@ Brainstorm on your product concept and discuss the capabilities of
 existing products to get ideas for what your product should
 be able to do.
 <br>
-Identify different types of users who might have different
-needs, and then identify capabilities, characteristics,
-and/or use cases for each.  
+Identify different types of users (who might have different needs)
+and then identify capabilities, characteristics, and/or use cases for each.  
 </P>
 <P>
 The specific form in which you choose to represent these
@@ -427,8 +456,9 @@ Your preliminary requrements document should include:
 <ul>
     <li> the various types of people who might want to use your product.</li>
     <li> the goals that each user would have.</li>
-    <li> the needs, expectations, and abilities (e.g. skills, computer experience)
-         different types of users would bring.</li>
+    <li> the needs (features they require in order for the product to be useful),
+         expectations (features that will make the product more attractive to them),
+	 and abilities (e.g. skills, computer experience) different types of users would bring.</li>
     <li> the types of users to which you feel best able to respond</li>
     <li> the requirements you think your product would need to meet to satisfy those customers</li>
 </ul>
@@ -603,6 +633,7 @@ This report should include:
 	affirming, refuting, or changing them.</li>
     <li>Any other useful results gained from the meeting.</li>
 </ul>
+thether you choose to list the requirements
 </P>
 <P>
 This report will be graded on the basis of:
@@ -623,6 +654,7 @@ When you are ready to submit your elicitation report for grading:
 </P>
 
 <P>
+The elicitation report is <em>raw input</em> to the requirements development process.
 The characteristics of good requirements are discussed in both
 the reading and the lecture on requirements.  Starting with
 your initial (brain-stormed) requirements:
@@ -664,8 +696,11 @@ Based on the results of your requirements analysis, prepare a priority
 ordered list of product requirements.  For each, list:
 <ul>
 	<li> the stated requirement</li>
-	<li> its priority, and your justification for that determination</li>
-	<li> its difficulty, and your basis for that assessment</li>
+	<li> its priority, and your justification for that determination
+	     (e.g. your confideince that it is needed by many users,
+	     and why you believe that priority is the correct one).
+	     </li>
+	<li> its difficulty (to implement), and your basis for that assessment</li>
 	<li> your confidence in that requirement, and where it came from</li>
 </ul>
 </P>
