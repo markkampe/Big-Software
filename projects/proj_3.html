@@ -28,7 +28,7 @@ In this project, we will complete our implementation prerequisites.
 <P>
 The first two projects were largely team activities.  In the next two projects
 you will do much of your work as individuals, tho with considerable assistance
-from other team members.
+and collaboration from other team members.
 In this project you will create specifications, designs and testing plans
 for chosen components.
 In the next (and final) project you will execute these plans, building, 
@@ -49,7 +49,8 @@ or even from multiple components:
 	</li>
    <li> each chosen piece <u>must</u> have sufficiently complex behavior to require
    	a significant number of test cases ... including several
-	white-box test cases.</li>
+	white-box test cases (that go beyond simple verification vs interface
+	specifications).</li>
    <li> each person should be capable of <u>independently</u> building and 
         testing his/her own piece.</li>
    <li> each of these pieces <u>must</u> be <u>automatically</u> unit-testable.</li>
@@ -99,7 +100,8 @@ But this does not mean that it is impossible for U/I components to satisfy the
 design and implementation requirements:
 <ul>
    <li> If your U/I component does significant analysis of the input
-        (e.g. syntax parsing, keyword recognition, validity checking)
+        (e.g. syntax parsing, keyword recognition, validity checking,
+	carrying out complex request protocols)
 	such processing might qualify as both non-trivial and auto-testable.</li>
    <li> The same might be the case if you have to do signficant processing
         (e.g. turn partial-order pairs into a visual tree) to filter and transform
@@ -125,8 +127,20 @@ of this project ... but you would be well advised to start defining the interfac
 that you will be exporting for use by other team members this week.
 These interfaces represent critical inter-dependencies between otherwise individual
 development efforts, and must be negotiated between the producers and consumers.
-Sketching out those interfaces up-front will make it much easier to pursue your
-(individual component) specification and design activities next week.
+<ol type="a">
+   <li>	Sketching out those interfaces up-front will make it much easier to pursue your
+	(individual component) specification and design activities next week.</li>
+   <li> As you pursue your own designs, you will likely come to a better understanding
+        of what functionality (and interfaces) you need from the other components with
+	which you interact.</li>
+</ol>
+Thus, component interfaces must be well specified before you begin your detailed designs,
+but it is quite likely that those interfaces will change as a result of understandings
+gained in the process of doing those detailed designs.
+Even though detailed designs are not due until the next phase, you should already have
+some pretty good ideas about how each component will be implemented.  If not, you may
+have specified something that cannot be built ... and all of the work done based on
+that specification may wind up being thrown away.
 </P>
 <P>
 There are multiple phases to this project, each of which has its
@@ -457,11 +471,14 @@ that it actually works.
    <LI>
 	Review your specifications, and develop a set of automated comprehensive
 	(black box) test cases to determine whether or not your component meets 
-	its interface requirements and specifications.</li> <LI>
+	its interface requirements and specifications.</li>
+	
+    <LI>
 	Review your design, and consider any possible/plausible component
 	misbehavior that would not be detected by the the above-described
-	acceptance tests.  If you find such, define additional
-	(white box) test cases to exercise and validate those behaviors.
+	specification-based acceptance tests.
+	If you find such, define additional (white box) test cases to exercise
+	and validate those behaviors.
 	</li>
    <LI>
 	Consider your component's interfaces and all of the above test
