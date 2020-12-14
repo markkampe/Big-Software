@@ -14,6 +14,8 @@ P4D	Post Mortem
 
 		___	test driven development
 
+		___	integration
+
 		___	preparation and delivery of the demo
 
 	
@@ -24,6 +26,8 @@ P4D	Post Mortem
 		___	issues/lessons about code reviews
 
 		___	issues/lessons about test driven development
+
+		___	issues/lessons from integration
 
 		___	issues/lessons in planning the demo
 
