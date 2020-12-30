@@ -13,7 +13,7 @@ P1C.3	Requirements Elicitation
 
 	context establishment	___/5
 
-		___	a sense of what proposed product will do
+		___	a sense of what proposed product form, purpose and use (3)
 
 
 		___	a sense of why they might be interested in it
