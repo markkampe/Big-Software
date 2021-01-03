@@ -68,7 +68,7 @@ P1D	Final Proposal, Post Mortem, and Management
 
 	activities			___/5
 
-		___	includes initial planning
+		___	includes definition and initial planning
 
 		___	includes competitive research
 
