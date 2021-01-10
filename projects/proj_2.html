@@ -186,7 +186,7 @@ the described system is buildable and likely to work:
    <LI>	the described assembly of components is capable
 	of delivering the required functionality.</li>
    <LI> each of the described components is 
-	reasonably implementable.</li>
+	well defined and reasonably implementable.</li>
    <LI> the described interfaces are reasonably abstracted
 	(understandable and convenient) from the clients' 
 	perspective.</li>
@@ -217,7 +217,6 @@ The most relevant (for this project) sections from his presentation are probably
    <li>Program Organization</li>
    <li>Major Classes</li>
    <li>Data Design</li>
-   <li>User Interface Design</li>
    <li>Architectural Feasibility</li>
    <li>Buy-vs-Build and Reuse Decisions</li>
    <li>General Architectural Quality</li>
@@ -239,31 +238,24 @@ The goal of these investigations is not to fully design the
 major components, but merely to present a compelling argument 
 for the "feasibility" of the proposed component descriptions:
 <UL>
-   <LI>	Where stable off the shelf technology is available, this may
-	require no more work than confirming that the the available
-	technology supports the required interfaces and functionality.</li>
+   <LI>	Where familiar off the shelf technology is available,
+   	this may require no more than a brief description of its
+	capabilities and how it will be used.</li>
 
-   <LI> Where newer technology is available, it may be appropriate
-	to do a little more research (and/or prototyping) to 
-	confirm its usability and suitability for the proposed
-	problem.</li>
-
-   <LI>	Where new components must be constructed, it may still
-	be possible to use much off-the-shelf technology ... in
-	which case the design may be little more than showing how
-	existing components can be combined to achieve the required
-	functionality.</li>
+   <LI> Where <u>newer or unfamiliar</u> technology
+   	(e.g. langauge, API, tool kit or service) is chosen, it may be
+	necessary to do a further research (and/or prototyping) to 
+	<u>confirm its usability and suitability</u>
+	for its proposed role in the project.</li>
 
    <LI>	For new components that must be constructed from scratch,
-	it is common to construct a high level design ... with just
+	it is common to construct a high level design ... with
 	enough detail to convince ourselves that such a component
 	is buildable, and unlikely to involve any "hard" problems.</li>
 </UL>
-</P>
-<P>
-You don't want your architecture to turn into a complete top-down
+YOur architecture need not result in a complete top-down
 design for the whole system.  A component analysis only needs to be
-complete enough to convince the reviewers that the most of the 
+complete enough to convince the reviewers that the major
 likely problems have been identified, and are all likely to be solveable.
 Every major component should be analyzed to this "feasibility" level.
 Each member of the team should take ownership of the analysis
@@ -282,6 +274,14 @@ In the unlikely situation that you have more people than
 interesting components, 
 sub-divide your major components to create more pieces or find a
 problem that requires further analysis or prototyping.
+</P>
+<P>
+Please be aware that if you gloss over problems in this phase,
+you may find that those problems make it impossible to complete
+the subsequent design and implementation phases of this project.
+Architectural investigation, design and validation are critical prerequisites;
+Treat them like <em>a matter of life and death</em> ...
+because for a non-trivial software project, they often are.
 </P>
 <P>
 <strong>Your architectural description should include:</strong>
@@ -332,6 +332,16 @@ the feasibility of implementing each major component:
 	for the architectural description.</li>
 </UL>
 </P>
+<P>
+You may want to sketch out parts of the user interface
+(e.g. screens, web pages, operations and navigational options)
+to guide your definition of required functionality.
+These may be a key foundation for the architecture that
+will implement them, and valuable background for reviewers
+of that architecture.
+But <u>these are not software architecture, and will not satisfy
+the requirements for either the preliminary or final architecture</u>.
+</P>
 <H4>Getting Started and Early Feedback</H4>
 <P>
 To help you through the most difficult parts of this process, we suggest
@@ -359,7 +369,7 @@ winds up being thrown away, and does not enable you to move forward.
 </P>
 <H4>Describing an Architecture</H4>
 <P>
-There is an old stereotype that scientists and engineers tend not to be good writers.
+There is a stereotype that scientists and engineers tend not to be good writers.
 To the extent there is any truth in this sterotype, it is strange and tragic ...
 because story-telling is fundamental to what all researchers and engineers do.
 They may spend much of their time doing experiments, models, and designs, but

@@ -48,13 +48,13 @@ P2A	Plan and Preliminary Architecture
 		___	an enumeration of the key S/W components (not the U/I)
 
 
-		___	a description of their roles and interactions
+		___	a description of their roles and interactions (not U/I)
 
 
-		___	diagrams of component relationships and/or operational context
+		___	diagrams of component relationships and/or operational context (not U/I)
 
 
-		___	diagrams illustrating inter-component and external interfaces
+		___	diagrams illustrating inter-component and external interfaces (not U/I)
 
 
 	specifications:		___/3
@@ -82,27 +82,28 @@ P2A	Plan and Preliminary Architecture
 			(full credit: all major non-obvious decisons are covered)
 
 
-		___	reasonable justification for each non-obvious  decision
+		___	reasonable justification for each non-obvious decision
+			(no points if none presented)
 
 
 
 	issues:			___/2
 
 
-		___	covers all obvious what/how concerns
+		___	covers ALL obvious what/how concerns
 
 
-		___	reasonable/adequate analysis and research
+		___	reasonable/adequate analysis and research (for each issue)
 
 
-		___	a reasonable plan for addressing each issue
+		___	a reasonable plan for addressing each issue (for each issue)
 
 
 
 	prototyping/research:	___/2
 
 		___	reasonable decisions about what required prototyping
-			(key risks were investigated)
+			(all significant risks, including new tools, were investigated)
 
 		___	reasonable investigations (clear goals, adequate, but not too much)
 
@@ -124,9 +125,11 @@ P2A	Plan and Preliminary Architecture
 
 		
 		___	reasonable uses of off-the-shelf tools and components
+			(with adequate investigation of adequacy and usability)
 
 
 		___	clear results presented
+			(complete and compelling)
 
 
 	overall impressions:	___/4
