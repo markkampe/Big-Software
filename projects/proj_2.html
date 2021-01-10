@@ -253,7 +253,7 @@ for the "feasibility" of the proposed component descriptions:
 	enough detail to convince ourselves that such a component
 	is buildable, and unlikely to involve any "hard" problems.</li>
 </UL>
-YOur architecture need not result in a complete top-down
+Your architecture need not result in a complete top-down
 design for the whole system.  A component analysis only needs to be
 complete enough to convince the reviewers that the major
 likely problems have been identified, and are all likely to be solveable.
@@ -275,14 +275,29 @@ interesting components,
 sub-divide your major components to create more pieces or find a
 problem that requires further analysis or prototyping.
 </P>
-<P>
-Please be aware that if you gloss over problems in this phase,
-you may find that those problems make it impossible to complete
-the subsequent design and implementation phases of this project.
-Architectural investigation, design and validation are critical prerequisites;
-Treat them like <em>a matter of life and death</em> ...
-because for a non-trivial software project, they often are.
-</P>
+<h4>NOTES ON INVESTIGATIONS</h4>
+<ul>
+    <li> Please be aware that if you gloss over problems in this phase,
+	you may find that those problems make it impossible to complete
+	the subsequent design and implementation phases of this project.
+	Architectural investigation, design and validation are critical prerequisites;
+	Treat them like <em>a matter of life and death</em> ...
+	because for a non-trivial software project, they often are.
+	</li>
+   <li>	It is quite possible that you will not be able to complete all
+   	of the required investigations and protyping in a single week.
+	<OL type="a">
+	   <li> if this proves to be the case, it is a confirmation
+	   	of the signifcant risk associated with those issues,
+		and of the criticality of deeper investigation.</li>
+	   <li> you should define the problems to be investigated
+	   	as part of this submission, but those investigations
+		do not need to be completed until you submit your
+		final architecture.</li>
+	</OL>
+	</li>
+</ul>
+
 <P>
 <strong>Your architectural description should include:</strong>
 <UL>
@@ -418,7 +433,7 @@ There are a few reasons for this:
    <LI> Figuring out the best way to tell the story is far more important
         (and often more difficult) than telling it.  
 	Once you have the right outline for your story, 
-	drawing the pictures and writing the prose should be relatively straight forward.</li>
+	drawing the pictures and writing the prose are relatively straight forward.</li>
 </UL>
 </P>
 <P>
@@ -440,16 +455,9 @@ Your preliminary architecture will be graded on the basis of
 	     <ul>
 		<li> completeness/clarity of functional descriptions 
 		     (of the proposed implementation)</li>
-		<li> completeness/clarity of interface descriptions</li>
-		<li> completeness/clarity of component requirements</li>
-		<li> adequacy of this spec to guide implementation</li>
-	     </ul>
-	     </li>
-	<li>  10% architectural rationale<br>
-	     <ul>
-		<li> how well it captures the issues that drove the architecture </li>
-		<li> how well it justifies the responses to those issues</li>
-		<li> clarity and soundness of the analysis and rationale</li>
+		<li> completeness/clarity of S/W interface descriptions</li>
+		<li> completeness/clarity of S/W component requirements</li>
+		<li> adequacy of this spec to guide future design and implementation</li>
 	     </ul>
 	     </li>
 	<li> 10% issue recognition and understanding<br>
@@ -460,9 +468,16 @@ Your preliminary architecture will be graded on the basis of
 		<li> insightfulness of propsed solutions</li>
 	     </ul>
 	     </li>
+	<li>  10% architectural rationale<br>
+	     <ul>
+		<li> how well it captures the issues that drove or challenged the architecture </li>
+		<li> how well it justifies the responses to those issues</li>
+		<li> clarity and soundness of the analysis and rationale</li>
+	     </ul>
+	     </li>
 	<li> 10% component design analyses<br>
 	     <ul>
-		<li> covers all non-trivial components</li>
+		<li> covers all non-trivial components (screen descriptions don't count)</li>
 		<li> how clear it is that your component can be implemented</li>
 		<li> how reasonable the proposed implementation is</li>
 		<li> good use of off-the-shelf tools and existing technologies</li>
@@ -474,7 +489,7 @@ Your preliminary architecture will be graded on the basis of
 	     </li>
 	<li> 10% prototypes and practical investigations<br>
 	     <ul>
-		<li> is this indeed an important question to investigate</li>
+		<li> are all key risks identified and targeted for investigatin</li>
 		<li> does this investigation have clear and appropriate goals</li>
 		<li> reasonablness of the planned investigation</li>
 		<li> quality of the implementation of that plan</li>
