@@ -1,59 +1,34 @@
-P3D	Design and Test Plan Review
+P3D	Final Design, Test Plan
 
    Component:
 
-   Participants:
+   Author:
 
-   Total Score:			___/15
+   3D.1 Revisions		___/20
 
-    Pre-Review Notes		___/10
+   3D.1A Revised Specifications: ___/3
 
-	Author:
+		___	good responses to identified issues (1pt)
 
-	on-time submission	___/4
+		___	clarity and completness of  final document (2pt)
 
-	technical quality	___/4
+   3D.1B Revised Design:	___/9
 
-		___	depth of design study/understanding to which they testify
+		___	good responses to identified issues (3pt)
 
-		___	depth of test-plan study/understanding to which they testify
+		___	meets size & complexity reqts (3pt)
 
-		___	clarity of issues (not expecting complete sentences)
-
-		___	importance/value of observations
+		___	clarity and completeness of final document (3pt)
 
 
-	preparation		___/2
+   3D.1C Revised Test Plan:	___/8
 
-		___	reasonably articulated and organized for discussion
+		___	good responses to identified issues (3pt)
 
-		___	all issues appropriate to design or test-plan review
+		___	meets automation and white-box reqts (3pt)
 
-
-
-    Design/Test Review Report	___/5
-
-	Author:
-
-	completeness		___/4
-
-		___	all significant raised issues are discussed
+		___	clarity and completeness of final document (2pt)
 
 
-		___	each issue has a disposition/resolution
 
 
-		(this need not be prose, but it should be a good list)
-
-
-	form/expression		___/1
-
-		___	date, time, attendees
-
-		___	reasonably organized (e.g. temporal, structural, ...)
- 
-
-		___	all issues clearly expressed
-
-
-		___	all constructive and within scope

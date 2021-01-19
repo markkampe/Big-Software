@@ -9,8 +9,12 @@ Specifications, Design and Review
 </h1>
 </center>
 
-<P>
 <H2>Introduction</h2>
+<P>
+Thus far, most of your work has been team activities.  Moving forward,
+you will do much of your work as individuals, tho still with considerable 
+coordination, collaboration, and assistance from other team members.
+</P>
 <P>
 The architecture has described the roles, functionality, and interfaces of each of
 the key components in our system.  A few components may be simple enough
@@ -26,12 +30,9 @@ component we need to make sure that:
 In this project, we will complete our implementation prerequisites.
 </P>
 <P>
-The first two projects were largely team activities.  In the next two projects
-you will do much of your work as individuals, tho with considerable assistance
-and collaboration from other team members.
-In this project you will create specifications, designs and testing plans
+In this phase you will create specifications, designs and testing plans
 for chosen components.
-In the next (and final) project you will execute these plans, building, 
+In the next (and final) phase you will execute these plans, building, 
 testing, integrating, and demonstrating working software.
 I suggest that you review the work you will have to do in projects 3 and 4,
 and then give considerable thought to which components (or parts of which
@@ -45,15 +46,15 @@ or even from multiple components:
         100-400 lines of code.</li>
    <li> each chosen piece <u>must</u> implement an <em>algorithmically interesting</em>
 	(much more than initializers, mutators, accessors, and routines that
-	pass a request on to another service) program, module, or class;
+	pass a request on to another service) program, module, or class.
 	</li>
    <li> each chosen piece <u>must</u> have sufficiently complex behavior to require
    	a significant number of test cases ... including several
 	white-box test cases (that go beyond simple verification vs interface
 	specifications).</li>
    <li> each person should be capable of <u>independently</u> building and 
-        testing his/her own piece.</li>
-   <li> each of these pieces <u>must</u> be <u>automatically</u> unit-testable.</li>
+        testing his/her chosen piece.</li>
+   <li> each of these pieces <u>must be automatically</u> unit-testable.</li>
    <li> when you are done, it <u>should</u> be possible to combine all
 	of these individual pieces together to create a working 
 	(all the pieces working together) and demo-able component.</li>
@@ -61,17 +62,17 @@ or even from multiple components:
 Note, however, that you are each implementing only one (or a few) module(s) ...
 just enough to require a reasonable amount of design and coding work, and 
 a modest number of test cases.  It is not required that the sum of these 
-modules must add up to your proposed product.
-Neither must each of you implement a single complete architectural component:
+modules must add up to the whole of your proposed product.
+Neither must each of you implement a <u>single complete</u> architectural component:
 <ul>
     <li> if a single component in your architecture is likely to be
     	 on the order of 400-800 lines of code, you can break it
-	 up into multiple classes, and implement only a single class.</li>
+	 up into multiple classes, and implement only a few of them.</li>
     <li> if you very much want to implement a component that is too simple
          (because of the value it adds to your program), you
     	 may need to choose multiple components to implement.  But if
 	 none of those components meet the complexity and test case
-	 requirements, you still may not be able to earn full credit
+	 requirements, you may have trouble earning full credit
 	 in projects 3 and 4.
 	 </li>
 </ul>
@@ -82,7 +83,8 @@ please talk to me or your grutor before finalizing your decisions.
 <P>
 Your pieces can be implemented in any appropriate language or combination of languages, 
 and use any tool-kits or middle-ware you find convenient ... but it must be 
-compilable/executable code with some algorithmic complexity (not U/I widgets, data, HTML or images),
+compilable/executable code with some algorithmic complexity
+(much more than U/I widgets, data, HTML or images),
 and must be accompanied by a fully automated unit test suite.
 </P>
 <P>
@@ -92,9 +94,11 @@ The warning about choosing U/I components is based on two concerns:
 	so simple that it is commonly assigned as a project in introductory
 	programming classes.</li>
    <li> If the primary inputs to your component are touches/clicks,
-        and your primary outputs are pixels on the screen (a) it may be 
-	very difficult to create an automated unit-test suite and (b)
-	most of the code being tested is not yours, but the GUI tool kit.</li>
+        and your primary outputs are pixels on the screen
+	<ol type="a">
+	    <li>it may be difficult to create a comprehensive automated unit-test suite</li>
+	    <li> most of the code being tested is not yours, but the GUI tool kit.</li>
+	</ol>
 </ol>
 But this does not mean that it is impossible for U/I components to satisfy the
 design and implementation requirements:
@@ -104,32 +108,32 @@ design and implementation requirements:
 	carrying out complex request protocols)
 	such processing might qualify as both non-trivial and auto-testable.</li>
    <li> The same might be the case if you have to do signficant processing
-        (e.g. turn partial-order pairs into a visual tree) to filter and transform
+        (e.g. turn partially-ordered pairs into a visual tree) to filter and transform
 	complex data into a form that is usefully presentable to the intended user.</li>
    <li> Some U/I toolkits incorporate unit-testing frameworks, that
         permit user selections to be simulatable (e.g. <tt>click_button("Select File")</tt>)
 	and results (to be displayed) tested by examining object state
-	(e.g. <tt>chosen_file.getText()</tt>).  If your U/I is rich
-	enough in functionality (e.g. several hundered lines of code
-	involving complex widgets and event processing), does much
-	error checking, and and is thoroughly exercisable with such tools, 
-	that U/I might qualify as a component for design and implementation
-	in the next phases of the project.</li>
-	<P>
-	If you believe you have a U/I component that would qualify, review it with
-	me before completing your selections and plans.
-	</P>
+	(e.g. <tt>chosen_file.getText()</tt>).</li>
 </ul>
+If your U/I is rich
+enough in functionality (e.g. several hundered lines of code
+involving complex widgets and event processing), does much
+error checking, and and is thoroughly exercisable with such tools, 
+it could easily qualify as a component for design and implementation
+in the next phases of the project.
+If you believe you have a U/I component that would qualify, review it with
+me before completing your selections and plans.
+</P>
 </P>
 <P>
-The complete specifications for the chosen components are due in the second week
-of this project ... but you would be well advised to start defining the interfaces
-that you will be exporting for use by other team members this week.
+The first draft designs and test plans for the chosen components are due in the second week
+of this project ... but you will be defining the interfaces
+you will be exporting for use by other team members this week.
 These interfaces represent critical inter-dependencies between otherwise individual
 development efforts, and must be negotiated between the producers and consumers.
 <ol type="a">
-   <li>	Sketching out those interfaces up-front will make it much easier to pursue your
-	(individual component) specification and design activities next week.</li>
+   <li>	Sketching out and discussing those interfaces up-front will make it much easier
+   	to pursue your (individual component) design activities next week.</li>
    <li> As you pursue your own designs, you will likely come to a better understanding
         of what functionality (and interfaces) you need from the other components with
 	which you interact.</li>
@@ -139,8 +143,8 @@ but it is quite likely that those interfaces will change as a result of understa
 gained in the process of doing those detailed designs.
 Even though detailed designs are not due until the next phase, you should already have
 some pretty good ideas about how each component will be implemented.  If not, you may
-have specified something that cannot be built ... and all of the work done based on
-that specification may wind up being thrown away.
+find that you have specified something that cannot be built ... 
+and all of the work done based on that specification may wind up being thrown away.
 </P>
 <P>
 There are multiple phases to this project, each of which has its
@@ -207,24 +211,46 @@ own goals, processes, and deliverables (most of which are individual rather than
 <H2>P3A.1 Plan</h2>
 </a>
 <P>
-The amount of work required to refine your architecture to the point that
-it is possible to identify and specify your chosen components will vary
-greatly from one team/product to the next, and I would encourage you to get
-this behind you as quickly as possible.  Once you have a sense of what
-the chosen components are, you should have a pretty good idea of how much
-work it will be to do the designs and test plans.  You should, however,
-leave yourself ample time for discovering issues in the review process
-and making the required changes.
-</P>
-<P>
 Perhaps the most important part of your plan is which components or classes
 each of you will implement.
 But each team will prepare a task-breakdown, identify the dependency relationships between
 tasks (and components), and owners for each sub-task, assign due-dates, and schedule regular reviews
 of both work-products and progress (to enable adequate time to deal with the
 <u>problems that will arise</u>).  
-A good management plan will include regular (e.g. daily) status checks, whose
-results should be recorded in a <tt>minutes.txt</tt> file in your repo.
+</P>
+<P>
+Most of the work involved in creating your specifications, designs, and test
+plans will be individual.  But team-mates will still have significant
+dependencies on one another:
+<ul>
+   <li> the specifications (and changes to them) must
+	be agreed upon by the producers and consumers.</li>
+   <li> the design reviews must be accomplished within
+   	a short period of time, which means that reviewers
+	must be lined up in advance and the documents to
+	be reviewed must be in good form prior to the 
+	scheduled review dates.</li>
+</ul>
+Even though much of this work will be done individually, 
+the team must agree on (and meet) a schedule for when
+materials will be ready and reviews will happen.
+A slip in one person's schedule may cause delays for
+team-mates who are depending on those results.
+One of the advantages of team activities is that
+regular meetings (e.g. <em>daily stand-ups</em>) keep
+us on schedule.
+Thus, you are encouraged to continue having regular status
+updates and to maintain a <tt>minutes.txt</tt> file (in your repo or GoogleDocs).
+</P>
+<P>
+The amount of work required to refine your architecture to the point that
+it is possible to identify and specify your chosen components will vary
+greatly from one team/product to the next, and I would encourage you to get
+this behind you as quickly as possible.  Once you have a sense of what
+the chosen components are, you should have a pretty good idea of how much
+work it will be to do the designs and test plans.  You should, however,
+leave yourself ample time for discovering issues with the chosen components,
+the initial designs, and making the required changes.
 </P>
 <P>
 As your understanding of the problem
@@ -251,7 +277,7 @@ You will probably be updating them daily, and we will be reviewing this history.
 <P>
 When you are ready to submit your plan for grading:
 <ul>
-    <li> prepare your management plan (<tt>management_3a.???)</tt></li>
+    <li> prepare your management plan (<tt>management_3a</tt> with an appropriate suffix)</li>
     <li> put a <a href="#submission">standard submission prologue</a> on the front of it</li>
     <li> up-load it for submission (each person must submit his/her own plan)</li>
 </ul>
@@ -288,7 +314,7 @@ To prepare a specifications, you will:
   <li> determine the requirements to be imposed on each of the component(s) to
       	be designed, based on the product requirements 
 	and the components' roles in the overall architecture.</li>
-  <li> define the all external interfaces/public methods (in both directions)
+  <li> enumerate all of the external interfaces/public methods (in both directions)
    	between the component(s) to be designed and the rest of the system.</li>
   <li> write a <u>complete specification</u> (both form and function,
        detailed enough to define acceptance criteria)
@@ -311,7 +337,7 @@ In this case, we are asking you to describe
 	    <li>the (exact) name of the method</li>
 	    <li>the name, type, and meaning of each parameter,
 	        and any validity assertions that might apply to it</li>
-	    <li>everything (at the functionality level) that is expected to
+	    <li>a functional description of everything that is expected to
 	        happen as a result of having called this method</li>
 	    <li>the type(s) and meaning(s) of the return value(s)</li>
 	</ul>
@@ -335,6 +361,16 @@ functionality.  But it is likely that, as a result of its role in the overall ar
 and the things that other components need it to do, there will be additional requirements
 imposed on the manner in which your component provides its functionality or cases that must
 be handled.
+</P>
+<P>
+How can you know if your specifications are adequate?
+<UL>
+    Give them to your team-mates and ask your team-mates if they 
+    now know <u>everything</u> they need to know in order to correctly
+    write code that uses the services of your component.
+    If anyone still has any questions, the specifications should be updated
+    to address them.
+</UL>
 </P>
 <P>
 This submission be graded on the basis of:
@@ -381,11 +417,15 @@ enable a skilled programmer to easily and correctly implement the specified modu
 <P>
 Each module design should include:
 <UL>
-   <LI> a description of the purpose of this module.</li>
-   <LI> complete declarations for all public methods and instance variables.</li>
-   <LI> complete declarations for all private methods and instance variables.</li>
-   <LI> descriptions of purposes for all methods/routines and meanings of all parameters.</li>
-   <LI> descriptions and uses of all non-trivial instance variables and data structures.</li>
+   <LI> a prose description of the purpose of this module.</li>
+   <LI> complete descriptions for all public methods
+   	(name, purpose, parameters, return values, functionality) 
+	and instance variables (name, meaning, type, notes on initialization and usage).
+   <LI> If, in the process of doing the detailed design, you recognize that you will
+	want to create private methods (e.g. to perform commonly used functions
+	or encapsulate complex operations) and/or instance data, those too 
+	should be described.
+   </li>
    <LI> general descriptions of all non-obvious algorithms.
 	<br>
 	These need not be pseudo code, but could simply be 
@@ -403,7 +443,7 @@ Each module design should include:
 	</li>
    <LI> where the code is to be based on standard libraries,
 	call those out (e.g. "synchronization will be with
-	boost thread shared locks") and (again, if they are not widely known)
+	Boost Thread shared locks") and (again, if they are not widely known)
 	include a reference to the documentation for the functions to be used.</li>
 </UL>
 </P>
@@ -416,39 +456,57 @@ to make mistakes when working on things they do not understand.
 <P>
 You can prepare your designs in any form you find convenient,
 but you may find it easiest to create them as
-code modules with compilable declarations, extensive
-(e.g. JavaDoc/PyDoc) comments and very little actual code.  
+code modules with compilable declarations (complemented by full JavaDoc/PyDoc tags),
+and algorithmic comments (rather than code).
 Overview and rationale can be presented as comments in front of the described elements.
-Many people choose to start non-trivial implementations by writing the
-declarations and comments.
+Many people regularly do most of their designs in this way:
+<ul>
+   <li> the design documentation becomes a template for the code that
+        will be added later.</li>
+   <li> even before the code bodies are filled in, the compiler can
+   	check for the correctness of the declarations, and 
+	inter-module consistency.</li>
+   <li> when the code is added, it will be inseparable from the design
+        documentation ... which will help future developers understand
+	the code, and make it much easier to keep the design documentation
+	up-to-date as the code evolves.</li>
+   <li> automated tools (e.g. Doxygen/PyDoc/umlgraph) can be used to automatically
+   	extract this information from the code and automatically generate
+	<em>class diagrams</em> and standard format documentation
+	(and thus eliminate the need for you to manually create much of the prose documentation).
+	</li>
+</ul>
 </P>
 <P>
 If the chosen component is of reasonable size, complexity, and testability
 this design be graded on the basis of:
 <ul>
-	<li> 10% all public methods and instance variables are 
-		described well enough to enable a skilled client
-		figure out how to use them correctly.</li>
-	<li> 20% all implementations and internal methods are 
-		described well enough to enable a skilled programmer
-		to implement them (with no more research than having
-		to read the referenced documentation).</li>
-	<li> 10% all variables and data structures are described
-		well enough to enable a skilled programmer to use
-		and update them correctly.</li>
 	<li> 10% the defined methods and instance variables are
 		sufficient to fully implement the component interface 
 		specification.</li>
 
+	<li> 10% all methods (including internal) well enough specified
+		to enable a skilled programmer (other than the designer)
+		to write code to correctly use them.</li>
+	<li> 20% all methods (including internal) are well enough described
+		to enable a skilled programmer (other than the designer)
+		to implement them (with no more research than having
+		to read the referenced documentation).</li>
+	<li> 10% all variables and data structures (including internal) 
+		are described well enough to enable a skilled programmer to use
+		and update them correctly.</li>
+
+	<li> 10% the correctness (likelihood of working) of the described implementations.</li>
 	<li> 10% the reasonableness (after having read the rationale)
-		of the specified implementations.</li>
-	<li> 10% the correctness of the described implementations.</li>
+		of the describged implementations.</li>
 	<li> 10% reasonable exploitation of language and tool capabilities.</li>
 	<li>  5% the simplicity (relative to the problem) of the proposed implementations.</li>
 	<li>  5% the likely efficiency of the described implementations.</li>
 
+
 	<li> 10% the readability of the design document, including the
-	         clarity and adequacy of the overview and rationale.</li>
+	         clarity and adequacy of the overview and rationale
+		 to provide the required background.</li>
 </ul>
 
 <P>
@@ -457,7 +515,7 @@ When you are ready to submit your component design for grading:
 <ul>
     <li> create a <a href="#submission">standard submission prologue</a> 
          (followed by your design or a URL to it), and
-	 entitle it <tt>design_3c.txt</tt></li>
+	 entitle it <tt>design_3c</tt> (with a type-appropriate suffix)</li>
     <li> up-load it for submission (each person must submit his/her own design)</li>
 </ul>
 </P>
@@ -474,7 +532,12 @@ that it actually works.
 	Review your specifications, and develop a set of automated comprehensive
 	(black box) test cases to determine whether or not your component meets 
 	its interface requirements and specifications.</li>
-	
+    <LI>
+	Review your design, consider special cases (or combinations
+	of cases) that would exercise different code branches, and develop
+	a set of (white box) test cases to demonstrate that each interesting
+	situation is handled correctly.
+	</li>
     <LI>
 	Review your design, and consider any possible/plausible component
 	misbehavior that would not be detected by the the above-described
@@ -501,6 +564,7 @@ It is possible that, in the process of developing your test plan, you will find
 assertions that are hard to measure, or functionality that is difficult
 to verify (or verify automatically).  If this happens, you may need to
 revisit your requirements, specifications and design.
+Please feel free to ask for help if you find yourself in such a situation.
 </P>
 <P>
 The difference between black-box and white-box testing (based on specifications vs implementation)
@@ -529,17 +593,17 @@ but the real world often declines to conform to our simple classifications:
 	do a considerable amount of input validation or handle a wide range
 	of possible errors.  These too represent a great many different cases
 	to be tested and may require non-trivial analysis to figure out how
-	to cause each and confirm correct handling.
+	to cause each, and confirm correct handling.
 	</p>
 </ul>
 The bottom line is that you have been asked to demonstrate your ability to design
-non-trivial software.  I also want you to demonstrate the ability to recognize the
-situations that might result in different computations, and to verify the correct
-handling of each.
+non-trivial software.  I also want you to demonstrate the ability to 
+<u>recognize situations that might result in different computations</u>,
+and to <u>devise test cases to verify the correct handling of each</u>.
 </P>
 
 <P>
-Your test plan should include:
+In general, your test plan should include:
 <UL>
    <LI>	
 	A general overview of the functionality to be verified,
@@ -560,6 +624,69 @@ Your test plan should include:
 	</UL>
     </LI>
 </UL>
+<P>
+This could be a fair amount of information. 
+Please do not feel you have to give me a half-page of 
+prose for each of a two-digit-number of test cases.
+<ul>
+   <li>to the extent that different test cases are merely different parameter values
+       (or entries in a table), the set-ups do not have to be written out in English prose;
+       The different test cases can be enumerated by entries in a table.</li>
+   <li>the assertions to be tested need not be written out in English prose,
+       but need only be understandable by a programmer.
+       </li>
+</ul>
+The following is an example of a concise representation of test cases, where
+the assertions being tested are obvious from the names, set-ups and
+expected result.
+</P>
+<center>
+<TABLE frame="box" rules="all">
+<TBODY>
+	<TR>
+	    <TH>Name</TH> <TH>Set-up</TH> <TH>Test</TH> <TH>Expected Result</TH>
+	</TR>
+	<TR>
+	    <TD>passwd-correct</td>
+	    <TD>dbase: USER1 w/password PASSWD1</td>
+	    <TD>command: LOGIN USER1 PW=PASSWD1</td>
+	    <TD>response = 200 (success)</td>
+	</TR>
+	<TR>
+	    <TD>passwd-incorrect</td>
+	    <TD>dbase: USER1 w/password PASSWD1</td>
+	    <TD>command: LOGIN USER1 PW=PASSWD2</td>
+	    <TD>response = 510 (failure)</td>
+	</TR>
+	<TR>
+	    <TD>passwd-badname</td>
+	    <TD>dbase: no such user as XXX</TD>
+	    <TD>command: LOGIN XXX PW=XXX</td>
+	    <TD>response = 511 (failure)</td>
+	</TR>
+	<TR>
+	    <TD>auth-user-OK</td>
+	    <TD>dbase: USER1 as a normal user</TD>
+	    <TD>logged in as USER1<br>command: STATUS USER1</td>
+	    <TD>response = 200 (success)</td>
+	</TR>
+	<TR>
+	    <TD>auth-user-priv</td>
+	    <TD>dbase: USER1 as normal user<br>
+	        dbase: USER2 as normal user</TD>
+	    <TD>logged in as USER1<br>command: STATUS USER2</td>
+	    <TD>response = 523 (not allowed)</td>
+	</TR>
+	<TR>
+	    <TD>auth-manager-priv</td>
+	    <TD>dbase: MGR1 as manager<br>
+	        dbase: USER2 as normal user</TD>
+	    <TD>logged in as MGR1<br>command: STATUS USER2</td>
+	    <TD>response = 200 (success)</td>
+	</TR>
+</TBODY>
+</TABLE>
+</center>
 
 <P>
 Your test plan will be graded on the basis of:
@@ -592,12 +719,12 @@ Your test plan will be graded on the basis of:
 </ul>
 
 <P>
-Maintain your tes plan with history (e.g. on Github or in Google Docs).
+Maintain your test plan with history (e.g. on Github or in Google Docs).
 When you are ready to submit your test plan for grading:
 <ul>
     <li> create a <a href="#submission">standard submission prologue</a> 
          (followed by your test plan or a URL to it), and
-	 entitle it <tt>test_3c.txt</tt></li>
+	 entitle it <tt>test_3c</tt> (with an appropriate suffix)</li>
     <li> up-load it for submission (each person must submit his/her own test plan)</li>
 </ul>
 </P>
@@ -671,9 +798,7 @@ to the architectural review ... but because this is
 simpler and you have already followed this process 
 (for your architectural reviews) these
 reviews will not be observed and graded.  
-</P>
-<P>
-You have much more latitude in these reviews:
+You also have much more latitude in these reviews:
 <ul>
    <li> you can have the entire team review each person's proposal,
         or you can break it up into smaller groups for each review.</li>
@@ -731,8 +856,8 @@ When your review report is eady for submission and grading:
 <P>
 Note: this is likely to be a relatively light week for project work.
       You would be well advised to use this opportunity to get an
-      early start on the project 4 implementation, which probably 
-      comes due a the same time as the final projects in your other classes.
+      early start on the project 4 implementation ... so that you can
+      have that out of the way in your (likely) otherwise busy final weeks.
 </P>
 </a>
 <P>

@@ -1,106 +1,59 @@
-P3C	Component Design and Test Plan
-
-   Total Score:			___/40
+P3C	Design and Test Plan Review
 
    Component:
 
-   Author:
+   Participants:
+
+   Total Score:			___/15
+
+    Pre-Review Notes		___/10
+
+	Author:
+
+	on-time submission	___/4
+
+	technical quality	___/4
+
+		___	depth of design study/understanding to which they testify
+
+		___	depth of test-plan study/understanding to which they testify
+
+		___	clarity of issues (not expecting complete sentences)
+
+		___	importance/value of observations
 
 
-    Component Design		___/20
+	preparation		___/2
 
-	externals 		___/8
-	
-		___	all external methods well enough described that you know how to code them (4pt)
+		___	reasonably articulated and organized for discussion
 
-		___	all methods and instance variables well enough described that you would
-			know, as a client, how to use them. (2pt)
-
-		___	all instance variables well enough described that you know how to declare,
-			initialize, AND UPDATE THEM CORRECTLY.
-
-		___	fully implements the component interface specification
-
-
-	internal methods	___/2	(if none, use the external scores)
-
-		___	all internal methods well enough described that you known how to code them
-
-
-		___	it is clear why each exists, and they seem reasonably defined
-
-
-		___	no missing pieces
-
-
-	algorithms/approach	___/8
-
-		___	design includes sufficent algorithmic complexity (4pt)
-
-
-		___	the overall structure and approach make sense (having read the rationale)
-
-
-		___	proposed implementation seems correct & reasonable (not unnecessarily complex)
-
-
-		___	proposed algorithms and approaches seem reasonably efficient
-
-
-		___	proposed approaches reasonably exploit language/tool capabilities
-
-
-	general			___/2
-
-		___	adequate overview
-
-
-		___	adequate rationale
+		___	all issues appropriate to design or test-plan review
 
 
 
-    Component Test Plan		___/20
+    Design/Test Review Report	___/5
 
-	black-box tests		___/6	(entirely based on interface specifications)
+	Author:
 
-		___	completeness of suite (2pt)
+	completeness		___/4
 
-		___	traceability to specifications (2pt)
-
-		___	clarity and reasonableness of test cases
-
-		___	form and quality of descriptions
+		___	all significant raised issues are discussed
 
 
-	white-box tests		___/6	(based on design/implementation details, else 0)
-
-		___	completeness of suite (2pt)
-
-		___	traceability to design (2pt)
-
-		___	clarity and reasonableness of test cases
-
-		___	form and quality of descriptions
+		___	each issue has a disposition/resolution
 
 
-	testing framework	___/4
-
-		___	automated execution with pass/fail assessment (2pt)
-
-		___	standard (off the shelf) testing framework
-
-		___	well suited to the functionality being tested
+		(this need not be prose, but it should be a good list)
 
 
-	completeness		___/2
+	form/expression		___/1
 
-		___	the union of these tests seem a complete validation suite
+		___	date, time, attendees
 
-	efficiency		___/2
+		___	reasonably organized (e.g. temporal, structural, ...)
+ 
 
-		___	set-up and execution seem reasonable (1pt)
+		___	all issues clearly expressed
 
-		___	there are not redundant tests
 
-		___	there are no tests for things that don't matter or can't happen
-
+		___	all constructive and within scope

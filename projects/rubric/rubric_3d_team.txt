@@ -1,8 +1,8 @@
-P3E	Final Design, Test Plan, Post Mortem
+P3D	Final Design, Test Plan, Post Mortem
 
    Total		___/30
 
-   3E.2 Post Mortem:		___/10
+   3D.2 Post Mortem:		___/10
 
 	author:
 
