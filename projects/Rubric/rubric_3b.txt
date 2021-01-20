@@ -11,7 +11,7 @@ P3B	Component Design and Test Plan
 
 	completeness		___/2
 
-		___	defined methods and instance variables seem sufficeint to fully
+		___	defined methods and instance variables seem sufficent to fully
 			implement the component's interface and functional specifications
 
 	externals 		___/5
