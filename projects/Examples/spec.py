@@ -42,12 +42,15 @@ class GameAction():
         - verb="ATTACK.STAB+ATTACK.POISON"
         - ACCURACY=60,40
         - DAMAGE=D6,3D4
+
+    If there are multiple verbs but only a single value, that single value
+    should be used for each verb.
     """
     def __init__(self, source, verb):
         """
         create a new C{GameAction}
         @param source: (GameObject) instrument for the action
-        @param verb: (string) the name of the action
+        @param verb: (string) the name of the action(s)
         """
 
     def __str__(self):
@@ -77,7 +80,7 @@ class GameAction():
             - C{DAMAGE}: sum of rolls against actions's and actor's C{DAMAGE}
         for non-attack verbs:
             - C{TO_HIT}: 100 + the action's and initiator's C{POWER}
-            - C{STACKS}: sum of rolls against actions's and initiator's C{STACKS}
+            - C{STACKS}: sum of rolls against actions and initiator C{STACKS}
 
         Actions that require more complex processing (before
         calling the target) must be implemented (by additional
@@ -88,5 +91,4 @@ class GameAction():
         @param target: (GameObject) target of the action
         @param context: (GameContext) in which this is happening
         @return: (string) description of the results (returned from the target)
-
         """

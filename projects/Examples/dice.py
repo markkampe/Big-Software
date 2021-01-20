@@ -18,7 +18,6 @@ class Dice(object):
     @ivar plus: (int) number to be added to the roll
     @ivar min_value: (int) lowest legal value in range, None if a formula
     @ivar max_value: (int) highest legal value range, None if a formula
-
     """
 
     def __init__(self, formula):
@@ -54,6 +53,5 @@ class Dice(object):
         @return: (int) resulting value
         """
         # range: generate a random number between them
-        # formula: accumulate num_dice numbers between 1 and dice_type, add plus
+        # formula: accumulate num_dice numbers from 1 to dice_type, add plus
         return 0
-

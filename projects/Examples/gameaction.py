@@ -27,11 +27,11 @@ class GameAction(Base):
         -   VERBAL.INTIMMIDATE
         -   ATTACK.STAB
 
-    attributes set by client:
+    attributes to be set by client after instantiation:
         - ATTACK verbs are expected to have ACCURACY (to-hit percentage) and
           DAMAGE (dice formula) attributes.
         - non-ATTACK verbs are expected to have POWER (to-hit percentage) and
-          STACKS (number of instances to attempt/deliver) attributes.
+          STACKS (dice formulat for instances to attempt/deliver) attributes.
 
     A verb can also be a plus-separated concatenation of simple and/or
     sub-classed verbs.  If a passed verb contains multiple (plus-separated)
@@ -42,12 +42,15 @@ class GameAction(Base):
         - verb="ATTACK.STAB+ATTACK.POISON"
         - ACCURACY=60,40
         - DAMAGE=D6,3D4
+
+    If there are multiple verbs but only a single value, that single value
+    should be used for each verb.
     """
     def __init__(self, source, verb):
         """
         create a new C{GameAction}
         @param source: (GameObject) instrument for the action
-        @param verb: (string) the name of the action
+        @param verb: (string) the name of the action(s)
         """
         super(GameAction, self).__init__(verb)
         self.source = source
@@ -86,7 +89,7 @@ class GameAction(Base):
             - C{DAMAGE}: sum of rolls against actions's and actor's C{DAMAGE}
         for non-attack verbs:
             - C{TO_HIT}: 100 + the action's and initiator's C{POWER}
-            - C{STACKS}: sum of rolls against actions's and initiator's C{STACKS}
+            - C{STACKS}: sum of rolls against actions and initiator's C{STACKS}
 
         Actions that require more complex processing (before
         calling the target) must be implemented (by additional
@@ -100,16 +103,16 @@ class GameAction(Base):
 
         """
         # if the verb is a concatenation
-        #   split verb into a list of individual plus-separated (simple or sub-typed) verbs
-        #   get_list split the ACCURACY, DAMAGE, POWER and STACKS into a corresponding lists
+        #   split verb into a list of individual plus-separated verbs
+        #   __get_list ACCURACY/DAMAGE/POWER/STACKS into corresponding lists
         #
         # for each verb in the list
         #   if ATTACK
-        #       self.TO_HIT= 100 + self.accuracy(verb, ACCURACY, initiator)
-        #       self.HIT_POINTS= self.damage(verb, DAMAGE, initiator)
+        #       self.TO_HIT= 100 + self.__accuracy(verb, ACCURACY, initiator)
+        #       self.HIT_POINTS= self.__damage(verb, DAMAGE, initiator)
         #   else
-        #       self.TO_HIT= 100 + self.power(verb, POWER, initiator)
-        #       self.TOTAL= self.stacks(verb, STACKS, initiator)
+        #       self.TO_HIT= 100 + self.__power(verb, POWER, initiator)
+        #       self.TOTAL= self.__stacks(verb, STACKS, initiator)
         #   (success, result) target.accept_action(self, initiator, context)
         #       and accumulate the results
         return (True, "FIXME")
@@ -117,10 +120,21 @@ class GameAction(Base):
     #
     # the following methods are all private helpers, used by act
     #
-    def accuracy(self, verb, base, initiator):
+    def __get_list(self, name, size):
         """
-        Compute the accuracy of this attack ... based on the supplied
-        base and any initiator ACCURACY(.subtype) bonus.
+        read specified attribute and lex its (comma-separated) values to a list
+        @param name: (string) name of attribute to be looked up and split
+        @param size: (int) length of desired list
+        @return: (list of strings)
+            - if no value is found, a list of Nones will be returned
+            - if only single value, replicate it the specified number of times
+        """
+        return [None] * size
+
+    def __accuracy(self, verb, base, initiator):
+        """
+        helper to compute accuracy of this attack, based on the supplied
+        base ACCURACY plus any initiator ACCURACY(.subtype) bonus(es).
 
         @param verb: (string) attack verb
         @param base: (int) accuracy (from the action)
@@ -128,55 +142,48 @@ class GameAction(Base):
         @return: (int) probability of hitting
         """
         # start with the specified base accuracy
-        # if initiator has an ACCURACY.subtype, add that
+        # if initiator has an ACCURACY or ACCURACY.subtype, add them
         return 0
 
-    def damage(self, verb, base, initiator):
+    def __damage(self, verb, base, initiator):
         """
-        compute the damage resulting from this attack
+        helper to compute the damage of this attack, based on the supplied
+        base DAMAGE plus any initiator DAMAGE(.subtype) bonus(es).
+
         @param verb: (string) attack verb
         @param base: (string) dice formula for base damage
         @param initiator: (GameActor) who is initiating the attack
         @return: (int) total damage
         """
         # roll the specified base damage formula
-        # roll the initiator's base DAMAGE formula and add it
-        # if the initiator has a DAMAGE.subtype, roll and add it
+        # if initiator has a DAMAGE or DAMAGE.subtype, roll and add them
         return 0
 
-    def power(self, verb, base, initiator):
+    def __power(self, verb, base, initiator):
         """
-        Compute the power with which this condition is being sent
+        helper to compute the power of this action, based on the supplied
+        base POWER plus any initiator POWER.verb/POWER.verb.subtype bonuses
+
         @param verb: (string) action verb
         @param base: (int) base power (from action)
         @param initiator: (GameActor) who is sending the condition
         @return: (int) total probability of hitting
         """
         # start with the specified base power
-        # add the initiator's POWER.base_verb
-        # add the initiator's POWER.base_verb.subtype
+        # if initiator has POWER.base_verb or POWER.base_verb.subtype, add them
         return 0
 
-    def stacks(self, verb, base, initiator):
+    def __stacks(self, verb, base, initiator):
         """
-        Compute the number of stacks to be sent
+        helper to compute the stacks of this action, based on the supplied
+        base STACKS plus any initiator STACKS.verb/STACKS.verb.subtype bonuses
+
         @param verb: (string) action verb
         @param base: (string) dice formulat for base stacks
         @param initiator: (GameActor) who is sending the condition
         @return: (int) total number of stacks
         """
         # roll the specified base # stacks (default 1)
-        # roll add the initiator's STACKS.base_verb formula and add it
-        # roll initiator's STACKS.base_verb.subtype formula and add it
+        # if initiator has STACKS.base_verb/STACKS.base_verb.subtype
+        #   roll and add them
         return 0
-
-    def get_list(self, name, size):
-        """
-        read the specified attribute and lex its (comma-separated) values into a list
-        @param name: (string) name of attribute to be looked up and split
-        @param size: (int) length of desired list
-        @return: (list of strings)
-            - if no value is found, a list of Nones will be returned
-            - if there is only single value, it will be replicated the specified number of times
-        """
-        return [None] * size
