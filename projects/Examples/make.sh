@@ -24,10 +24,24 @@ then
 	exit 0
 fi
 	
-# re-create a full set of example files
 echo ... deleting previous example files
-rm $SOURCES $PROSE *-spec.py *.pyc
-rm -rf html
+if [ -d "html" ]
+then
+    rm -rf html
+fi
+for file in $SOURCES $PROSE *-spec.py *.pyc
+do
+    if [ -f $file ]
+    then
+	rm -f $file
+    fi
+done
+
+# were we just cleaning
+if [ -n "$1" -a "$1" == "clean" ]
+then
+	exit 0
+fi
 
 echo ... importing prose files
 for file in $PROSE
