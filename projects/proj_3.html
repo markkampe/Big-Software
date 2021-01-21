@@ -373,6 +373,24 @@ How can you know if your specifications are adequate?
 </UL>
 </P>
 <P>
+Specifications can be written as prose, but we are probably describing class 
+and method APIs.  The most obvious form for representing APIs is as 
+(class, method and field) declarations (in the language in which they will be
+implemented) with <em>Docstring</em> comments to describe them:
+<UL>
+    <li>this will be understandable by the intended audience (other programmers)</li>
+    <li>such declarations are unambiguous, and can be checked by the compiler</li>
+    <li>this creates a template for the more detailed design and code that will follow</li>
+    <li>readily available tools can process this code and automatically generate
+        both API documentation and class diagrams.</li>
+</UL>
+You are free to choose the format that best tells your story, but you can find a
+<a href="examples/overview.html">sample</a>
+of such specifications and designs on the course web site.
+This URL points to an architectural overview for the described component,
+and that contains links to sample specifications, designs, and test plans.
+</P>
+<P>
 This submission be graded on the basis of:
 <ul>
 	<li> 30% clarity and reasonableness of component's functionality and role in the overall system,
