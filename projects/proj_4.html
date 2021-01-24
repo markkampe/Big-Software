@@ -11,9 +11,9 @@ Implementation and Testing Sprint
 </center>
 <P>
 The first three projects took us through all of the activities that precede
-implementation.  In this final project you will actually implement the components
-you designed in phase 3 
-(using skills you mastered long before you got here).
+implementation.  In this final project you will 
+(using skills you mastered long before you got here)
+actually implement the components you designed in phase 3.
 But, by now it should come as little surprise to you that only part of your time will be spent coding 
 (and if you have done it right, very little of your time will be spent debugging).
 An implementation is not completed when it finally compiles;
@@ -22,8 +22,8 @@ If we are implementing this as part of a team effort
 (or for use by others)
 we will probably be expected to package it and hand it off:
 <ul>
-   <li>provide a (perhaps brief) description of what we are delivering.</li>
-   <li>provide a demonstration of its usability (e.g. a check-out, build, and run).</li>
+   <li>provide a (perhaps brief) precise description of what we are delivering.</li>
+   <li>provide a demonstration of its building (e.g. a check-out, build, and run).</li>
    <li>provide a demonstration that it meets its requirements (e.g. by passing a test of those requirements).</li>
 </ul>
 </P>
@@ -75,7 +75,7 @@ implementation (<em>to your product owner</em>)
 
   <tr>
 	<td>4C</td>
-	<td> <A href=#desc_demo4>Sprint Review/Demo</a> (team)</td>
+	<td> <A href=#desc_demo4>Integration and Sprint Review/Demo</a> (team)</td>
 	<td> 10 </td>
   </tr>
 
@@ -95,20 +95,20 @@ implementation (<em>to your product owner</em>)
 	in at least one code review.  While most of these activities will involve selected
 	individuals, you are encouraged to discuss each of these activities as a team,
 	and the reports from most of those activities will be graded as team deliverables.
-	<P>
-	You may note that there is no management plan or grade associated with this
-	project.  You should, by now be able to plan and coordinate activities for
-	yourselves, and you are already being graded on your ability to deliver the 
-	required work on schedule ... which is the point.
-	</P>
 </UL>
+<P>
+You may note that there is no management plan or grade associated with this
+project.  You should, by now be able to plan and coordinate activities for
+yourselves, and you are already being graded on your ability to deliver the 
+required work on schedule ... which is the point.
+</P>
 
 <a name="desc_final_code">
 <H3>P4A.1 Final Code</h3>
 </a>
 <P>
 The primary activity in this project is for each person to implement
-and test the component they designed in project 3.  There will be
+and test the component(s) they designed in project 3.  There will be
 many processes and exercises surrounding this implementation, but
 the primary deliverable is working code that implements the requirements
 and specifications set out in project 3.
@@ -121,16 +121,16 @@ the grader being able to independently build your product from the checked-in so
 and instructions.
 If this is not practical (e.g. because your component cannot be built on a basic
 Linux developer desktop) make arrangements with the professor (or Grutor) to have him/her 
-do a check-out and build-from-scratch on an appropriate system.
+either do a check-out and build-from-scratch on an appropriate system, or watch you do so.
 </P>
 <P>
 You should also re-submit URLs for the specifications and design for this component
-(from project 3) with any changes you have made since then.  These are the standard for
-the completeness and correctness of your implementation.
+(from project 3) with any changes you have made since then.  These are the standard 
+against which the completeness and correctness of your implementation will be judged.
 </P>
 <P>
-After you have completed all of your implementation and testing, and
-you believe your code is entirely complete
+After you have completed all of your implementation (including reviews, testing
+and correction) and you believe your code is in final form
 <ul>
     <li> prepare your source code (ideally ASCII text in file(s) with a language appropriate name)</li>
     <li> include a description of the build instructions and required environment in
@@ -170,7 +170,7 @@ their component implementation.
 <P>
 The execution of your test cases should be automated (e.g. so that
 all tests can be run with a single command), and all of the test
-cases and scripts should be checked in to git-hub.  
+cases and scripts should be checked in to your repo.
 Make sure that you document the environment and procedure for running
 these tests, because part of your grade will depend on the grader being able to
 independently test your product from the checked-in sources and instructions
@@ -178,7 +178,8 @@ independently test your product from the checked-in sources and instructions
 If this is not practical (e.g. because your component cannot be tested on a 
 basic Linux developer desktop)
 make special arrangements with the professor (or Grutor) to have 
-him/her do a check-out and build-and-test-from-scratch on an appropriate system.
+him/her do a check-out and build-and-test-from-scratch
+(or watch you do so) on an appropriate system.
 </P>
 <P>
 It is possible that you will, as a result of lessons learned during 
@@ -244,11 +245,11 @@ responsibilities under which that work was done.
 </P>
 <P>
 NOTES:
-<ul>
-    <li> The module used for this exercise must be of moderate to significant complexity, or
-    	 <u>no points will be earned</u>.
-    <li> What ever component this is done for should not also be used for code review or TDD.</li>
-</ul>
+<ol type="1">
+    <li> The module used for this exercise must be of moderate to significant complexity
+    	(to benefit from two minds), or <u>no points will be earned</u>.</li>
+    <li>What ever component this is done for should not also be used for code review or TDD.</li>
+</ol>
 </P>
 <P>
 After the end of each pair-programming session, each of the
@@ -327,17 +328,17 @@ up a report on the process.
 	</P>
 	<P>
 	After completing the testing (and any other required changes) the author
-	will add information about how the testing went and what (if any) additional
-	problems were discovered.
+	will add notes (to the review report) about how the testing went and what
+	(if any) additional problems were discovered.
 	</P>
 </UL>
 <P>
 NOTES:
-<ul>
-    <li> The module used for this exercise must be of moderate to significant complexity, or
-    	 <u>no points will be earned</u>.
+<ol type="1">
+    <li> The module used for this exercise must be of moderate to significant complexity
+    	(to benefit from review), or <u>no points will be earned</u>.</li>
     <li> What ever component this is done for should not also be used for pair programming or TDD.</li>
-</ul>
+</ol>
 </P>
 <P>
 The author's review report should include (in addition to the usual information):
@@ -398,6 +399,7 @@ There are a few tricks to this planning:
         some features fundamentally depend on others.  These dependencies
         must be recognized.</li>
    <LI> some test cases may be only applicable to incomplete code
+	(e.g. because they proxy for code that has not yet been written)
 	and become obsolete after the code has been completed.  These
 	represent a waste of work and should be avoided as much as
 	possible.</li>
@@ -465,22 +467,43 @@ This activity and report be graded on the basis of:
 
 
 <a name="desc_demo4">
-<H3>P4C Sprint Review/Demo</h3>
+<H3>P4C Integration and Sprint Review/Demo</h3>
 </a>
 <P>
 You have built your components and test suites, and you have
-passed your tests.  Hopefully you have been able to combine your
-components and demonstrate functionality for the integrated whole.
+passed your tests.
+You were advised to give some thought to independent development
+and the integration process when you chose these components for
+specification, design and implementation.
+You should now be able to combine your components and demonstrate
+functionality for the integrated whole.
+<ul>
+   <li> If the combination of your components is a complete
+   	product, integration means combining the pieces 
+	together and running test cases to confirm whole-product
+   	functionality.
+   </li>
+   <li> If the combination of your components is less
+   	than a complete product, but some components provide
+	services to others, integration might be a matter of
+	building them together and running test cases to confirm
+	that the client components still/now work with the
+	services being supplied by others.
+   </li>
+</ul>
+</P>
+<P>
 Now it is time for you to review what you have produced with your
 "product owner".
 At the end of each sprint, the team presents the work that was
 completed during that sprint to the product owner.  This is, in part,
 ceremonial (the team can claim success and receive feedback on the
-work they have completed) but it also the acceptance/sign-off process:
+work they have completed) but it is also the SCRUM
+acceptance/sign-off process:
 <UL>
     <LI> the team briefly reviews the requirements to have been
 	 met and demonstrates that the product now meets them.</li>
-    <LI> the team overviews the testing that has been done
+    <LI> the team overviews the reviews and testing that have been done
          to ensure the quality of the delivered code.</li>
     <LI> the product owner decides whether or not this work
          has actually been completed (i.e. is ready to be 
@@ -512,7 +535,8 @@ Your review presentation should include:
    <LI>	a demonstration of the functionality of the combined pieces
         <ul>
 	    <li> showing them working together</li>
-	    <li> showing that all (applicable) key requirements have been met</li>
+	    <li> showing that all (applicable to this sprint) key requirements
+	    	 have been met</li>
    	</ul>
    <LI> a summary of what progress this represents towards the construction
 	of your larger project (what this means and what comes next).</li>
