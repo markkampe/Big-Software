@@ -4,7 +4,6 @@ P3A	Initial Plan
 
    	complete/specific	___/2
 
-	   	___	component and module to be designed
 
 		___	component specifications: included, has date
 
@@ -21,6 +20,15 @@ P3A	Initial Plan
 		___	post mortem: included, has date
 
 		
+	component selections:	___/1
+
+		___	chosen components likely have adequate complexity
+
+		___	chosen components likely to be auto-testable
+
+	   	___	chosen components likely to be integrable
+
+
 	risk management:	___/1
 
 		___	likely problems were recognized
@@ -30,7 +38,7 @@ P3A	Initial Plan
 
 
 
-	use of time/resources	___/2
+	use of time/resources	___/1
 
 		___	each deliverable scheduled before it is due
 
