@@ -16,6 +16,9 @@ def copy_file(source, dest, opts):
     lose = opts.strip_string
     show_globals = opts.globals
 
+    # public methods who's names begin with underscores
+    also_public = [ "__init__", "__str__" ]
+
     lines = 0           # lines copied this far
     blanklines = 0      # no buffered up blank lines
     stopped = False     # we have not hit the stop string
@@ -42,7 +45,7 @@ def copy_file(source, dest, opts):
             words = stuff.split()
             if words[0] == "def" or words[0] == "class":
                 name = words[1].split("(")[0]
-                private = name.startswith("_")
+                private = name.startswith("_") and name not in also_public
                 if opts.verbose:
                     print("   ... found " +
                           ("private" if private else "public") +
