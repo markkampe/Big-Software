@@ -52,7 +52,7 @@ do
 
     # make sure there is a grading file for each team
     scorefile="$project/$team/grading_"$project".txt"
-    members=`grep $team $STUDENTS | cut -d, -f2 | tr '\n' ' '`
+    members=`grep $team $STUDENTS | cut -d, -f3 | tr '\n' ' '`
     echo "... creating $scorefile"
     echo "   Team:	$team"		> $scorefile
     echo				>> $scorefile

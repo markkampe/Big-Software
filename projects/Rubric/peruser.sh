@@ -40,7 +40,7 @@ fi
 while IFS= read -r line
 do
 	team=`echo $line | cut -d, -f1`
-	member=`echo $line | cut -d, -f2`
+	member=`echo $line | cut -d, -f3`
 	peruser="$member"_"$project"
 	if [ ! -d $project/$team ]
 	then
