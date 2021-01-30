@@ -399,11 +399,11 @@ implemented) with <em>Docstring</em> comments to describe them:
     <li>readily available tools can process this code and automatically generate
         both API documentation and class diagrams.</li>
 </UL>
-You are free to choose the format that best tells your story, but you can find a
-<a href="examples/overview.html">sample</a>
-of such specifications and designs on the course web site.
-This URL points to an architectural overview for the described component,
-and that contains links to sample specifications, designs, and test plans.
+You are free to choose the format that best tells your story, but we have provided
+an example of an architectural overview, at the end of which is a table
+of links to
+<a href="examples/overview.html#examples">sample</a>
+specifications, designs, and test plans.
 </P>
 <P>
 This submission be graded on the basis of:
@@ -509,6 +509,13 @@ Many people regularly do most of their designs in this way:
 	(and thus eliminate the need for you to manually create much of the prose documentation).
 	</li>
 </ul>
+The sample 
+<a href="examples/overview.html">architectural overview</a> includes
+links to 
+<a href="examples/html/gameaction.GameAction-class.html">class descriptions and API documentation</a>
+that were automatically from 
+<a href="examples/gameaction.py">source code and comments</A>
+with the <A href="http://epydoc.sourceforge.net">Epydoc</a> tool.
 </P>
 <P>
 <u>If the chosen component is of reasonable size, complexity, and testability</u>
@@ -576,12 +583,12 @@ that it actually works.
 	misbehavior that would not be detected by the the above-described
 	specification-based acceptance tests.
 	If you find such, define additional (white box) test cases to exercise
-	and validate those behaviors.
+	and validate the code's behavior in those error cases.
 	</li>
    <LI>
 	Consider your component's interfaces and all of the above test
 	cases, and design a means for performing all of those test cases
-	in a fully automated fashion ... ideally using an existing
+	in a fully automated fashion ... ideally using a standard existing
 	unit testing framework (to structure your test case implementations,
 	invoke them, and collect the results).</li>
 
@@ -596,7 +603,8 @@ that it actually works.
 It is possible that, in the process of developing your test plan, you will find
 assertions that are hard to measure, or functionality that is difficult
 to verify (or verify automatically).  If this happens, you may need to
-revisit your requirements, specifications and design.
+revisit your requirements, specifications and design in order to make
+those aspects of program behavior more <em>testable</em>.
 Please feel free to ask for help if you find yourself in such a situation.
 </P>
 <P>
@@ -605,8 +613,8 @@ sounds like a simple binary distinction based on a three-word test ...
 but the real world often declines to conform to our simple classifications:
 <ul>
    	The notion of black-box is not limited to the specified interfaces for 
-	<tt>public</tt> methods.
-        If we are testing <tt>private</tt> mutator and accessor functions by storing
+	<tt>public</tt> methods.  If we are testing simple <tt>private</tt>
+	(e.g. mutator and accessor) functions by storing
 	values, retrieving them, and confirming that the expected value was returned,
 	the mere fact that we put the word <tt>private</tt> in front of those methods
 	does not turn trivial specification-based tests into white-box test cases.</li>
@@ -614,9 +622,9 @@ but the real world often declines to conform to our simple classifications:
 	<p>
 	But, if a <tt>public</tt> method is required to do complex processing to
 	understand the input or create useful output, there may be
-	numerous combinations of input parameters that exercise different parts 
-	of that code ... and non-trivial analysis may be required to identify
-	a set of test cases to exercise all of them.
+	numerous combinations of input parameters or error cases that exercise
+	different parts of that code ... and non-trivial analysis may be required
+	to identify a set of test cases to exercise all of them.
 	The mere fact that the specifications defined the expected input/output
 	relationships does not prevent a comprehensive exercise of
 	a full range of input combinations from qualifying as white-box testing.
@@ -644,15 +652,18 @@ In general, your test plan should include:
    <LI>
 	An index of test cases.</LI>
    <LI>
-	A description of the framework under which this testing will be performed.</LI>
+	A description of the framework(s) under which this testing will be performed.</LI>
    <LI>
 	A complete list of test cases ... for each:
 	<UL>
-	    <LI> a brief summary of the assertion to be tested</LI>
-	    <LI> the justification (e.g. traceability to specifications or requirements) for including this test case</LI>
-	    <LI> any special set-up required to run this test</LI>
+	    <LI> a brief summary of the assertion to be tested,
+	         including (if it is not obvious) its traceability to specifications
+		 or requirements.
+	    </LI>
+	    <LI> any special set-up required before this test can be run</LI>
 	    <LI> how the situation to be tested will be generated</LI>
-	    <LI> how correctness of behavior will be ascertained</LI>
+	    <LI> how correctness of behavior will be ascertained
+	    	(e.g. what assertions will be tested)</LI>
 	    <LI> any special clean-up required after this test</LI>
 	</UL>
     </LI>
@@ -665,7 +676,7 @@ prose for each of a two-digit-number of test cases.
    <li>to the extent that different test cases are merely different parameter values
        (or entries in a table), the set-ups do not have to be written out in English prose;
        The different test cases can be enumerated by entries in a table.</li>
-   <li>the assertions to be tested need not be written out in English prose,
+   <li>the assertions to be tested need not be written in complete English sentences,
        but need only be understandable by a programmer.
        </li>
 </ul>
@@ -720,6 +731,12 @@ expected result.
 </TBODY>
 </TABLE>
 </center>
+<P>
+The <A href="examples/testing.html">sample submission</a>
+on the web site includes general overview of the proposed approach
+to testing, and a list of the specific test cases to be written
+for each class.
+</P>
 
 <P>
 Your test plan will be graded on the basis of:
