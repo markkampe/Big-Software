@@ -45,7 +45,7 @@ do
 	if [ -f $grade ]
 	then
 	    echo "Team: $team"
-	    members=`grep $team $TEAMFILE | cut -d, -f2`
+	    members=`grep $team $TEAMFILE | cut -d, -f3`
 	    for student in $members
 	    do
 		# make per-student copy of the team-grade
