@@ -618,7 +618,11 @@ There are two problems with this view:
 	     efforts, they can be quite expensive, take a long time,
 	     and still not deliver the required answers.</li>
 	<LI> Despite our best intentions, such abominations 
-	     often do escape (i.e. get shipped).</li>
+	     sometimes do escape (i.e. get shipped).
+	     And then, because it was a sloppy implementation
+	     that cheated on the hard problems, it becomes a
+	     nightmare for those who have to use and support it.
+	     </li>
 </OL>
 <P>
 Think of prototypes as buildings or props for a movie set.
@@ -632,7 +636,7 @@ constructing the real thing.
 A prototype is a partial implementation of one or more system components.
 It may be an incomplete implementation (with some features missing or
 crudely simulated) or it may be a mock-up (which looks like the real
-thing, but contains no real mechanisms).  
+thing, but contains no real mechanisms):
 <UL>
 	<LI> User Interface prototypes are often used to 
 	     gather feedback on a proposed interface, as 
@@ -740,32 +744,21 @@ the risk associated with a proposed project.
 <P>
 <H3>4.3 Mine Sweeping</h3>
 <P>
-Suppose we have been asked to build a product to automate the
-transformation of one type of image into another.  We think we
-understand the formats, and we already have most of the tools 
-required perform the translations.  This should be simple.  Right?
+In a war zone, if we need to send people into an area where we believe
+there to be land-mines, we should first send in a team of specially
+trained people locate and remove them.  The same principle applies to
+the use of new technologies in a project ... it is best to investigate
+their usability and efficacy before embarking on a plan that depends on them.
+</P>
 <P>
-Before we tell our boss that we can do this job in a few days, 
-we might try to get a few representative images, perform the 
-translation process semi-manually (using the existing tools),
-and deliver the results to a customer for their approval.  If
-the process is as simple as we thought it was, we've wasted a
-few hours confirming the simplicity of the task.  If there are
-complicating issues we had not appreciated (which there often are), 
-we give ourselves the opportunity to discover and investigate
-them before we commit to a schedule.
-<P>
-<H3>4.4 Tool and Platform Viability Prototypes</h3>
-<P>
-Often a new software project involves the use of a new (or
-unfamiliar) development tools, middle-ware, programming languages, 
-operating systems, or machines.  Supposedly these tools
+Often a new software project involves the use of a new (or unfamiliar)
+development tools, APIs, middle-ware, programming languages, 
+network services, operating systems, or machines.  Supposedly these tools
 and platforms were chosen because they were well suited
 to the problem ... but if we do not have previous experience
 with these tools and platforms, we risk unknown start-up
 costs, or (worse) finding out, in the middle of our implementation,
 that it cannot actually provide the functionality we need.
-<P>
 If uncertainties about new tools or platforms are significant
 sources of project risk, it may be very worthwhile to build
 one or more trivial test projects with those tools and on
@@ -782,7 +775,7 @@ This is all time very well spent, and can quickly and
 greatly reduce the uncertainty associated with new
 tools and platforms.
 <P>
-<H3>4.5 Proofs of Concept</h3>
+<H3>4.4 Proofs of Concept</h3>
 <P>
 In the previous sections, we have talked about different types
 of prototypes that we build in order to reduce uncertainty.
@@ -812,7 +805,7 @@ Designing a killer demo may be more a matter of market knowledge
 and showmanship than of engineering insight.  Designing a killer
 demo involves answering two questions:
 <OL type=1>
-	<LI> What capabilities must we show-case to close this deal?</li>
+	<LI> What capabilities must we show-case to win them over?</li>
 	<LI> What demonstration would quickly, clearly (and
 	     ideally dramatically) show-case those capabilities?</li>
 </OL>
@@ -831,7 +824,7 @@ by simulated products and demonstrations.  Great demos can be as
 much about imagination as technical achievement.  
 Don't underrate the value of showmanship and a flare for the dramatic.
 <P>
-<H3>4.6 Summary of Prototypes</h3>
+<H3>4.5 Summary of Prototypes</h3>
 <P>
 Much like mathematical models, we construct prototypes to answer
 specific questions or to prove the viability of specific assertions.
@@ -862,12 +855,12 @@ I was amazed at his coup.
 He then explained to me that a well-designed
 America's cup boat falls apart as it crosses the finish line.  
 Anything that lasts longer represents mis-spent weight and/or 
-money.  Keep your prototypes similarly light-weight.  
+effort.  Keep your prototypes similarly light-weight.  
 <P>
 It is also important to note the greatest danger of a good
 prototype: that an executive will see it, be blown away, 
 not realize how limited it is, and commit to shipping it.
-You can protect yourself (and your customers) from this by:
+You can protect yourself (and your users) from this by:
 <OL type=1>
    <LI> not making your prototype more complete than it needs
         to be to answer the pressing questions.</li>
