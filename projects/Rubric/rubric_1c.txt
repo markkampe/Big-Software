@@ -31,7 +31,7 @@ P1C	Requirements Development
 	implied requirements	___/2
 
 
-		___	declarative statements of what product can do
+		___	clear statements of what product can do
 
 
 
@@ -99,6 +99,9 @@ P1C	Requirements Development
 
 
 		___	all requirements have priority (e.g. high/med/low)
+
+
+		___	reasonable attempts at difficulty assessment
 
 	
 	the report		___/1
