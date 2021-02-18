@@ -5,39 +5,48 @@ P.quest		{font-style: tt; color:green}
 LI.quest	{font-style: tt; color:green}
 P.ansr		{font-style: italic; color:blue}
 </style></head><body>
-<h2>Typical Quiz question, and full-credit answer</h2>
+<h2>Typical (concept definition) Quiz question, and full-credit answer</h2>
 <p>
 </p><ul>
 <p class="quest">
-What is "white box testing"?
+1. What is "white box testing"?
 </p><p class="ansr">
-White box tests are based on the
-design of the component to be tested.
+White box test cases are based on the design of the component to be tested,
+and attempt to ensure that all interesting cases/branches are covered.
 </p></ul>
 <p>
 </p>
+<h2>Typical (concept definition) Exam question, and full-credit answer</h2>
+<p>
+</p><ul>
+<p class="quest">
+2. Briefly define the following three tearms, taking care that your definitions
+make clear the distinction between them:<br>
+(a) requirements
+</p><p class="ansr">
+(often user-facing) characteristics a successful solution must have.
+</p>
+<p class="quest">
+(b) specifications
+</p><p class="ansr">
+a complete description of the interfaces and behavior that a component
+must have to correctly perform its role in the system.
+</p>
+<p class="quest">
+(c) design
+</p><p class="ansr">
+a description of the internal data, methods, and algorithms that will
+be used to implement a component.
+</p>
+</ul>
 
-<h2>Typical concept Exam question, and full-credit answer</h2>
+<p>
+</p><p>
+</p><h2>Typical (representation) Exam question, and full-credit answer</h2>
 <p>
 </p><ul>
 <p class="quest">
-Define "Legacy Software", and explain why it is difficult to maintain.
-</p><p>
-</p><p class="ansr">
-	Legacy software is software that is old, but is still used for
-	critical business functions, and that the customers don't want
-	to replace (for fear of disrupting their business).
-</p><p class="ansr">
-	It is hard to maintain because it has far-outlived its design,
-	is technologically obsolete, increasingly hard to add new
-	features to, and the original designers are long gone.
-</p></ul>
-</p><p>
-</p><h2>Typical practical Exam question, and full-credit answer</h2>
-<p>
-</p><ul>
-<p class="quest">
-Create a UML diagram for the interaction between a user and digital camera, 
+3. Draw a UML diagram for the interaction between a user and digital camera, 
 where a half-press checks focus/exposure (confirmed w/lights), and a full 
 press takes a picture (confirmed w/beep).
 </p><p>
@@ -47,98 +56,124 @@ press takes a picture (confirmed w/beep).
 </p></ul>
 </p><p>
 
-</p><h2>Typical difficult Exam question, and full credit answer</h2>
+</p><h2>Typical (apply this principle) Exam question, and full credit answer</h2>
 <p>
-</p><ul>
-<p class="quest">
-Consider the version and change control needs of two different environments, 
-and suggest an appropriate source tree strategy and version/change control 
-discipline for each.
-</P>
 <UL>
 <p class="quest">
-	(a) a new (not yet delivered) ten person project, 
-	where each component has a single primary engineer.
+4. (a) What (in the context of testing) is an equivalence partition?
+</p><p class="ansr">
+	For parameters that have a wide range of possible values, an
+	equivalence partition is a set of values that should all be
+	processed in the same way.
+</p><p class="quest">
+   (b) Why is this an important concept for test case design?
+</p><p class="ansr">
+	If all values in an equivalence class are processed in the same
+	way, we might only need to test a single value from each
+	equivalence class.
+</p><p class="quest">
+   (c) Suggest a numeric function (with a wide range of parameter values)
+       and a likely set of test case equivalence classes.
+</p><p class="ansr">
+	For the factorial function, the obvious equivalence classes might be 1, 
+	greater positive integers, -1, smaller negative integers, and 0.
+</p><p class="quest">
+   (d) Suggest a non-numeric function (with a wide range of possible
+       input situations) and a likely set of test case equivalence classes.
+</p><p class="ansr">
+	An insertion into an ordered list should be tested for an empty list,
+	before the first element, between two elements, and after the last element.
 </P>
-<p class="quest">
-	(b) a three hundred person engineering department, 
-	supporting dozens of projects on a large source-base for a 
-	mature product that does weekly builds.  
-	A particular component may or may not have a primary engineer, 
-	but many people might have occasional need to change that component 
-	(for bug fixes, or to add features for their own projects).
-</P>
-</UL>
-<p class="quest">
-The next three questions are general, and do not refer specifically to the above situations.
-</P>
+</ul>
+
+</p><h2>Typical (find an approach) Exam question, and full credit answer</h2>
+<p>
 <UL>
 <p class="quest">
-	(c) discuss the respective advantages of blocking and warning when 
-	someone attempts to check out a module that someone else is already 
-	working on.
-</P> <p class="quest">
-	(d) why would a change control system need to know what version someone 
-	started with when they attempt to check-in a change.
-</P> <p class="quest">
-	(e) suggest two different and reasonable ways of dealing with the 
-	problem in part (d).
+5. Consider two multi-user change-control strategies, and explain
+(or give an example) why each of these might be the better solution.
+<br>
+   (a) When <tt>user2</tt> attempts to <em>check out</em> (for modification) a module
+   a module that <tt>user1</tt> has already checked out, (s)he is blocked
+   (until <tt>user1</tt> commits or aborts).
+</p><p class="ansr">
+If <tt>user1</tt> and <tt>user2</tt> work are making changes to the same module, they should
+talk to one another ... because the changes that one person is making might
+invalidate or change the other person's plans.  Blocking the <em>check out</em>
+alerts <tt>user2</tt> that (s)he should talk to <tt>user1</tt>.
+</p><p class="quest">
+   (b) When a <tt>user2</tt> attempts to <em>push</em> new commits to a repo where
+   those modules have been changed since <tt>user2</tt>'s last <em>pull</em>,
+   it is blocked (until <tt>user2</tt> can prepare a new <em>merge</em> that
+   correctly combines those changes).
+</p><p class="ansr">
+If this is a large Open Source project with contributors all over the world,
+it may not be practical to expect all contributors to be in constant communication
+with all others, and it would be totally unacceptable for one person's
+<em>check-out</em> to paralyze hundreds of other developers.  In such a situation,
+<em>ex post facto</em> conflict resolution may be the better course.
 </P>
-</UL>
-</p><p class="ansr">
-(a) ten person new project
-</p>
-<UL><p class="ansr">
-	People can safely make all of their changes to the live sources,
-	because nobody else should be making conflicting changes or be
-	adversely affected by their work-in progress.
-</p></UL>
-<p class="ansr">
-(b)300 person stable product
-</p>
-<UL><p class="ansr">
-	In this situation there should be a master source tree, and only
-	completely tested projects ready to integrate back should be 
-	checked in to it.  Work in progress should be done in a local
-	copy of that source tree, and the many changes made in that 
-	working tree should be put back into the master tree as a single 
-	huge transaction when the project is ready to integrate.
-</p></UL>
-<p class="ansr">
-(c) block vs warn<br>
-</p>
-<UL><p class="ansr">
-	Blocking a second person from checking out a source for change
-	is an effective way to prevent conflicting check-ins ... but it
-	precludes coordination as described below.  Warnings allow people
-	to continue and manage the conflict in their own way ... but it
-	leaves open the possibility of a failed put-back later.
-</p></UL>
-<p class="ansr">
-(d) knowing starting version
-</p>
-<UL><p class="ansr">
-	Knowing what version someone started with enables the change control
-	mechanism to detect check-ins that may have been invalidated by 
-	intervening changes made by other users between the time of check-out
-	and check-in. 
-</p><p class="ansr">
-	It also enables the version control mechanism to figure out exactly
-	what changes you made (by comparing it with your starting point).
-</p></UL>
-<p class="ansr">
-(e) conflicting check-ins
-</p>
-<UL><p class="ansr">
-	We could try to preempt the conflict, by noticing someone else was
-	already working on the module and talking to them about how to 
-	coordinate our changes.
-</p><p class="ansr">
-	Alternatively, the second person to put-back could re-check out the
-	updated version and re-make their changes to the current version.
-</p></UL>
+</ul>
 
+</p><h2>Typical (explain) Exam question, and full credit answer</h2>
 <p>
+<UL>
+<p class="quest">
+6. (a) Explain the inevitability of <em>defect amplification</em>.
+</p><p class="ansr">
+If a mistake made in phase N is not discovered until later, work in subsequent
+phases will have been based on that error, and may have to be discarded and redone.
+</p><p class="quest">
+(b) briefly describe two processes to minimize requirements errors (before they can be amplified).
+</p><p class="ansr">
+We can seek validation from multiple (and different types of) users for every requirement,
+and ensure we have (real world) use cases from which each requirment arises.
+Where requirements seem to be speculative, we can try to create prototypes from which
+we can get more realistic feedback.
+</p><p class="quest">
+(c) briefly describe two processes to minimize architectural errors (before they can be amplified).
+</p><p class="ansr">
+An architectural proposal should be reviewed by a group of people with experience in this
+problem domain.  Mine-sweeping projects should test the usability of new technogies, and
+mechanism prototypes should be built to assess the viability of novel approaches.
+</p><p class="quest">
+(d) briefly describe two processes to minimize coding errors (before they can be amplified).
+</p><p class="ansr">
+Code reviews let other sets of eyes review our implementations, and 
+comprehensive test planning (perhaps including Test Driven Development)
+provide an objective sanity check for our implementaitons.
+</P>
+</ul>
 
+</p><h2>Typical (issue) Exam question, and full credit answer</h2>
+<p>
+<UL>
+<p class="quest">
+7. Give two significant and completely distinct reasons why <u>large
+   projects</u>, in <u>new areas</u>, predicated on <u>Big Requirements Up Front</u>
+   might be likely to fail:
+</p><p class="ansr">
+   <font color="green">(a)</font> if interviewed users do not already have experience with this type
+       of product, their requirements suggestions are likely to be speculative.
+</p><p class="ansr">
+   <font color="green">(b)</font> if the project will take a long time to complete, it is possible that
+       both the competition and available technologies will have changed
+       by the time the product is ready.
+</p><p class="quest">
+   (c) describe how an <u>incremental release model</u> would address these issues.
+</p><p class="ansr">
+	Don't try to deliver all features in a single release.
+	We would deliver incremental features in small batches, and use feedback from each release
+	to get better (more reliable, based on real experience) requirements for the
+	next set of features.  Smaller releases could be developed more quickly, greatly
+	reducing the danger of our requirements or approach becoming obsolete.
+</p><p class="quest">
+   (d) describe how a <u>spiral development model</u> would address these issues.
+</p><p class="ansr">
+	We could construct prototypes of proposed implementations, ask users
+	to test them out, and use that feedback to develop more realistic
+	requirements.
+</P>
+</ul>
 
-</p></body></html>
+</body></html>
