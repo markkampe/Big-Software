@@ -6,6 +6,8 @@ P2A	Plan and Preliminary Architecture
 
    	complete/specific	___/2
 
+		___	includes likely research/prototyping activities (1p)
+
 	   	___	preliminary architecture: included, has owner(s) and date
 
 		___	architectural review: included, has moderator, scribe, and date
@@ -26,6 +28,9 @@ P2A	Plan and Preliminary Architecture
 
 
 	use of time/resources	___/2
+
+		___	includes review line-up and prep study
+
 
 		___	each deliverable scheduled before it is due
 
