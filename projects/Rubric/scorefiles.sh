@@ -3,14 +3,19 @@
 # usage: scorefiles.sh project-subdir
 #
 #   Find the score files in per-team submission directories and
-#   make a copy for each person in that team.  This is useful when
-#   we grade a team submission, and want to give a feedback file
-#   to each student on the team
+#   make a copy (in a scores directory) for each person in that team.
+#   This is useful when we grade a team submission, and want to give
+#   a feedback file to each student on the team
+#
+#   If there are per-student grade files in addition to the per-team
+#   grades, those will be appended to the per-student results in the
+#   scores directory.
 #
 #   expectations
-#	teams.csv contains lines of the form <team-name>,<student-name>
-#	project sub-directory contains a sub-directory for each team
-#	team sub-directories contain files w/names like grading_1a.txt
+#    1.	teams.csv contains lines of the form <team-name>,<student-name>
+#    2.	project sub-directory contains a sub-directory for each team
+#    3.	team sub-directories contain a files w/name like grading_P1A.txt
+#    4. there may also be per-student files (e.g. markk_1D)
 #
 
 TEAMFILE=./teams.csv
