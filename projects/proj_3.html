@@ -349,10 +349,12 @@ In this case, we are asking you to describe
 <ul>
    <li> the external entrypoints (public methods) to be exposed by your component
    	<ul>
-	    <li>the (exact) name of the method</li>
+	    <li>the (exact, as will be used in code) name of the method</li>
 	    <li>the name, type, and meaning of each parameter,
 	        and any validity assertions that might apply to it</li>
-	    <li>a functional description of everything that is expected to
+	    <li>the contents/format/schema of any data on which it will operate
+	     	 (in-coming or out-going)</li>
+	    <li>a functional description of <u>everything</u> that is expected to
 	        happen as a result of having called this method</li>
 	    <li>the type(s) and meaning(s) of the return value(s)</li>
 	</ul>
@@ -380,12 +382,13 @@ be handled.
 <P>
 How can you know if your specifications are adequate?
 <UL>
-    Give them to your team-mates and ask your team-mates if they 
-    now know <u>everything</u> they need to know in order to correctly
-    write code that uses the services of your component.
-    If anyone still has any questions, the specifications should be updated
-    to address them.
+         Give these specifications to your team-mates, and ask them if they 
+         now know <u>everything</u> they need to know in order to correctly
+         write code that uses the services of your component.
+         If anyone still has any questions, the specifications should be updated
+         to address them.
 </UL>
+The form in which you provide this information is up-to-you, but the most obvious form is (compilable) declarations and comments.
 </P>
 <P>
 Specifications can be written as prose, but we are probably describing class 
