@@ -15,7 +15,7 @@ A program does not appear to be working:
 <ul>
 	<li>perhaps it produced unexpected output.</li>
 	<li>perhaps it blew up as a result of dereferencing a null pointer.</li>
-	<li>perhaps it stoped processing requests entirely.</li>
+	<li>perhaps it stopped processing requests entirely.</li>
 </ul>
 <P>
 In order to formulate a hypothesis, we need to understand the circumstances
@@ -27,7 +27,7 @@ Usually debugging is an interactive process:
 	     observe the situations under which it does and does
 	     not behave correctly.  Often, if we are familiar with the code,
 	     this alone is enough to identify the cause of the problem.</LI>
-	<li> If the precipitating circumstances don't provide enough information
+	<li> If the precipitating circumstances don't provide enough information,
 	     the program may have been built with diagnostic options that
 	     can be enabled to produce more detailed information about the 
 	     processing.
@@ -60,7 +60,7 @@ The fact that a problem happens infrequently does not mean that it
 is not important.  How would you feel about a bug in the collision 
 avoidance software on a commercial jet that, under an <em>extremely</em>
 unlikely set of circumstances would veer towards the hazard rather
-than away from it?  There are many product for which no undiagnosed
+than away from it?  There are many products for which no undiagnosed
 failures are acceptable.  If a system fails, we <strong>must</strong>
 determine why and fix it.  If we cannot reproduce and interact
 with the failure, then we will have to diagnose the failure on the
@@ -81,7 +81,7 @@ for diagnosing irreproducible software failures on the basis of
 data collected at the time of the failure.
 <P>
 In by-gone ages, before good debuggers and cheap computer time, 
-this was they way that most debugging had to be done.  No one would
+this was the way that most debugging had to be done.  No one would
 want to go back to those dark ages, but it is occasionally unfortunate 
 that modern programmers seldom have the opportunity to develop such 
 skills ... because we still have occasional need for them.
@@ -514,7 +514,7 @@ Such consideration may lead us to:
     <LI> record independent information that can be used to audit the
 	 correctness of key data structures and automatically discover
 	 inconsistencies.
-    <LI> identify events that chould be logged to enable
+    <LI> identify events that should be logged to enable
 	 after-the-fact analysis of the system's behavior.
     <LI> identify how long various classes of information should
 	 be retained, and mechanisms to ensure appropriate handling.
