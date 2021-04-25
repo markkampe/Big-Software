@@ -8,7 +8,7 @@ of one (I like McConnell's "Code Complete").  But this
 book, while excellent, is (IMHO) insufficient.  It talks
 about practice, but not principles ... and a University
 level course in Software Engineering should go beyond
-contemporary dogma and explore the issues and principles 
+best practices and explore the issues and principles 
 to which current practices attempt to respond.
 
 There are many books of the second type, but (to my taste)
@@ -17,8 +17,8 @@ philosophical or practical discussions of problems and
 approaches.  Fortunately this is a field where a great many
 smart people regularly confront the same problems, and so
 there are many excellent columns and articles on Software
-Engineering problems and approaches.  I tried to base my 
-theory reading on such sources.  Here I found that while 
+Engineering problems and approaches.  I tried to draw on
+these where they were available.  Here I found that while 
 there were many good papers on issues and particular approaches 
 ... it was difficult to find reasonable pedagogical articles 
 on basic concepts (often required as foundation for the 
