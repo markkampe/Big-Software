@@ -1,7 +1,7 @@
 I surveyed Software Engineering texts and found they fell into two
 general categories:
-  * pragmatic books on practice for programmers
-  * academic discussions of research and history
+ - pragmatic books on practice for programmers
+ - academic discussions of research and history
 
 The former are quite valuable, and I make extensive use 
 of one (I like McConnell's "Code Complete").  But this
