@@ -140,7 +140,7 @@ P4A Code and Test Suite
 		____	use of horizontal and vertical white space
 
 
-	packaging		___/5
+	packaging		___/4
 
 		____	able to build (without assistance) on appropriate system
 
