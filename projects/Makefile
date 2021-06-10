@@ -4,7 +4,7 @@ INCLUDES=/home/git/CourseWare/Website
 
 SCHOOL=HMC
 COURSE=SWE
-MONTH=1
+MONTH=9
 YEAR=2021
 
 projects.html: projects.c $(INTERMEDIATES)
