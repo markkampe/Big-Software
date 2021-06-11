@@ -8,7 +8,7 @@ PROSE="overview.html testing.html"
 SPECS="gameobject gameaction dice gameactor gamecontext"
 SOURCES="base.py gameobject.py gameaction.py dice.py gameactor.py gamecontext.py"
 
-COURSE="cs181aa.s21"
+COURSE="cs181aa.f21"
 TARGET="markk@knuth.cs.hmc.edu:public_html"
 
 # is this a push
