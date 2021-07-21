@@ -11,7 +11,7 @@ P1A	Concept	and Initial Plan
 
 
 
-		___	I have a general sense of what the software will do
+		___	I have a general sense of what you will build, and what it will do
 
 
 
