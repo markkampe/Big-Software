@@ -105,11 +105,19 @@ required work on schedule ... which is the point.  But, be warned:
     <li> you will need to test your component with other peoples' components,
          so if one person is late, everybody will be delayed and then find
 	 themselves in a last minute crunch.</li>
+    <li> some people may not be able to fully test their own components
+    	 until other components are available.  You need to understand
+	 these dependencies and have a solid plan for ensuring that
+	 needed components are available by the time they are needed.</li>
     <li> regular (e.g. daily) stand-ups will encourage you to keep you
          moving and identify problems as quickly as possible (so they
 	 can be addressed as quickly as possible).</li>
     <li> when build, itegration, and testing problems occur, you will
-         almost surely have to work as a group to address them.</li>
+         almost surely have to work as a group to address them.
+	 It is best if you schedule integrations so that the relevant
+	 component owners are all available to exercise the results
+	 and deal with any problems that arise.
+	 </li>
 </ul>
 </P>
 
@@ -425,17 +433,21 @@ As evidence that you did infact follow a TDD process, and for keeping a
 record of the problems found, please:
 <UL>
    <LI> make sure that you commit each test case before
-   	committing the code it tests.
+   	committing the code it tests, or <u>no points will be earned</u>.
 	(Note that we are not asking you to prove that you failed
 	the test before you wrote the code).
 	</li>
    <LI> after you have passed the tests, commit the updated code
-        (and perhaps test cases), with comments describing
-        the problems found and fixed during the testing.  If they
-	worked first time (this will happen) follow this up with
+        (and perhaps test cases), <u>with comments describing
+        the problems found and fixed during the testing, and
+	the tests passed</u>.
+	If they worked first time (this will happen) follow this up with
 	a trivial commit and a comment to that effect.</li>
    <LI> do not move on to implementing new functionality until
-	you have passed all the tests for the existing functionality.</li>
+	you have passed all the tests for the existing functionality.
+	If tests for different modules/classes are checked in
+	as a batch, <u>no points will be earned.</u>
+	</li>
 </UL>
 <P>
 NOTE: 
@@ -491,6 +503,10 @@ passed your tests.
 You were advised to give some thought to independent development
 and the integration process when you chose these components for
 specification, design and implementation.
+It was further suggested that you should have been doing
+<em>continuous integration</em>
+(full product builds, starting with trivial <em>mocks</em> of each component)
+since the middle of project 3.
 You should now be able to combine your components and demonstrate
 functionality for the integrated whole.
 <ul>
