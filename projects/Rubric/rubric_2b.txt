@@ -26,7 +26,8 @@ P2B	Architectural Review
 		___	each issue was understood
 
 
-		___	decision reached on each issue (could be more work and come back)
+		___	decision reached AND ANNOUNCED on each issue
+		        (could be more work and come back)
 
 
 		___	all prepared, participating, and had a chance to provide their input

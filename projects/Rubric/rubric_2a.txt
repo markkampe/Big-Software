@@ -48,7 +48,7 @@ P2A	Plan and Preliminary Architecture
 	overview:		___/5
 
 		___	a high level summary of what it will do and how it will do it
-
+			(appropriate references to proposal/analysis/requirements)
 
 		___	an enumeration of the key S/W components (not the U/I)
 
@@ -62,6 +62,9 @@ P2A	Plan and Preliminary Architecture
 		___	diagrams illustrating inter-component and external interfaces (not U/I)
 
 
+		___	adequate description/references to toolkits to be used
+
+		
 	specifications:		___/3
 
 		___	functionality of each software module is described
