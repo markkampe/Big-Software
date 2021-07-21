@@ -116,8 +116,7 @@ P2A	Plan and Preliminary Architecture
 		___	well conducted investigations (question has been well answered)
 
 
-		___	clear results presented
-			(these risks are under control)
+		___	clear results presented (these risks are under control)
 
 
 	analysis/feasibility:	___/2
