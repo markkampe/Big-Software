@@ -14,6 +14,19 @@ Specifications, Design and Review
 Thus far, most of your work has been team activities.  Moving forward,
 you will do much of your work as individuals, tho still with considerable 
 coordination, collaboration, and assistance from other team members.
+Even though much of the work in the next two phases will be individual:
+<ul>
+   <li> Your design and implementation decisions may differ from the
+        understandings that others have of what your component will do.</li>
+   <li> Changes to or misunderstandings about component specifications
+        will create significant problems when you integrate your
+	components together.</li>
+   <li> When you were working on team deliverables, regular team meetings
+        helped to keep you on schedule.  When you are working by yourself
+	it may be harder to maintain a good pace.  And if one of the
+	designs or implementations is not ready, integration will be
+	delayed and the entire team will be late.</li>
+</ul>
 </P>
 <P>
 The architecture has described the roles, functionality, and interfaces of each of
@@ -50,14 +63,14 @@ or even from multiple components:
 	</li>
    <li> each chosen piece <u>must</u> have sufficiently complex behavior to require
    	a significant number of test cases ... including several
-	white-box test cases (that go beyond simple verification vs interface
-	specifications).</li>
+	<em>white-box test cases</em>
+	(that go beyond simple verification vs interface specifications).</li>
    <li> each person should be capable of <u>independently</u> building and 
         testing his/her chosen piece.</li>
    <li> each of these pieces <u>must be automatically</u> unit-testable.</li>
    <li> when you are done, it <u>should</u> be possible to combine all
 	of these individual pieces together to create a working 
-	(all the pieces working together) and demo-able component.</li>
+	(all the pieces working together) and demo-able system.</li>
 </UL>
 Note, however, that you are each implementing only one (or a few) module(s) ...
 just enough to require a reasonable amount of design and coding work, and 
@@ -69,7 +82,7 @@ Neither must each of you implement a <u>single complete</u> architectural compon
     	 on the order of 400-800 lines of code, you can break it
 	 up into multiple classes, and implement only a few of them.</li>
     <li> if you very much want to implement a component that is too simple
-         (because of the value it adds to your program), you
+         (because of the technology or value it adds to your program), you
     	 may need to choose multiple components to implement.  But if
 	 none of those components meet the complexity and test case
 	 requirements, you may have trouble earning full credit
@@ -92,6 +105,9 @@ realized:
 </UL>
 Give some thought to how each component could be (independently) built
 and tested, and how you might demonstrate their successful integration.
+If components B and C are fundamentally dependent on component A, perhaps
+the owner of component A can give you a cheap simulator that can be used
+for testing until the real component A is available.
 If you have any questions or doubts, please talk to me or your grutor before
 finalizing your decisions.
 </P>
@@ -138,7 +154,6 @@ it could easily qualify as a component for design and implementation
 in the next phases of the project.
 If you believe you have a U/I component that would qualify, review it with
 me before completing your selections and plans.
-</P>
 </P>
 <P>
 The first draft designs and test plans for the chosen components are due in the second week
@@ -407,6 +422,25 @@ an example of an architectural overview, at the end of which is a table
 of links to
 <a href="examples/overview.html#examples">sample</a>
 specifications, designs, and test plans.
+</P>
+<P>
+Even though you will each be developing specifications for your own components, 
+you are strongly encouraged to review all of these specifications as a team.
+One person, who will be using a component, may have a different understanding
+of the specifications than another person, who will be implementing it.  In
+a team review, the users of a component can ask questions about how they
+can correctly use it ... clarifying ambiguities and making it much more 
+likely that the components will all work together when they are finally
+integrated.
+</P>
+<P>
+As a further step, each team member might want to built a cheap <em>mock</em>
+for their component that implements all of the external entry points
+(returning trivial artifical results) and makes calls to the other components.
+This will make it possible to build the entire system and confirm that the
+components agree on the basic interfaces between them, and enable
+<em>continuous integration</em> as the implementations of the individual
+components proceed.
 </P>
 <P>
 This submission be graded on the basis of:
