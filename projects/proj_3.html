@@ -14,18 +14,14 @@ Specifications, Design and Review
 Thus far, most of your work has been team activities.  Moving forward,
 you will do much of your work as individuals, tho still with considerable 
 coordination, collaboration, and assistance from other team members.
-Even though much of the work in the next two phases will be individual:
+Even though much of the work in the next two phases will be individual
+it is important that you continue to work <u>as a team</u>:
 <ul>
-   <li> Your design and implementation decisions may differ from the
+   <li> your design and implementation decisions may differ from the
         understandings that others have of what your component will do.</li>
-   <li> Changes to or misunderstandings about component specifications
+   <li> changes to or misunderstandings about component specifications
         will create significant problems when you integrate your
 	components together.</li>
-   <li> When you were working on team deliverables, regular team meetings
-        helped to keep you on schedule.  When you are working by yourself
-	it may be harder to maintain a good pace.  And if one of the
-	designs or implementations is not ready, integration will be
-	delayed and the entire team will be late.</li>
 </ul>
 </P>
 <P>
@@ -106,8 +102,8 @@ realized:
 Give some thought to how each component could be (independently) built
 and tested, and how you might demonstrate their successful integration.
 If components B and C are fundamentally dependent on component A, perhaps
-the owner of component A can give you a cheap simulator that can be used
-for testing until the real component A is available.
+the owner of component A can create a cheap <em>mock</em> (simulator) 
+that can be used for testing until the real component A is available.
 If you have any questions or doubts, please talk to me or your grutor before
 finalizing your decisions.
 </P>
@@ -388,6 +384,9 @@ In this case, we are asking you to describe
     </li>
 </ul>
 <P>
+The requirements developed so far most likely describe what the whole product must do.
+You should be translating these into component-level requirements (what should happen
+as a result of each call).
 It is possible that your component will have no requirements beyond delivering above-described
 functionality.  But it is likely that, as a result of its role in the overall architecture,
 and the things that other components need it to do, there will be additional requirements
@@ -771,6 +770,17 @@ The <A href="examples/testing.html">sample submission</a>
 on the web site includes general overview of the proposed approach
 to testing, and a list of the specific test cases to be written
 for each class.
+</P>
+
+<P>
+The above discussion focuses on the required elements and form 
+for your test plan ... but those are merely wrappings.  What is most important
+is that your test suite gives us high confidence that your component
+has been correctly implemented.  Have you exercised every interesting
+case in every major function?  Have you tried every <em>equivalence class</em>
+of interesting inputs, and tested the handling of all likely errors?
+You are encouraged to review your test plans with your team before
+submitting them.
 </P>
 
 <P>
