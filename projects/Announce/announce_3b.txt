@@ -1,21 +1,14 @@
-Given your overall product requirements and architecture, it might be fairly
-straight-forward to write-up the functionality, interfaces, and requirements
-for your selected components.  But ...
-   * the interfaces described in your architecture may not yet be sufficiently
-     complete or detailed to guide a complete component specification.
-   * some of the functionality may be defined with respect to services
-     performed for (or obtained from) other (not yet fully specified)
-     components.
-   * there may be some further design and/or discussion required in order
-     to derive specific component requirements from the overall product
-     requirements.
 
-Thus, you may find it necessary to (as a team) further elaborate the
-architecture and explore possible implementations of other components
-before you can fully specify your chosen components.
+While writing your component specifications, you have likely given more than
+a little thought to how you would implement your component.  But ...
+   * as you work on the detailed design, you may find that some of the
+     algorithms, data structures, communication or house-keeping are not
+     as obvious as you thought.
+   * once you have chosen your algorithms, it may not be obvious what
+     the test cases to fully exercise their correctness might be.
 
-I would encourage you to examine what you currently know about your chosen
-components and see what other details need to be worked out before you can
-write detailed specifications and requirements.  If you can have this done
-before next Friday's lab, the per-component write-ups should be relatively
-straight-forward.
+For these reasons, I would encourage you to start sketching the algorithms
+and test cases as soon as possible.  If you encounter no hard problems,
+congratulations!  But if you do encounter problems, it would be good to
+have them in mind for discussion (with your team, with me, or with a
+Grutor) at Friday's lab session.

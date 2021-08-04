@@ -5,15 +5,33 @@ and planning the implementation work.
 
 I suggest that, over the next few days:
    * you begin by reading the descriptions for all of the remaining project
-     phases (3A-3E and 4) so that you understand what you will need to be
+     phases (3A-D and 4) so that you understand what you will need to be
      able to do with the selected component(s).
    * identify the component(s) you will want to specify, design, implement,
      and test.
    * describe a meaningful demonstration (for the project 4 sprint review)
-     of successful integration of those components.  If this is difficult,
-     perhaps you would like to choose different components.
+     of successful integration of those components.  If this proves to be
+     difficult, you might want to reconsider thye chosen components.
    * come up with a detailed plan for the work to be done.
 
-This should not be very difficult, so I would then encourage you to get an
-early start on the specifications, designs, and test plans for those
-components.
+Given your overall product requirements and architecture, it might be fairly
+straight-forward to write-up the functionality, interfaces, and requirements
+for your selected components.  But ...
+   * the interfaces described in your architecture may not yet be sufficiently
+     complete or detailed to guide a complete component specification.
+   * some of the functionality may be defined with respect to services
+     performed for (or obtained from) other (not yet fully specified)
+     components.
+   * there may be some further design and/or discussion required in order
+     to derive specific component requirements from the overall product
+     requirements.
+
+Thus, you may find it necessary to (as a team) further elaborate the
+architecture and explore possible implementations of other components
+before you can fully specify your chosen components.
+
+I would encourage you to examine what you currently know about your chosen
+components and see what other details need to be worked out before you can
+write detailed specifications and requirements.  If you can have this done
+before next Friday's lab, writing up the per-component specifications should
+be relatively straight-forward.

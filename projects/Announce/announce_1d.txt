@@ -1,8 +1,8 @@
 You now have:
    - a reasonable understanding of the existing software in your problem space.
    - a value proposition for how to build something better.
-   - a characterization of your expe3cted users, and input from them about their
-     capabilities, needs, and desires in this space.
+   - a characterization of your expected users, and input from them about their
+     activities, capabilities, needs, and desires in this space.
    - a set of analyized and validated requirements for what your software should
      be able to to.
 
@@ -12,7 +12,7 @@ you believe it will be valuable/successful.  Assembling and writing such
 proposals is a fundamental skill, whether in support of academic research or
 commercial product development.  Unless you are doing this entirely by and 
 for yourself, you will need the support of others;  They must understand what
-you propose, and believe that it is worth doing.
+you propose, and must be convinced that it is worth doing.
 
 I suggest that, by Tuesday, you (as a team):
    1. review the information you have to ensure its completeness
@@ -27,3 +27,11 @@ I suggest that, by Tuesday, you (as a team):
 
 Try to have your investigation results and detailed outlines ready 
 for Friday's lab session.
+
+In the next phase of this project you will develop an architecture for the
+software you propose to write, and have it reviewed by another team.  These
+reviews are often non-trivial to arrange and schedule, so you would be wise
+to start lining up your review partners now.  Your reviews can be symmetric
+(team A reviews team B, team B reviews team A), but this is not necessary.
+I only require that every team be reviewed, and every team review another
+team.

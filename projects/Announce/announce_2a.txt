@@ -10,13 +10,16 @@ In the next week you will:
    * explore the applicabiltity of those tools to your problem and
      their usability in this particular context
    * brain-storm possible architectures (components, roles, interfaces)
-     implementability of your components)
    * examine the reasonableness of that architecture and the implmentability
      of those components
-   * do any research and prototyping required to answer the above questions
+   * do any research and prototyping (e.g. confirming that you can get
+     and use the proposed tools, and understanding the structures that
+     they will impose on your design) required to answer the above questions
 
 I would encourage you to ASAP (before Tuesday):
    1. prepare a brief descriptions of proposed components, their functions
       and relationsthips.
-   2. present these to me (and/or a Grutor) to review them for issues
-   3. get feedback on the next research, design, and prototyping steps
+   2. prepare a list of the major tools you propose to use, and why you
+      believe you will be able to use them successfully.
+   3. present these to me to review them for potential problems.
+   4. get feedback on the next research, design, and prototyping steps

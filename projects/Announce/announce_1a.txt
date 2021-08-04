@@ -26,14 +26,14 @@ choose a piece of software that you would like to define, design and
 	  successful in all of those activities.
 
      The project descriptions can be found at
-  	https://www.cs.pomona.edu/courses/2020/fall/cs121s1/projects.html
+	https://cs.hmc.edu/courses/2021/fall/cs181aa/projects.html
 
   3. Start thinking about an appropriate piece of software that you would
      like to define, design and (at least partially) implement as your team
      project.
 
-You probably want to have your team by Wednesday 8/26, and a pretty clear
-idea of what your project will be before the Friday 8/28 lab session
+You probably want to have your team by Wednesday 9/01, and a pretty clear
+idea of what your project will be before the Friday 9/03 lab session
 (where you will work on your description and plan).
 
 

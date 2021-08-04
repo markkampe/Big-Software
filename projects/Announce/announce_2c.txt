@@ -9,26 +9,19 @@ Each reviewing team should, as quickly as possible:
      required architectural revisions as quickly as possible.
 
 After which each reviewed team should:
-   * review the results of your architectural review (both your
+   * review the results of your architectural review (my comments, your
      own notes and the report from the reviewing team)
    * research and identify design changes to address those issues
-   * confirm the reasonableness of those results with the reviewing team
+   * confirm the reasonableness of those results with the reviewers
    * write up a revised architectural proposal in which you specifically
      identify those issues and the way in which each has been addressed
 
-Two general observations about the reports (that may factor in to your revisions)
-
-   1. Many questions were based on things the reviewing team did not understand
-      about the proposed product or technologies.  Such material is generally
-      treated, not as part of the architectural proposal, but as background
-      reading for it.
-      
-    2. Must-Fix problems and issues are not respects in which the document
-       (or even the architecture) could be improved, but things that are
-       likely to result in serious problems for the project (e.g. components
-       that could not be implemented or would not work, missing information
-       without which a component could not be designed, or that makes it
-       impossible to conclude whether or not a component or system would work).
+Must-Fix problems and issues are not respects in which the document
+(or even the architecture) could be improved, but things that are
+likely to result in serious problems for the project (e.g. components
+that could not be implemented or would not work, missing information
+without which a component could not be designed, or that makes it
+impossible to conclude whether or not a component or system would work).
 
 I suggest that you schedule your follow-up meeting with the other team
 as soon as possible, to ensure that you will be able to get their feedback

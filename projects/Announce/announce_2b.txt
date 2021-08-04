@@ -2,7 +2,7 @@ Now that you have an architecture that you believe to be both viable and
 implementable, it is time to subject those beliefs to external validation.
 
 In the next week you will:
-   * identify another team who is willing and able to review your architecture
+   * line up another team who is willing and able to review your architecture
    * send them your architecture, schedule and conduct a review
 
    * agree to review another team's architecture
@@ -10,9 +10,23 @@ In the next week you will:
    * schedule and conduct a review (observed by me or a Grutor)
    * write up a report on the results of that review
 
-I would encourage you to ASAP (e.g. during today's lab):
-   1. talk to the other teams and determine who will you reivew your architecture,
-      and who's architecture you will review.
-   2. schedule your architectural reviews with those teams and me (or a Grutor) to:
+Hopefully, you already know which project you will be reviewing, and which
+team will be reviewing your project.  If you do not, you must tie this down
+immediately.
+
+Schedule your architectural reviews with those teams and me (or a Grutor) to:
       - give yourself adequate time to study and make notes on the proposal
       - give yourself adequate time to consider and write up your report
+
+Notes: 
+      Your reviewers may have questions about why you have chosen to do
+      things in the proposed ways.  It would probably be useful to give
+      them a copy of your final proposal, as background for the architecture
+      that will implement it.
+
+      Your reviewers have may not be familiar with the technologies you propose
+      to use.  Architectural documents seldom include tutorials on those 
+      technologies, but it would be good to provide a brief summary of the
+      technologies you will be using, including URLs for overviews that
+      the reviewers might find valuable.
+

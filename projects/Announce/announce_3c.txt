@@ -1,13 +1,16 @@
-While writing your component specifications, you have likely given more than
-a little thought to how you would implement your component.  But ...
-   * as you work on the detailed design, you may find that some of the
-     algorithms, data structures, communication or house-keeping are not
-     as obvious as you thought.
-   * once you have chosen your algorithms, it may not be obvious what
-     the test cases to fully exercise their correctness might be.
+Given your specifications, designs, and test plans, conducting design reviews
+with your team-mates should be relatively quick and easy.  But, over the next
+week, you will each have to:
+   * study for and participate in three other reviews
+   * write up a report on your own review
+   * understand and work any issues that are raised in your own review
 
-For these reasons, I would encourage you to start sketching the algorithms
-and test cases as soon as possible.  If you encounter no hard problems,
-congratulations!  But if you do encounter problems, it would be good to
-have them in mind for discussion (with your team, with me, or with a
-Grutor) at Friday's lab session.
+Recognize that, as your team mates read your detailed designs, they may
+find that there have been misunderstandings about exactly what your
+component will do.  As a result, these review sessions may go longer
+than expected, and generate more design work, requiring additional
+reviews.
+
+I suggest that you get together, as a team, as soon as possible and lay out
+a schedule to spread that work out over the next week, leaving enough time 
+to deal with the issues that arise in those reviews.

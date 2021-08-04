@@ -1,10 +1,17 @@
-Given your specifications, designs, and test plans, conducting design reviews
-with your team-mates should be relatively quick and easy.  But, over the next
-week, you will each have to:
-   * study for and participate in three other reviews
-   * write up a report on your own review
-   * understand and work any issues that are raised in your own review
+Hopefully, your design and test plan review has not left you with much
+rework to do.  If this proves to be the case, there should be very little work
+required to revise your designs and test plans, and write up your project 3
+post mortem.
 
-I suggest that you get together, as a team, as soon as possible and lay out
-a schedule to spread that work out over the next week, leaving enough time 
-to deal with the issues that arise in those reviews.
+This gives you an opportunity to get an early start on the (project 4) final
+implementation.  It is likely that the end of the semester will be a very busy
+time for you, and spreading (the much greater) project 4 out over an additional
+week may significantly improve the quality of your life.
+
+At the very least, you should (as a team) decide, based on your components
+and interests, which of you would like to:
+   * do your implementation in pair-programming sessions
+   * do your implementation using Test Driven Development
+   * submit your completed code for a Code Review
+
+and ... who would like to take the responsibility of planning the final demo?
