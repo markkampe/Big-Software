@@ -601,8 +601,11 @@ When you are ready to submit your component design for grading:
 </a>
 <P>
 Once you have specifications and a design to satisfy them, you have
-to figure out how you will test your implementation, to demonstrate
+to figure out how you will test your implementation to demonstrate
 that it actually works.
+You, as a responsible developer, have an obligation (to the project
+and your team) to verify that your component is working correctly
+<u>before</u> integrating it with the other components for system testing.
 <UL>
    <LI>
 	Review your specifications, and develop a set of automated comprehensive
@@ -610,9 +613,11 @@ that it actually works.
 	its interface requirements and specifications.</li>
     <LI>
 	Review your design, consider special cases (or combinations
-	of cases) that would exercise different code branches, and develop
-	a set of (white box) test cases to demonstrate that each interesting
-	situation is handled correctly.
+	of cases) that would exercise different code branches, and
+	important (e.g. multi-step operations and multi-component interactions)
+	functionality not well exercised by simply calling public methods to perform
+	their basic functions.  Develop a set of (white box) test
+	cases to demonstrate that each interesting situation is handled correctly.
 	</li>
     <LI>
 	Review your design, and consider any possible/plausible component
@@ -637,7 +642,7 @@ that it actually works.
 </UL>
 <P>
 It is possible that, in the process of developing your test plan, you will find
-assertions that are hard to measure, or functionality that is difficult
+assertions that are hard to test, or functionality that is difficult
 to verify (or verify automatically).  If this happens, you may need to
 revisit your requirements, specifications and design in order to make
 those aspects of program behavior more <em>testable</em>.
@@ -645,12 +650,12 @@ Please feel free to ask for help if you find yourself in such a situation.
 </P>
 <P>
 The difference between black-box and white-box testing (based on specifications vs implementation)
-sounds like a simple binary distinction based on a three-word test ...
-but the real world often declines to conform to our simple classifications:
+sounds like a simple binary distinction based on a three-word-assertion ...
+but the real world is often more complex and nuanced than our simple classifications:
 <ul>
    	The notion of black-box is not limited to the specified interfaces for 
 	<tt>public</tt> methods.  If we are testing simple <tt>private</tt>
-	(e.g. mutator and accessor) functions by storing
+	(e.g. mutator and accessor) methods by storing
 	values, retrieving them, and confirming that the expected value was returned,
 	the mere fact that we put the word <tt>private</tt> in front of those methods
 	does not turn trivial specification-based tests into white-box test cases.</li>
@@ -662,8 +667,13 @@ but the real world often declines to conform to our simple classifications:
 	different parts of that code ... and non-trivial analysis may be required
 	to identify a set of test cases to exercise all of them.
 	The mere fact that the specifications defined the expected input/output
-	relationships does not prevent a comprehensive exercise of
-	a full range of input combinations from qualifying as white-box testing.
+	relationships does not prevent a <u>comprehensive exercise</u> of a
+	<u>full range</u> of input combinations from qualifying as white-box testing.
+	Historically, <em>white-box</em> testing meant that you were allowed to
+	look into the implementation (e.g. read the code), but significant analysis
+	of the cases and interactions to be exercised might also result much deeper
+	(and more valuable) tests than simply exercising the obvious
+	specification-based parameter equivalence classes for each function.
 	</p>
 	<p>
 	Even a method that performs a (nominally) simple function may have to
@@ -674,7 +684,7 @@ but the real world often declines to conform to our simple classifications:
 	</p>
 </ul>
 The bottom line is that you have been asked to demonstrate your ability to design
-non-trivial software.  I also want you to demonstrate the ability to 
+non-trivial software.  I also need to see you demonstrate the ability to 
 <u>recognize situations that might result in different computations</u>,
 and to <u>devise test cases to verify the correct handling of each</u>.
 </P>
