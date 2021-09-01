@@ -66,6 +66,9 @@ P4A Code and Test Suite
 
 	packaging		___/4
 
+		____	able to figure out which files were from whom (2p)
+
+
 		____	able to clone and build (without assistance) on appropriate system
 
 
