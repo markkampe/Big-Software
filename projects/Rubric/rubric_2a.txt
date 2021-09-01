@@ -6,7 +6,7 @@ P2A	Plan and Preliminary Architecture
 
    	complete/specific	___/2
 
-		___	includes likely research/prototyping activities (1p)
+		___	includes all likely research/prototyping activities (1p)
 
 	   	___	preliminary architecture: included, has owner(s) and date
 
@@ -24,7 +24,7 @@ P2A	Plan and Preliminary Architecture
 		___	early review of components and their roles
 
 
-		___	early review of issues to be researched/analyzed/prototyped
+		___	identification of issues to be researched/analyzed/prototyped
 
 
 	use of time/resources	___/2
@@ -116,10 +116,10 @@ P2A	Plan and Preliminary Architecture
 		___	reasonable investigations (clear goals, adequate, but not too much)
 
 
-		___	well conducted investigations (question has been well answered)
+		___	(if completed) proposed investigations were well conducted
+			
 
-
-		___	clear results presented (these risks are under control)
+		___	(if completed) yielded clear results, those risks are under control
 
 
 	analysis/feasibility:	___/2

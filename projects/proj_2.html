@@ -120,6 +120,14 @@ problem:
 	in the design review until after it has been
 	completed.  (If you had recognized those issues
 	you would have dealt with them before the review)</li>
+   <LI> Your design will almost surely be based on other libraries,
+   	toolkits, or services.  Unless you have already built
+	software based on these tools, you do not yet know how well
+	they will address your needs, or what constraints they will
+	impose on your design.  You may find it necessary to build
+	(prototype) applications based on these services before 
+	you can understand how to design your application.
+	</li>
 </UL>
 In project 1, you were given a relatively complete list of things
 you had to do, along with some guidance on how to do them.
@@ -169,7 +177,8 @@ review your architecture during this (P2A) phase.
 Your initial Management Plan will be graded on the basis of:
 <ul>
 	<li> 20% good use of time and resources (work apportioned reasonably over the available time)</li>
-	<li> 20% specifically calling out important research and/or prototyping activities</li>
+	<li> 20% specifically calling out important <u>research and/or prototyping activities</u>
+		 to gain required understanding and validate your proposed design</li>
 	<li> 20% specificity of plan (clear responsibilities: who, what, when) including
 	         lining up and preparation for reviews</li>
 	<li> 20% provisions for early detection of problems, and time to deal with them</li>
@@ -350,6 +359,10 @@ problem that requires further analysis or prototyping.
    <LI> Discussions of the key issues that arose in the development of
 	this architecture and the rationale that drove the selection of
 	the chosen approach.  </li>
+   <LI> Descriptions of the research to be performed (e.g. to learn technologies
+        or validate assumptions) and prototypes to be built (e.g. to confirm
+	the usability of a proposed tools and your understanding of the 
+	structure they may impose on your design).
    <LI> Discussions of major issues still outstanding (anything that causes 
 	you to doubt that it will be possible to successfully build this system on a
 	predictable schedule): what the problem is, what options have been
@@ -773,7 +786,9 @@ feedback and explains how you have responded to each item.
 <P>
 The key questions we will ask when grading your final architectural proposal are:
 <UL>
-    <li> Have all significant implementation risks been addressed?</li>
+    <li> Have all significant design questions and risks been addressed?</li>
+    <li> Does the team clearly understand the libraries/toolkits/services they will
+         be using and how to build software that uses them?
     <li> Are the descriptions of all software components now sufficiently
          complete that I could now sit down and start writing detailed
 	 specs and designing each?</li>

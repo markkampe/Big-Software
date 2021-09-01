@@ -53,12 +53,14 @@ P2C	Final Architecture, Post Mortem, and Management
 
 	prototyping/reserach:	___/3
 
-		___	reasonable decisions about what required prototyping/research
+		___	reasonable decisions about what required prototyping/research and how
 			(key risks)
 
-		___	all key (high impact, significant doubt) risks have been addressed
+		___	reasonable results presented, prototypes effectively demonstrate feasibility
+			
 
-		___	architecture reflects those results
+		___	all high impact/significant doubt risks have been addressed
+			and these are reflected in the final architecture
 
 
 	rationale:		___/2
