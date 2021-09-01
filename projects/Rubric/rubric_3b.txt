@@ -93,6 +93,8 @@ P3B	Component Design and Test Plan
 
 		___	well suited to the functionality being tested
 
+		___	reasonable and complete description of required mocks
+
 
 	completeness		___/2
 

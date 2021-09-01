@@ -294,7 +294,7 @@ Your initial Management Plan will be graded on the basis of:
 	<li> 20% good use of time and resources (work spread reasonably over the available time)</li>
 	<li> 20% specificity of plan (clear responsibilities: what, when)</li>
 	<li> 20% provisions for early detection of problems, and time to deal with them</li>
-	<li> 20% completeness</li>
+	<li> 20% completeness (e.g. includes required components and <em>mocks</em>)</li>
 </ul>
 <P>
 Maintain your plan (and status update minutes) with history (e.g. on Github or in Google Docs).
@@ -523,6 +523,16 @@ can better understand what must be done.  People are more likely
 to make mistakes when working on things they do not understand.
 </P>
 <P>
+Often, in the course of a component design, we realize that it would be easier
+or better if we made some changes to the specifications.  This is normal, and
+(in most cases) a good thing.  But other people may be doing their own designs
+based on the original specifications.  As your understanding of your component
+evolves, make sure to share this evolution with your team mates.  This is another
+good reason to (prior to full integration) supply (up to date) <em>mocks</em> for
+your component ... so that the compiler can ensure that you are all working to
+(at least) the same basic interface specifications.
+</P>
+<P>
 You can prepare your designs in any form you find convenient,
 but you may find it easiest to create them as
 code modules with compilable declarations (complemented by full JavaDoc/PyDoc tags),
@@ -634,6 +644,15 @@ and your team) to verify that your component is working correctly
 	invoke them, and collect the results).</li>
 
    <LI>
+   	Consider the other services with which your component interacts,
+	and how you might simulate (e.g. with a <em>mock</em>) some of
+	those interactions for unit-testing.  In some cases, the <em>mock</em>
+	might only have to accept calls and return plausible results. 
+	But in other cases you might need it to return different results
+	(under different circumstances) in order to exercise different
+	paths in your own code.
+	</li>
+   <LI>
 	Review the overall list for completeness (is everything covered),
 	efficiency (are there redundant tests) and value (are there
 	tests for things that don't matter or will never happen), and
@@ -705,6 +724,7 @@ In general, your test plan should include:
 		 or requirements.
 	    </LI>
 	    <LI> any special set-up required before this test can be run</LI>
+	    <LI> any special behavior that might be required from other <em>mock</em> components</li>
 	    <LI> how the situation to be tested will be generated</LI>
 	    <LI> how correctness of behavior will be ascertained
 	    	(e.g. what assertions will be tested)</LI>
@@ -817,6 +837,7 @@ Your test plan will be graded on the basis of:
 	    <li> automated execution and pass/fail determination </li>
 	    <li> use of off-the-shelf technology</li>
 	    <li> reasonablenss practicality of using this tool for this testing</li>
+	    <li> reasonableness/completness of required <em>mock</em> behavior</li>
 	</UL>
 	</LI>
 	<li> 10% overall completeness (how much confidence this suite will give us)</li>
