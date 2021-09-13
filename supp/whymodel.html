@@ -360,14 +360,14 @@ per hour?
 	     <P>
 	     </LI>
 	<LI> The slowest speakers I have ever heard can still 
-	     probably manage to get out once syllable every
+	     probably manage to get out one syllable every
 	     other second.
 	     <P>
 	     0.5 x 60 x 60 = 1440 words per hour
 	     </LI>
 </UL>
 This suggests that dictation rates are likely to fall within
-a single power-of-ten (1,800-18,000) syllables per hour).   
+a single power-of-ten (1,800-18,000 syllables per hour).   
 <P>
 Often, even very crude estimates are enough to tell us whether or 
 not an approach might be practical ... 
@@ -766,6 +766,26 @@ those platforms.  The test projects do not have to, in any
 way, simulate the intended product.  All they have to do is
 exercise the fundamental capabilities of the new tools and
 platforms.
+</P>
+<P>
+Some toolkits (e.g. those associated with user interfaces or
+client/server communication) may impose a unique (and non-obvious)
+structure on the applications that use them.  If you are using
+such a toolkit for the first time, you may find that structure
+to be at odds with your design thoughts.
+It might be a good idea to build a very simple version of your
+application, based on that tool kit.  All real computation 
+and data access can be crudely simulated, but the toy
+version of your application will implement the correct flow
+of control between its components.  This can 
+<ol type="a">
+   <li> demonstrate that you can correctly use the tool kit.</li>
+   <li> clarify the structure of your software and the interactions
+        between its components.</li>
+   <li> act as a starting point for <em>continuous integration</em>,
+        as simulated components are replaced by real ones.</li>
+</ol>
+</P>
 <P>
 In such toy projects the actual programs to be built are
 usually trivial, and almost all of the time goes into
@@ -781,7 +801,7 @@ In the previous sections, we have talked about different types
 of prototypes that we build in order to reduce uncertainty.
 They give us, as engineers, confidence that we know what
 to do, how to do it, and how it will work when we are done.
-We can now go back to our (less technical) managers and tell
+We can now go back to our (less technical) partners, and tell
 them (in detail, with backup):
 <OL type=a>
 	<LI> what our estimates are</li>
@@ -807,7 +827,7 @@ demo involves answering two questions:
 <OL type=1>
 	<LI> What capabilities must we show-case to win them over?</li>
 	<LI> What demonstration would quickly, clearly (and
-	     ideally dramatically) show-case those capabilities?</li>
+	     perhaps dramatically) show-case those capabilities?</li>
 </OL>
 <P>
 In many cases, a good demo can be assembled from a combination of
@@ -822,7 +842,7 @@ this may come as a terrible shock to you ... but major product
 announcements (even from industry leaders) are often backed-up
 by simulated products and demonstrations.  Great demos can be as
 much about imagination as technical achievement.  
-Don't underrate the value of showmanship and a flare for the dramatic.
+Do not underestimate the value of showmanship and a flare for the dramatic.
 <P>
 <H3>4.5 Summary of Prototypes</h3>
 <P>
@@ -853,11 +873,11 @@ the prototyping effort.
 I once met a man who had just purchased an <em>America's Cup</em> boat.
 I was amazed at his coup.  
 He then explained to me that a well-designed
-America's cup boat falls apart as it crosses the finish line.  
+America's cup boat <em>falls apart as it crosses the finish line</em>.  
 Anything that lasts longer represents mis-spent weight and/or 
 effort.  Keep your prototypes similarly light-weight.  
 <P>
-It is also important to note the greatest danger of a good
+It is also worth noting one danger of a good
 prototype: that an executive will see it, be blown away, 
 not realize how limited it is, and commit to shipping it.
 You can protect yourself (and your users) from this by:
