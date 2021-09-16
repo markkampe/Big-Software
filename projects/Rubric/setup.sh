@@ -5,7 +5,12 @@
 #
 SOURCE="/home/git/Big-Software/projects/Rubric"
 CONFIG="/home/markk/Dropbox/Shuttle"
-TOYS="/home/git/Toys/bash"
+if [ -d "/home/git/Toys" ]
+then
+    TOYS="/home/git/Toys/bash"
+else
+    TOYS="/home/git/toys/bash"
+fi
 
 # most good stuff comes from here
 ln -s $SOURCE .
