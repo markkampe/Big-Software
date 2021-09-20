@@ -19,10 +19,11 @@ definitions that could (working in concert) deliver the required
 functionality ... and there are surely numerous viable approaches.
 <P>
 As you have probably begun to recognize, we often need a great deal more
-than <em>functionality</em> from our software ... and it turns out that
+than <em>run-time functionality</em> from our software ... and it turns out that
 most of those other things are also driven (even more than functionality)
-by architecture.  And as we try to address increasingly more of these goals
-the problem of finding a viable architecture becomes much more difficult
+by architecture.  As a result, the architecture of an interesting system
+is much more than <em>a realization of the requirements</em>,
+and the problem of finding a viable architecture becomes much more difficult
 ... but being aware of those other goals greatly increases our chances
 of achieving them.
 <P>
@@ -41,13 +42,13 @@ are caused by architectural decisions.  A few examples
 are:
 <UL>
    <LI> the number of layers through which a request
-	must be processed.
+	must be processed.</li>
    <LI>	directing a high volume of traffic through a 
-	single low-bandwidth component or channel.
+	single low-bandwidth component or channel.</li>
    <LI>	the number of messages that have to be exchaged
-	to perform an operation.
+	to perform an operation.</li>
    <LI> important operations that complete slowly because 
-	they must wait in long lines.
+	they must wait in long lines.</li>
 </UL>
 <P>
 Similarly one might guess that reliability and availability
@@ -56,20 +57,20 @@ poorly reviewed and tested code can certainly create
 reliability/availability problems ... but simple bugs are 
 not the only causes of system failures:
 <UL>
-   <LI> disks and memory are notoriously unreliable.
-   <LI> computers and network links go down regularly.
-   <LI> the software with which we interact may behave badly.
+   <LI> disks and memory are notoriously unreliable.</li>
+   <LI> computers and network links go down regularly.</li>
+   <LI> the software with which we interact may behave badly.</li>
    <LI> many failures are the results of external factors
-	like power outages and operator errors.
+	like power outages and operator errors.</li>
 </UL>
 To be robust in the face of such failure:
 <UL>
-   <LI> alternates and recovery procedures must exist for every component.
+   <LI> alternates and recovery procedures must exist for every component.</li>
    <LI> component interfaces must prevent the failure of one component
-	from triggering a cascade of secondary failures.
+	from triggering a cascade of secondary failures.</li>
    <LI> component interfaces must be designed so that any component
 	can be replaced or restarted at any time, while the system
-	continues to operate.
+	continues to operate.</li>
 </UL>
 These capabilities arise, not from careful coding, 
 but from the architecture.
@@ -81,6 +82,7 @@ skills, then each component must be specified to
 be implementable within the limitations of those 
 skills and tools.  This may greatly limit the range
 of viable component specifications.
+</P>
 <P>
 If a system is to be buildable using off-the-shelf technology,
 the interfaces to those components must be defined to match
@@ -88,27 +90,36 @@ those of the available technology.  If a system is expected
 to create new reusable components, the interfaces to those
 components must be designed to meet the needs of future
 clients as well as the current one.
+</P>
 <P>
 If we want to enable independent, parallel development of
 distinct components their interfaces must sufficiently well
 abstracted as to permit them to be designed independently,
 and sufficiently well defined that each can be tested for
 interoperability before the other is available.
+</P>
 <P>
 If we want to enable continuous integration, each component
 must have functional interfaces that are easily stubbed or
 simulated until more complete implementations are available,
 and the details of those interfaces may well determine the
 order in which specific features must be implemented.
+</P>
 <P>
 If we want to be able to gain confidence about the correctness
 of a component implementation, the component interface
 specifications must include the ability to generate all 
 behavioral scenarios, and definitively ascertain the correctness 
 of the components behavior in every case.
+</P>
 <P>
-All of these characteristics are enabled by the system architecture.
-<P>
+All of these process requirements are enabled (or condemned to failure)
+by the system architecture.
+The construction and integration process for a large project
+must be archtitected just as carefully as the run-time
+components ... and those two architectures must agree with
+one-another.
+</P>
 <H2>4. Architecture and Diagnosibility/Servicability</h2>
 <P>
 When a system misbehaves in the field, it should be possible
@@ -150,35 +161,50 @@ as a great commentator on the human condition
 How can we predict what kinds of change will be necessary?
 Fortunately, many types of change are predictable:
 <UL>
-   <LI> recognized limitations we didn't have time to fix.
-   <LI> poorly implemented features that will need later improvement.
-   <LI> features we left out for want of time.
-   <LI> features we left out because we weren't yet sure how to implement them.
+   <LI> recognized limitations we didn't have time to fix.</li>
+   <LI> poorly implemented features that will need later improvement.</li>
+   <LI> features we left out for want of time.</li>
+   <LI> features we left out because they are not yet well defined, or
+   	we weren't yet sure how to implement them.</li>
    <LI> additional plug-in extensions
 	(e.g. support for additional MIME types or authentication methods)
-        that are likely to be added later.
+        that are likely to be added later.</li>
    <LI> features that are not yet required, but will likely become
-	required later (e.g. internationalization/localization).
+	required later (e.g. internationalization/localization).</li>
    <LI> policy decisions that might need to be made differently in the future
-	(e.g. role based access control).
-   <LI> ports to other platforms (e.g. Android and IOS).
+	(e.g. role based access control).</li>
+   <LI> ports to other platforms (e.g. Android and IOS).</li>
 </UL>
 All of these should already be well known to the developers.
 Even if we don't have time to create those implementations
 at this time, we can consider what a future implementations
-might look like, and then ...
+might look like.  We could start by looking (individually) at 
+each such extension and asking what the scope of the required changes
+might be:
+<ul>
+   <li> ideally the changes (for a particular extension) would be
+   	localized within a single component, and the rest of the
+	system would not see any difference.</li>
+   <li> also acceptable, most of the implementation would still
+   	be primarily upwards-compatible extensions to a single component,
+	but a few other components might have to be extended to use
+	or support new options.</li>
+</ul>
+But, if the changes appeared to be wide-spread (or worse, not achievable within
+this architecture) we should explore different architectures that might be
+more robust in the face of such extensions:
 <UL>
    <LI> if mechanisms are likely to change, define more abstracted 
-	interfaces that can encompass a wider range of implementations.
+	interfaces that can encompass a wider range of implementations.</li>
    <LI> if underlying services are likely change, encapsulate them
-	in a layer of abstraction hide the differences.
+	in a layer of abstraction hide the differences.</li>
    <LI> if alternative implementations of something are likely to be
 	needed, create plug-in interfaces to enable the addition of 
-	new providers (even at run-time).
+	new providers (even at run-time).</li>
    <LI> if smarter implementations are likely to be required in the
 	future, design the interfaces to support smarter services, and
 	then provide degenerate (e.g. hard-coded) implementations 
-	to provide simple default behavior in the first release.
+	to provide simple default behavior in the first release.</li>
 </UL>
 <P>
 It is good to consider where more general abstractions are likely
