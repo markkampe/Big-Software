@@ -253,6 +253,34 @@ The most relevant (for this project) sections from his presentation are probably
 </ul>
 </P>
 <P>
+To create your architecture, it may be helpful to:
+<UL>
+   <li> start with the environment in which it will run
+        (e.g. users, different computers, services with which you will interact).</li>
+   <li> identify your key data items (e.g. persistent files, persistent databases,
+        active session data).</li>
+   <li> note how the data flow from one place to another, and what processing
+        and/or transformations are performed on it.</li>
+   <li> imagine and sketch components onto which that data and those transformations
+        can be projected.</li>
+   <li> suggest a form (e.g. class, thread, process, server) for each component.</li>
+   <li> characterize the inputs to, outputs from, requests, and information exchanges
+        between those components (files, data streams, calls, RPC requests, pub-sub events,
+	call-backs, etc).</li>
+</UL>
+</P>
+<P>
+You may find it helpful to record your component interfaces as class and
+method declarations for all external entry points, and then implement
+trivial <em>mocks</em> (that simply make calls to other components and
+return simulated results of the appropriate types).  Doing so may 
+enable you to build a toy version of your entire application, and
+more clearly understand the components you have defined and the
+flows of information and control between them.
+It will also help to turn up misunderstandings about proposed
+interfaces, and serve as a starting point for <em>continuous integration</em>.
+</P>
+<P>
 Recall that McConnell described design as a
 <em>wicked</em> problem, in that you may not even have a list of
 problems to be solved until you have designed (and discarded)
@@ -276,7 +304,9 @@ for the "feasibility" of the proposed component descriptions:
    	(e.g. langauge, API, tool kit or service) is chosen, it may be
 	necessary to do a further research (and/or prototyping) to 
 	<u>confirm its usability and suitability</u>
-	for its proposed role in the project.</li>
+	for its proposed role in the project,
+	and to understand the constraints it may impose
+	on your design.</li>
 
    <LI>	For new components that must be constructed from scratch,
 	it is common to construct a high level design ... with
@@ -457,6 +487,23 @@ You will note that:
    <li> you have (listed above) a two-digit number of things that
         you need to describe about your architecture</li>
 </ul>
+</P>
+<P>
+It is suggested that you describe your architecture in multiple,
+complementary ways:
+<ul>
+   <li> conceptual: what are the key (non-trival) problems to be
+   	solved, and how (at a high level) do you propose to solve them?</li>
+   <li> structural: what are the major data and computational components, and for each:
+        what kind of thing is it, and what are its contents/responsibilities?</li>
+   <li> functional: what operations does each component support, with
+   	what inputs and outputs?</li>
+   <li> behavioral: what are the key operational scenarios, and what 
+   	actions (in each of the components) are involved in 
+	implementing those scenarios?</li>
+</ul>
+</P>
+<P>
 But I do not give you forms, or even a table of contents for
 your architectural description.
 There are a few reasons for this:
@@ -488,8 +535,9 @@ Garlan and Shaw paper on software architectures</A>
 you will see prose and graphical descriptions of many classical architectures.
 For client-server models, you might find it interesting to look at simple 
 models of the
-<A Href="https://www.cs.hmc.edu/~markk/SWE_copies/GFS.png">Google</A> and
-<A Href="https://www.cs.hmc.edu/~markk/SWE_copies/HDFS.png">Hadoop</A>
+<A Href="https://www.cs.hmc.edu/~markk/SWE_copies/orb.png">ORB client server binding</A> and
+<A Href="https://www.cs.hmc.edu/~markk/SWE_copies/GFS.png">Google File System client to data path</A> and
+<A Href="https://www.cs.hmc.edu/~markk/SWE_copies/HDFS.png">Hadoop client to data path</A>
 file systems.
 <P>
 Recognize that your reviewers may not have read your initial concept and 
@@ -585,11 +633,14 @@ When you are ready to submit your preliminary architecture for grading:
 <H3>P2B Architectural Review</h3>
 </a>
 <P>
-As we refine a design, we become prone to <em>confirmation bias</em>.
+As we refine our design, we will attempt to see how it handles
+the scenarios we have imagined as exercises of all of its major
+(run-time and non-run-time) requirements.
+But, it is natural for us to become prone to <em>confirmation bias</em>.
 It is easy to become convinced that we have
 made the right decision and that our design is therefore correct.
-After we have done our best at refining our architecture, it is time
-to seek independent validation from people who haven't already bought-in
+After we have done our best at refining and evaluating our architecture,
+it is time to seek independent validation from people who haven't already bought-in
 to our solution.
 </P>
 <P>
@@ -638,6 +689,29 @@ functionality and competitive positioning.  While these are not
 architectural, they may well be within scope for early stage
 project reviews.
 </P>
+<P>
+There are a few standard approaches to architectural reviews:
+<ol type="1">
+   <li> Imagine scenarios to exercise the key requirements, and see
+        how well the proposed architecture seems able to handle them.
+	Following this path will force you to understand the details of
+	component relationships, functionality, and interfaces.
+	<br>
+	After considering the basic flows of information and control,
+	you might then consider obvious modes of failure, and the
+	ability of the specified components to reasonably detect and
+	handle each.</li>
+   <li> After you believe you understand the components' responsibilities,
+   	functionality, and interfaces, consider a list of general
+	architectural goodnesses (e.g. modularity, generality, testability,
+	maintainability, portability, etc) and how well this architecture
+	fares in each of these respects.</li>
+   <li> Consider areas where are not yet confident of your understanding
+   	or the rightness of the proposed solution, and think of questions
+	(to be asked during the review) that would better illuminate those
+	issues.</li>
+</ol>
+</p>
 <P>
 When you have completed your study notes in preparation for the review,
 each individual should prefix them with a
