@@ -29,7 +29,7 @@ This project will exercise a great many key design skills:
 <UL>
    <LI> coming up with a viable high level architecture</li>
    <LI> working out the implications of your architecture to component definitions</li>
-   <LI> identifying questions and risks best addressed through research and/or prototypes</li>
+   <LI> identifying and addressing questions and risks best addressed through research and/or prototypes</li>
    <LI> validate your architecture against your requirements (and general goodness properties)</li>
    <LI> describing that architecture well enough that others can understand it</li>
    <LI> reviewing someone else's design, understanding the issues, and
@@ -304,10 +304,13 @@ for the "feasibility" of the proposed component descriptions:
    	(e.g. langauge, API, tool kit or service) is chosen, it may be
 	necessary to do a further research (and/or prototyping) to 
 	<u>confirm its usability and suitability</u>
-	for its proposed role in the project,
+	for its proposed role in your project,
 	and to understand the constraints it may impose
-	on your design.</li>
-
+	on your design.
+	Teams often encounter disastrous design, implementation,
+	and integration problems because they <u>assumed</u> that
+	an approach or toolkit they read about would meet their needs.
+	</li>
    <LI>	For new components that must be constructed from scratch,
 	it is common to construct a high level design ... with
 	enough detail to convince ourselves that such a component
@@ -349,9 +352,12 @@ problem that requires further analysis or prototyping.
 	         (with trivial simulations of each component) to 
 		 ensure they will be able to talk to one-another</li>
 	 </ul>
-    <li> Please be aware that if you gloss over problems in this phase,
-	you may find that those problems make it impossible to complete
-	the subsequent design and implementation phases of this project.
+    <li> Please be aware that if you gloss over such validation in this phase,
+	you may find that your architecture and design (that were based
+	on assumptions about how a new tool would work) impossible
+	to implement in the final weeks of the project.
+	A few hours of investigation in the next two weeks could easily
+	save you from many days of stress and rework in subsequent phases.
 	Architectural investigation, design and validation are critical prerequisites;
 	Treat them like <em>a matter of life and death</em> ...
 	because for a non-trivial software project, they often are.
