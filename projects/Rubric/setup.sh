@@ -4,7 +4,7 @@
 #   use by the standard SWE grading script tools
 #
 SOURCE="/home/git/Big-Software/projects/Rubric"
-CONFIG="/home/markk/Dropbox/Shuttle"
+CONFIG="/home/markk/WIP"
 if [ -d "/home/git/Toys" ]
 then
     TOYS="/home/git/Toys/bash"
@@ -19,6 +19,7 @@ ln -s $SOURCE .
 ln -s $SOURCE/perteam.sh .
 ln -s $SOURCE/peruser.sh .
 ln -s $SOURCE/scorefiles.sh .
+ln -s $SOURCE/grademail.sh .
 ln -s $TOYS/x2pdf.sh .
 
 # data/configuration files
