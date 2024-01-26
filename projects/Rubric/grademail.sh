@@ -39,7 +39,7 @@ function sendMail {
 	if [ $ats -eq 1 ]; then
 		echo -e -n "   $3 ($4) \t -> $1, subject=$2  ... " 
 		if [ $testing -eq 0 ]; then
-			mutt -s "$2" $1 < $3 2>& /dev/null
+			mutt -s "SWE $2" $1 < $3
 			ret=$?
 			if [ $ret -eq 0 ]; then
 				echo "OK"
