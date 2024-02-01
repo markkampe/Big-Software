@@ -53,8 +53,13 @@ do
 	    members=`grep $team $TEAMFILE | cut -d, -f3`
 	    for student in $members
 	    do
+		# create a per-student file with an email address
+		email=`grep $student $TEAMFILE | cut -d, -f2`
+		echo "EMAIL: $email" > $SCORES/$student$SUFFIX
+		echo >> $SCORES/$student$SUFFIX
+
 		# make per-student copy of the team-grade
-		cp $grade $SCORES/$student$SUFFIX
+		cat $grade >> $SCORES/$student$SUFFIX
 	    	echo " ... $grade -> $SCORES/$student$SUFFIX"
 
 		# see if there is also a per-student grade
