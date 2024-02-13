@@ -171,6 +171,47 @@ It is even better if the definition of correctness is a
 	is likely to require fewer test cases to
 	verify it.
 </ul>
+What kinds of statements might define correct behavior?
+<ul>
+   <li> "Given inputs of form X, the program will return
+    	<em>specified function of X</em>"
+	<P>
+	If we can identify <u>all interesting equivalence classes</u>
+	of the input space, we can choose (or generate)
+	one member of each and confirm the correctness
+	(either the value or expected properties of) the
+	returned results, and authoritatively test
+	this requirement.
+	</li>
+   <li> "In situation X the program will do Y"
+	<p>
+   	If the defined inputs allow us to faithfully create
+	<em>situation X</em> and the defined outputs enable
+	us to ascertain whether or not <em>Y</em> has happened,
+	we can authoritatively test this requirement.
+	</li>
+</ul>
+But, some problems (or our understanding of them) may not be
+so clearly described.  If the input space cannot be broken into
+a small (and complete) set of definitive equivalence classes
+or distinct (independent) situations we can still try to 
+choose test cases to gain some (statistical) confidence:
+<ul>
+   <li>	we can generate a wide range of (random or heuristically
+   	chosen) inputs and confirm that (for each)
+   	the resulting output has the expected value or properties.
+	</li>
+   <li> we can randomly generate a continuously changing set of
+   	situations (including errors), and confirm that every 
+	request is always handled correctly (or at least returns
+	an appropriate error response).
+	</li>
+</ul>
+This may not give us as much confidence as specific exercise of
+every relevant situation and all interesting input combinations,
+but increasing the range and density of our test cases can
+improve our confidence.
+</p>
 
 <H2> Logical Isolability of Functionality</h2>
 <P>
