@@ -6,6 +6,7 @@ P1C.3	Requirements Elicitation
 
    Participants (and roles):
 
+   Total Score:	___/25
 
     Concept Presentation	___/10
 
