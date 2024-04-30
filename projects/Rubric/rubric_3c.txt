@@ -1,14 +1,10 @@
 P3C	Design and Test Plan Review
 
-   Component:
-
-   Participants:
-
    Total Score:			___/15
 
     Pre-Review Notes		___/10
 
-	Author:
+        Component(s):
 
 	on-time submission	___/4
 
@@ -33,7 +29,9 @@ P3C	Design and Test Plan Review
 
     Design/Test Review Report	___/5
 
-	Author:
+        Component(s):
+
+        Participants:
 
 	completeness		___/4
 
