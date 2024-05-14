@@ -4,6 +4,8 @@ P4A Code and Test Suite
 
    Primary Author:
 
+   Total Score:     ___/50
+
    Final Code:		___/25
 
 	per specification	___/5

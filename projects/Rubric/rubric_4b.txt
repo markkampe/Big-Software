@@ -1,6 +1,6 @@
 P4B Development Exercises
 
-   Total Score		___/30
+   Total Score:		___/30
 
 
    Pair Programming	___/10

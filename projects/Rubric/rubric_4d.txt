@@ -1,6 +1,6 @@
 P4D	Post Mortem
 
-   Post Mortem:		___/10
+   Total Score:		___/10
 
 	activities		___/5
 
