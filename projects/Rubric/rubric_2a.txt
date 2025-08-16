@@ -1,4 +1,4 @@
-P2A	Plan and Preliminary Architecture
+ASSIGNMENT: P2A	Plan and Preliminary Architecture
 
    Total Score:			___/25
 

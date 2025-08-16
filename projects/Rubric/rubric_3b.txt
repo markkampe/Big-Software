@@ -1,6 +1,6 @@
 [NOTE: need to re-read the specs before attempting to grade the design and test plans]
 
-P3B	Component Design and Test Plan
+ASSIGNMENT: P3B	Component Design and Test Plan
 
    Total Score:			___/40
 
