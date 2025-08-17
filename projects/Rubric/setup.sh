@@ -19,7 +19,7 @@ ln -s $SOURCE .
 ln -s $SOURCE/perteam.sh .
 ln -s $SOURCE/peruser.sh .
 ln -s $SOURCE/scorefiles.sh .
-ln -s $SOURCE/grademail.sh .
+ln -s $TOYS/grademail.sh .
 ln -s $TOYS/x2pdf.sh .
 
 # data/configuration files
